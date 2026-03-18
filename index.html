@@ -75,56 +75,147 @@ table.t tr.cu{opacity:.6;}table.t tr.cu td{font-style:italic;}
 .nt{font-size:10px;color:#8A8886;margin-top:6px;padding:0 4px;}
 .biz-note{font-size:10px;color:#8A8886;padding:6px 12px;text-align:right;}
 .tab-content{display:none;}.tab-content.active{display:block;}
+
+/* ─── SIGNAL LEGEND ─── */
+.legend-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;padding:8px 14px;background:#fff;border:1px solid #EDEBE9;border-radius:10px;margin-bottom:12px;user-select:none;transition:all .15s;}
+.legend-toggle:hover{background:#F3F2F1;border-color:#D2D0CE;}
+.legend-toggle .chevron{font-size:10px;color:#8A8886;transition:transform .2s;display:inline-block;}
+.legend-toggle .chevron.open{transform:rotate(90deg);}
+.legend-toggle .ltitle{font-size:11px;font-weight:700;color:#605E5C;letter-spacing:.4px;text-transform:uppercase;}
+.legend-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1;margin-left:8px;}
+.legend-chip{font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px;letter-spacing:.3px;}
+.legend-panel{overflow:hidden;max-height:0;transition:max-height .3s ease;background:#fff;border:1px solid #EDEBE9;border-radius:12px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.legend-panel.open{max-height:800px;}
+.legend-inner{padding:20px;}
+.legend-section{margin-bottom:20px;}.legend-section:last-child{margin-bottom:0;}
+.legend-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A8886;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #F3F2F1;}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.legend-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;background:#FAFAF9;border:1px solid #F3F2F1;transition:background .12s;}
+.legend-item:hover{background:#F3F2F1;}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:3px;}
+.legend-bar{width:4px;height:100%;min-height:32px;border-radius:2px;flex-shrink:0;}
+.legend-name{font-size:12px;font-weight:700;color:#201F1E;margin-bottom:2px;}
+.legend-desc{font-size:11px;color:#605E5C;line-height:1.5;}
+
+/* ─── PRODUCTION FLOW VIZ ─── */
+.flow-wrap{padding:4px 0;}
+.flow-pipeline{display:flex;align-items:stretch;gap:0;margin:16px 0;position:relative;overflow-x:auto;padding:8px 0;}
+.flow-node{flex:1;min-width:120px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;}
+.flow-box{width:100%;padding:14px 10px;border-radius:12px;text-align:center;border:2px solid;position:relative;background:#fff;transition:transform .15s,box-shadow .15s;}
+.flow-box:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.flow-dept{font-size:11px;font-weight:700;color:#201F1E;margin-bottom:4px;line-height:1.2;}
+.flow-lead{font-size:9px;color:#8A8886;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.flow-ar{font-size:22px;font-weight:800;line-height:1;margin-bottom:2px;}
+.flow-ratio{font-size:9px;color:#8A8886;margin-bottom:6px;}
+.flow-flags{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;}
+.flow-flag{font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;min-width:36px;position:relative;z-index:0;}
+.flow-arrow svg{display:block;}
+.flow-arrow-thick{min-width:40px;}
+.flow-arrow-thick svg{width:40px;height:30px;}
+.flow-bottleneck-ring{position:absolute;inset:-4px;border-radius:14px;border:2px dashed;animation:pulse-ring 1.5s ease-in-out infinite;pointer-events:none;}
+@keyframes pulse-ring{0%,100%{opacity:.4;}50%{opacity:1;}}
+.flow-section-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#8A8886;text-align:center;padding:4px 0 8px;width:100%;}
+.flow-separator{display:flex;align-items:center;justify-content:center;min-width:2px;padding:0 4px;}
+.flow-separator-line{width:1px;height:60%;background:#EDEBE9;}
+.flow-customer-badge{font-size:8px;font-weight:700;letter-spacing:.6px;padding:2px 6px;border-radius:4px;background:#F0E6FA;color:#8764B8;border:1px solid #E0D0F0;margin-top:4px;}
+.flow-metric-strip{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid #EDEBE9;}
+.flow-metric{text-align:center;flex:1;min-width:100px;}
+.flow-metric-val{font-size:18px;font-weight:700;line-height:1.2;}
+.flow-metric-lbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#8A8886;margin-top:2px;}
+.flow-bottleneck-callout{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;margin-top:10px;border:1px solid;}
+.flow-callout-icon{font-size:20px;flex-shrink:0;}
+.flow-callout-text{font-size:12px;line-height:1.55;}
+.flow-callout-title{font-weight:700;margin-bottom:2px;}
   </style>
 </head>
 <body>
 <div class="app">
-  <!-- HEADER -->
-  <div class="hdr">
-    <div>
-      <span class="hdr-title">QPC Aging Signal</span><br>
-      <span class="hdr-date">03/18/2026 — Production Meeting</span><br>
-      <span class="hdr-gen">Generated 08:37 AM PDT</span>
-    </div>
-    <div class="sep"></div>
-    <div class="hs"><div class="v mc" style="color:#D13438">28.3%</div><div class="l">House AR</div></div>
-    <div class="hs"><span class="tier-hdr mc" style="background:#D1343814;color:#D13438;border:1px solid #D1343840">RED</span><div class="l" style="margin-top:3px">Signal</div></div>
-    <div class="sep"></div>
-    <div class="hs"><div class="v mc" style="color:#D13438">65</div><div class="l">Aging</div></div>
-    <div class="hs"><div class="v mc" style="color:#323130">230</div><div class="l">In House</div></div>
-    <div class="hs"><div class="v mc" style="color:#0078D4">0</div><div class="l">Received Today</div></div>
-    <div class="sep"></div>
-    <div class="hs"><div class="v mc" style="color:#D13438">41</div><div class="l">Critical</div></div>
-    <div class="hs"><div class="v mc" style="color:#8764B8">6</div><div class="l">Past Due</div></div>
-    <div class="hs"><div class="v mc" style="color:#C19C00">17.4%</div><div class="l">Buffer Burn</div></div>
-  </div>
-
-  <!-- TABS -->
+  <div id="header"></div>
+  <div id="legend-area"></div>
   <div class="tabs">
     <div class="tab on" onclick="switchTab(0)">Dept. Signals</div>
-    <div class="tab" onclick="switchTab(1)">Job Flags</div>
-    <div class="tab" onclick="switchTab(2)">Reschedule Status</div>
+    <div class="tab" onclick="switchTab(1)">Production Flow</div>
+    <div class="tab" onclick="switchTab(2)">Job Flags</div>
+    <div class="tab" onclick="switchTab(3)">Reschedule Status</div>
   </div>
-
-  <!-- TAB 0: DEPT SIGNALS -->
   <div class="tab-content active" id="tab0"></div>
-
-  <!-- TAB 1: JOB FLAGS -->
   <div class="tab-content" id="tab1"></div>
-
-  <!-- TAB 2: RESCHEDULE -->
   <div class="tab-content" id="tab2"></div>
+  <div class="tab-content" id="tab3"></div>
 </div>
 
 <script>
-// ─── DATA ───
-const DATA = {"reportDate":"03/18/2026","overall":{"totalJobs":230,"agingJobs":65,"ar":28.3,"receivedToday":0,"flagDist":{"Critical":41,"On Track":12,"Past Due":6,"No Date":3,"Tight":2,"Reschedule Window":1}},"departments":[{"name":"Cleanroom","lead":"Erick","total":30,"aging":13,"ar":43.3,"flags":{"Critical":13},"isCustomerDep":false,"isBottom":false},{"name":"Receiving/Inspection","lead":"Luis","total":42,"aging":16,"ar":38.1,"flags":{"Tight":1,"On Track":12,"No Date":3},"isCustomerDep":false,"isBottom":false},{"name":"Shipping","lead":"Luis","total":38,"aging":12,"ar":31.6,"flags":{"Critical":8,"Past Due":4},"isCustomerDep":false,"isBottom":false},{"name":"Pre-Clean","lead":"Jorge","total":49,"aging":13,"ar":26.5,"flags":{"Critical":13},"isCustomerDep":false,"isBottom":false},{"name":"Packaging","lead":"Erick","total":37,"aging":3,"ar":8.1,"flags":{"Critical":2,"Past Due":1},"isCustomerDep":false,"isBottom":false},{"name":"Lab Testing","lead":"Nica","total":3,"aging":1,"ar":33.3,"flags":{"Critical":1},"isCustomerDep":false,"isBottom":true},{"name":"Assembly","lead":"Customer Hold","total":4,"aging":4,"ar":100.0,"flags":{"Tight":1,"Critical":3},"isCustomerDep":true,"isBottom":true},{"name":"Source","lead":"Customer Hold","total":3,"aging":3,"ar":100.0,"flags":{"Reschedule Window":1,"Critical":1,"Past Due":1},"isCustomerDep":true,"isBottom":true}],"reschedule":{"totalInHouse":230,"rescheduledCount":40,"reschedulePct":17.4,"burnedAgingJobs":[{"wo":"41752","customer":"SAUER MECHANICAL, LLC","dept":"Receiving/Inspection","dueDate":"03/31","msBD":-4,"dueBD":9,"flag":"Tight","baseFlag":"On Track","priority":"Standard"},{"wo":"41061","customer":"SEYTEC","dept":"Cleanroom","dueDate":"03/24","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard"},{"wo":"41774","customer":"SAINT-GOBAIN RI","dept":"Cleanroom","dueDate":"03/24","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard"},{"wo":"41595","customer":"UNITED PARADYNE CORPORATION","dept":"Cleanroom","dueDate":"03/23","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard"},{"wo":"41704","customer":"FMH AMETEK","dept":"Lab Testing","dueDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite"},{"wo":"41711","customer":"SAINT GOBAIN","dept":"Packaging","dueDate":"03/17","msBD":-2,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard"},{"wo":"41438","customer":"SEYTEC","dept":"Shipping","dueDate":"03/17","msBD":-1,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard"},{"wo":"41558","customer":"AS & D ASTROS","dept":"Shipping","dueDate":"03/17","msBD":-3,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard"},{"wo":"41420","customer":"SEYTEC","dept":"Shipping","dueDate":"03/12","msBD":-4,"dueBD":-4,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard"},{"wo":"41672","customer":"POLYMER CONCEPTS","dept":"Assembly","dueDate":"03/25","msBD":5,"dueBD":5,"flag":"Tight","baseFlag":"On Track","priority":"Standard"}]},"allAgingJobs":[{"wo":"41752","customer":"SAUER MECHANICAL, LLC","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/12","msBD":-4,"dueBD":9,"flag":"Tight","baseFlag":"On Track","priority":"Standard","rescheduled":true},{"wo":"41817","customer":"SENIOR AEROSPACE","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41818","customer":"AEROSPACE ENGINEERING CORPORATION","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41819","customer":"AEROSPACE ENGINEERING CORPORATION","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41820","customer":"MACKENZIE AIRCRAFT PARTS","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41797","customer":"AERO COMPONENT ENGINEERING","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41801","customer":"DANTE VALVE","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41806","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41807","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41808","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41809","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41816","customer":"MINDRUM PRECISION, INC","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41701","customer":"SEYTEC","dept":"Receiving/Inspection","dueDate":"03/27","msDate":"03/13","msBD":-3,"dueBD":7,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41787","customer":"ARROWHEAD PRODUCTS","dept":"Receiving/Inspection","dueDate":"No Date","msDate":"03/13","msBD":-3,"dueBD":null,"flag":"No Date","baseFlag":"No Date","priority":"Standard","rescheduled":false},{"wo":"41789","customer":"ARROWHEAD PRODUCTS","dept":"Receiving/Inspection","dueDate":"No Date","msDate":"03/13","msBD":-3,"dueBD":null,"flag":"No Date","baseFlag":"No Date","priority":"Standard","rescheduled":false},{"wo":"41802","customer":"ARROWHEAD PRODUCTS","dept":"Receiving/Inspection","dueDate":"No Date","msDate":"03/16","msBD":-2,"dueBD":null,"flag":"No Date","baseFlag":"No Date","priority":"Standard","rescheduled":false},{"wo":"41800","customer":"LEDA CORPORATION","dept":"Pre-Clean","dueDate":"03/27","msDate":"03/17","msBD":-1,"dueBD":7,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41739","customer":"FMH AMETEK","dept":"Pre-Clean","dueDate":"03/26","msDate":"03/17","msBD":-1,"dueBD":6,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41740","customer":"PRECISION TUBE BENDING","dept":"Pre-Clean","dueDate":"03/26","msDate":"03/17","msBD":-1,"dueBD":6,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41746","customer":"CUSTOM CONTROL SENSORS, LLC","dept":"Pre-Clean","dueDate":"03/26","msDate":"03/17","msBD":-1,"dueBD":6,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41747","customer":"QED/INC","dept":"Pre-Clean","dueDate":"03/26","msDate":"03/17","msBD":-1,"dueBD":6,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41792","customer":"RUBICON GEAR","dept":"Pre-Clean","dueDate":"03/25","msDate":"03/17","msBD":-1,"dueBD":5,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41805","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41761","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41762","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41763","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41764","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41765","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41766","customer":"POLYMER CONCEPTS","dept":"Pre-Clean","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41061","customer":"SEYTEC","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":true},{"wo":"41632","customer":"SEYTEC","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41669","customer":"KAP MANUFACTURING","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41678","customer":"KING NUTRONICS","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41680","customer":"NYTRON AEROSPACE","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41688","customer":"RAH INDUSTRIES","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41689","customer":"PRISM AEROSPACE, INC","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41693","customer":"AVANS PRECISION MACHINING","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41774","customer":"SAINT-GOBAIN RI","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":true},{"wo":"41595","customer":"UNITED PARADYNE CORPORATION","dept":"Cleanroom","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":true},{"wo":"41775","customer":"SAINT GOBAIN","dept":"Cleanroom","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"39803-1","customer":"NUSPACE","dept":"Cleanroom","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41605-2","customer":"NUSPACE","dept":"Cleanroom","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41704","customer":"FMH AMETEK","dept":"Lab Testing","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":true},{"wo":"41571","customer":"SPACE EXPLORATION TECHNOLOGIES","dept":"Packaging","dueDate":"03/20","msDate":"03/17","msBD":-1,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41686","customer":"SAINT GOBAIN","dept":"Packaging","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41711","customer":"SAINT GOBAIN","dept":"Packaging","dueDate":"03/17","msDate":"03/16","msBD":-2,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":true},{"wo":"41594","customer":"HRD AERO SYSTEMS, INC.","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41596","customer":"AXXIS CORPORATION","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41600","customer":"PRISM AEROSPACE SUN VALLEY","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41601","customer":"PRISM AEROSPACE SUN VALLEY","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41602","customer":"KAP MANUFACTURING","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41609","customer":"QUALITY CONTROLLED MANUFACTURING, INC.","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41708","customer":"FALCON ENGINEERING CORPORATION","dept":"Shipping","dueDate":"03/19","msDate":"03/18","msBD":0,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":false},{"wo":"41728","customer":"KAVLICO AEROSPACE DIVISION","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":false},{"wo":"41438","customer":"SEYTEC","dept":"Shipping","dueDate":"03/17","msDate":"03/17","msBD":-1,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":true},{"wo":"41558","customer":"AS & D ASTROS","dept":"Shipping","dueDate":"03/17","msDate":"03/13","msBD":-3,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":true},{"wo":"40391","customer":"AMENTUM SERVICES, INC.","dept":"Shipping","dueDate":"03/13","msDate":"03/11","msBD":-5,"dueBD":-3,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":false},{"wo":"41420","customer":"SEYTEC","dept":"Shipping","dueDate":"03/12","msDate":"03/12","msBD":-4,"dueBD":-4,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":true},{"wo":"41672","customer":"POLYMER CONCEPTS","dept":"Assembly","dueDate":"03/25","msDate":"03/25","msBD":5,"dueBD":5,"flag":"Tight","baseFlag":"On Track","priority":"Standard","rescheduled":true},{"wo":"41719","customer":"POLYMER CONCEPTS","dept":"Assembly","dueDate":"03/20","msDate":"03/20","msBD":2,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41721","customer":"POLYMER CONCEPTS","dept":"Assembly","dueDate":"03/20","msDate":"03/20","msBD":2,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41587","customer":"RBC-INDUSTRIAL TECTONICS BEARINGS","dept":"Assembly","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41668","customer":"PEGASUS MANUFACTURING","dept":"Source","dueDate":"03/23","msDate":"03/23","msBD":3,"dueBD":3,"flag":"Reschedule Window","baseFlag":"Reschedule Window","priority":"Standard","rescheduled":false},{"wo":"41662","customer":"SAINT GOBAIN","dept":"Source","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41194","customer":"SENIOR AEROSPACE","dept":"Source","dueDate":"02/26","msDate":"02/26","msBD":-14,"dueBD":-14,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":false}]};
+// ─── DATA (injected by skill) ───
+const DATA = {"reportDate":"03/18/2026","overall":{"totalJobs":239,"agingJobs":37,"ar":15.5,"receivedToday":13,"flagDist":{"Critical":27,"On Track":5,"No Date":2,"Past Due":2,"Reschedule Window":1}},"departments":[{"name":"Shipping","lead":"Luis","total":46,"aging":17,"ar":37.0,"flags":{"Critical":16,"Past Due":1},"isCustomerDep":false,"isBottom":false},{"name":"Cleanroom","lead":"Erick","total":35,"aging":8,"ar":22.9,"flags":{"Critical":8},"isCustomerDep":false,"isBottom":false},{"name":"Receiving/Inspection","lead":"Luis","total":49,"aging":7,"ar":14.3,"flags":{"On Track":5,"No Date":2},"isCustomerDep":false,"isBottom":false},{"name":"Pre-Clean","lead":"Jorge","total":42,"aging":0,"ar":0.0,"flags":{},"isCustomerDep":false,"isBottom":false},{"name":"Packaging","lead":"Erick","total":37,"aging":0,"ar":0.0,"flags":{},"isCustomerDep":false,"isBottom":false},{"name":"Lab Testing","lead":"Nica","total":2,"aging":0,"ar":0.0,"flags":{},"isCustomerDep":false,"isBottom":true},{"name":"Assembly","lead":"Customer Hold","total":3,"aging":2,"ar":66.7,"flags":{"Critical":2},"isCustomerDep":true,"isBottom":true},{"name":"Source","lead":"Customer Hold","total":4,"aging":3,"ar":75.0,"flags":{"Reschedule Window":1,"Critical":1,"Past Due":1},"isCustomerDep":true,"isBottom":true}],"reschedule":{"totalInHouse":239,"rescheduledCount":44,"reschedulePct":18.4,"burnedAgingJobs":[{"wo":"41774","customer":"SAINT-GOBAIN RI","dept":"Cleanroom","dueDate":"03/24","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard"},{"wo":"41618","customer":"POLYMER CONCEPTS","dept":"Shipping","dueDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard"},{"wo":"41700","customer":"BARBER NICHOLS","dept":"Shipping","dueDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite"},{"wo":"41711","customer":"SAINT GOBAIN","dept":"Shipping","dueDate":"03/17","msBD":-1,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard"}]},"allAgingJobs":[{"wo":"41817","customer":"SENIOR AEROSPACE","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41818","customer":"AEROSPACE ENGINEERING CORPORATION","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41819","customer":"AEROSPACE ENGINEERING CORPORATION","dept":"Receiving/Inspection","dueDate":"03/31","msDate":"03/16","msBD":-2,"dueBD":9,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41807","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41808","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Receiving/Inspection","dueDate":"03/30","msDate":"03/16","msBD":-2,"dueBD":8,"flag":"On Track","baseFlag":"On Track","priority":"Standard","rescheduled":false},{"wo":"41789","customer":"ARROWHEAD PRODUCTS","dept":"Receiving/Inspection","dueDate":"No Date","msDate":"03/13","msBD":-3,"dueBD":null,"flag":"No Date","baseFlag":"No Date","priority":"Standard","rescheduled":false},{"wo":"41802","customer":"ARROWHEAD PRODUCTS","dept":"Receiving/Inspection","dueDate":"No Date","msDate":"03/16","msBD":-2,"dueBD":null,"flag":"No Date","baseFlag":"No Date","priority":"Standard","rescheduled":false},{"wo":"41669","customer":"KAP MANUFACTURING","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41680","customer":"NYTRON AEROSPACE","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41688","customer":"RAH INDUSTRIES","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41689","customer":"PRISM AEROSPACE, INC","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41693","customer":"AVANS PRECISION MACHINING","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41774","customer":"SAINT-GOBAIN RI","dept":"Cleanroom","dueDate":"03/24","msDate":"03/17","msBD":-1,"dueBD":4,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":true},{"wo":"41775","customer":"SAINT GOBAIN","dept":"Cleanroom","dueDate":"03/23","msDate":"03/17","msBD":-1,"dueBD":3,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41549-3","customer":"PRISM AEROSPACE, INC","dept":"Cleanroom","dueDate":"03/20","msDate":"03/17","msBD":-1,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41621","customer":"ALLAN AIRCRAFT SUPPLY","dept":"Shipping","dueDate":"03/20","msDate":"03/18","msBD":0,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41594","customer":"HRD AERO SYSTEMS, INC.","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41596","customer":"AXXIS CORPORATION","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41600","customer":"PRISM AEROSPACE SUN VALLEY","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41601","customer":"PRISM AEROSPACE SUN VALLEY","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41602","customer":"KAP MANUFACTURING","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41609","customer":"QUALITY CONTROLLED MANUFACTURING, INC.","dept":"Shipping","dueDate":"03/19","msDate":"03/17","msBD":-1,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41613","customer":"ATD PRECISION MANUFACTURING","dept":"Shipping","dueDate":"03/19","msDate":"03/18","msBD":0,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41686","customer":"SAINT GOBAIN","dept":"Shipping","dueDate":"03/19","msDate":"03/18","msBD":0,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41708","customer":"FALCON ENGINEERING CORPORATION","dept":"Shipping","dueDate":"03/19","msDate":"03/18","msBD":0,"dueBD":1,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":false},{"wo":"41591","customer":"SEYTEC","dept":"Shipping","dueDate":"03/18","msDate":"03/16","msBD":-2,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41618","customer":"POLYMER CONCEPTS","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":true},{"wo":"41661","customer":"SAINT GOBAIN","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41700","customer":"BARBER NICHOLS","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":true},{"wo":"41769","customer":"GEARLES DESIGNS & MFG","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":false},{"wo":"41790","customer":"UNITED PARADYNE CORPORATION","dept":"Shipping","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Hot Expedite","rescheduled":false},{"wo":"41711","customer":"SAINT GOBAIN","dept":"Shipping","dueDate":"03/17","msDate":"03/17","msBD":-1,"dueBD":-1,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":true},{"wo":"41721","customer":"POLYMER CONCEPTS","dept":"Assembly","dueDate":"03/20","msDate":"03/20","msBD":2,"dueBD":2,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41587","customer":"RBC-INDUSTRIAL TECTONICS BEARINGS","dept":"Assembly","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41668","customer":"PEGASUS MANUFACTURING","dept":"Source","dueDate":"03/23","msDate":"03/23","msBD":3,"dueBD":3,"flag":"Reschedule Window","baseFlag":"Reschedule Window","priority":"Standard","rescheduled":false},{"wo":"41662","customer":"SAINT GOBAIN","dept":"Source","dueDate":"03/18","msDate":"03/18","msBD":0,"dueBD":0,"flag":"Critical","baseFlag":"Critical","priority":"Standard","rescheduled":false},{"wo":"41194","customer":"SENIOR AEROSPACE","dept":"Source","dueDate":"02/26","msDate":"02/26","msBD":-14,"dueBD":-14,"flag":"Past Due","baseFlag":"Past Due","priority":"Standard","rescheduled":false}],"riDwellAging":7,"riTotal":7};
+
+// ─── GUIDANCE (injected by skill) ───
+const GUIDANCE = {
+  "Shipping": {
+    what: "37.0% AR — BLACK signal. 17 aging, all urgent: 16 Critical, 1 Past Due. 5 jobs due today (WOs 41591 Seytec, 41618 Polymer Concepts, 41661 Saint Gobain, 41700 Barber Nichols Hot Expedite, 41769 Gearles Hot Expedite, 41790 United Paradyne Hot Expedite). 7 jobs due tomorrow 03/19. WO 41711 Saint Gobain is Past Due (due 03/17, burned reschedule). 2 burned reschedules in dept (41618 Polymer Concepts, 41700 Barber Nichols).",
+    action: "Ship WO 41711 Saint Gobain immediately — past due with burned reschedule, zero options left. Ship all 5 due-today jobs before end of shift: prioritize Hot Expedites 41700 Barber Nichols, 41769 Gearles, 41790 United Paradyne first. Stage all 7 due-tomorrow jobs (41594 HRD Aero, 41596 Axxis, 41600/41601 Prism SV, 41602 KAP, 41609 QCMI, 41613 ATD, 41686 Saint Gobain, 41708 Falcon Hot Expedite) for first-thing shipment 03/19. Contact customer on any that cannot leave today.",
+    ot: "recommended",
+    otText: "16 Critical + 1 Past Due with 5 same-day shipments and 7 due tomorrow. OT is the only way to clear this backlog without cascading misses.",
+    upstream: "Packaging has 0 aging — no immediate queue feeding Shipping. Any new completions from Packaging should go straight to Shipping staging."
+  },
+  "Cleanroom": {
+    what: "22.9% AR — RED signal. 8 aging, all 8 Critical. Every job is 1 biz day past CLR Start By (ms_bd = -1). Tightest: WO 41549-3 Prism Aerospace due 03/20 (2 due BD). WO 41774 Saint-Gobain RI has a burned reschedule. WO 41775 Saint Gobain due 03/23 (3 due BD). Remaining 5 jobs (41669 KAP, 41680 Nytron, 41688 RAH, 41689 Prism, 41693 Avans) all due 03/24 (4 due BD).",
+    action: "Start WO 41549-3 Prism Aerospace first — due Friday 03/20, only 2 biz days remain. Then WO 41775 Saint Gobain due Monday 03/23. Process WO 41774 Saint-Gobain RI next — burned reschedule means zero buffer. Run remaining 5 jobs in parallel where possible to protect the 03/24 cluster. Erick: confirm all 8 can clear Cleanroom by end of day Thursday.",
+    ot: "recommended",
+    otText: "All 8 aging jobs are Critical with milestones already passed. Any delay pushes these toward Past Due. OT needed to recover the 1-day deficit across all jobs.",
+    upstream: "Pre-Clean has 0 aging — no backlog feeding into Cleanroom. Current 8 are already in Cleanroom queue."
+  },
+  "Receiving/Inspection": {
+    what: "14.3% AR — YELLOW signal. 7 aging (all 7 are dwell-aging). 5 On Track (WOs 41817 Senior Aerospace, 41818/41819 Aerospace Engineering Corp, 41807/41808 Allan Aircraft — all 8-9 due BD). 2 No Date (WOs 41789 and 41802 Arrowhead Products — no QPC Due Date assigned, dwell 2-3 biz days). 13 new jobs received today.",
+    action: "Get due dates assigned for WOs 41789 and 41802 Arrowhead Products — they cannot enter the signal system without a QPC Due Date. Process and count all 5 On Track jobs today to prevent them from slipping to Tight. With 13 received today, prioritize intake to avoid tomorrow's dwell count climbing.",
+    ot: "not needed",
+    otText: "No Critical or Past Due jobs. All flagged jobs are On Track with 8-9 biz days of runway. Standard shift should handle intake plus the 7 aging.",
+    upstream: null
+  },
+  "Pre-Clean": {
+    what: "0.0% AR — GREEN signal. 0 aging out of 42 in-house. Clean board.",
+    action: "Maintain flow. Monitor for any new arrivals from RI — 7 RI aging jobs plus 13 received today will feed Pre-Clean shortly.",
+    ot: "not needed",
+    otText: "Zero aging. No OT justified.",
+    upstream: "RI has 7 aging (5 On Track, 2 No Date) plus 13 received today. Expect a wave into Pre-Clean within 1-2 biz days."
+  },
+  "Packaging": {
+    what: "0.0% AR — GREEN signal. 0 aging out of 37 in-house. Clean board.",
+    action: "Maintain flow. Prepare capacity for Cleanroom output — 8 Critical jobs in Cleanroom will hit Packaging as they clear.",
+    ot: "not needed",
+    otText: "Zero aging. No OT justified.",
+    upstream: "Cleanroom has 8 Critical jobs all 1 day past milestone. Expect these to flow into Packaging over the next 1-2 days. Pre-Clean has 0 aging."
+  },
+  "Lab Testing": {
+    what: "0.0% AR — GREEN signal. 0 aging out of 2 in-house.",
+    action: "No action. Maintain current pace.",
+    ot: "not needed",
+    otText: "Zero aging.",
+    upstream: null
+  },
+  "Assembly": {
+    what: "66.7% AR — BLACK signal. 2 aging, both Critical. WO 41587 RBC-Industrial Tectonics Bearings due today (0 due BD). WO 41721 Polymer Concepts due 03/20 (2 due BD). Customer-controlled department.",
+    action: "Contact RBC-Industrial Tectonics Bearings on WO 41587 — due today, need status on customer-supplied parts. Follow up with Polymer Concepts on WO 41721 — due Friday, 2 days remain. Escalate if no response by end of day.",
+    ot: "n/a",
+    otText: "Customer-controlled. QPC cannot accelerate.",
+    upstream: null
+  },
+  "Source": {
+    what: "75.0% AR — BLACK signal. 3 aging: 1 Critical (WO 41662 Saint Gobain due today), 1 Reschedule Window (WO 41668 Pegasus Manufacturing due 03/23, 3 due BD, not yet rescheduled), 1 Past Due (WO 41194 Senior Aerospace due 02/26, 14 biz days overdue). Customer-controlled department.",
+    action: "Escalate WO 41194 Senior Aerospace — 14 biz days past due, this needs management-level contact. Contact Saint Gobain on WO 41662 — due today. Decide on WO 41668 Pegasus Manufacturing: reschedule or commit now — 3 biz days remain and reschedule window is open.",
+    ot: "n/a",
+    otText: "Customer-controlled. QPC cannot accelerate.",
+    upstream: null
+  }
+};
+
+// ─── GENERATED TIME ───
+const GENERATED_TIME = "02:08 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
 const FLAG_ORDER = ["Past Due","Critical","Reschedule Window","Tight","On Track","No Date"];
 const MENU_ORDER = ["Receiving/Inspection","Pre-Clean","Cleanroom","Packaging","Shipping","Lab Testing","Assembly","Source"];
-
 const FLAG_DEFS = {
   "Past Due":"Overdue. Never rescheduled = miss on the books. Previously rescheduled = double failure.",
   "Critical":"\u22642 biz days remaining or milestone passed. Jumps every line. Reschedule decision is mandatory if window is still open.",
@@ -132,66 +223,6 @@ const FLAG_DEFS = {
   "Tight":"1\u20132 biz days to milestone or 3\u20134 biz days to due. Front of queue. No room for delays.",
   "On Track":"3+ biz days to milestone or 5+ to due. Normal flow. Don\u2019t let these age into the next tier.",
   "No Date":"Unscheduled. Needs a due date before entering the signal system."
-};
-
-// ─── GUIDANCE ───
-const GUIDANCE = {
-  "Receiving/Inspection": {
-    what: "AR 38.1% \u2014 BLACK signal. 16 dwell-aging jobs out of 42 in-house. All 12 On Track jobs are 2 biz days past receipt (received 03/16) with due dates 03/27\u201303/31, so they have runway. 1 Tight job: WO 41752 (Sauer Mechanical) is 4 days past receipt with a burned reschedule escalating it from On Track. 3 No Date jobs: WOs 41787, 41789, 41802 \u2014 all Arrowhead Products \u2014 no QPC Due Date assigned. 0 jobs received today.",
-    action: "Escalate 3 Arrowhead Products No Date jobs (41787, 41789, 41802) \u2014 get due dates from planning immediately. Process WO 41752 Sauer Mechanical first among the dwell-aging backlog \u2014 burned reschedule, 4 days dwelling. Clear as many of the 12 On Track jobs through RI today as possible to reduce the 38% AR before they age further.",
-    ot: "not needed",
-    otText: "No Critical jobs in RI. All 12 On Track jobs have 7\u20139 due BD of runway. Focus on throughput during standard shift to clear the dwell backlog.",
-    upstream: null
-  },
-  "Pre-Clean": {
-    what: "AR 26.5% \u2014 RED signal. 13 aging jobs, all 13 Critical \u2014 every job is 1 biz day past PCL Start By (03/17). 6 Polymer Concepts jobs (WOs 41761\u201341766) due 03/23 with only 3 due BD remaining. WO 41805 Polymer Concepts due 03/24. WO 41792 Rubicon Gear due 03/25. WOs 41739 FMH Ametek, 41740 Precision Tube, 41746 Custom Control Sensors, 41747 QED due 03/26. WO 41800 Leda Corporation due 03/27.",
-    action: "Start the 6 Polymer Concepts jobs (41761\u201341766) first \u2014 3 due BD is the tightest cluster. Then WO 41805 Polymer Concepts and WO 41792 Rubicon. Push all 13 through pre-clean today to feed Cleanroom, which is also at 100% Critical. Coordinate with Jorge to batch efficiently.",
-    ot: "recommended",
-    otText: "13 Critical jobs, all past Start By. The entire Pre-Clean queue is behind schedule. OT enables clearing the full backlog today and feeding Cleanroom without a 1-day gap.",
-    upstream: "RI has 16 dwell-aging jobs but 0 received today. 12 of the 16 are On Track with 7\u20139 due BD. Expect steady feed from RI as those clear \u2014 plan capacity for incoming."
-  },
-  "Cleanroom": {
-    what: "AR 43.3% \u2014 BLACK signal, worst production department. 13 aging jobs, all 13 Critical \u2014 every job is 1 biz day past CLR Start By (03/17). Tightest: WOs 39803-1 and 41605-2 (NuSpace) due 03/19 with only 1 due BD \u2014 these ship tomorrow or miss. WOs 41595 United Paradyne and 41775 Saint Gobain due 03/23 (3 due BD). 3 burned reschedules: 41061 Seytec, 41774 Saint-Gobain RI, 41595 United Paradyne \u2014 zero flexibility on these.",
-    action: "Process WOs 39803-1 and 41605-2 (NuSpace) immediately \u2014 1 due BD, they must clear Cleanroom today to have any chance of shipping tomorrow. Then prioritize the 03/23 due dates (41595, 41775) and the 3 burned-reschedule jobs. Work the remaining 03/24 batch (Seytec, KAP, King Nutronics, Nytron, RAH, Prism, Avans, Saint-Gobain) in parallel where possible.",
-    ot: "recommended",
-    otText: "All 13 aging jobs are Critical. 2 NuSpace jobs due tomorrow. 3 jobs have burned reschedules. OT is essential to prevent multiple misses this week.",
-    upstream: "Pre-Clean has 13 aging jobs, all Critical and 1 day past Start By. Expect the full Pre-Clean backlog to flow into Cleanroom today or tomorrow \u2014 plan second-shift capacity."
-  },
-  "Packaging": {
-    what: "AR 8.1% \u2014 GREEN signal, lowest production AR. 3 aging jobs: 2 Critical, 1 Past Due. WO 41686 Saint Gobain due 03/19 (1 due BD, 1 day past PCK Start By). WO 41571 SpaceX due 03/20 (2 due BD, 1 day past PCK Start By). WO 41711 Saint Gobain is Past Due (due 03/17, -1 due BD) with a burned reschedule \u2014 this is a confirmed miss.",
-    action: "Ship WO 41711 Saint Gobain immediately \u2014 Past Due with burned reschedule, every hour counts. Package WO 41686 Saint Gobain today \u2014 due tomorrow. Then WO 41571 SpaceX \u2014 2 due BD but already past milestone. Clear all 3 today.",
-    ot: "not needed",
-    otText: "Only 3 aging jobs, manageable within standard shift. Clear the Past Due and 2 Critical jobs in normal hours.",
-    upstream: "Cleanroom has 13 aging jobs all Critical, and Pre-Clean has another 13 Critical. Expect a wave of completions flowing into Packaging over the next 1\u20132 days. Monitor for capacity spike."
-  },
-  "Shipping": {
-    what: "AR 31.6% \u2014 RED signal. 12 aging jobs: 8 Critical, 4 Past Due. 2 Hot Expedites: WO 41728 Kavlico due TODAY (0 due BD) and WO 41708 Falcon Engineering due 03/19 (1 due BD). 6 standard Critical jobs all due 03/19 (1 due BD): HRD Aero, Axxis, Prism Aerospace (\u00d72), KAP, Quality Controlled Mfg. 4 Past Due: WO 40391 Amentum (-3 due BD, no reschedule \u2014 confirmed miss), WO 41420 Seytec (-4 due BD, burned), WO 41438 Seytec (-1 due BD, burned), WO 41558 AS&D (-1 due BD, burned).",
-    action: "Ship WO 41728 Kavlico TODAY \u2014 Hot Expedite due today, 0 due BD. Ship WO 41708 Falcon Engineering next \u2014 Hot Expedite due tomorrow. Then clear the 6 standard Critical jobs due 03/19 (HRD Aero 41594, Axxis 41596, Prism 41600/41601, KAP 41602, QCM 41609). Escalate the 4 Past Due jobs: contact Amentum (40391) and Seytec (41420, 41438) for revised delivery expectations. Ship WO 41558 AS&D today.",
-    ot: "recommended",
-    otText: "8 Critical jobs including 2 Hot Expedites plus 4 Past Due. 8 jobs must ship by tomorrow. OT needed to clear the shipping queue and prevent further misses.",
-    upstream: "Packaging has 3 aging jobs (2 Critical, 1 Past Due). Expect cleared Packaging jobs to arrive in Shipping queue today."
-  },
-  "Lab Testing": {
-    what: "AR 33.3% \u2014 RED signal. 1 aging job: WO 41704 FMH Ametek, Hot Expedite, due TODAY (0 due BD). Burned reschedule \u2014 zero flexibility remaining.",
-    action: "Complete lab testing on WO 41704 FMH Ametek immediately \u2014 Hot Expedite due today with burned reschedule. This is the single highest-urgency lab job. Coordinate with Nica to ensure results are finalized and released before end of shift.",
-    ot: "not needed",
-    otText: "Single Critical job. Must be completed today but achievable within standard shift if prioritized immediately.",
-    upstream: null
-  },
-  "Assembly": {
-    what: "AR 100% \u2014 BLACK signal, customer-controlled. 4 aging jobs, all 4 aging: 3 Critical, 1 Tight. WO 41587 RBC-Industrial Tectonics due TODAY (0 due BD). WOs 41719 and 41721 Polymer Concepts due 03/20 (2 due BD). WO 41672 Polymer Concepts due 03/25 (5 due BD) escalated to Tight from On Track via burned reschedule.",
-    action: "Contact RBC-Industrial Tectonics on WO 41587 \u2014 due today, need assembly completion status. Contact Polymer Concepts on WOs 41719 and 41721 \u2014 due Friday, need confirmed return date. WO 41672 has runway but burned reschedule means no further flexibility.",
-    ot: "n/a",
-    otText: "Customer-controlled department. Assembly timeline depends on customer return.",
-    upstream: null
-  },
-  "Source": {
-    what: "AR 100% \u2014 BLACK signal, customer-controlled. 3 aging jobs: 1 Critical, 1 Reschedule Window, 1 Past Due. WO 41662 Saint Gobain Critical, due TODAY (0 due BD). WO 41668 Pegasus Manufacturing in Reschedule Window, due 03/23 (3 due BD) \u2014 not yet rescheduled, decision point. WO 41194 Senior Aerospace Past Due since 02/26 (-14 due BD) \u2014 14 biz days overdue, chronic miss.",
-    action: "Contact Saint Gobain on WO 41662 \u2014 due today, need sourced material status. Decide on WO 41668 Pegasus: reschedule now or commit \u2014 last chance at 3 due BD. Escalate WO 41194 Senior Aerospace \u2014 14 days past due, determine if this job should be cancelled or if material is incoming.",
-    ot: "n/a",
-    otText: "Customer-controlled department. Source timeline depends on vendor delivery.",
-    upstream: null
-  }
 };
 
 // ─── HELPERS ───
@@ -206,19 +237,246 @@ function msBDColor(v) { return v != null && v < 0 ? "#D13438" : v != null && v <
 function dueBDColor(v) { return v != null && v < 0 ? "#D13438" : v != null && v <= 2 ? "#CA5010" : "#8A8886"; }
 function prioStyle(p) { return p === "Hot Expedite" ? "color:#D13438;font-weight:600" : p === "Expedite" ? "color:#C19C00;font-weight:600" : "color:#8A8886"; }
 
+// ─── HEADER (built from DATA) ───
+function buildHeader() {
+  const { tier, color } = getTier(DATA.overall.ar);
+  const fd = DATA.overall.flagDist;
+  const burnColor = DATA.reschedule.reschedulePct >= 20 ? "#D13438" : "#C19C00";
+  return `<div class="hdr">
+    <div>
+      <span class="hdr-title">QPC Aging Signal</span><br>
+      <span class="hdr-date">${DATA.reportDate} \u2014 Production Meeting</span><br>
+      <span class="hdr-gen">Generated ${esc(GENERATED_TIME)}</span>
+    </div>
+    <div class="sep"></div>
+    <div class="hs"><div class="v mc" style="color:${color}">${DATA.overall.ar}%</div><div class="l">House AR</div></div>
+    <div class="hs"><span class="tier-hdr mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span><div class="l" style="margin-top:3px">Signal</div></div>
+    <div class="sep"></div>
+    <div class="hs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
+    <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
+    <div class="hs"><div class="v mc" style="color:#0078D4">${DATA.overall.receivedToday}</div><div class="l">Received Today</div></div>
+    <div class="sep"></div>
+    <div class="hs"><div class="v mc" style="color:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div></div>
+    <div class="hs"><div class="v mc" style="color:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div></div>
+    <div class="hs"><div class="v mc" style="color:${burnColor}">${DATA.reschedule.reschedulePct}%</div><div class="l">Buffer Burn</div></div>
+  </div>`;
+}
+
+// ─── SIGNAL LEGEND ───
+let legendOpen = false;
+function toggleLegend() {
+  legendOpen = !legendOpen;
+  document.getElementById("legend-panel").classList.toggle("open", legendOpen);
+  document.getElementById("legend-chevron").classList.toggle("open", legendOpen);
+}
+function buildLegend() {
+  const tierDefs = [
+    { tier:"GREEN", color:"#107C10", range:"≤ 12%", meaning:"Protecting OTD. Maintain pace." },
+    { tier:"YELLOW", color:"#C19C00", range:"13–20%", meaning:"OTD at risk. Determine spike vs. trend." },
+    { tier:"RED", color:"#D13438", range:"21–35%", meaning:"OTD failing. Clear exits, then address constraint." },
+    { tier:"BLACK", color:"#323130", range:"> 35%", meaning:"System failure. Full reset needed." }
+  ];
+  const flagDefs = [
+    { flag:"On Track", color:"#107C10", desc:"3+ biz days to milestone. Normal flow." },
+    { flag:"Tight", color:"#C19C00", desc:"1–2 biz days to milestone. Front of queue — no room for delays." },
+    { flag:"Reschedule Window", color:"#CA5010", desc:"1 biz day to milestone. Decision point: reschedule now or commit." },
+    { flag:"Critical", color:"#D13438", desc:"≤ 0 biz days (milestone today or passed). Jumps every line." },
+    { flag:"Past Due", color:"#8764B8", desc:"QPC Due Date has passed. This is an OTD miss." },
+    { flag:"No Date", color:"#8A8886", desc:"Missing due date. Cannot enter signal system." }
+  ];
+  const tierChips = tierDefs.map(t =>
+    `<span class="legend-chip" style="background:${t.color}14;color:${t.color};border:1px solid ${t.color}30">${t.tier}</span>`
+  ).join("");
+  const tierItems = tierDefs.map(t =>
+    `<div class="legend-item"><div class="legend-dot" style="background:${t.color}"></div><div><div class="legend-name" style="color:${t.color}">${t.tier} <span style="font-weight:400;color:#8A8886;font-size:10px">${t.range}</span></div><div class="legend-desc">${t.meaning}</div></div></div>`
+  ).join("");
+  const flagItems = flagDefs.map(f =>
+    `<div class="legend-item"><div style="width:4px;min-height:32px;border-radius:2px;flex-shrink:0;background:${f.color}"></div><div><div class="legend-name" style="color:${f.color}">${f.flag}</div><div class="legend-desc">${f.desc}</div></div></div>`
+  ).join("");
+  return `
+    <div class="legend-toggle" onclick="toggleLegend()">
+      <span class="chevron" id="legend-chevron">▶</span>
+      <span class="ltitle">Signal Legend</span>
+      <div class="legend-chips">${tierChips}</div>
+    </div>
+    <div class="legend-panel" id="legend-panel">
+      <div class="legend-inner">
+        <div class="legend-section">
+          <div class="legend-section-title">Department Signal Tiers (Aging Ratio)</div>
+          <div class="legend-grid">${tierItems}</div>
+        </div>
+        <div class="legend-section">
+          <div class="legend-section-title">Job Flags (Individual Work Orders)</div>
+          <div class="legend-grid">${flagItems}</div>
+        </div>
+        <div class="legend-section">
+          <div class="legend-section-title">How Signals Work</div>
+          <div style="font-size:12px;color:#605E5C;line-height:1.7;max-width:800px;">
+            <strong style="color:#201F1E">Aging Ratio (AR)</strong> = aging jobs ÷ total in-house jobs per department. Each department gets a tier based on its AR. Individual jobs get flags based on how close they are to their milestone date (Start By) or due date. A <strong style="color:#D13438">burned reschedule</strong> escalates a job one tier higher — On Track becomes Tight, Tight becomes Reschedule Window, etc. The house AR across all departments sets the overall production signal.
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
 // ─── TAB SWITCHING ───
-let currentTab = 0;
 function switchTab(n) {
-  currentTab = n;
   document.querySelectorAll(".tab").forEach((t, i) => t.classList.toggle("on", i === n));
   document.querySelectorAll(".tab-content").forEach((t, i) => t.classList.toggle("active", i === n));
 }
 
+// ─── TAB 1: PRODUCTION FLOW ───
+function buildProductionFlow() {
+  const flowOrder = ["Receiving/Inspection","Pre-Clean","Cleanroom","Packaging","Shipping"];
+  const sideOrder = ["Lab Testing","Assembly","Source"];
+  const deptMap = {};
+  DATA.departments.forEach(d => deptMap[d.name] = d);
+
+  // Identify bottlenecks (top 2 AR among flow depts with aging > 0)
+  const bottlenecks = flowOrder
+    .filter(n => deptMap[n] && deptMap[n].aging > 0)
+    .sort((a, b) => deptMap[b].ar - deptMap[a].ar)
+    .slice(0, 2);
+
+  function flowNode(name) {
+    const d = deptMap[name];
+    if (!d) return "";
+    const {tier, color} = getTier(d.ar);
+    const isBottleneck = bottlenecks.includes(name);
+    const flags = FLAG_ORDER.filter(f => d.flags[f]).map(f =>
+      `<span class="flow-flag" style="background:${FLAG_COLORS[f]}18;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f.replace("Reschedule Window","RW")}</span>`
+    ).join("");
+    const shortName = name === "Receiving/Inspection" ? "RI" : name;
+    return `<div class="flow-node">
+      <div class="flow-box" style="border-color:${color};background:${color}06">
+        ${isBottleneck ? `<div class="flow-bottleneck-ring" style="border-color:${color}"></div>` : ""}
+        <div class="flow-dept">${shortName}</div>
+        <div class="flow-lead">${d.lead}</div>
+        <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
+        <div class="flow-ratio">${d.aging} / ${d.total}</div>
+        <div class="flow-flags">${flags || '<span style="font-size:9px;color:#A19F9D">No aging</span>'}</div>
+        ${isBottleneck ? `<div style="margin-top:6px;font-size:8px;font-weight:700;letter-spacing:.8px;color:${color};text-transform:uppercase">⚠ Bottleneck</div>` : ""}
+      </div>
+    </div>`;
+  }
+
+  function flowArrow(fromName, toName) {
+    const from = deptMap[fromName];
+    const to = deptMap[toName];
+    // Arrow color: if destination is bottleneck, use its color; else neutral
+    const isToBneck = bottlenecks.includes(toName);
+    const isFromBneck = bottlenecks.includes(fromName);
+    const {color} = isToBneck ? getTier(to.ar) : isFromBneck ? getTier(from.ar) : {color:"#D2D0CE"};
+    const thick = isToBneck || isFromBneck;
+    const strokeW = thick ? 3 : 1.5;
+    const opacity = thick ? 1 : 0.5;
+    return `<div class="flow-arrow${thick ? ' flow-arrow-thick' : ''}">
+      <svg width="${thick?40:32}" height="${thick?30:24}" viewBox="0 0 40 24" fill="none" style="opacity:${opacity}">
+        <path d="M4 12H30" stroke="${color}" stroke-width="${strokeW}" stroke-linecap="round"/>
+        <path d="M26 6L34 12L26 18" stroke="${color}" stroke-width="${strokeW}" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>`;
+  }
+
+  // Build main pipeline
+  let pipeline = "";
+  flowOrder.forEach((name, i) => {
+    pipeline += flowNode(name);
+    if (i < flowOrder.length - 1) pipeline += flowArrow(name, flowOrder[i + 1]);
+  });
+
+  // Side depts
+  const sideNodes = sideOrder.map(name => {
+    const d = deptMap[name];
+    if (!d) return "";
+    const {tier, color} = getTier(d.ar);
+    const flags = FLAG_ORDER.filter(f => d.flags[f]).map(f =>
+      `<span class="flow-flag" style="background:${FLAG_COLORS[f]}18;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f.replace("Reschedule Window","RW")}</span>`
+    ).join("");
+    return `<div class="flow-node" style="min-width:110px;max-width:160px;">
+      <div class="flow-box" style="border-color:${color};background:${color}06;opacity:${d.isCustomerDep?.65:1}">
+        <div class="flow-dept">${name}</div>
+        <div class="flow-lead">${d.lead}</div>
+        <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
+        <div class="flow-ratio">${d.aging} / ${d.total}</div>
+        <div class="flow-flags">${flags || '<span style="font-size:9px;color:#A19F9D">No aging</span>'}</div>
+        ${d.isCustomerDep ? '<div class="flow-customer-badge">CUSTOMER HOLD</div>' : ""}
+      </div>
+    </div>`;
+  }).join('<div style="width:10px"></div>');
+
+  // Bottleneck callouts
+  const callouts = bottlenecks.map(name => {
+    const d = deptMap[name];
+    const {color} = getTier(d.ar);
+    const g = GUIDANCE[name];
+    const critCount = d.flags["Critical"] || 0;
+    const pdCount = d.flags["Past Due"] || 0;
+
+    // Find upstream and downstream in flow
+    const idx = flowOrder.indexOf(name);
+    const upstream = idx > 0 ? flowOrder[idx - 1] : null;
+    const downstream = idx < flowOrder.length - 1 ? flowOrder[idx + 1] : null;
+    const upD = upstream ? deptMap[upstream] : null;
+    const downD = downstream ? deptMap[downstream] : null;
+
+    let impactText = `<strong>${d.aging} aging jobs</strong> (${critCount} Critical${pdCount ? ", " + pdCount + " Past Due" : ""}).`;
+    if (upD) impactText += ` Upstream: ${upstream} has ${upD.aging} aging — ${upD.aging === 0 ? "clear, no additional pressure" : "adding to the queue"}.`;
+    if (downD) impactText += ` Downstream: ${downstream} has ${downD.aging} aging — ${downD.aging === 0 ? "clear and waiting" : "also under pressure"}.`;
+
+    return `<div class="flow-bottleneck-callout" style="background:${color}08;border-color:${color}30">
+      <div class="flow-callout-icon">⚠️</div>
+      <div class="flow-callout-text">
+        <div class="flow-callout-title" style="color:${color}">${name} — ${getTier(d.ar).tier} (${d.ar}% AR)</div>
+        <div style="color:#605E5C">${impactText}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  // Metrics strip
+  const totalAging = DATA.overall.agingJobs;
+  const {tier, color} = getTier(DATA.overall.ar);
+  const critTotal = DATA.overall.flagDist["Critical"] || 0;
+  const pdTotal = DATA.overall.flagDist["Past Due"] || 0;
+  const flowAging = flowOrder.reduce((s, n) => s + (deptMap[n]?.aging || 0), 0);
+  const custAging = sideOrder.reduce((s, n) => s + (deptMap[n]?.aging || 0), 0);
+
+  return `<div class="flow-wrap">
+    <div class="flow-metric-strip">
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:${color}">${DATA.overall.ar}%</div><div class="flow-metric-lbl">House AR</div></div>
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:${color}">${totalAging}</div><div class="flow-metric-lbl">Total Aging</div></div>
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:#D13438">${critTotal}</div><div class="flow-metric-lbl">Critical</div></div>
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:#8764B8">${pdTotal}</div><div class="flow-metric-lbl">Past Due</div></div>
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:#323130">${flowAging}</div><div class="flow-metric-lbl">Production Line</div></div>
+      <div class="flow-metric"><div class="flow-metric-val mc" style="color:#8764B8">${custAging}</div><div class="flow-metric-lbl">Customer Hold</div></div>
+    </div>
+
+    <div class="flow-section-label">Production Line — Upstream → Downstream</div>
+    <div class="flow-pipeline">${pipeline}</div>
+
+    <div class="flow-section-label" style="margin-top:16px">Off-Line Departments (Lab / Customer Holds)</div>
+    <div style="display:flex;gap:10px;justify-content:center;margin:8px 0 16px;flex-wrap:wrap;">${sideNodes}</div>
+
+    ${callouts ? `<div class="flow-section-label" style="margin-top:10px">Bottleneck Analysis</div>${callouts}` : ""}
+
+    <div class="biz-note" style="margin-top:12px">Production flows left → right: RI receives, Pre-Clean preps, Cleanroom processes, Packaging wraps, Shipping sends. Dashed rings indicate bottleneck departments. Arrow weight reflects pressure direction.</div>
+  </div>`;
+}
+
 // ─── TAB 0: DEPT SIGNALS ───
+let openGuidance = null;
+function toggleGuidance(dept) {
+  const id = "g-" + dept.replace(/[\s\/]/g,'_');
+  const row = document.getElementById(id);
+  if (!row) return;
+  if (openGuidance && openGuidance !== id) document.getElementById(openGuidance).style.display = "none";
+  if (row.style.display === "none") { row.style.display = ""; openGuidance = id; }
+  else { row.style.display = "none"; openGuidance = null; }
+}
+
 function buildDeptSignals() {
   const main = DATA.departments.filter(d => !d.isBottom);
   const bottom = DATA.departments.filter(d => d.isBottom);
-  let expanded = null;
 
   function renderRows(depts, offset) {
     return depts.map((d, i) => {
@@ -235,7 +493,7 @@ function buildDeptSignals() {
       ).join("");
       const custTag = d.isCustomerDep ? '<span class="cc">CUST</span>' : '';
       const cuClass = d.isCustomerDep ? " cu" : "";
-      let html = `<tr class="dr ${z}${cuClass}" data-dept="${d.name}" onclick="toggleGuidance('${d.name.replace(/'/g,"\\'")}')">
+      let html = `<tr class="dr ${z}${cuClass}" onclick="toggleGuidance('${d.name.replace(/'/g,"\\'")}')">
         <td style="border-left:4px solid ${color}"><span class="dn">${d.name}</span>${custTag}<br><span class="dl">${d.lead}</span></td>
         <td class="c"><span class="tl mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span></td>
         <td class="r"><span class="da mc" style="color:${color}">${d.ar}%</span></td>
@@ -276,29 +534,41 @@ function buildDeptSignals() {
   </div>`;
 }
 
-let openGuidance = null;
-function toggleGuidance(dept) {
-  const id = "g-" + dept.replace(/[\s\/]/g,'_');
-  const row = document.getElementById(id);
-  if (!row) return;
-  if (openGuidance && openGuidance !== id) {
-    document.getElementById(openGuidance).style.display = "none";
-  }
-  if (row.style.display === "none") {
-    row.style.display = "";
-    openGuidance = id;
-  } else {
-    row.style.display = "none";
-    openGuidance = null;
-  }
-}
-
 // ─── TAB 1: JOB FLAGS ───
 let deptFilter = "All";
 let flagFilter = "All";
 
+function buildJobTable() {
+  let jobs = DATA.allAgingJobs.slice();
+  if (deptFilter !== "All") jobs = jobs.filter(j => j.dept === deptFilter);
+  if (flagFilter !== "All") jobs = jobs.filter(j => j.flag === flagFilter);
+  jobs.sort((a, b) => {
+    const fi = FLAG_ORDER.indexOf(a.flag) - FLAG_ORDER.indexOf(b.flag);
+    return fi !== 0 ? fi : ((a.msBD ?? 999) - (b.msBD ?? 999));
+  });
+  const rows = jobs.map((j, i) => {
+    const fc = FLAG_COLORS[j.flag];
+    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).color;
+    return `<tr class="${i%2===0?'s0':'s1'}">
+      <td style="border-left:3px solid ${fc};padding-left:12px"><span style="color:${fc};font-weight:700;font-size:11px">${j.flag}</span></td>
+      <td class="mc" style="font-weight:700;color:#201F1E">${j.wo}</td>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#323130">${esc(j.customer)}</td>
+      <td style="color:${dc};font-weight:600">${j.dept}</td>
+      <td class="r mc" style="color:#605E5C">${esc(j.dueDate)}</td>
+      <td class="r mc" style="color:${msBDColor(j.msBD)};font-weight:700">${j.msBD ?? '\u2014'}</td>
+      <td class="r mc" style="color:${dueBDColor(j.dueBD)};font-weight:700">${j.dueBD ?? '\u2014'}</td>
+      <td style="${prioStyle(j.priority)}">${j.priority}</td>
+      <td class="c">${j.rescheduled ? '<span style="color:#D13438;font-weight:700;font-size:10px">BURNED</span>' : '<span style="color:#EDEBE9">\u2014</span>'}</td>
+    </tr>`;
+  }).join("");
+  setTimeout(() => {
+    const el = document.getElementById("jobCount");
+    if (el) el.textContent = `${jobs.length} jobs \u2014 Ms BD = biz days to dept milestone. Due BD = biz days to QPC Due Date. Mon\u2013Fri`;
+  }, 0);
+  return `<table class="t"><thead><tr><th>Flag</th><th>WO</th><th>Customer</th><th>Dept</th><th class="r">Due</th><th class="r">Ms BD</th><th class="r">Due BD</th><th>Priority</th><th class="c">Resched</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
 function buildJobFlags() {
-  // Flag summary table
   let flagSummary = FLAG_ORDER.map((f, i) => {
     const ct = DATA.overall.flagDist[f] || 0;
     if (!ct) return "";
@@ -309,7 +579,6 @@ function buildJobFlags() {
     </tr>`;
   }).join("");
 
-  // Cross-tab
   let crossTab = DATA.departments.filter(d => d.aging > 0).map((d, i) => {
     const { color } = getTier(d.ar);
     const cuClass = d.isCustomerDep ? " cu" : "";
@@ -324,12 +593,9 @@ function buildJobFlags() {
     </tr>`;
   }).join("");
 
-  // Dept filter buttons
   const deptBtns = ["All",...MENU_ORDER].map(d =>
     `<button class="fb${deptFilter===d?' on':''}" onclick="setDeptFilter('${d}')">${d==="All"?"All Depts":d}</button>`
   ).join("");
-
-  // Flag filter buttons
   const flagBtns = ["All",...FLAG_ORDER].map(f => {
     const c = f !== "All" ? FLAG_COLORS[f] : undefined;
     const style = flagFilter === f && c ? ` style="border-color:${c};color:${c}"` : "";
@@ -356,57 +622,20 @@ function buildJobFlags() {
     <div class="nt" id="jobCount"></div>`;
 }
 
-function buildJobTable() {
-  let jobs = DATA.allAgingJobs.slice();
-  if (deptFilter !== "All") jobs = jobs.filter(j => j.dept === deptFilter);
-  if (flagFilter !== "All") jobs = jobs.filter(j => j.flag === flagFilter);
-  jobs.sort((a, b) => {
-    const fi = FLAG_ORDER.indexOf(a.flag) - FLAG_ORDER.indexOf(b.flag);
-    return fi !== 0 ? fi : ((a.msBD ?? 999) - (b.msBD ?? 999));
-  });
-
-  const rows = jobs.map((j, i) => {
-    const fc = FLAG_COLORS[j.flag];
-    const deptAR = DATA.departments.find(d => d.name === j.dept)?.ar || 0;
-    const dc = getTier(deptAR).color;
-    return `<tr class="${i%2===0?'s0':'s1'}">
-      <td style="border-left:3px solid ${fc};padding-left:12px"><span style="color:${fc};font-weight:700;font-size:11px">${j.flag}</span></td>
-      <td class="mc" style="font-weight:700;color:#201F1E">${j.wo}</td>
-      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#323130">${esc(j.customer)}</td>
-      <td style="color:${dc};font-weight:600">${j.dept}</td>
-      <td class="r mc" style="color:#605E5C">${esc(j.dueDate)}</td>
-      <td class="r mc" style="color:${msBDColor(j.msBD)};font-weight:700">${j.msBD ?? '\u2014'}</td>
-      <td class="r mc" style="color:${dueBDColor(j.dueBD)};font-weight:700">${j.dueBD ?? '\u2014'}</td>
-      <td style="${prioStyle(j.priority)}">${j.priority}</td>
-      <td class="c">${j.rescheduled ? '<span style="color:#D13438;font-weight:700;font-size:10px">BURNED</span>' : '<span style="color:#EDEBE9">\u2014</span>'}</td>
-    </tr>`;
-  }).join("");
-
-  setTimeout(() => {
-    const el = document.getElementById("jobCount");
-    if (el) el.textContent = `${jobs.length} jobs \u2014 Ms BD = biz days to dept milestone. Due BD = biz days to QPC Due Date. Mon\u2013Fri`;
-  }, 0);
-
-  return `<table class="t"><thead><tr><th>Flag</th><th>WO</th><th>Customer</th><th>Dept</th><th class="r">Due</th><th class="r">Ms BD</th><th class="r">Due BD</th><th>Priority</th><th class="c">Resched</th></tr></thead><tbody>${rows}</tbody></table>`;
-}
-
-function setDeptFilter(d) { deptFilter = d; refreshJobFlags(); }
-function setFlagFilter(f) { flagFilter = f; refreshJobFlags(); }
-function refreshJobFlags() { document.getElementById("tab1").innerHTML = buildJobFlags(); }
+function setDeptFilter(d) { deptFilter = d; document.getElementById("tab2").innerHTML = buildJobFlags(); }
+function setFlagFilter(f) { flagFilter = f; document.getElementById("tab2").innerHTML = buildJobFlags(); }
 
 // ─── TAB 2: RESCHEDULE ───
 function buildReschedule() {
   const { rescheduledCount, reschedulePct, burnedAgingJobs, totalInHouse } = DATA.reschedule;
   const gc = reschedulePct >= 20 ? "#D13438" : reschedulePct >= 15 ? "#C19C00" : "#107C10";
-
   const sorted = burnedAgingJobs.slice().sort((a, b) => (a.msBD ?? 999) - (b.msBD ?? 999));
   const rows = sorted.map((j, i) => {
     const fc = FLAG_COLORS[j.flag];
     const effIdx = Math.max(0, FLAG_ORDER.indexOf(j.flag) - 1);
     const effFlag = FLAG_ORDER[effIdx];
     const effc = FLAG_COLORS[effFlag];
-    const deptAR = DATA.departments.find(d => d.name === j.dept)?.ar || 0;
-    const dc = getTier(deptAR).color;
+    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).color;
     return `<tr class="${i%2===0?'s0':'s1'}">
       <td class="mc" style="font-weight:700;color:#201F1E;border-left:4px solid ${fc};padding-left:16px">${j.wo}</td>
       <td style="color:#323130">${esc(j.customer)}</td>
@@ -419,11 +648,9 @@ function buildReschedule() {
       <td style="${prioStyle(j.priority)}">${j.priority}</td>
     </tr>`;
   }).join("");
-
   const warningHtml = reschedulePct >= 19
     ? `<div class="wb" style="background:#FDE7E9;border:1px solid #F1BBBC;color:#A4262C">At ${reschedulePct}%, the house is one tick from zero remaining buffer. Every new reschedule past 20% means no flexibility left \u2014 any slip becomes a miss.</div>`
     : '';
-
   return `
     <div class="gw">
       <div class="gt2">
@@ -447,9 +674,12 @@ function buildReschedule() {
 }
 
 // ─── INIT ───
+document.getElementById("header").innerHTML = buildHeader();
+document.getElementById("legend-area").innerHTML = buildLegend();
 document.getElementById("tab0").innerHTML = buildDeptSignals();
-document.getElementById("tab1").innerHTML = buildJobFlags();
-document.getElementById("tab2").innerHTML = buildReschedule();
+document.getElementById("tab1").innerHTML = buildProductionFlow();
+document.getElementById("tab2").innerHTML = buildJobFlags();
+document.getElementById("tab3").innerHTML = buildReschedule();
 </script>
 </body>
 </html>
