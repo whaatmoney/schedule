@@ -1283,7 +1283,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "11:35 PM PDT";
+const GENERATED_TIME = "11:45 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -1567,17 +1567,16 @@ function buildDeptSignals() {
       const custTag = d.isCustomerDep ? '<span class="cc">CUST</span>' : '';
       const cuClass = d.isCustomerDep ? " cu" : "";
       let html = `<tr class="dr ${z}${cuClass}" onclick="toggleGuidance('${d.name.replace(/'/g,"\\'")}')">
-        <td style="border-left:4px solid ${color}"><span class="dn">${d.name}</span>${custTag}<br><span class="dl">${d.lead}</span></td>
+        <td style="border-left:4px solid ${color}"><span class="dn">${d.name}</span>${custTag} <span class="oc" style="background:${otBg};color:${otC};border:1px solid ${otBd}30;font-size:9px;vertical-align:middle;margin-left:4px">${otL}</span><br><span class="dl">${d.lead}</span></td>
         <td class="c"><span class="tl mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span></td>
         <td class="r"><span class="da mc" style="color:${color}">${d.ar}%</span></td>
         <td class="c mc" style="color:#323130;font-size:14px;font-weight:700">${d.aging}</td>
         <td class="c mc" style="color:#8A8886">${d.total}</td>
         <td><div class="db"><div class="dbf" style="width:${Math.min(d.ar,50)/50*100}%;background:${color}"></div></div></td>
         <td>${flags}</td>
-        <td class="c"><span class="oc" style="background:${otBg};color:${otC};border:1px solid ${otBd}30">${otL}</span></td>
       </tr>`;
       html += `<tr class="guidance-row" id="g-${d.name.replace(/[\s\/]/g,'_')}" style="display:none">
-        <td colspan="8" style="padding:0;border-left:4px solid ${color}">
+        <td colspan="7" style="padding:0;border-left:4px solid ${color}">
           <div class="gd">
             <div class="gs"><div class="gl">Situation</div><div class="gt">${esc(g.what)}</div></div>
             <div class="gs"><div class="gl">Action</div><div class="gt">${esc(g.action)}</div></div>
@@ -1595,12 +1594,12 @@ function buildDeptSignals() {
 
   return `<div class="card">
     <table class="t"><thead><tr>
-      <th style="width:20%">Department</th><th class="c" style="width:7%">Signal</th><th class="r" style="width:8%">AR%</th>
+      <th style="width:24%">Department</th><th class="c" style="width:7%">Signal</th><th class="r" style="width:8%">AR%</th>
       <th class="c" style="width:6%">Aging</th><th class="c" style="width:6%">Total</th><th style="width:13%">Ratio</th>
-      <th style="width:31%">Flags</th><th class="c" style="width:9%">OT</th>
+      <th style="width:36%">Flags</th>
     </tr></thead><tbody>
       ${renderRows(main, 0)}
-      <tr><td colspan="8" class="sl">Lab Testing / Customer Holds</td></tr>
+      <tr><td colspan="7" class="sl">Lab Testing / Customer Holds</td></tr>
       ${renderRows(bottom, main.length)}
     </tbody></table>
     <div class="biz-note">Ms BD = biz days to dept Start By date. Due BD = biz days to QPC Due Date. Mon\u2013Fri, 7:00a\u20133:30p</div>
