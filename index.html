@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>QPC Aging Signal — 03/18/2026</title>
+  <title>QPC Aging Signal — 03/19/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -151,13 +151,13 @@ const DATA = {
   "reportDate": "03/19/2026",
   "overall": {
     "totalJobs": 235,
-    "agingJobs": 70,
-    "ar": 29.8,
+    "agingJobs": 69,
+    "ar": 29.4,
     "receivedToday": 0,
     "receivedYesterday": 13,
     "prevBizDate": "03/18",
     "flagDist": {
-      "Critical": 47,
+      "Critical": 46,
       "On Track": 15,
       "Past Due": 5,
       "No Date": 2,
@@ -166,26 +166,26 @@ const DATA = {
   },
   "departments": [
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 38,
-      "aging": 19,
-      "ar": 50.0,
+      "name": "Receiving/Inspection",
+      "lead": "Luis",
+      "total": 28,
+      "aging": 16,
+      "ar": 57.1,
       "flags": {
-        "Critical": 19
+        "On Track": 15,
+        "No Date": 1
       },
       "isCustomerDep": false,
       "isBottom": false
     },
     {
-      "name": "Receiving/Inspection",
-      "lead": "Luis",
-      "total": 43,
-      "aging": 16,
-      "ar": 37.2,
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 38,
+      "aging": 18,
+      "ar": 47.4,
       "flags": {
-        "On Track": 15,
-        "No Date": 1
+        "Critical": 18
       },
       "isCustomerDep": false,
       "isBottom": false
@@ -204,18 +204,6 @@ const DATA = {
       "isBottom": false
     },
     {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 42,
-      "aging": 9,
-      "ar": 21.4,
-      "flags": {
-        "Critical": 9
-      },
-      "isCustomerDep": false,
-      "isBottom": false
-    },
-    {
       "name": "Packaging",
       "lead": "Erick",
       "total": 38,
@@ -223,6 +211,18 @@ const DATA = {
       "ar": 18.4,
       "flags": {
         "Critical": 7
+      },
+      "isCustomerDep": false,
+      "isBottom": false
+    },
+    {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 57,
+      "aging": 9,
+      "ar": 15.8,
+      "flags": {
+        "Critical": 9
       },
       "isCustomerDep": false,
       "isBottom": false
@@ -750,19 +750,6 @@ const DATA = {
       "rescheduled": false
     },
     {
-      "wo": "41693",
-      "customer": "AVANS PRECISION MACHINING",
-      "dept": "Cleanroom",
-      "dueDate": "03/24",
-      "msDate": "03/17",
-      "msBD": -2,
-      "dueBD": 3,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
       "wo": "41774",
       "customer": "SAINT-GOBAIN RI",
       "dept": "Cleanroom",
@@ -1224,66 +1211,66 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-  "Cleanroom": {
-    what: "BLACK signal \u2014 50% AR. All 19 aging jobs are Critical. Most urgent exits today: NUSPACE 41705-1 (03/20), PRISM AEROSPACE 41549-3 and 41549-4 (03/20, one past milestone). 03/23 cluster: POLYMER CONCEPTS x4 (41761, 41763, 41764, 41765) and SAINT GOBAIN 41775 (past milestone). 03/24 exits: KAP MFG 41669, RAH INDUSTRIES 41688, PRISM AEROSPACE 41689, AVANS PRECISION 41693, SAINT-GOBAIN RI 41774 (BURNED reschedule, past milestone). 03/25 cluster: SpaceX 41508 and 41685, SEYTEC 41634, PERFORMANCE SEALING 41724, MILLER CNC 41726, IES 41694.",
-    action: "Ship 03/20 exits first: NUSPACE 41705-1, PRISM 41549-3, and PRISM 41549-4 \u2014 41549-3 is past milestone. Then clear POLYMER CONCEPTS 41761/41763/41764/41765 and SAINT GOBAIN 41775 for 03/23 \u2014 41775 is past milestone. Escalate SAINT-GOBAIN RI 41774 \u2014 burned reschedule, past milestone, due 03/24. Sequence 03/25 SpaceX batch with Erick. Coordinate with Jorge on SAINT GOBAIN 41833 (Pre-Clean, due 03/26) to ensure it clears in time.",
-    ot: "recommended",
-    otText: "All 19 aging jobs are Critical. Multiple same-day and next-day exits. OT is required to clear the 03/20 and 03/23 clusters without compressing into the back half of the week.",
-    upstream: "Pre-Clean has 9 Critical jobs all at their Start By milestone today \u2014 IMPERIAL MACHINE x3 and ALLAN AIRCRAFT x4 (all due 03/27) plus SAINT GOBAIN 41833 and NUSPACE 41796 (Hot Expedite, due 03/20). Expect significant Cleanroom intake starting this afternoon. Plan capacity accordingly."
-  },
   "Receiving/Inspection": {
-    what: "BLACK signal driven by volume \u2014 37.2% AR, but 15 of 16 aging jobs are On Track. 5 are dwell-aging. 13 jobs received today. No Critical or Past Due jobs in RI. WO 41789 (ARROWHEAD PRODUCTS) is No Date \u2014 3 biz days past its receipt milestone with no due date assigned. All other jobs have due dates of 03/30 or later with 8\u201310 biz days of runway.",
-    action: "Assign a due date to ARROWHEAD PRODUCTS 41789 immediately \u2014 it cannot enter the signal system until scheduled. Process the 13 received-today intake through inspection. Monitor the 5 dwell-aging jobs as they approach milestones next week. No Critical exits required in RI today.",
+    what: "AR 57.1% — BLACK. 16 jobs dwelling in RI (15 On Track, 1 No Date). No Critical or Past Due flags — all jobs have due-date runway. WO 41789 (ARROWHEAD PRODUCTS) has no due date and cannot enter the signal system. 0 received today; 13 jobs received 03/18 still in queue.",
+    action: "Move all 16 aging jobs to Pre-Clean today. Immediate priority: NUSPACE 41796 (Hot Expedite, due 03/20 — hand to Jorge first). Then push DARMARK 41839, ELECTRON BEAM 41842, ALLAN AIRCRAFT 41843 & 41844, OMW CORP 41845 (all due 04/01). Contact ARROWHEAD PRODUCTS to obtain a due date for 41789.",
     ot: "not needed",
-    otText: "All active RI jobs are On Track with 8\u201310 biz days to due. No urgency requiring OT. Focus on clearing today\u2019s intake.",
+    otText: "No Critical jobs in RI. All aging flags show runway. Focus on throughput and clearing the intake backlog.",
     upstream: null
   },
-  "Shipping": {
-    what: "RED signal \u2014 12 aging jobs, all 12 Critical. Two ship TODAY (03/18): SEYTEC 41591 (msBD=-2, 2 days past milestone) and SAINT GOBAIN 41661 (msBD=0). Nine due TOMORROW (03/19): HRD AERO 41594 (msBD=-1), AXXIS 41596 (msBD=-1), PRISM SV 41600/41601 (msBD=-1), KAP MFG 41602 (msBD=-1), QCM 41609 (msBD=-1), ATD PRECISION 41613, SAINT GOBAIN 41686, FALCON ENGINEERING 41708 (Hot Expedite). ALLAN AIRCRAFT 41621 ships 03/20.",
-    action: "Ship SEYTEC 41591 and SAINT GOBAIN 41661 before end of shift TODAY \u2014 both are at or past due. For 03/19: lead with FALCON ENGINEERING 41708 (Hot Expedite), then clear HRD AERO 41594, AXXIS 41596, PRISM SV 41600/41601, KAP MFG 41602, QCM 41609, ATD PRECISION 41613, and SAINT GOBAIN 41686. ALLAN AIRCRAFT 41621 must ship by 03/20.",
-    ot: "recommended",
-    otText: "2 jobs due today, 9 due tomorrow \u2014 all Critical. OT is required to execute today\u2019s exits and stage tomorrow\u2019s queue without risk of miss.",
-    upstream: "Packaging has 7 Critical jobs \u2014 SAINT GOBAIN 41712 and 41749 must be packaged today for 03/20 shipment. Three more (MACKENZIE 41644, EURAVIA 41653, HYDRAELECTRIC 41666) are due 03/23. Packaging exits today feed tomorrow\u2019s Shipping queue \u2014 coordinate with Erick."
-  },
   "Pre-Clean": {
-    what: "RED signal \u2014 9 aging jobs, all 9 Critical. Every job is at its Start By milestone today (msBD=0). NUSPACE 41796 is Hot Expedite due 03/20 \u2014 must clear Pre-Clean today. SAINT GOBAIN 41833 due 03/26. IMPERIAL MACHINE batch (41778, 41779, 41781) due 03/27. ALLAN AIRCRAFT batch (41754-2, 41754-3, 41754-4, 41754-5) also due 03/27.",
-    action: "Start NUSPACE 41796 (Hot Expedite, due 03/20) immediately \u2014 must move to Cleanroom today. Process SAINT GOBAIN 41833 (due 03/26) next. Then run the IMPERIAL MACHINE batch (41778, 41779, 41781) and the ALLAN AIRCRAFT batch (41754-2, 41754-3, 41754-4, 41754-5) \u2014 coordinate with Erick in Cleanroom on receiving sequence for these 7 jobs (all due 03/27). Every job is at milestone today \u2014 any delay pushes to negative msBD.",
+    what: "AR 15.8% — YELLOW. 9 aging jobs, all Critical — PCL Start By passed for every job. Hot Expedite: NUSPACE 41796 (due 03/20, 1 BD left). IMPERIAL MACHINE & TOOL batch (41778, 41779, 41781) and ALLAN AIRCRAFT split lots (41754-2 through 41754-5) all missed 03/18 Start By with 6 BD to due. SAINT GOBAIN 41833 due 03/26 (5 BD).",
+    action: "Start NUSPACE 41796 immediately — Hot Expedite, due tomorrow. Then run IMPERIAL MACHINE batch (41778/41779/41781) and SAINT GOBAIN 41833 today. Process ALLAN AIRCRAFT split lots (41754-2, 41754-3, 41754-4, 41754-5) together — all due 03/27. Get all 9 jobs to Cleanroom by end of shift.",
     ot: "recommended",
-    otText: "All 9 jobs are at their Start By milestone today. OT prevents slippage into negative msBD territory and protects Cleanroom\u2019s schedule this week.",
-    upstream: "RI has 16 aging jobs \u2014 15 On Track, 13 received today. Pre-Clean intake pressure is moderate to high this afternoon as today\u2019s RI intake moves through inspection."
+    otText: "All 9 Pre-Clean jobs are Critical with milestones already passed. Extended shift needed to clear the full queue today.",
+    upstream: "16 aging jobs dwelling in RI; 0 received today. Expect additional Pre-Clean intake as Luis processes the RI queue."
+  },
+  "Cleanroom": {
+    what: "AR 47.4% — BLACK. 18 aging jobs, all Critical — CLR Start By passed for every job. Most urgent (due 03/20, 1 BD): NUSPACE 41705-1, PRISM AEROSPACE 41549-3 & 41549-4. Due 03/23 (2 BD): POLYMER CONCEPTS 41761/41763/41764/41765, SAINT GOBAIN 41775. Due 03/24 (3 BD): KAP MFG 41669, RAH INDUSTRIES 41688, PRISM AEROSPACE 41689, SAINT-GOBAIN RI 41774 (reschedule burned — no extension available).",
+    action: "Push NUSPACE 41705-1, PRISM 41549-3 & 41549-4 to Packaging today — due 03/20. Clear POLYMER CONCEPTS batch (41761/41763/41764/41765) and SAINT GOBAIN 41775 by tomorrow — all due 03/23. Then clear KAP MFG 41669, RAH INDUSTRIES 41688, PRISM 41689, SAINT-GOBAIN RI 41774 — all due 03/24. Escalate 41774 (SAINT-GOBAIN RI) to manager — burned reschedule, no options remain.",
+    ot: "recommended",
+    otText: "18 Critical jobs with all milestones passed. Cleanroom is the primary bottleneck. Extended shift essential to prevent OTD failures across multiple customers.",
+    upstream: "9 Critical jobs in Pre-Clean feeding Cleanroom today. Jorge clearing queue — plan for additional Cleanroom intake throughout the day."
   },
   "Packaging": {
-    what: "YELLOW signal \u2014 7 aging jobs, all 7 Critical. Two must package for 03/20 shipment: SAINT GOBAIN 41712 and 41749 (both msBD=0). Three due 03/23: MACKENZIE AIRCRAFT 41644, EURAVIA 41653, HYDRAELECTRIC 41666 (all msBD=0). Two have burned reschedules: CREATIVE PATHWAYS 41725 (due 03/25, msBD=0) and SAINT GOBAIN 41710 (due 03/24, msBD=0) \u2014 treat as elevated priority.",
-    action: "Package SAINT GOBAIN 41712 and 41749 now \u2014 must ship 03/20. Then pack MACKENZIE AIRCRAFT 41644, EURAVIA 41653, and HYDRAELECTRIC 41666 by end of shift Thursday for 03/23 shipment. Prioritize SAINT GOBAIN 41710 (burned, 03/24) and CREATIVE PATHWAYS 41725 (burned, 03/25) after the 03/20 exits are done \u2014 burned reschedules have no remaining flexibility.",
+    what: "AR 18.4% — YELLOW. 7 aging jobs, all Critical — PCK Start By passed for all. Due tomorrow 03/20 (1 BD): SAINT GOBAIN 41712 & 41749. Due 03/23 (2 BD): MACKENZIE AIRCRAFT 41644, EURAVIA 41653, HYDRAELECTRIC 41666. Due 03/24 (3 BD): SAINT GOBAIN 41710 (reschedule burned). Due 03/25 (4 BD): CREATIVE PATHWAYS 41725 (reschedule burned). Both 41710 and 41725 have no reschedule remaining.",
+    action: "Package 41712 (SAINT GOBAIN) and 41749 (SAINT GOBAIN) and hand to Luis today — both due tomorrow 03/20. Then clear 41644 (MACKENZIE AIRCRAFT), 41653 (EURAVIA), 41666 (HYDRAELECTRIC) — all due 03/23. Flag 41710 (SAINT GOBAIN) and 41725 (CREATIVE PATHWAYS) as burned reschedules — no rescheduling available.",
     ot: "recommended",
-    otText: "Two same-day exits and three Monday exits all need to clear Packaging today and tomorrow. OT recommended to avoid compression into Shipping\u2019s already-loaded queue.",
-    upstream: "Cleanroom has 19 Critical jobs \u2014 POLYMER CONCEPTS x4 (due 03/23) and SAINT GOBAIN 41775 (due 03/23) will feed directly into Packaging once cleared. Coordinate with Erick on exit sequencing."
+    otText: "7 Critical jobs including 2 due tomorrow and 2 burned reschedules with zero remaining flexibility.",
+    upstream: "18 Critical Cleanroom jobs and 9 Critical Pre-Clean jobs upstream. Expect sustained Packaging intake over the next 2–3 days."
+  },
+  "Shipping": {
+    what: "AR 27.3% — RED. 12 aging jobs: 10 Critical, 2 Past Due. Due today 03/19 (0 BD): FALCON ENGINEERING 41708 (Hot Expedite), HRD AERO 41594, AXXIS CORP 41596, PRISM SUN VALLEY 41600 & 41601, KAP MFG 41602, QUALITY CONTROLLED 41609, ATD PRECISION 41613, SAINT GOBAIN 41686. Past Due (-1 BD): SEYTEC 41591 (due 03/18) and SAINT GOBAIN 41661 (due 03/18). Due 03/20: ALLAN AIRCRAFT 41621.",
+    action: "Ship FALCON ENGINEERING 41708 (Hot Expedite) first. Then ship all remaining jobs due today: 41594 (HRD AERO), 41596 (AXXIS), 41600 & 41601 (PRISM SUN VALLEY), 41602 (KAP MFG), 41609 (QUALITY CONTROLLED), 41613 (ATD PRECISION), 41686 (SAINT GOBAIN) — all before end of shift. Call SEYTEC (41591) and SAINT GOBAIN (41661) now — both past due by 1 day. Ship ALLAN AIRCRAFT 41621 first thing tomorrow morning.",
+    ot: "recommended",
+    otText: "9 jobs due today plus 2 past-due customers waiting. Maximum urgency — full team on shipping.",
+    upstream: "7 Critical Packaging jobs en route. Expect Packaging handoffs throughout today and tomorrow."
   },
   "Lab Testing": {
-    what: "GREEN signal \u2014 0 aging jobs. 2 total in-house. Lab is clear with no flags.",
-    action: "No aging jobs in Lab. Maintain normal pace. Monitor any new intake for approaching due dates.",
+    what: "AR 0% — GREEN. 2 jobs in house, 0 aging. No flags. Lab Testing is clear.",
+    action: "Maintain current pace. No action required.",
     ot: "not needed",
-    otText: "No aging jobs in Lab Testing. No OT required.",
+    otText: "No aging jobs in Lab Testing.",
     upstream: null
   },
   "Assembly": {
-    what: "BLACK signal \u2014 all 3 jobs are aging, customer-controlled. WO 41587 (RBC-INDUSTRIAL TECTONICS BEARINGS, due TODAY 03/18, msBD=0) is Critical \u2014 needs same-day resolution. WO 41721 (POLYMER CONCEPTS, due 03/20, msBD=2) is Critical \u2014 2 biz days remaining. WO 41687 (RBC, due 03/24, msBD=4) is Tight.",
-    action: "Contact customer on WO 41587 immediately \u2014 due today, must confirm delivery status or escalate. Contact POLYMER CONCEPTS on WO 41721 \u2014 due 03/20, 2 biz days remaining, needs customer commitment. Monitor RBC WO 41687 (due 03/24, Tight) \u2014 no action needed today but track.",
+    what: "AR 100% — BLACK (customer-controlled). 3 aging jobs: RBC-ITB 41687 (Reschedule Window, due 03/24, 3 BD), POLYMER CONCEPTS 41721 (Critical, due 03/20, 1 BD), RBC-ITB 41587 (Past Due, due 03/18, -1 BD).",
+    action: "Contact POLYMER CONCEPTS on 41721 — due tomorrow 03/20, still at customer. Contact RBC-INDUSTRIAL TECTONICS BEARINGS on 41587 (past due since 03/18) and 41687 (Reschedule Window — 3 BD to 03/24).",
     ot: "n/a",
-    otText: "Assembly is customer-controlled. OT does not apply \u2014 these jobs move on the customer\u2019s schedule.",
+    otText: "Customer hold — production control not available.",
     upstream: null
   },
   "Source": {
-    what: "BLACK signal \u2014 all 4 jobs aging, customer-controlled. WO 41194 (SENIOR AEROSPACE) is Past Due \u2014 14 biz days overdue as of 02/26. WO 41662 (SAINT GOBAIN, due TODAY 03/18, msBD=0) is Critical. WO 41668 (PEGASUS MANUFACTURING, due 03/23, msBD=3) is in Reschedule Window \u2014 last chance to reschedule or commit. WO 41788 (ARROWHEAD PRODUCTS) has no due date.",
-    action: "Escalate WO 41194 immediately \u2014 SENIOR AEROSPACE is 14 biz days past due, requires customer contact or documented cause. Contact SAINT GOBAIN on WO 41662 \u2014 due today. Contact PEGASUS MANUFACTURING on WO 41668 \u2014 reschedule window is open, decision required now. Assign a due date to ARROWHEAD PRODUCTS 41788 or document hold reason.",
+    what: "AR 100% — BLACK (customer-controlled). 4 aging jobs: PEGASUS MFG 41668 (Critical, due 03/23, 2 BD), SAINT GOBAIN 41662 (Past Due, due 03/18, -1 BD), SENIOR AEROSPACE 41194 (Past Due, due 02/26, -15 BD — severely overdue), ARROWHEAD PRODUCTS 41788 (No Date).",
+    action: "Escalate SENIOR AEROSPACE 41194 immediately — 15 BD past due, potential customer relationship risk. Contact SAINT GOBAIN on 41662 — past due 1 day. Reach PEGASUS MFG on 41668 — 2 BD window closing fast. Get a due date from ARROWHEAD PRODUCTS for 41788.",
     ot: "n/a",
-    otText: "Source is customer-controlled. OT does not apply \u2014 resolution depends on customer action.",
+    otText: "Customer hold — production control not available.",
     upstream: null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "12:30 AM PDT";
+const GENERATED_TIME = "06:49 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
