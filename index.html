@@ -1441,14 +1441,11 @@ function buildHeader() {
     <div class="hs clickable" onclick="openStatModal('aging')" title="Click to see aging jobs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
     <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
     <div class="hs clickable" onclick="openStatModal('received')" title="Click to see jobs received today"><div class="v mc" style="color:${rcvd>0?'#0078D4':'#A19F9D'}">${rcvd}</div><div class="l">Received Today</div></div>
+    <div class="hs clickable" onclick="openStatModal('expedite')" title="Click to see expedites in house"><div class="v mc" style="color:${expCount>0?'#C19C00':'#A19F9D'}">${expCount}</div><div class="l">Expedites</div></div>
+    <div class="hs clickable" onclick="openStatModal('mrb')" title="Click to see MRB jobs"><div class="v mc" style="color:${mrbCount>0?'#8764B8':'#A19F9D'}">${mrbCount}</div><div class="l">MRB</div></div>
     <div class="sep"></div>
     <div class="hs clickable" onclick="openStatModal('critical')" title="Click to see critical jobs"><div class="v mc" style="color:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div></div>
     <div class="hs clickable" onclick="openStatModal('pastdue')" title="Click to see past due jobs"><div class="v mc" style="color:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div></div>
-    <div class="sep"></div>
-    <div class="hs clickable" onclick="openStatModal('expedite')" title="Click to see expedites in house"><div class="v mc" style="color:${expCount>0?'#C19C00':'#A19F9D'}">${expCount}</div><div class="l">Expedites</div></div>
-    <div class="hs clickable" onclick="openStatModal('mrb')" title="Click to see MRB jobs"><div class="v mc" style="color:${mrbCount>0?'#8764B8':'#A19F9D'}">${mrbCount}</div><div class="l">In MRB</div></div>
-    <div class="sep"></div>
-    <div class="hs"><div class="v mc" style="color:${burnColor}">${DATA.reschedule.reschedulePct}%</div><div class="l">Buffer Burn</div></div>
   </div>`;
 }
 
@@ -1678,6 +1675,9 @@ function buildDeptSignals() {
       const otBd = g.ot === "recommended" ? "#C19C00" : g.ot === "n/a" ? "#D2D0CE" : "#107C10";
       const otC = g.ot === "recommended" ? "#7A6200" : g.ot === "n/a" ? "#8A8886" : "#0B6A0B";
       const otL = g.ot === "recommended" ? "OT REC" : g.ot === "n/a" ? "N/A" : "NO OT";
+      const otDeptTag = g.ot === "recommended"
+        ? '<span style="font-size:9px;font-weight:700;letter-spacing:.5px;padding:1px 5px;border-radius:3px;background:#FFF4CE;color:#7A6200;border:1px solid #C19C0050;margin-left:6px;vertical-align:middle">OT</span>'
+        : '';
       const flags = FLAG_ORDER.filter(f => d.flags[f]).map(f =>
         `<span class="fc" style="background:${FLAG_COLORS[f]}14;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f}</span>`
       ).join("");
