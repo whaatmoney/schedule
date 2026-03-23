@@ -1347,6 +1347,13 @@ function dueBDColor(v) { return v != null && v < 0 ? "#D13438" : v != null && v 
 function prioStyle(p) { return p === "Hot Expedite" ? "color:#D13438;font-weight:600" : p === "Expedite" ? "color:#C19C00;font-weight:600" : "color:#8A8886"; }
 
 // ─── STAT MODAL ───
+function parseDueSort(s) {
+  // Sort "MM/DD" soonest first; "No Date" goes to end
+  if (!s || s === "No Date") return 99999;
+  const parts = s.split("/");
+  return parseInt(parts[0]) * 100 + parseInt(parts[1]);
+}
+
 function openStatModal(type) {
   const titles = {
     aging:    "Aging Jobs",
@@ -1354,7 +1361,8 @@ function openStatModal(type) {
     pastdue:  "Past Due Jobs",
     received: "Received Today",
     expedite: "Expedites In House",
-    mrb:      "Jobs in MRB"
+    mrb:      "Jobs in MRB",
+    tier:     "Signal Tier Guide"
   };
   let jobs = [];
   if (type === "aging")    jobs = DATA.allAgingJobs.slice();
@@ -1364,12 +1372,38 @@ function openStatModal(type) {
   if (type === "expedite") jobs = (DATA.expediteJobs || []).slice();
   if (type === "mrb")      jobs = (DATA.mrbJobs || []).slice();
 
+  // Sort by due date soonest-first for all job lists (received is intake order, keep as-is)
+  if (["aging","critical","pastdue","expedite","mrb"].includes(type)) {
+    jobs.sort((a, b) => parseDueSort(a.dueDate) - parseDueSort(b.dueDate));
+  }
+
   document.getElementById("statModalTitle").textContent = titles[type] || type;
-  document.getElementById("statModalCount").textContent = jobs.length ? `— ${jobs.length} jobs` : "";
+  document.getElementById("statModalCount").textContent = (type !== "tier" && jobs.length) ? `— ${jobs.length} jobs` : "";
 
   const isAging = ["aging","critical","pastdue"].includes(type);
   let body = "";
-  if (!jobs.length) {
+
+  if (type === "tier") {
+    // Tier explanation card
+    const { tier, color } = getTier(DATA.overall.ar);
+    const tiers = [
+      { name:"GREEN",  color:"#107C10", range:"\u226412%",  desc:"Protecting OTD. Throughput is keeping pace with intake. Maintain." },
+      { name:"YELLOW", color:"#C19C00", range:"13\u201320%", desc:"OTD at risk. Determine if this is a spike or a trend. Intervene before it becomes RED." },
+      { name:"RED",    color:"#D13438", range:"21\u201335%", desc:"OTD failing. Clear exits first, then address the constraint causing the buildup." },
+      { name:"BLACK",  color:"#323130", range:">35%",        desc:"System failure. Full reset required \u2014 escalate immediately." }
+    ];
+    const rows = tiers.map(t => {
+      const isCurrent = t.name === tier;
+      return `<div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:10px;margin-bottom:8px;background:${isCurrent ? t.color+'10' : '#FAFAF9'};border:1px solid ${isCurrent ? t.color+'40' : '#F3F2F1'}">
+        <div style="width:10px;height:10px;border-radius:50%;background:${t.color};flex-shrink:0;margin-top:4px"></div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;color:${t.color}">${t.name} <span style="font-size:11px;font-weight:400;color:#8A8886">${t.range}</span>${isCurrent ? ' <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;background:'+t.color+'18;color:'+t.color+';border:1px solid '+t.color+'30">\u2190 current</span>' : ''}</div>
+          <div style="font-size:12px;color:#605E5C;margin-top:3px;line-height:1.5">${t.desc}</div>
+        </div>
+      </div>`;
+    }).join("");
+    body = `<div style="padding:16px">${rows}<div style="font-size:11px;color:#8A8886;margin-top:8px;padding-top:8px;border-top:1px solid #F3F2F1">AR = aging jobs \u00f7 total in-house jobs. A job is aging once it has passed its department\u2019s Start By milestone date.</div></div>`;
+  } else if (!jobs.length) {
     body = `<div class="stat-modal-empty">No jobs to show.</div>`;
   } else if (isAging) {
     const rows = jobs.map((j,i) => {
@@ -1435,8 +1469,7 @@ function buildHeader() {
       <span class="hdr-gen">Generated ${esc(GENERATED_TIME)}</span>
     </div>
     <div class="sep"></div>
-    <div class="hs"><div class="v mc" style="color:${color}">${DATA.overall.ar}%</div><div class="l">House AR</div></div>
-    <div class="hs"><span class="tier-hdr mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span><div class="l" style="margin-top:3px">Signal</div></div>
+    <div class="hs clickable" onclick="openStatModal('tier')" title="Click to see what this signal means"><div class="v mc" style="color:${color}">${DATA.overall.ar}%</div><div class="l" style="color:${color};font-weight:700">${tier}</div></div>
     <div class="sep"></div>
     <div class="hs clickable" onclick="openStatModal('aging')" title="Click to see aging jobs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
     <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
