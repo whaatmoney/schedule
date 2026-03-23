@@ -1471,14 +1471,14 @@ function buildHeader() {
     <div class="sep"></div>
     <div class="hs clickable" onclick="openStatModal('tier')" title="Click to see what this signal means"><div class="v mc" style="color:${color}">${DATA.overall.ar}%</div><div class="l" style="color:${color};font-weight:700">${tier}</div></div>
     <div class="sep"></div>
-    <div class="hs clickable" onclick="openStatModal('aging')" title="Click to see aging jobs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
     <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
     <div class="hs clickable" onclick="openStatModal('received')" title="Click to see jobs received today"><div class="v mc" style="color:${rcvd>0?'#0078D4':'#A19F9D'}">${rcvd}</div><div class="l">Received Today</div></div>
     <div class="hs clickable" onclick="openStatModal('expedite')" title="Click to see expedites in house"><div class="v mc" style="color:${expCount>0?'#C19C00':'#A19F9D'}">${expCount}</div><div class="l">Expedites</div></div>
-    <div class="hs clickable" onclick="openStatModal('mrb')" title="Click to see MRB jobs"><div class="v mc" style="color:${mrbCount>0?'#8764B8':'#A19F9D'}">${mrbCount}</div><div class="l">MRB</div></div>
     <div class="sep"></div>
-    <div class="hs clickable" onclick="openStatModal('critical')" title="Click to see critical jobs"><div class="v mc" style="color:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div></div>
     <div class="hs clickable" onclick="openStatModal('pastdue')" title="Click to see past due jobs"><div class="v mc" style="color:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div></div>
+    <div class="hs clickable" onclick="openStatModal('critical')" title="Click to see critical jobs"><div class="v mc" style="color:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div></div>
+    <div class="hs clickable" onclick="openStatModal('aging')" title="Click to see aging jobs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
+    <div class="hs clickable" onclick="openStatModal('mrb')" title="Click to see MRB jobs"><div class="v mc" style="color:${mrbCount>0?'#8764B8':'#A19F9D'}">${mrbCount}</div><div class="l">MRB</div></div>
   </div>`;
 }
 
@@ -1905,7 +1905,3 @@ document.getElementById("tab3").innerHTML = buildReschedule();
 </script>
 </body>
 </html>
-
-<system-reminder>
-Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
-</system-reminder>
