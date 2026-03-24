@@ -275,7 +275,6 @@ function openStatModal(type) {
     critical: "Critical Jobs",
     pastdue:  "Past Due Jobs",
     received: "Received Today",
-    shipped:  "Shipped Today",
     expedite: "Expedites In House",
     mrb:      "Jobs in MRB",
     tier:     "Signal Tier Guide"
@@ -285,11 +284,10 @@ function openStatModal(type) {
   if (type === "critical") jobs = DATA.allAgingJobs.filter(j => j.flag === "Critical");
   if (type === "pastdue")  jobs = DATA.allAgingJobs.filter(j => j.flag === "Past Due");
   if (type === "received") jobs = (DATA.receivedTodayJobs || []).slice();
-  if (type === "shipped")  jobs = ((DATA.throughput && DATA.throughput.shippedTodayJobs) || []).slice();
   if (type === "expedite") jobs = (DATA.expediteJobs || []).slice();
   if (type === "mrb")      jobs = (DATA.mrbJobs || []).slice();
 
-  // Sort by due date soonest-first for all job lists (received/shipped keep as-is)
+  // Sort by due date soonest-first for all job lists (received is intake order, keep as-is)
   if (["aging","critical","pastdue","expedite","mrb"].includes(type)) {
     jobs.sort((a, b) => parseDueSort(a.dueDate) - parseDueSort(b.dueDate));
   }
@@ -343,25 +341,6 @@ function openStatModal(type) {
       <th class="r">Due</th><th class="r">Ms BD</th><th class="r">Due BD</th>
       <th>Priority</th><th class="c">Resched</th>
     </tr></thead><tbody>${rows}</tbody></table></div>`;
-  } else if (type === "shipped") {
-    // Shipped today — includes Ship Method column
-    if (!jobs.length) {
-      body = `<div class="stat-modal-empty">No jobs shipped today yet.</div>`;
-    } else {
-      const rows = jobs.map((j,i) => {
-        const ps = prioStyle(j.priority||"");
-        return `<tr class="${i%2===0?'s0':'s1'}">
-          <td class="mc" style="font-weight:700;color:#201F1E">${esc(j.wo)}</td>
-          <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(j.customer)}</td>
-          <td style="${ps}">${esc(j.priority||'')}</td>
-          <td style="color:#605E5C">${esc(j.shipMethod||'\u2014')}</td>
-          <td class="r mc" style="color:#605E5C">${esc(j.dueDate)}</td>
-        </tr>`;
-      }).join("");
-      body = `<div class="sw"><table class="t"><thead><tr>
-        <th>WO</th><th>Customer</th><th>Priority</th><th>Ship Method</th><th class="r">Due</th>
-      </tr></thead><tbody>${rows}</tbody></table></div>`;
-    }
   } else {
     // received / expedite / mrb — simpler table
     const rows = jobs.map((j,i) => {
@@ -398,9 +377,6 @@ function buildHeader() {
   const expCount = DATA.overall.expediteCount || 0;
   const mrbCount = DATA.overall.mrbCount || 0;
   const rcvd = DATA.overall.receivedToday;
-  const thrData = DATA.throughput;
-  const shipd = (thrData && thrData.available) ? thrData.shippedToday : null;
-  const netToday = shipd !== null ? rcvd - shipd : null;
   return `<div class="hdr">
     <div>
       <span class="hdr-title">QPC Production Signal</span><br>
@@ -412,8 +388,6 @@ function buildHeader() {
     <div class="sep"></div>
     <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
     <div class="hs clickable" onclick="openStatModal('received')" title="Click to see jobs received today"><div class="v mc" style="color:${rcvd>0?'#0078D4':'#A19F9D'}">${rcvd}</div><div class="l">Received Today</div></div>
-    <div class="${shipd!==null?'hs clickable':'hs'}" ${shipd!==null?'onclick="openStatModal(\'shipped\')" title="Click to see jobs shipped today"':''}><div class="v mc" style="color:${shipd>0?'#107C10':'#A19F9D'}">${shipd!==null?shipd:'\u2014'}</div><div class="l">Shipped Today</div></div>
-    ${netToday!==null?`<div class="hs" title="Received minus shipped today. Positive = queue is growing."><div class="v mc" style="color:${netToday>0?'#C19C00':'#107C10'};font-size:18px">${netToday>0?'+':''}${netToday}</div><div class="l">Net Flow</div></div>`:''}
     <div class="hs clickable" onclick="openStatModal('expedite')" title="Click to see expedites in house"><div class="v mc" style="color:${expCount>0?'#C19C00':'#A19F9D'}">${expCount}</div><div class="l">Expedites</div></div>
     <div class="sep"></div>
     <div class="hs clickable" onclick="openStatModal('pastdue')" title="Click to see past due jobs"><div class="v mc" style="color:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div></div>
@@ -485,116 +459,6 @@ function buildLegend() {
 function switchTab(n) {
   document.querySelectorAll(".tab").forEach((t, i) => t.classList.toggle("on", i === n));
   document.querySelectorAll(".tab-content").forEach((t, i) => t.classList.toggle("active", i === n));
-}
-
-// ─── THROUGHPUT CHART ───
-function buildThroughputChart() {
-  const t = DATA.throughput;
-  if (!t || !t.available || !t.dailyData || !t.dailyData.length) return '';
-  const days = t.dailyData;
-  const maxVal = Math.max(...days.flatMap(d => [d.received, d.shipped]), 1);
-
-  const SVG_W = 580, SVG_H = 130;
-  const PL = 28, PR = 10, PT = 14, PB = 28;
-  const chartW = SVG_W - PL - PR;
-  const chartH = SVG_H - PT - PB;
-  const groupW = chartW / days.length;
-  const barW = Math.floor(groupW * 0.27);
-  const gap = Math.floor(groupW * 0.04);
-
-  let svg = '';
-
-  // Y-axis gridlines
-  [0.25, 0.5, 0.75, 1].forEach(pct => {
-    const y = (PT + chartH - pct * chartH).toFixed(1);
-    const val = Math.round(pct * maxVal);
-    svg += `<line x1="${PL}" y1="${y}" x2="${SVG_W - PR}" y2="${y}" stroke="#F3F2F1" stroke-width="1"/>`;
-    svg += `<text x="${PL - 3}" y="${(+y + 3).toFixed(1)}" text-anchor="end" font-size="8" fill="#C8C6C4">${val}</text>`;
-  });
-
-  days.forEach((d, i) => {
-    const cx = (PL + i * groupW + groupW / 2).toFixed(1);
-    const rX = (PL + i * groupW + groupW / 2 - barW - gap / 2).toFixed(1);
-    const sX = (PL + i * groupW + groupW / 2 + gap / 2).toFixed(1);
-
-    // Today highlight background
-    if (d.isToday) {
-      svg += `<rect x="${(PL + i * groupW + 2).toFixed(1)}" y="${PT}" width="${(groupW - 4).toFixed(1)}" height="${chartH}" fill="#EFF6FC" rx="3" opacity="0.7"/>`;
-    }
-
-    // Received bar (blue)
-    if (d.received > 0) {
-      const h = Math.max((d.received / maxVal) * chartH, 2).toFixed(1);
-      const y = (PT + chartH - (d.received / maxVal) * chartH).toFixed(1);
-      svg += `<rect x="${rX}" y="${y}" width="${barW}" height="${h}" fill="#0078D4" rx="2" opacity="0.82"/>`;
-      if (d.received >= 4 || d.isToday) {
-        svg += `<text x="${(+rX + barW / 2).toFixed(1)}" y="${(+y - 3).toFixed(1)}" text-anchor="middle" font-size="8.5" fill="#0078D4" font-weight="600">${d.received}</text>`;
-      }
-    }
-
-    // Shipped bar (green)
-    if (d.shipped > 0) {
-      const h = Math.max((d.shipped / maxVal) * chartH, 2).toFixed(1);
-      const y = (PT + chartH - (d.shipped / maxVal) * chartH).toFixed(1);
-      svg += `<rect x="${sX}" y="${y}" width="${barW}" height="${h}" fill="#107C10" rx="2" opacity="0.82"/>`;
-      if (d.shipped >= 3 || d.isToday) {
-        svg += `<text x="${(+sX + barW / 2).toFixed(1)}" y="${(+y - 3).toFixed(1)}" text-anchor="middle" font-size="8.5" fill="#107C10" font-weight="600">${d.shipped}</text>`;
-      }
-    }
-
-    // Zero-shipped marker (dash) for non-today days
-    if (!d.isToday && d.shipped === 0) {
-      const midX = (PL + i * groupW + groupW / 2 + gap / 2 + barW / 2).toFixed(1);
-      svg += `<text x="${midX}" y="${(PT + chartH - 4).toFixed(1)}" text-anchor="middle" font-size="8" fill="#D2D0CE">\u2014</text>`;
-    }
-
-    // Date label (top row)
-    svg += `<text x="${cx}" y="${(SVG_H - 14).toFixed(1)}" text-anchor="middle" font-size="7.5" fill="${d.isToday ? '#2B88D8' : '#C8C6C4'}">${d.date}</text>`;
-    // Day label (bottom row)
-    svg += `<text x="${cx}" y="${(SVG_H - 4).toFixed(1)}" text-anchor="middle" font-size="9" fill="${d.isToday ? '#0078D4' : '#8A8886'}" font-weight="${d.isToday ? '700' : '400'}">${d.dayLabel}</text>`;
-  });
-
-  // Baseline
-  svg += `<line x1="${PL}" y1="${(PT + chartH).toFixed(1)}" x2="${SVG_W - PR}" y2="${(PT + chartH).toFixed(1)}" stroke="#D2D0CE" stroke-width="1"/>`;
-
-  const vc = t.shippingVelocity >= 10 ? '#107C10' : t.shippingVelocity >= 5 ? '#C19C00' : '#8A8886';
-  const net7 = t.rollingReceived - t.rollingShipped;
-  const netColor = net7 <= 5 ? '#107C10' : net7 <= 20 ? '#C19C00' : '#D13438';
-  const netStr = net7 > 0 ? `+${net7}` : `${net7}`;
-  const netLabel = net7 > 5 ? 'Backlog Building' : net7 <= 0 ? 'Clearing' : 'Balanced';
-
-  return `<div style="background:#fff;border-radius:12px;border:1px solid #EDEBE9;padding:16px 20px;margin-bottom:14px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:10px;">
-      <div style="font-size:12px;font-weight:700;color:#201F1E;text-transform:uppercase;letter-spacing:.6px;">Throughput — 7-Day Rolling Window</div>
-      <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center;">
-        <div style="text-align:center;">
-          <div class="mc" style="font-size:20px;font-weight:700;line-height:1.1;color:${vc}">${t.shippingVelocity}</div>
-          <div style="font-size:8.5px;color:#8A8886;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:2px;">Avg Shipped / Day</div>
-          <div style="font-size:8px;color:#A19F9D;">prior 5 biz days</div>
-        </div>
-        <div style="text-align:center;">
-          <div class="mc" style="font-size:20px;font-weight:700;line-height:1.1;color:#0078D4">${t.rollingReceived}</div>
-          <div style="font-size:8.5px;color:#8A8886;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:2px;">Received (7d)</div>
-        </div>
-        <div style="text-align:center;">
-          <div class="mc" style="font-size:20px;font-weight:700;line-height:1.1;color:#107C10">${t.rollingShipped}</div>
-          <div style="font-size:8.5px;color:#8A8886;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:2px;">Shipped (7d)</div>
-        </div>
-        <div style="text-align:center;">
-          <div class="mc" style="font-size:20px;font-weight:700;line-height:1.1;color:${netColor}">${netStr}</div>
-          <div style="font-size:8.5px;color:${netColor};text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-top:2px;">${netLabel}</div>
-          <div style="font-size:8px;color:#A19F9D;">7-day net</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px;">
-      <div style="display:flex;align-items:center;gap:4px;"><div style="width:10px;height:10px;background:#0078D4;border-radius:2px;opacity:.82;flex-shrink:0;"></div><span style="font-size:10px;color:#605E5C;">Received</span></div>
-      <div style="display:flex;align-items:center;gap:4px;"><div style="width:10px;height:10px;background:#107C10;border-radius:2px;opacity:.82;flex-shrink:0;"></div><span style="font-size:10px;color:#605E5C;">Shipped</span></div>
-    </div>
-    <svg width="100%" viewBox="0 0 ${SVG_W} ${SVG_H}" style="overflow:visible;font-family:'Segoe UI',sans-serif;">
-      ${svg}
-    </svg>
-  </div>`;
 }
 
 // ─── TAB 1: PRODUCTION FLOW ───
@@ -713,7 +577,7 @@ function buildProductionFlow() {
   const flowAging = flowOrder.reduce((s, n) => s + (deptMap[n]?.aging || 0), 0);
   const custAging = sideOrder.reduce((s, n) => s + (deptMap[n]?.aging || 0), 0);
 
-  return buildThroughputChart() + `<div class="flow-wrap">
+  return `<div class="flow-wrap">
     <div class="flow-metric-strip">
       <div class="flow-metric"><div class="flow-metric-val mc" style="color:${color}">${DATA.overall.ar}%</div><div class="flow-metric-lbl">House AR</div></div>
       <div class="flow-metric"><div class="flow-metric-val mc" style="color:${color}">${totalAging}</div><div class="flow-metric-lbl">Total Aging</div></div>
