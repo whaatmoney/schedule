@@ -234,7 +234,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "11:18 AM PDT";
+const GENERATED_TIME = "11:22 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -375,74 +375,31 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeStatMod
 function buildHeader() {
   const { tier, color } = getTier(DATA.overall.ar);
   const fd = DATA.overall.flagDist;
-  const burnPct = DATA.reschedule.reschedulePct;
-  const burnColor = burnPct >= 20 ? "#D13438" : burnPct >= 15 ? "#C19C00" : "#107C10";
+  const burnColor = DATA.reschedule.reschedulePct >= 20 ? "#D13438" : "#C19C00";
   const expCount = DATA.overall.expediteCount || 0;
   const mrbCount = DATA.overall.mrbCount || 0;
   const cmplCount = DATA.overall.completedNotShippedCount || 0;
   const rcvd = DATA.overall.receivedToday;
-  const critCount = fd.Critical || 0;
-  const pdCount = fd["Past Due"] || 0;
-  const agingCount = DATA.overall.agingJobs;
-  const hasPressure = critCount > 0 || pdCount > 0;
-
   return `<div class="hdr">
-    <div class="hdr-identity">
-      <div class="hdr-title">QPC Production Signal</div>
-      <div class="hdr-date">${DATA.reportDate}</div>
-      <div class="hdr-gen">Generated ${esc(GENERATED_TIME)}</div>
+    <div>
+      <span class="hdr-title">QPC Production Signal</span><br>
+      <span class="hdr-date">${DATA.reportDate} \u2014 Schedule Health</span><br>
+      <span class="hdr-gen">Generated ${esc(GENERATED_TIME)}</span>
     </div>
-
-    <div class="hdr-signal" onclick="openStatModal('tier')" title="Schedule Health \u2014 click for tier guide">
-      <div class="hdr-signal-val mc" style="color:${color}">${DATA.overall.ar}%</div>
-      <div class="hdr-signal-tier mc" style="background:${color}14;color:${color};border:1px solid ${color}30">${tier}</div>
-      <div class="hdr-signal-label">Schedule Health</div>
-    </div>
-
-    <div class="hdr-group">
-      <div class="hdr-kpi">
-        <div class="kv mc" style="color:#323130">${DATA.overall.totalJobs}</div>
-        <div class="kl">In House</div>
-      </div>
-      <div class="hdr-kpi clickable" onclick="openStatModal('received')" title="Jobs received today">
-        <div class="kv mc" style="color:${rcvd > 0 ? '#0078D4' : '#C8C6C4'}">${rcvd}</div>
-        <div class="kl">Rcvd Today</div>
-      </div>
-    </div>
-
-    <div class="hdr-group${hasPressure ? ' pressure' : ''}">
-      <div class="hdr-kpi clickable" onclick="openStatModal('aging')" title="Aging jobs \u2014 queue pressure building in dept flow">
-        <div class="kv mc" style="color:${color}">${agingCount}</div>
-        <div class="kl accent" style="color:${color}">Aging</div>
-      </div>
-      <div class="hdr-kpi clickable" onclick="openStatModal('critical')" title="Jobs in critical urgency window">
-        <div class="kv mc" style="color:${critCount > 0 ? '#D13438' : '#C8C6C4'}">${critCount}</div>
-        <div class="kl accent" style="color:${critCount > 0 ? '#D13438' : '#8A8886'}">Critical</div>
-      </div>
-      <div class="hdr-kpi clickable" onclick="openStatModal('pastdue')" title="Overdue jobs">
-        <div class="kv mc" style="color:${pdCount > 0 ? '#8764B8' : '#C8C6C4'}">${pdCount}</div>
-        <div class="kl accent" style="color:${pdCount > 0 ? '#8764B8' : '#8A8886'}">Past Due</div>
-      </div>
-      <div class="hdr-kpi clickable" onclick="openStatModal('completed')" title="Complete but not shipped \u2014 blocking downstream flow">
-        <div class="kv mc" style="color:${cmplCount > 0 ? '#CA5010' : '#C8C6C4'}">${cmplCount}</div>
-        <div class="kl accent" style="color:${cmplCount > 0 ? '#CA5010' : '#8A8886'}">Cmpl</div>
-      </div>
-    </div>
-
-    <div class="hdr-group">
-      <div class="hdr-kpi clickable" onclick="openStatModal('expedite')" title="Expedite and Hot Expedite jobs in house">
-        <div class="kv sm mc" style="color:${expCount > 0 ? '#C19C00' : '#C8C6C4'}">${expCount}</div>
-        <div class="kl">Expedites</div>
-      </div>
-      <div class="hdr-kpi clickable" onclick="openStatModal('mrb')" title="Jobs in Material Review Board">
-        <div class="kv sm mc" style="color:${mrbCount > 0 ? '#8764B8' : '#C8C6C4'}">${mrbCount}</div>
-        <div class="kl">MRB</div>
-      </div>
-      <div class="hdr-kpi" title="% of in-house jobs that used their one reschedule. Threshold: 20%.">
-        <div class="kv sm mc" style="color:${burnColor}">${burnPct}%</div>
-        <div class="kl">Burn Rate</div>
-      </div>
-    </div>
+    <div class="sep"></div>
+    <div class="hs clickable" onclick="openStatModal('tier')" title="Click to see what this signal means"><div class="v mc" style="color:${color}">${DATA.overall.ar}%</div><div class="l" style="color:${color};font-weight:700">${tier}</div></div>
+    <div class="sep"></div>
+    <div class="hs"><div class="v mc" style="color:#323130">${DATA.overall.totalJobs}</div><div class="l">In House</div></div>
+    <div class="hs clickable" onclick="openStatModal('received')" title="Click to see jobs received today"><div class="v mc" style="color:${rcvd>0?'#0078D4':'#A19F9D'}">${rcvd}</div><div class="l">Received Today</div></div>
+    <div class="sep"></div>
+    <div class="hs clickable" onclick="openStatModal('aging')" title="Click to see aging jobs"><div class="v mc" style="color:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div></div>
+    <div class="hs clickable" onclick="openStatModal('critical')" title="Click to see critical jobs"><div class="v mc" style="color:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div></div>
+    <div class="hs clickable" onclick="openStatModal('pastdue')" title="Click to see past due jobs"><div class="v mc" style="color:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div></div>
+    <div class="hs clickable" onclick="openStatModal('completed')" title="Complete jobs still in WO Tracker \u2014 finished but not shipped out"><div class="v mc" style="color:${cmplCount>0?'#CA5010':'#A19F9D'}">${cmplCount}</div><div class="l">Cmpl</div></div>
+    <div class="sep"></div>
+    <div class="hs clickable" onclick="openStatModal('expedite')" title="Click to see expedites in house"><div class="v mc" style="color:${expCount>0?'#C19C00':'#A19F9D'}">${expCount}</div><div class="l">Expedites</div></div>
+    <div class="hs clickable" onclick="openStatModal('mrb')" title="Click to see MRB jobs"><div class="v mc" style="color:${mrbCount>0?'#8764B8':'#A19F9D'}">${mrbCount}</div><div class="l">MRB</div></div>
+    <div class="hs" title="% of in-house jobs that have used their one reschedule. Threshold: 20%."><div class="v mc" style="color:${burnColor}">${DATA.reschedule.reschedulePct}%</div><div class="l">Burn Rate</div></div>
   </div>`;
 }
 
