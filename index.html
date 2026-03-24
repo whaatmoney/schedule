@@ -234,7 +234,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "11:25 AM PDT";
+const GENERATED_TIME = "11:31 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -288,9 +288,15 @@ function openStatModal(type) {
   if (type === "expedite")  jobs = (DATA.expediteJobs || []).slice();
   if (type === "mrb")       jobs = (DATA.mrbJobs || []).slice();
   if (type === "completed") jobs = (DATA.completedNotShippedJobs || []).slice();
+  if (type.startsWith("completed:")) {
+    const deptName = type.substring("completed:".length);
+    jobs = (DATA.completedNotShippedJobs || []).filter(j => j.dept === deptName);
+    document.getElementById("statModalTitle").textContent = "Complete / Not Shipped — " + deptName;
+    document.getElementById("statModalCount").textContent = jobs.length ? "— " + jobs.length + " jobs" : "";
+  }
 
   // Sort by due date soonest-first for all job lists (received is intake order, keep as-is)
-  if (["aging","critical","pastdue","expedite","mrb"].includes(type)) {
+  if (["aging","critical","pastdue","expedite","mrb"].includes(type) || type.startsWith("completed")) {
     jobs.sort((a, b) => parseDueSort(a.dueDate) - parseDueSort(b.dueDate));
   }
 
@@ -489,14 +495,14 @@ function buildProductionFlow() {
     ).join("");
     const shortName = name === "Receiving/Inspection" ? "RI" : name;
     return `<div class="flow-node">
-      <div class="flow-box" style="border-color:${color};background:${color}06">
+      <div class="flow-box" style="border-color:${color};background:${color}06;cursor:pointer" onclick="openStatModal('completed:${name}')">
         ${isBottleneck ? `<div class="flow-bottleneck-ring" style="border-color:${color}"></div>` : ""}
         <div class="flow-dept">${shortName}</div>
         <div class="flow-lead">${d.lead}</div>
         <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
         <div class="flow-ratio">${d.aging} / ${d.total}</div>
         <div class="flow-flags">${flags || '<span style="font-size:9px;color:#A19F9D">No aging</span>'}</div>
-        ${(d.completedNotShipped||0) > 0 ? `<div style="margin-top:5px;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#CA501014;color:#CA5010;border:1px solid #CA501030;cursor:pointer" onclick="event.stopPropagation();openStatModal('completed')" title="Jobs marked Complete still in WO Tracker — finished but not shipped">✓ ${d.completedNotShipped} complete, not out</div>` : ""}
+        ${(d.completedNotShipped||0) > 0 ? `<div style="margin-top:5px;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#CA501014;color:#CA5010;border:1px solid #CA501030">✓ ${d.completedNotShipped} complete, not out</div>` : ""}
         ${isBottleneck ? `<div style="margin-top:6px;font-size:8px;font-weight:700;letter-spacing:.8px;color:${color};text-transform:uppercase">⚠ Bottleneck</div>` : ""}
       </div>
     </div>`;
@@ -536,7 +542,7 @@ function buildProductionFlow() {
       `<span class="flow-flag" style="background:${FLAG_COLORS[f]}18;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f.replace("Reschedule Window","RW")}</span>`
     ).join("");
     return `<div class="flow-node" style="min-width:110px;max-width:160px;">
-      <div class="flow-box" style="border-color:${color};background:${color}06;opacity:${d.isCustomerDep?.65:1}">
+      <div class="flow-box" style="border-color:${color};background:${color}06;opacity:${d.isCustomerDep?.65:1};cursor:pointer" onclick="openStatModal('completed:' + '${name}')">
         <div class="flow-dept">${name}</div>
         <div class="flow-lead">${d.lead}</div>
         <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
