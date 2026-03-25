@@ -85,7 +85,7 @@ table.t tr.cu{opacity:.6;}table.t tr.cu td{font-style:italic;}
 .legend-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1;margin-left:8px;}
 .legend-chip{font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px;letter-spacing:.3px;}
 .legend-panel{overflow:hidden;max-height:0;transition:max-height .3s ease;background:#fff;border:1px solid #EDEBE9;border-radius:12px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
-.legend-panel.open{max-height:800px;}
+.legend-panel.open{max-height:1200px;}
 .legend-inner{padding:20px;}
 .legend-section{margin-bottom:20px;}.legend-section:last-child{margin-bottom:0;}
 .legend-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A8886;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #F3F2F1;}
@@ -206,7 +206,10 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 15,
-      "completedNotShipped": 2
+      "completedNotShipped": 2,
+      "cmplPct": 4.7,
+      "cmplTier": "GREEN",
+      "cmplColor": "#107C10"
     },
     {
       "name": "Shipping",
@@ -220,7 +223,10 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 34,
-      "completedNotShipped": 20
+      "completedNotShipped": 20,
+      "cmplPct": 43.5,
+      "cmplTier": "BLACK",
+      "cmplColor": "#323130"
     },
     {
       "name": "Receiving/Inspection",
@@ -234,7 +240,10 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 0,
-      "completedNotShipped": 6
+      "completedNotShipped": 6,
+      "cmplPct": 20.7,
+      "cmplTier": "RED",
+      "cmplColor": "#D13438"
     },
     {
       "name": "Cleanroom",
@@ -248,7 +257,10 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 19,
-      "completedNotShipped": 0
+      "completedNotShipped": 0,
+      "cmplPct": 0.0,
+      "cmplTier": "GREEN",
+      "cmplColor": "#107C10"
     },
     {
       "name": "Pre-Clean",
@@ -262,7 +274,10 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 44,
-      "completedNotShipped": 7
+      "completedNotShipped": 7,
+      "cmplPct": 13.7,
+      "cmplTier": "YELLOW",
+      "cmplColor": "#C19C00"
     },
     {
       "name": "Lab Testing",
@@ -274,7 +289,8 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": true,
       "incoming": 0,
-      "completedNotShipped": 0
+      "completedNotShipped": 0,
+      "cmplPct": 0.0
     },
     {
       "name": "Assembly",
@@ -289,7 +305,8 @@ const DATA = {
       "isCustomerDep": true,
       "isBottom": true,
       "incoming": 0,
-      "completedNotShipped": 0
+      "completedNotShipped": 0,
+      "cmplPct": 0.0
     },
     {
       "name": "Source",
@@ -306,7 +323,8 @@ const DATA = {
       "isCustomerDep": true,
       "isBottom": true,
       "incoming": 0,
-      "completedNotShipped": 0
+      "completedNotShipped": 0,
+      "cmplPct": 0.0
     }
   ],
   "reschedule": {
@@ -3102,59 +3120,59 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
   "Packaging": {
-    what: "AR 62.8% — critical bottleneck with 27 aging jobs (26 Critical, 1 No Date). All 26 Critical jobs at or past PCK Start By. Today/tomorrow urgency: 41795 NUSPACE (Expedite, due TODAY 03/24, MsBD=0, burned reschedule); 41927 CREATIVE PATHWAYS (Hot Expedite, due 03/25, MsBD=0); 41821 RBC-INDUSTRIAL TECTONICS (Expedite, due 03/25, MsBD=0); 41575 SEYTEC (due 03/25, MsBD=-1, burned); 41633/41634 SEYTEC, 41694 IES, 41726 MILLER CNC, 41792 RUBICON, 41797 AERO COMPONENT (all due 03/25, MsBD=-2 to -1). 03/26 cluster (8 jobs): 41444 SEYTEC (burned, MsBD=-2), 41706 AS&D, 41730 RAH, 41739 FMH, 41741 KAP, 41746 CUSTOM CONTROL, 41747 QED, 41841 POLYMER. 03/27 cluster (8 jobs): 41437 PRISM (burned), 41593 SEYTEC (burned), 41702 NEXT INTENT, 41734 TAYCO, 41759 PRISM SV, 41768 NYTRON, 41779 IMPERIAL, 41800 LEDA. 5 burned reschedules in dept. No Date: 41886 ALLAN AIRCRAFT (Expedite) — missing due date. 15 upcoming jobs approaching PCK Start By.",
-    action: "1. Package 41795 NUSPACE (Expedite) and complete today — due date is today. 2. Package 41927 CREATIVE PATHWAYS (Hot Expedite) and 41821 RBC (Expedite) for morning ship tomorrow. 3. Run 41575, 41633, 41634, 41694, 41726, 41792, 41797 as parallel as possible — all due 03/25. 4. Contact CSR to obtain due date for 41886 ALLAN AIRCRAFT (Expedite, No Date) before COB. 5. Escalate 5 burned reschedule jobs for management decision.",
+    what: "AR 62.8% — critical bottleneck with 27 aging jobs (26 Critical, 1 No Date). All 26 Critical at or past PCK Start By. CMPL 4.7% GREEN — completed work is flowing out. The problem is aging accumulation, not handoff. 15 upcoming jobs approaching PCK Start By.",
+    action: "1. Package 41795 NUSPACE (Expedite) and complete today — due date is today. 2. Package 41927 CREATIVE PATHWAYS (Hot Expedite) and 41821 RBC (Expedite) for morning ship tomorrow. 3. Run 41575, 41633, 41634, 41694, 41726, 41792, 41797 as parallel as possible — all due 03/25. 4. Contact CSR for 41886 ALLAN AIRCRAFT missing due date. 5. Escalate 5 burned reschedule jobs.",
     ot: "recommended",
-    otText: "26 Critical jobs all past their milestone — OT required to prevent mass OTD failure across multiple customers.",
-    upstream: "Cleanroom has 4 Critical aging jobs at milestone feeding to Packaging + 19 upcoming. Pre-Clean has 44 upcoming. Incoming wave is the largest in house — Packaging throughput must exceed inflow rate."
+    otText: "26 Critical jobs all past their milestone — OT required to prevent mass OTD failure.",
+    upstream: "Cleanroom has 4 Critical aging + 19 upcoming. Pre-Clean has 44 upcoming. Incoming wave largest in house."
   },
   "Shipping": {
-    what: "AR 21.7% with 10 aging, all 10 Critical. 4 burned reschedules among the 10: 41587 RBC-INDUSTRIAL TECTONICS (Standard, due 03/25, MsBD=0, burned), 41725 CREATIVE PATHWAYS (Standard, due 03/25, MsBD=-2, burned), 41732 PRECISION ADVANCED MFG (Expedite, due 03/25, MsBD=0, burned), 41801 DANTE VALVE (Standard, due 03/25, MsBD=0, burned). Tomorrow cluster (8 jobs due 03/25): 41508 SpaceX (MsBD=-1), 41587 RBC (MsBD=0), 41685 SpaceX (MsBD=-1), 41698 ALLAN AIRCRAFT (MsBD=-1), 41724 PERFORMANCE SEALING (MsBD=-1), 41725 CREATIVE PATHWAYS (MsBD=-2), 41732 PRECISION (MsBD=0), 41801 DANTE VALVE (MsBD=0). 03/26: 41729 ALLAN AIRCRAFT, 41736 EURAVIA (both MsBD=0). 34 upcoming jobs approaching SHP Start By. 35 completed-not-shipped jobs in queue.",
-    action: "1. Ship 41725 CREATIVE PATHWAYS (past milestone -2 biz days, burned) and both SpaceX jobs (41508, 41685) first — highest urgency. 2. Ship 41732 PRECISION (Expedite, burned), 41801 DANTE VALVE (burned), 41587 RBC (burned) before EOD. 3. Clear remaining 03/25 jobs: 41698 ALLAN, 41724 PERFORMANCE SEALING. 4. Stage 41729 ALLAN and 41736 EURAVIA for first thing 03/26. 5. Work through the 35 completed-not-shipped — many may be shippable now.",
+    what: "AR 21.7% with 10 aging, all Critical. CMPL 43.5% BLACK — 20 of 46 jobs are complete but have not shipped. This is a severe outbound execution failure. Combined with 10 aging jobs and 34 upcoming, Shipping is the most constrained exit point in the building. 4 burned reschedules: 41587 RBC, 41725 CREATIVE PATHWAYS (MsBD=-2), 41732 PRECISION (Expedite), 41801 DANTE VALVE.",
+    action: "1. Ship the 20 completed-not-shipped jobs FIRST — these are done, just need to leave. Clear the dock. 2. Ship 41725 CREATIVE PATHWAYS and 41508/41685 SpaceX (due 03/25, Critical). 3. Ship 41732 PRECISION (Expedite, burned), 41801 DANTE VALVE (burned). 4. Stage 41729 ALLAN and 41736 EURAVIA for 03/26.",
     ot: "recommended",
-    otText: "8 jobs due tomorrow all Critical. 34 more incoming. Push must happen tonight to avoid tomorrow failure.",
-    upstream: "Packaging has 27 Critical aging jobs — completions will flow directly to Shipping. Build staging and labeling runway now before wave hits."
+    otText: "CMPL BLACK + 10 Critical aging + 34 upcoming. OT mandatory — the building cannot ship out at current pace.",
+    upstream: "Packaging has 27 Critical aging — completions will flood Shipping. Must clear the 20 complete-not-shipped backlog NOW."
   },
   "Receiving/Inspection": {
-    what: "AR 20.7% with 6 aging, all On Track — strong runway on all open jobs (due 04/01 to 04/07). 28 received today — highest single-day intake visible in current data; 25 received yesterday. 1 true dwell-aging job: 41864 PEGASUS MANUFACTURING (received 03/18, -4 biz day dwell, due 04/01, 6 biz days out). All other 5 jobs received 03/23 (-1 dwell, due 04/06-04/07). High intake rate means today's 28 jobs could age into next run if not processed and staged.",
-    action: "1. Release 41864 PEGASUS to Pre-Clean now — 4 biz day dwell, no reason to hold. 2. Process today's 28 received jobs: inspect, triage, and stage for Pre-Clean. 3. Coordinate with Jorge before releasing the full wave — Pre-Clean has 44 upcoming already queued. Stage by priority and communicate release plan.",
+    what: "AR 20.7% with 6 aging, all On Track — runway 6-10 biz days. CMPL 20.7% RED — 6 of 29 jobs are complete but still sitting in RI. This means processed jobs are not being released to Pre-Clean fast enough. 28 received today, 25 received yesterday. Oldest dwell: 41864 PEGASUS (received 03/18, -4 biz days).",
+    action: "1. Release the 6 completed jobs to Pre-Clean immediately — they are done, push them downstream. 2. Release 41864 PEGASUS first (4 day dwell). 3. Process today's 28 received jobs: inspect, triage, stage. 4. Coordinate with Jorge on Pre-Clean capacity before releasing full wave.",
     ot: "not needed",
-    otText: "All 6 aging jobs have 6-10 biz days of runway. High intake is manageable in normal hours if processed today.",
+    otText: "All 6 aging jobs have runway (6-10 days). Clear the CMPL backlog and process intake in normal hours.",
     upstream: null
   },
   "Cleanroom": {
-    what: "AR 17.4% with 4 aging, all Critical — all at or past CLR Start By. 41854 BARBER NICHOLS (Expedite, due 03/27 in 3 biz days, MsBD=0) — tightest. 41828 FMH AMETEK, 41830 PRISM AEROSPACE SUN VALLEY, 41904 SAINT GOBAIN — all MsBD=0, due 03/31 (5 biz days). 19 upcoming jobs approaching Cleanroom Start By within 3 biz days.",
-    action: "1. Start 41854 BARBER NICHOLS (Expedite) now — due 03/27, zero days to milestone. 2. Run 41828 FMH AMETEK, 41830 PRISM AEROSPACE, 41904 SAINT GOBAIN in parallel — all at milestone today. 3. Coordinate with Erick on staffing to absorb 19 upcoming jobs from Pre-Clean.",
+    what: "AR 17.4% with 4 aging, all Critical at CLR Start By. CMPL 0.0% GREEN — no completed work sitting idle. Flow through Cleanroom is clean. 41854 BARBER NICHOLS (Expedite, due 03/27, MsBD=0) — tightest. 19 upcoming jobs approaching Start By.",
+    action: "1. Start 41854 BARBER NICHOLS (Expedite) immediately — due 03/27. 2. Run 41828 FMH, 41830 PRISM, 41904 SAINT GOBAIN in parallel — all at milestone. 3. Prepare for 19 upcoming from Pre-Clean.",
     ot: "recommended",
-    otText: "All 4 aging jobs Critical at their milestone. 19 upcoming jobs create immediate backpressure from Pre-Clean.",
-    upstream: "Pre-Clean has 5 Critical aging + 44 upcoming jobs. Jorge is releasing a large wave — Cleanroom needs capacity ready to receive."
+    otText: "All 4 aging Critical at milestone. 19 upcoming creates immediate backpressure.",
+    upstream: "Pre-Clean has 5 Critical + 44 upcoming. CMPL YELLOW at 13.7% — some completed Pre-Clean work not yet moved to Cleanroom."
   },
   "Pre-Clean": {
-    what: "AR 9.8% — lowest production milestone signal, but 5 aging all Critical and all at or past PCL Start By. 41902 SAINT-GOBAIN RI (Expedite, due 03/27, MsBD=0, burned reschedule) — top priority. 41752 SAUER MECHANICAL (Standard, due 03/31, MsBD=-1, burned reschedule) — already 1 biz day past PCL Start. 41873 KAP MANUFACTURING, 41882 RAH INDUSTRIES, 41883 DAYTONA SUPERIOR — all MsBD=0, due 04/01-04/02. Incoming: 44 jobs approaching PCL Start By — largest upcoming queue in house.",
-    action: "1. Start 41902 SAINT-GOBAIN RI (Expedite, burned) immediately — due 03/27. 2. Move 41752 SAUER MECHANICAL into Pre-Clean — already past PCL Start By with burned reschedule, due 03/31. 3. Process 41873 KAP, 41882 RAH, 41883 DAYTONA SUPERIOR in order — all at milestone today. 4. Triage the 44 upcoming jobs and identify any Hot Expedites or Expedites for priority sequencing. Alert Jorge: pre-clean is the highest-pressure department by incoming volume.",
+    what: "AR 9.8% with 5 aging, all Critical at or past PCL Start By. CMPL 13.7% YELLOW — 7 of 51 jobs are complete but still in Pre-Clean. This signals handoff friction to Cleanroom. 41902 SAINT-GOBAIN RI (Expedite, burned, due 03/27, MsBD=0). 44 upcoming — largest incoming queue.",
+    action: "1. Move the 7 completed jobs to Cleanroom NOW — they are done, clear the staging area. 2. Start 41902 SAINT-GOBAIN RI (Expedite, burned) immediately. 3. Start 41752 SAUER MECHANICAL (burned, MsBD=-1). 4. Process 41873, 41882, 41883 (all MsBD=0). 5. Triage 44 upcoming for priority.",
     ot: "not needed",
-    otText: "5 Critical jobs manageable in normal shift. Reassess OT tomorrow if 44 upcoming converts to aging.",
-    upstream: "RI has 6 aging all On Track + 28 received today. Luis releasing 41864 PEGASUS today. Communicate capacity ceiling to RI to avoid releasing faster than Pre-Clean can process."
+    otText: "5 Critical manageable. But fix the CMPL YELLOW — 7 jobs need to move to Cleanroom today.",
+    upstream: "RI has 6 aging On Track + CMPL RED (6 completed not released). Luis must push those 6 jobs downstream to Pre-Clean."
   },
   "Lab Testing": {
-    what: "AR 0.0% — no aging jobs. 0 upcoming. Green signal. Nothing action-required.",
-    action: "No action needed. Monitor for new releases.",
+    what: "AR 0.0% — no aging. CMPL not tracked (low-volume department). Green signal.",
+    action: "No action needed.",
     ot: "not needed",
-    otText: "No aging jobs in department.",
+    otText: "No aging jobs.",
     upstream: null
   },
   "Assembly": {
-    what: "AR 100.0% (customer-controlled) — 3 aging. 41767 ARROWHEAD PRODUCTS (Standard, due 03/25, 1 biz day to due, MsBD=1) — most urgent. 41833 SAINT GOBAIN (Standard, due 03/26, MsBD=2). 41922 SAINT GOBAIN (Expedite, Reschedule Window, due 03/27, MsBD=3). All jobs are customer-controlled assembly holds — QPC action is limited to customer contact and schedule confirmation.",
-    action: "1. Contact ARROWHEAD PRODUCTS on 41767 — due 03/25 (tomorrow), confirm return ETA today. 2. Contact SAINT GOBAIN on both 41833 (due 03/26) and 41922 Expedite (due 03/27) — confirm completion and return dates. 3. Reschedule any jobs without a committed return date.",
+    what: "AR 100.0% (customer-controlled) — 3 aging. 41767 ARROWHEAD (due 03/25, MsBD=1). 41833 SAINT GOBAIN (due 03/26). 41922 SAINT GOBAIN Expedite (Reschedule Window, due 03/27).",
+    action: "Contact ARROWHEAD on 41767 (due tomorrow). Contact SAINT GOBAIN on 41833 and 41922. Confirm return dates or reschedule.",
     ot: "n/a",
-    otText: "Customer-controlled — OT not applicable.",
+    otText: "Customer-controlled.",
     upstream: null
   },
   "Source": {
-    what: "AR 100.0% (customer-controlled) — 8 aging including 4 Past Due. Overdue escalations needed: 41194 SENIOR AEROSPACE (due 02/26, -18 biz days — 3+ weeks overdue), 41662 SAINT GOBAIN (due 03/18, -4 biz days), 41652 EURAVIA (due 03/23, -1 biz day), 41668 PEGASUS MANUFACTURING (due 03/23, -1 biz day). Hot Expedites at risk: 41926 CREATIVE PATHWAYS (Hot Expedite, due 03/25, MsBD=1), 41915 ARROWHEAD PRODUCTS (Hot Expedite, No Date — missing due date on file). Active Critical: 41859 ARROWHEAD PRODUCTS (Standard, due 03/26, MsBD=2). On Track: 41817 SENIOR AEROSPACE (due 03/31, MsBD=5).",
-    action: "1. Escalate 41194 SENIOR AEROSPACE to management — 18 biz days overdue requires leadership intervention. 2. Contact SAINT GOBAIN, EURAVIA, PEGASUS on 41662/41652/41668 — all past due, demand ETA today. 3. Expedite 41926 CREATIVE PATHWAYS source (Hot Expedite, due tomorrow) — confirm delivery or initiate emergency procurement. 4. Get due date and ETA for 41915 ARROWHEAD Hot Expedite immediately — no due date on record. 5. Follow up on 41859 ARROWHEAD (due 03/26).",
+    what: "AR 100.0% (customer-controlled) — 8 aging, 4 Past Due. 41194 SENIOR AEROSPACE 18 biz days overdue. Hot Expedites: 41926 CREATIVE PATHWAYS (due 03/25), 41915 ARROWHEAD (No Date).",
+    action: "1. Escalate 41194 SENIOR AEROSPACE to management — 18 days overdue. 2. Contact all past-due sources today. 3. Get ETA on 41926 CREATIVE PATHWAYS and 41915 ARROWHEAD Hot Expedites.",
     ot: "n/a",
-    otText: "Customer-controlled — OT not applicable.",
+    otText: "Customer-controlled.",
     upstream: null
   }
 };
@@ -3181,6 +3199,11 @@ function getTier(ar) {
   if (ar <= 20) return { tier: "YELLOW", color: "#C19C00" };
   if (ar <= 35) return { tier: "RED", color: "#D13438" };
   return { tier: "BLACK", color: "#605E5C" };
+}
+function getCmplTier(d) {
+  // Returns {tier, color} from pre-computed data, or null for depts without CMPL thresholds
+  if (d.cmplTier) return { tier: d.cmplTier, color: d.cmplColor };
+  return null;
 }
 function esc(s) { return s == null ? "\u2014" : String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function msBDColor(v) { return v != null && v < 0 ? "#D13438" : v != null && v <= 0 ? "#CA5010" : "#8A8886"; }
@@ -3383,9 +3406,22 @@ function buildLegend() {
           <div class="legend-grid">${flagItems}</div>
         </div>
         <div class="legend-section">
+          <div class="legend-section-title">CMPL Ratio (Completed-Not-Shipped)</div>
+          <div style="font-size:12px;color:#605E5C;line-height:1.7;max-width:800px;margin-bottom:10px;">
+            <strong style="color:#201F1E">CMPL Ratio</strong> = completed jobs still sitting in a department ÷ total jobs in that department. Measures flow health — high CMPL means work is finishing but not moving downstream. Each department has its own thresholds because some naturally hold completed work longer (e.g. Shipping batches outbound).
+          </div>
+          <div class="legend-grid">
+            <div class="legend-item"><div class="legend-dot" style="background:#107C10"></div><div><div class="legend-name" style="color:#107C10">GREEN</div><div class="legend-desc">Within expected flow. Handoffs healthy.</div></div></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#C19C00"></div><div><div class="legend-name" style="color:#C19C00">YELLOW</div><div class="legend-desc">Above target. Monitor handoff friction.</div></div></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#D13438"></div><div><div class="legend-name" style="color:#D13438">RED</div><div class="legend-desc">Meaningful backlog. Downstream pull problem.</div></div></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#323130"></div><div><div class="legend-name" style="color:#323130">BLACK</div><div class="legend-desc">Flow obstruction. Completed work choking capacity.</div></div></div>
+          </div>
+          <div style="font-size:11px;color:#8A8886;margin-top:8px;line-height:1.5;">Thresholds (GREEN max): RI ≤15% · Pre-Clean/Cleanroom ≤10% · Packaging/Shipping ≤20%. Yellow/Red/Black scale from there per department.</div>
+        </div>
+        <div class="legend-section">
           <div class="legend-section-title">How Signals Work</div>
           <div style="font-size:12px;color:#605E5C;line-height:1.7;max-width:800px;">
-            <strong style="color:#201F1E">Aging Ratio (AR)</strong> = aging jobs ÷ total in-house jobs per department. Each department gets a tier based on its AR. Individual jobs get flags based on how close they are to their milestone date (Start By) or due date. A <strong style="color:#D13438">burned reschedule</strong> escalates a job one tier higher — On Track becomes Tight, Tight becomes Reschedule Window, etc. The house AR across all departments sets the overall production signal.
+            <strong style="color:#201F1E">Aging Ratio (AR)</strong> = aging jobs ÷ total in-house jobs per department. Each department gets a tier based on its AR. Individual jobs get flags based on how close they are to their milestone date (Start By) or due date. A <strong style="color:#D13438">burned reschedule</strong> escalates a job one tier higher — On Track becomes Tight, Tight becomes Reschedule Window, etc. <strong style="color:#201F1E">CMPL Ratio</strong> = completed-not-shipped ÷ total per department — measures whether finished work is flowing downstream or piling up. The house AR across all departments sets the overall production signal.
           </div>
         </div>
       </div>
@@ -3428,7 +3464,7 @@ function buildProductionFlow() {
         <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
         <div class="flow-ratio">${d.aging} / ${d.total}</div>
         <div class="flow-flags">${flags || '<span style="font-size:9px;color:#A19F9D">No aging</span>'}</div>
-        ${(d.completedNotShipped||0) > 0 ? `<div style="margin-top:5px;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#CA501014;color:#CA5010;border:1px solid #CA501030">✓ ${d.completedNotShipped} complete, not out</div>` : ""}
+        ${(()=>{const ct=getCmplTier(d);if(!ct||!d.completedNotShipped)return '';return '<div style="margin-top:5px;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:'+ct.color+'14;color:'+ct.color+';border:1px solid '+ct.color+'30">CMPL '+(d.cmplPct||0)+'% ('+d.completedNotShipped+')</div>';})()}
         ${isBottleneck ? `<div style="margin-top:6px;font-size:8px;font-weight:700;letter-spacing:.8px;color:${color};text-transform:uppercase">⚠ Bottleneck</div>` : ""}
       </div>
     </div>`;
@@ -3575,7 +3611,7 @@ function buildDeptSignals() {
         <td class="c"><span class="tl mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span></td>
         <td class="r"><span class="da mc" style="color:${color}">${d.ar}%</span></td>
         <td class="c mc" style="color:#323130;font-size:14px;font-weight:700">${d.aging}</td>
-        <td class="c mc" style="color:${(d.completedNotShipped||0)>0?'#CA5010':'#EDEBE9'};font-size:13px;font-weight:${(d.completedNotShipped||0)>0?700:400}" title="Complete jobs still in WO Tracker">${d.completedNotShipped||'·'}</td>
+        <td class="c" title="CMPL Ratio: ${d.cmplPct||0}% — ${d.completedNotShipped||0} complete / ${d.total} total">${(()=>{const ct=getCmplTier(d);if(!ct)return '<span style="color:#EDEBE9">·</span>';return '<span class="tl mc" style="font-size:9px;background:'+ct.color+'14;color:'+ct.color+';border:1px solid '+ct.color+'40">'+(d.cmplPct||0)+'%</span>';})()}</td>
         <td class="c mc" style="color:#8A8886">${d.total}</td>
         <td><div class="db"><div class="dbf" style="width:${Math.min(d.ar,50)/50*100}%;background:${color}"></div></div></td>
         <td>${flags}</td>
@@ -3600,7 +3636,7 @@ function buildDeptSignals() {
   return `<div class="card">
     <table class="t"><thead><tr>
       <th style="width:22%">Department</th><th class="c" style="width:7%">Signal</th><th class="r" style="width:8%">AR%</th>
-      <th class="c" style="width:6%">Aging</th><th class="c" style="width:5%" title="Jobs marked Complete (Progress=03) still in WO Tracker — finished but not shipped out">Cmpl</th><th class="c" style="width:6%">Total</th><th style="width:11%">Ratio</th>
+      <th class="c" style="width:6%">Aging</th><th class="c" style="width:6%" title="CMPL Ratio: completed jobs still in department ÷ total in department. Dept-specific thresholds.">CMPL</th><th class="c" style="width:6%">Total</th><th style="width:11%">Ratio</th>
       <th style="width:35%">Flags</th>
     </tr></thead><tbody>
       ${renderRows(main, 0)}
