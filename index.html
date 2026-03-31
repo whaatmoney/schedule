@@ -2345,64 +2345,62 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-{
-  "Receiving/Inspection": {
-    "what": "AR 16.7% (YELLOW) \u2014 4 aging jobs out of 24 in-house. All 4 aging WOs are On Track by due date: WO 42028 (ORLANDO SPRING CORP), WO 42018, WO 42039 (JP DONOVAN CONSTRUCTION), WO 42033 (D.P. TOOL). No QPC Due Date data available (No Date) so urgency cannot be confirmed \u2014 treat as unknown. 21 jobs received today; 25 received Friday (03/27). CMPL ratio 4.2% (GREEN). No upcoming RI jobs.",
-    "action": "Verify due dates are populated for all 4 aging WOs \u2014 flags show 'On Track' but due_bd is null. Prioritize same-day release of today's 21 receipts into Pre-Clean queue to avoid dwell buildup.",
+"Receiving/Inspection": {
+    "what": "AR 16.7% (YELLOW) \u2014 4 aging jobs out of 24 in-house. All 4 aging WOs flagged On Track by due date: WO 42028 (ORLANDO SPRING CORP), WO 42018 & 42039 (JP DONOVAN), WO 42033 (D.P. TOOL). Due date data is null for all 4 \u2014 urgency cannot be confirmed, treat as unknown. 21 jobs received today; 25 received Friday 03/27. CMPL 4.2% (GREEN).",
+    "action": "Verify due dates are populated for all 4 aging WOs before end of day. Prioritize same-day release of today's 21 receipts into Pre-Clean to prevent dwell buildup.",
     "ot": "not needed",
     "otText": "4 aging WOs, all On Track \u2014 no OT signal.",
     "upstream": null
   },
   "Pre-Clean": {
-    "what": "AR 1.9% (GREEN) \u2014 1 aging job out of 54 in-house. WO 41752 (SAUER MECHANICAL) is Critical with a burned reschedule. 52 upcoming jobs approaching Pre-Clean Start By \u2014 the largest upstream queue in the shop. CMPL ratio 1.9% (GREEN). RI has 4 aging jobs and 21 received today feeding into Pre-Clean.",
-    "action": "Start WO 41752 (SAUER MECHANICAL) immediately \u2014 Critical, burned reschedule, no runway. Prepare capacity for 52 incoming \u2014 this is the largest pending wave in the building. Coordinate with Luis to release today's receipts quickly.",
+    "what": "AR 1.9% (GREEN) \u2014 1 aging job out of 54 in-house. WO 41752 (SAUER MECHANICAL) is Critical with a burned reschedule \u2014 no runway. 52 upcoming jobs approaching PCL Start By \u2014 largest incoming wave in the shop. CMPL 1.9% (GREEN). RI feeding 21 new receipts today.",
+    "action": "Start WO 41752 (SAUER MECHANICAL) immediately \u2014 Critical, burned reschedule. Stage capacity for 52 incoming jobs \u2014 this wave is the biggest in the building right now. Coordinate with Luis to release today's RI receipts quickly.",
     "ot": "not needed",
-    "otText": "Only 1 aging job \u2014 no OT signal.",
-    "upstream": "RI: 4 aging (On Track: 4). 21 received today feeding into Pre-Clean."
+    "otText": "Only 1 aging job \u2014 no OT signal yet, but monitor as 52 incoming arrive.",
+    "upstream": "RI: 4 aging (all On Track). 21 received today feeding into Pre-Clean queue."
   },
   "Cleanroom": {
-    "what": "AR 14.3% (YELLOW) \u2014 2 aging jobs out of 14 in-house. WO 41919 (FMH AMETEK) and WO 41934 (IMPERIAL MACHINE & TOOL) are both Critical. 12 upcoming jobs approaching Cleanroom Start By. CMPL ratio 0% (GREEN) \u2014 no completed-not-passed work sitting here.",
-    "action": "Process WO 41919 (FMH AMETEK) and WO 41934 (IMPERIAL MACHINE & TOOL) first \u2014 both Critical, no runway. Stage capacity for 12 incoming jobs from Pre-Clean.",
+    "what": "AR 14.3% (YELLOW) \u2014 2 aging jobs out of 14 in-house. WO 41919 (FMH AMETEK) and WO 41934 (IMPERIAL MACHINE & TOOL) are both Critical. 12 upcoming jobs approaching CLR Start By. CMPL 0% (GREEN) \u2014 nothing stalled here.",
+    "action": "Run WO 41919 (FMH AMETEK) and WO 41934 (IMPERIAL MACHINE & TOOL) first \u2014 both Critical. Stage for 12 incoming from Pre-Clean.",
     "ot": "not needed",
-    "otText": "2 aging WOs (both Critical) \u2014 below 5-Critical OT threshold.",
-    "upstream": "Pre-Clean: 1 aging (Critical: 1), 52 upcoming incoming."
+    "otText": "2 Critical aging WOs \u2014 below 5-Critical threshold.",
+    "upstream": "Pre-Clean: 1 aging (Critical), 52 upcoming incoming."
   },
   "Packaging": {
-    "what": "AR 33.3% (RED) \u2014 13 aging jobs out of 39 in-house. ALL 13 aging jobs are Critical: WO 41865 (MACKENZIE AIRCRAFT), WO 41872 (PRISM AEROSPACE), WO 41873 & 41875 (KAP MFG), WO 41876 (QED/INC), WO 41881 & 41882 (RAH INDUSTRIES), WO 41842 (ELECTRON BEAM ENG), WO 41845 (OMW CORP), WO 41860 (SECO SEALS), WO 41864 (PEGASUS MFG), WO 41817 (SENIOR AEROSPACE), WO 41819 (ARROWHEAD PRODUCTS). 25 more upcoming jobs approaching Packaging Start By. CMPL ratio 12.8% (GREEN) \u2014 some completed work queued for Shipping.",
-    "action": "All hands on Packaging \u2014 13 Critical aging jobs with no runway. Prioritize: WO 41817 (SENIOR AEROSPACE), WO 41872 (PRISM AEROSPACE), WO 41864 (PEGASUS). Work through all 13 aging WOs before any new intake. Flag 25 incoming to Erick \u2014 wave is hitting now. Escalate if throughput falls behind: OT recommended.",
+    "what": "AR 33.3% (RED) \u2014 13 aging jobs out of 39 in-house. ALL 13 aging WOs are Critical: WO 41865 (MACKENZIE AIRCRAFT), WO 41872 (PRISM AEROSPACE), WO 41873 & 41875 (KAP MFG), WO 41876 (QED/INC), WO 41881 & 41882 (RAH INDUSTRIES), WO 41842 (ELECTRON BEAM ENG), WO 41845 (OMW CORP), WO 41860 (SECO SEALS), WO 41864 (PEGASUS MFG), WO 41817 (SENIOR AEROSPACE), WO 42019 (ARROWHEAD PRODUCTS). 25 more upcoming jobs approaching PKG Start By. CMPL 12.8% (GREEN).",
+    "action": "All hands on Packaging. Lead with WO 41817 (SENIOR AEROSPACE), WO 41872 (PRISM AEROSPACE), WO 41864 (PEGASUS MFG). Clear all 13 Critical aging WOs before taking new work. Alert Erick: 25 more incoming on top of this. OT required.",
     "ot": "recommended",
-    "otText": "13 Critical aging jobs \u2014 OT recommended to clear backlog.",
-    "upstream": "Cleanroom: 2 aging (Critical: 2), 12 upcoming incoming. Pre-Clean: 1 aging, 52 upcoming \u2014 large wave building."
+    "otText": "13 Critical aging jobs \u2014 OT recommended to clear backlog before wave of 25 incoming hits.",
+    "upstream": "Cleanroom: 2 aging (both Critical), 12 upcoming. Pre-Clean: 1 aging, 52 upcoming building."
   },
   "Shipping": {
-    "what": "AR 12.5% (GREEN) \u2014 4 aging jobs out of 32 in-house. All 4 aging WOs are Critical: WO 41964 (MARPLES GEARS), WO 41840 (QED/INC), WO 41893 (NUSPACE), WO 41907 (POLYMER CONCEPTS). CMPL ratio 62.5% (BLACK) \u2014 20 of 32 Shipping jobs are completed-not-shipped. This is a severe flow blockage: work is done but not going out. 25 upcoming jobs approaching Shipping Start By adding further pressure.",
-    "action": "Ship WO 41964 (MARPLES GEARS), WO 41840 (QED/INC), WO 41893 (NUSPACE), WO 41907 (POLYMER CONCEPTS) \u2014 all Critical. Address the 20 completed-not-shipped jobs immediately \u2014 this BLACK CMPL is the most urgent flow issue in the building. Identify what is blocking those 20 completed jobs: missing paperwork, certs, or customer holds? Resolve and get them out today.",
+    "what": "AR 12.5% (GREEN) \u2014 4 aging jobs out of 32 in-house. All 4 aging WOs are Critical: WO 41964 (MARPLES GEARS), WO 41840 (QED/INC), WO 41893 (NUSPACE), WO 41907 (POLYMER CONCEPTS). CRITICAL CMPL ISSUE: 20 of 32 Shipping jobs are completed-not-shipped \u2014 62.5% CMPL (BLACK). Work is done but not leaving. 25 upcoming jobs approaching SHP Start By.",
+    "action": "Ship WO 41964 (MARPLES GEARS), WO 41840 (QED/INC), WO 41893 (NUSPACE), WO 41907 (POLYMER CONCEPTS) \u2014 all Critical now. Investigate all 20 completed-not-shipped jobs immediately \u2014 identify what's blocking each: missing certs, paperwork, customer CODs, or holds. Resolve and ship today.",
     "ot": "not needed",
-    "otText": "Only 4 aging WOs, AR in GREEN \u2014 but CMPL BLACK demands immediate leadership attention.",
-    "upstream": "Packaging: 13 aging (all Critical), 25 upcoming. Wave will hit Shipping after Packaging clears."
+    "otText": "AR is GREEN (4 aging) but 20 completed-not-shipped jobs (BLACK CMPL) demand immediate leadership attention \u2014 not an OT issue, an execution issue.",
+    "upstream": "Packaging: 13 aging (all Critical), 25 upcoming. Large wave hitting Shipping after Packaging clears."
   },
   "Lab Testing": {
-    "what": "AR 0.0% (GREEN) \u2014 0 aging jobs out of 1 in-house. No aging or pressure signals. Lab is clear.",
+    "what": "AR 0.0% (GREEN) \u2014 0 aging jobs out of 1 in-house. No pressure signals. Lab is clear.",
     "action": "No action required. Monitor for new intake.",
     "ot": "n/a",
     "otText": "No aging jobs.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 60.0% (BLACK) \u2014 6 aging jobs out of 10 in-house. 5 Critical: WO 41953 & 41929 & 41954 & 41955 (ARROWHEAD PRODUCTS), WO 41951 (SAINT GOBAIN). 1 On Track: WO 41936 (RBC-INDUSTRIAL TECTONICS). Customer-controlled department \u2014 Assembly depends on customer action to proceed.",
-    "action": "Escalate WO 41951 (SAINT GOBAIN) and all ARROWHEAD PRODUCTS WOs (41953, 41929, 41954, 41955) \u2014 contact customers for release/go-ahead. Document customer-hold status for each Critical WO. Cannot move without customer action \u2014 prioritize outreach today.",
+    "what": "AR 60.0% (BLACK) \u2014 6 aging jobs out of 10 in-house. 5 Critical (customer-controlled): WO 41929, 41953, 41954, 41955 (ARROWHEAD PRODUCTS), WO 41951 (SAINT GOBAIN). 1 On Track: WO 41936 (RBC-INDUSTRIAL TECTONICS). Assembly depends on customer action \u2014 cannot move without customer release.",
+    "action": "Contact ARROWHEAD PRODUCTS on WO 41929, 41953, 41954, 41955 \u2014 all Critical, all waiting on customer. Contact SAINT GOBAIN on WO 41951 \u2014 Critical. Document hold status for each. Escalate if no response today.",
     "ot": "n/a",
     "otText": "Customer-controlled department \u2014 OT does not apply.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 100.0% (BLACK) \u2014 1 aging job out of 1 in-house. WO 41904 (SAINT GOBAIN) is Critical. Customer-controlled \u2014 job is waiting on outside source.",
-    "action": "Contact SAINT GOBAIN on WO 41904 \u2014 Critical, customer-controlled. Escalate if no response within the day. Document hold status.",
+    "what": "AR 100.0% (BLACK) \u2014 1 aging job out of 1 in-house. WO 41904 (SAINT GOBAIN) is Critical. Customer-controlled \u2014 job waiting on outside source material.",
+    "action": "Contact SAINT GOBAIN on WO 41904 \u2014 Critical, source hold. Escalate if no update by end of day. Document hold status.",
     "ot": "n/a",
     "otText": "Customer-controlled department \u2014 OT does not apply.",
     "upstream": null
   }
-}
 };
 
 // ─── GENERATED TIME ───
