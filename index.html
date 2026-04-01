@@ -175,66 +175,66 @@ const DATA = {"reportDate": "03/31/2026", "overall": {"totalJobs": 187, "agingJo
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-  "Shipping": {
-    what: "8 aging jobs \u2014 AR at 21.6% (RED). 7 Critical, 1 Past Due. CMPL at 59.5% (BLACK): 22 of 37 Shipping jobs are completed-not-shipped and not moving. Past Due: WO 41670 (ALLAN AIRCRAFT SUPPLY) \u2014 5 biz days overdue, Start By was 03/20. Critical with milestone already passed: WO 41845 (OMW CORP, msBD=-1, due 04/01), WO 41856 (PACIFIC CONSOLIDATED INDUSTRIES, msBD=-1, due 04/01), WO 41858 (QED/INC, msBD=-1, due 04/01), WO 41860 (SECO SEALS, msBD=-1, due 04/01), WO 41964 (MARPLES GEARS, msBD=-2, due 04/03). Critical with Start By today: WO 41865 (MACKENZIE AIRCRAFT PARTS, msBD=0, due 04/02), WO 41872 (PRISM AEROSPACE SUN VALLEY, msBD=0, due 04/02). 29 non-aging jobs approaching Shipping Start By.",
-    action: "1) Ship WO 41670 (ALLAN AIRCRAFT SUPPLY) now \u2014 5 biz days past due. 2) Ship WO 41845/41856/41858/41860 (OMW CORP, PCI, QED/INC, SECO SEALS) today \u2014 milestone passed, all due 04/01. 3) Ship WO 41964 (MARPLES GEARS) today \u2014 Start By was 2 biz days ago, due 04/03. 4) Start WO 41865/41872 (MACKENZIE AIRCRAFT, PRISM AEROSPACE SUN VALLEY) today \u2014 Start By is today, due 04/02. 5) Clear completed-not-shipped backlog \u2014 CMPL BLACK at 59.5%, 22 jobs sitting done.",
-    ot: "recommended",
-    otText: "7 Critical aging + 1 Past Due. BLACK CMPL. OT needed to clear backlog and ship before additional jobs go past due.",
-    upstream: "Packaging has 1 aging Critical (WO 41993 ALLAN AIRCRAFT, Hot Expedite, due 04/01) and 27 jobs incoming."
-  },
-  "Packaging": {
-    what: "1 aging job \u2014 WO 41993 (ALLAN AIRCRAFT SUPPLY, Hot Expedite): msBD=-1 (PCK Start By was yesterday 03/30), due 04/01 (1 biz day). Reschedule burned \u2014 Critical flag applied after escalation. 27 non-aging jobs approaching Packaging Start By.",
-    action: "1) Prioritize WO 41993 (ALLAN AIRCRAFT SUPPLY, Hot Expedite) \u2014 package immediately, milestone passed yesterday, due tomorrow 04/01. 2) Notify Shipping (Luis) once packaged. 3) Prepare for 27 incoming jobs.",
-    ot: "not needed",
-    otText: "1 Critical aging job with imminent due date. OT not warranted unless WO 41993 cannot be completed during shift.",
-    upstream: "Cleanroom has 0 aging, 11 jobs incoming. Pre-Clean has 1 Critical aging (WO 41752 SAUER MECHANICAL, due today) and 50 jobs approaching."
-  },
-  "Receiving/Inspection": {
-    what: "1 aging job \u2014 WO 42033 (D.P. TOOL): received 03/27 (msBD=-2, 2 biz days past receipt threshold), due 04/10 (8 biz days). On Track \u2014 sufficient runway. 18 expedites in-house across all departments. 23 jobs received today \u2014 strong intake. No jobs approaching RI Start By from upcoming queue.",
-    action: "1) Move WO 42033 (D.P. TOOL) to Pre-Clean \u2014 received 03/27, dwell cleared. 2) Process today\u2019s 23 incoming jobs promptly to prevent new dwell aging.",
-    ot: "not needed",
-    otText: "1 On Track aging job. Intake is high at 23 received today \u2014 monitor but no OT needed now.",
-    upstream: null
-  },
-  "Pre-Clean": {
-    what: "1 aging job \u2014 WO 41752 (SAUER MECHANICAL LLC): msBD=-6 (PCL Start By was 03/23, 6 biz days overdue), due today 03/31 (dueBD=0). Reschedule burned \u2014 already escalated to Critical. CMPL at 13% (YELLOW): 7 jobs completed-not-shipped, not flowing to Cleanroom. 50 non-aging jobs approaching Pre-Clean Start By \u2014 major pipeline pressure incoming.",
-    action: "1) Escalate WO 41752 (SAUER MECHANICAL) immediately \u2014 due today, milestone 6 biz days past, burned reschedule. 2) Release 7 completed-not-shipped jobs to Cleanroom \u2014 CMPL YELLOW at 13%. 3) Prepare for 50 incoming jobs approaching Pre-Clean Start By.",
-    ot: "not needed",
-    otText: "1 Critical aging job due today. Incoming pressure is high at 50 jobs. Monitor closely but OT not yet warranted for aging alone.",
-    upstream: "RI has 1 aging job (On Track, WO 42033 D.P. TOOL) and 23 received today. Expect continued flow from RI."
-  },
-  "Cleanroom": {
-    what: "No aging jobs \u2014 AR at 0.0% (GREEN). 11 non-aging jobs approaching Cleanroom Start By. Clean signal. Expect throughput from Pre-Clean once WO 41752 (SAUER MECHANICAL) and the 50 incoming jobs push through Pre-Clean.",
-    action: "1) Receive Pre-Clean output as it clears \u2014 WO 41752 (SAUER MECHANICAL, due today) should move imminently. 2) Maintain capacity for 11 incoming jobs approaching Cleanroom Start By.",
-    ot: "not needed",
-    otText: "Zero aging jobs. No OT warranted.",
-    upstream: "Pre-Clean has 1 Critical aging job (WO 41752 SAUER MECHANICAL, due today) + 50 incoming approaching + 7 CMPL backlog to clear."
-  },
-  "Lab Testing": {
-    what: "No aging jobs \u2014 AR at 0.0% (GREEN). 2 total jobs. No signal activity.",
-    action: "No action required. Monitor for new intake.",
-    ot: "not needed",
-    otText: "Zero aging jobs.",
-    upstream: null
-  },
-  "Assembly": {
-    what: "1 aging job \u2014 WO 41951 (SAINT GOBAIN): due 04/01 (1 biz day). Critical. Customer-hold department. AR at 16.7% (YELLOW).",
-    action: "1) Contact SAINT GOBAIN regarding WO 41951 \u2014 due 04/01, Critical. Confirm customer release or parts availability status.",
-    ot: "n/a",
-    otText: "Customer-controlled department.",
-    upstream: null
-  },
-  "Source": {
-    what: "2 aging jobs \u2014 100% AR (BLACK). WO 41904 (SAINT GOBAIN): due today 03/31 (dueBD=0), Critical \u2014 source window has closed. WO 41918 (PEGASUS MANUFACTURING): due 04/06 (4 biz days), Tight. Customer-hold department.",
-    action: "1) Contact SAINT GOBAIN (WO 41904) immediately \u2014 source due today, Critical. Escalate if parts not confirmed. 2) Contact PEGASUS MANUFACTURING (WO 41918) \u2014 due 04/06, Tight, source window closing.",
-    ot: "n/a",
-    otText: "Customer-controlled department.",
-    upstream: null
-  }
+    "Shipping": {
+      what: "AR 21.6% \u2014 8 aging of 37 in-house. Flag breakdown: 7 Critical, 1 Past Due. 8 jobs past SHP Start By, worst 7 biz days behind. WO 41670 (ALLAN AIRCRAFT SUPPLY) is Past Due \u2014 due 03/24, 5 biz days late. 22 completed jobs (59.5%) still in Shipping \u2014 not yet shipped. 29 upcoming jobs approaching SHP Start By.",
+      action: "Ship WO 41670 (ALLAN AIRCRAFT SUPPLY) immediately \u2014 5 days past due. Ship WO 41964 (MARPLES GEARS INC.) today \u2014 SHP Start By was 2 biz days ago, due 04/03. Ship WO 41865 (MACKENZIE AIRCRAFT PARTS) today \u2014 SHP Start By was 0 biz days ago, due 04/02. Ship WO 41872 (PRISM AEROSPACE SUN VALLEY) today \u2014 SHP Start By was 0 biz days ago, due 04/02. Ship WO 41845 (OMW CORPORATION) today \u2014 SHP Start By was 1 biz days ago, due 04/01. Ship WO 41856 (PACIFIC CONSOLIDATED INDUSTRIES) today \u2014 SHP Start By was 1 biz days ago, due 04/01. Ship WO 41858 (QED/INC) today \u2014 SHP Start By was 1 biz days ago, due 04/01. Ship WO 41860 (SECO SEALS) today \u2014 SHP Start By was 1 biz days ago, due 04/01. Clear 22 completed-not-shipped jobs \u2014 verify paperwork and push out the door.",
+      ot: "recommended",
+      otText: "7 Critical jobs require immediate shipping action.",
+      upstream: "Packaging has 1 aging (1 Critical), 27 upcoming."
+    },
+    "Packaging": {
+      what: "AR 3.4% \u2014 1 aging of 29 in-house. Flag breakdown: 1 Critical. WO 41993 (ALLAN AIRCRAFT SUPPLY) Critical \u2014 PCK Start By was 1 biz days ago, due 04/01. Priority: Hot Expedite. Burned reschedule. 27 upcoming jobs approaching PCK Start By.",
+      action: "Start packaging WO 41993 (ALLAN AIRCRAFT SUPPLY) now \u2014 Hot Expedite, due 04/01. Prepare for 27 incoming jobs hitting PCK Start By soon.",
+      ot: "not needed",
+      otText: "1 aging job(s) with manageable load.",
+      upstream: "Cleanroom has 0 aging, 11 upcoming. Pre-Clean has 1 aging, 50 upcoming."
+    },
+    "Receiving/Inspection": {
+      what: "AR 2.9% \u2014 1 dwell-aging of 35 in-house. Flag breakdown: 1 On Track. 23 received today, 20 received on 03/30. WO 42033 (D.P. TOOL) \u2014 dwell 2 biz days, due 04/10, On Track.",
+      action: "Process WO 42033 (D.P. TOOL) \u2014 due 04/10, On Track.",
+      ot: "not needed",
+      otText: "1 dwell-aging job(s). Manageable load with 23 new receipts.",
+      upstream: null
+    },
+    "Pre-Clean": {
+      what: "AR 1.9% \u2014 1 aging of 54 in-house. Flag breakdown: 1 Critical. WO 41752 (SAUER MECHANICAL, LLC) Critical \u2014 PCL Start By was 6 biz days ago, due 03/31. Burned reschedule. 50 upcoming jobs approaching PCL Start By.",
+      action: "Start pre-clean on WO 41752 (SAUER MECHANICAL, LLC) immediately \u2014 6 days past PCL Start By. Prepare for 50 incoming jobs hitting PCL Start By soon \u2014 heavy wave incoming.",
+      ot: "not needed",
+      otText: "1 aging job(s) but 50 upcoming \u2014 monitor closely.",
+      upstream: "RI has 1 dwell-aging. 23 received today. No RI upcoming."
+    },
+    "Cleanroom": {
+      what: "AR 0.0% \u2014 0 aging of 11 in-house. 11 upcoming jobs approaching CLR Start By.",
+      action: "Prepare for 11 incoming jobs hitting CLR Start By soon.",
+      ot: "not needed",
+      otText: "No aging jobs. 11 upcoming \u2014 monitor.",
+      upstream: "Pre-Clean has 1 aging, 50 upcoming."
+    },
+    "Lab Testing": {
+      what: "AR 0.0% \u2014 0 aging of 2 in-house.",
+      action: "No aging jobs. Continue normal processing.",
+      ot: "n/a",
+      otText: "Offline department \u2014 OT not applicable.",
+      upstream: null
+    },
+    "Assembly": {
+      what: "AR 16.7% \u2014 1 aging of 6 in-house (customer hold). Flag breakdown: 1 Critical. WO 41951 (SAINT GOBAIN) Critical \u2014 due 04/01, 1 biz days.",
+      action: "Contact SAINT GOBAIN for WO 41951 \u2014 assembly needed by 04/01.",
+      ot: "n/a",
+      otText: "Customer-controlled department.",
+      upstream: null
+    },
+    "Source": {
+      what: "AR 100.0% \u2014 2 aging of 2 in-house (customer hold). Flag breakdown: 1 Tight, 1 Critical. WO 41918 (PEGASUS MANUFACTURING) Tight \u2014 due 04/06, 4 biz days. WO 41904 (SAINT GOBAIN) Critical \u2014 due 03/31, 0 biz days.",
+      action: "Monitor WO 41918 (PEGASUS MANUFACTURING) \u2014 due 04/06. Escalate WO 41904 (SAINT GOBAIN) \u2014 due 03/31, source parts needed now.",
+      ot: "n/a",
+      otText: "Customer-controlled department.",
+      upstream: null
+    }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "09:51 PM PDT";
+const GENERATED_TIME = "10:27 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
