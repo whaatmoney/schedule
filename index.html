@@ -175,7 +175,64 @@ const DATA = {"reportDate": "04/02/2026", "overall": {"totalJobs": 191, "agingJo
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-{"Shipping": {"what": "AR 14.3% YELLOW \u2014 6 aging, all 6 Critical. Customers: Engineered Machining Solutions (WO 41910, 41911), Imperial Machine & Tool (WO 41931, 41932, 41934), Marples Gears (WO 41964). 34 jobs approaching SHP Start By \u2014 heavy dock pressure. 13 completed-not-shipped (RED). No burned reschedules.", "action": "Ship all 6 Critical WOs immediately. Engineered Machining: 41910, 41911. Imperial Machine & Tool: 41931, 41932, 41934. Marples Gears: 41964. Triage completed-not-shipped queue to free dock capacity. Contact customers on any release holds blocking movement.", "ot": "recommended", "otText": "6 Critical aging with 34 incoming \u2014 overtime warranted to clear dock.", "upstream": "Packaging has 2 aging (both Critical) and 16 incoming jobs feeding Shipping."}, "Packaging": {"what": "AR 10.0% GREEN \u2014 2 aging, both Critical: Pegasus Manufacturing (WO 41918), Tecma (WO 41905). 16 jobs approaching PCK Start By. Cleanroom has 14 incoming to feed this queue.", "action": "Package WO 41918 (Pegasus) and WO 41905 (Tecma) immediately \u2014 both Critical and blocking Shipping. Stage the next wave from 16 incoming jobs. Coordinate with Erick on Cleanroom handoffs.", "ot": "not needed", "otText": "2 Critical is manageable at current pace.", "upstream": "Cleanroom has 0 aging and 14 incoming jobs feeding Packaging. Pre-Clean has 1 Critical aging and 49 incoming feeding the pipeline."}, "Pre-Clean": {"what": "AR 1.9% GREEN \u2014 1 aging: WO 41982 (Sauer Mechanical), Critical. 49 jobs approaching PCL Start By \u2014 largest incoming queue in the building. RI cleared with 0 dwell-aging; 19 received today feed next wave.", "action": "Start WO 41982 (Sauer Mechanical) immediately \u2014 Critical. Sequence the 49 incoming jobs by priority: Hot Expedites, then Expedites, then standard by due date. Coordinate with Jorge on capacity planning for this wave.", "ot": "not needed", "otText": "1 Critical aging \u2014 manageable, but monitor incoming volume.", "upstream": "RI has 0 dwell-aging with 19 received today entering the queue. 2 expedites in RI (42114 Arrowhead, 41866 PDT Ametek) routing to Pre-Clean."}, "Cleanroom": {"what": "AR 0.0% GREEN \u2014 0 aging. 14 jobs approaching CLR Start By. Upstream Pre-Clean has 1 Critical aging and 49 incoming.", "action": "No aging \u2014 maintain throughput. Process 14 incoming jobs in priority order (Expedites first). Stay ahead of Pre-Clean handoffs to prevent Packaging stall.", "ot": "not needed", "otText": "0 aging; no overtime needed.", "upstream": "Pre-Clean has 1 aging (Critical) and 49 incoming feeding Cleanroom."}, "Receiving/Inspection": {"what": "AR 0.0% GREEN \u2014 0 dwell-aging. 19 received today; 28 received 04/01. 2 expedites in RI: WO 42114 (Arrowhead Products \u2014 Hot Expedite), WO 41866 (PDT Ametek \u2014 Expedite). Same-day clearance holding.", "action": "Inspect and route all 19 today's receipts. Push 42114 (Arrowhead \u2014 Hot Expedite) and 41866 (PDT Ametek \u2014 Expedite) to Pre-Clean first. Keep dwell at zero with back-to-back intake.", "ot": "not needed", "otText": "0 dwell-aging; high intake volume clearing same-day.", "upstream": null}, "Lab Testing": {"what": "AR 0.0% GREEN \u2014 0 aging, 2 jobs in lab. Customer-paced; no action required.", "action": "No action required. Monitor for due-date changes.", "ot": "n/a", "otText": "Customer-controlled \u2014 OT not applicable.", "upstream": null}, "Assembly": {"what": "AR 20.0% YELLOW \u2014 1 aging: WO 42023 (Saint Gobain), Reschedule Window. Customer-controlled hold.", "action": "Contact Saint Gobain on WO 42023 \u2014 commit to a reschedule date or get release authorization. This is customer-controlled; escalate if no response.", "ot": "n/a", "otText": "Customer-controlled \u2014 OT not applicable.", "upstream": null}, "Source": {"what": "AR 0.0% GREEN \u2014 0 aging, 1 job at source. Customer-controlled.", "action": "No action required. Monitor for due-date changes.", "ot": "n/a", "otText": "Customer-controlled \u2014 OT not applicable.", "upstream": null}}
+
+  "Shipping": {
+    "what": "AR 14.3% YELLOW \u2014 6 aging, all 6 Critical. Customers: Engineered Machining Solutions (WO 41910, 41911), Imperial Machine & Tool (WO 41931, 41932, 41934), Marples Gears (WO 41964). 34 jobs approaching SHP Start By \u2014 heavy dock pressure. 13 completed-not-shipped (RED). No burned reschedules.",
+    "action": "Ship all 6 Critical WOs immediately. Engineered Machining: 41910, 41911. Imperial Machine & Tool: 41931, 41932, 41934. Marples Gears: 41964. Triage completed-not-shipped queue to free dock capacity. Contact customers on any release holds blocking movement.",
+    "ot": "recommended",
+    "otText": "6 Critical aging with 34 incoming \u2014 overtime warranted to clear dock.",
+    "upstream": "Packaging has 2 aging (both Critical) and 16 incoming jobs feeding Shipping."
+  },
+  "Packaging": {
+    "what": "AR 10.0% GREEN \u2014 2 aging, both Critical: Pegasus Manufacturing (WO 41918), Tecma (WO 41905). 16 jobs approaching PCK Start By. Cleanroom has 14 incoming to feed this queue.",
+    "action": "Package WO 41918 (Pegasus) and WO 41905 (Tecma) immediately \u2014 both Critical and blocking Shipping. Stage the next wave from 16 incoming jobs. Coordinate with Erick on Cleanroom handoffs.",
+    "ot": "not needed",
+    "otText": "2 Critical is manageable at current pace.",
+    "upstream": "Cleanroom has 0 aging and 14 incoming jobs feeding Packaging. Pre-Clean has 1 Critical aging and 49 incoming feeding the pipeline."
+  },
+  "Pre-Clean": {
+    "what": "AR 1.9% GREEN \u2014 1 aging: WO 41982 (Sauer Mechanical), Critical. 49 jobs approaching PCL Start By \u2014 largest incoming queue in the building. RI cleared with 0 dwell-aging; 19 received today feed next wave.",
+    "action": "Start WO 41982 (Sauer Mechanical) immediately \u2014 Critical. Sequence the 49 incoming jobs by priority: Hot Expedites, then Expedites, then standard by due date. Coordinate with Jorge on capacity planning for this wave.",
+    "ot": "not needed",
+    "otText": "1 Critical aging \u2014 manageable, but monitor incoming volume.",
+    "upstream": "RI has 0 dwell-aging with 19 received today entering the queue. 2 expedites in RI (42114 Arrowhead, 41866 PDT Ametek) routing to Pre-Clean."
+  },
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN \u2014 0 aging. 14 jobs approaching CLR Start By. Upstream Pre-Clean has 1 Critical aging and 49 incoming.",
+    "action": "No aging \u2014 maintain throughput. Process 14 incoming jobs in priority order (Expedites first). Stay ahead of Pre-Clean handoffs to prevent Packaging stall.",
+    "ot": "not needed",
+    "otText": "0 aging; no overtime needed.",
+    "upstream": "Pre-Clean has 1 aging (Critical) and 49 incoming feeding Cleanroom."
+  },
+  "Receiving/Inspection": {
+    "what": "AR 0.0% GREEN \u2014 0 dwell-aging. 19 received today; 28 received 04/01. 2 expedites in RI: WO 42114 (Arrowhead Products \u2014 Hot Expedite), WO 41866 (PDT Ametek \u2014 Expedite). Same-day clearance holding.",
+    "action": "Inspect and route all 19 today's receipts. Push 42114 (Arrowhead \u2014 Hot Expedite) and 41866 (PDT Ametek \u2014 Expedite) to Pre-Clean first. Keep dwell at zero with back-to-back intake.",
+    "ot": "not needed",
+    "otText": "0 dwell-aging; high intake volume clearing same-day.",
+    "upstream": null
+  },
+  "Lab Testing": {
+    "what": "AR 0.0% GREEN \u2014 0 aging, 2 jobs in lab. Customer-paced; no action required.",
+    "action": "No action required. Monitor for due-date changes.",
+    "ot": "n/a",
+    "otText": "Customer-controlled \u2014 OT not applicable.",
+    "upstream": null
+  },
+  "Assembly": {
+    "what": "AR 20.0% YELLOW \u2014 1 aging: WO 42023 (Saint Gobain), Reschedule Window. Customer-controlled hold.",
+    "action": "Contact Saint Gobain on WO 42023 \u2014 commit to a reschedule date or get release authorization. Escalate if no response.",
+    "ot": "n/a",
+    "otText": "Customer-controlled \u2014 OT not applicable.",
+    "upstream": null
+  },
+  "Source": {
+    "what": "AR 0.0% GREEN \u2014 0 aging, 1 job at source. Customer-controlled.",
+    "action": "No action required. Monitor for due-date changes.",
+    "ot": "n/a",
+    "otText": "Customer-controlled \u2014 OT not applicable.",
+    "upstream": null
+  }
+
 };
 
 // ─── GENERATED TIME ───
