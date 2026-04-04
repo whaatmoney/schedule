@@ -246,21 +246,6 @@ const DATA = {
       "cmplColor": "#107C10"
     },
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 22,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 21,
-      "completedNotShipped": 2,
-      "cmplPct": 9.1,
-      "cmplTier": "GREEN",
-      "cmplColor": "#107C10"
-    },
-    {
       "name": "Cleanroom",
       "lead": "Erick",
       "total": 10,
@@ -272,6 +257,21 @@ const DATA = {
       "incoming": 10,
       "completedNotShipped": 1,
       "cmplPct": 10.0,
+      "cmplTier": "GREEN",
+      "cmplColor": "#107C10"
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 22,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 21,
+      "completedNotShipped": 2,
+      "cmplPct": 9.1,
       "cmplTier": "GREEN",
       "cmplColor": "#107C10"
     },
@@ -2164,18 +2164,66 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-  "Receiving/Inspection": {"what": "17 aging in RI, AR 54.8% \u2014 BLACK. All 17 flagged On Track or better on due-date urgency, but dwell is accumulating. Tightest: WO 42154 (Allan Aircraft Supply, Reschedule Window, 3 biz days to due) and WO 42147 (Polymer Concepts, Tight, 4 biz days to due). Remainder carry 5\u20139 biz days of runway. 0 received today; 19 came in Thursday 04/02. No upcoming jobs approaching RI.", "action": "Release 42154 (Allan Aircraft Supply) first \u2014 3 biz days to due, already Reschedule Window. Clear 42147 (Polymer Concepts) next. Work the backlog in due-date order: 42052, 42151 (due 5 bd), then the 7\u20139 bd cluster. Get the 04/02 intake moving \u2014 that batch feeds PCL pressure.", "ot": "not needed", "otText": "No Critical flags and all jobs carry runway. Monitor throughput; OT not indicated today.", "upstream": null},
-  "Pre-Clean": {"what": "20 aging, ALL 20 Critical \u2014 AR 35.1%, BLACK. PCL Start By has passed or hit today for every job. Most urgent: WO 41982 (Sauer Mechanical \u2014 PCL 3 biz days behind, due in only 2 biz days), WO 42141 (Prism Aerospace \u2014 due TODAY, PCL Start By = today). Saint Gobain trio: 42112, 42113, 42142 (due 4 bd). SpaceX pair: 41511, 42045 (due 5 bd). Seytec cluster: 42055, 42056, 42057 (due 6 bd). JP Donovan 41448 (due 7 bd). 34 upcoming jobs approaching PCL Start By within 3 biz days adding downstream pressure.", "action": "Start 42141 (Prism Aerospace) immediately \u2014 due today. Escalate 41982 (Sauer Mechanical) next \u2014 PCL 3 days behind, 2 biz days to due; contact customer if re-scope needed. Attack Saint Gobain trio (42112, 42113, 42142) before end of day \u2014 4 biz days left. Stage SpaceX pair (41511, 42045) and Seytec batch (42055, 42056, 42057) in parallel. Coordinate with Jorge \u2014 34 more jobs incoming to PCL, alert Erick on Cleanroom loading.", "ot": "recommended", "otText": "All 20 aging jobs are Critical. OT required to clear backlog and absorb 34 upcoming jobs.", "upstream": "RI has 17 aging (0 Critical, all with runway). 0 received today; 19 jobs came in Thursday. RI intake will begin feeding PCL \u2014 expect continued load."},
-  "Cleanroom": {"what": "0 aging, AR 0% \u2014 GREEN. 10 jobs currently in Cleanroom with 10 upcoming. CMPL 10.0% (GREEN borderline). No aging pressure today \u2014 but Pre-Clean has 20 Critical jobs that will flow through once released.", "action": "Maintain throughput and clear completed work promptly. Watch for Pre-Clean burst \u2014 20 Critical jobs upstream. Coordinate with Erick to confirm Cleanroom capacity for incoming load.", "ot": "not needed", "otText": "No aging and healthy AR. Pre-Clean pressure may change this \u2014 reassess if PCL release rate picks up.", "upstream": "Pre-Clean: 57 total, 20 aging (all Critical), 34 incoming. High upstream pressure. Cleanroom will receive a surge when PCL begins releasing."},
-  "Packaging": {"what": "0 aging, AR 0% \u2014 GREEN. 22 total in Packaging with 21 upcoming jobs approaching PCK Start By. CMPL 9.1% (GREEN). No flags \u2014 clean department today.", "action": "Normal flow. Prioritize clearing any completed jobs to avoid CMPL creep. Prepare for 21 upcoming jobs \u2014 confirm stage space and capacity with Erick.", "ot": "not needed", "otText": "No aging. 21 upcoming jobs coming \u2014 reassess once Cleanroom releases.", "upstream": "Cleanroom: 10 total, 0 aging, 10 upcoming. No immediate pressure but Pre-Clean surge will propagate."},
-  "Shipping": {"what": "7 aging, all 7 Critical \u2014 AR 17.5%, YELLOW. Two due today: WO 41910 (Engineered Machining Solutions, SHP 1 day behind) and WO 41936 (RBC-Industrial Tectonics, SHP 1 day behind). Five due tomorrow: 41880 (Seytec), 41897 (Maynard Inc), 41937 (Allan Aircraft Supply), 41938 (Engineered Machining Solutions), 41959 (Hydraelectric Co.). 33 upcoming jobs approaching SHP Start By within 3 biz days.", "action": "Ship 41910 (Engineered Machining Solutions) and 41936 (RBC-Industrial Tectonics) today \u2014 both at due date. Stage and commit to ship tomorrow: 41880 (Seytec), 41897 (Maynard), 41937 (Allan Aircraft), 41938 (Engineered Machining), 41959 (Hydraelectric). Contact Luis to confirm tomorrow's shipments are doc-ready. Coordinate capacity for 33 incoming jobs to Shipping.", "ot": "recommended", "otText": "7 Critical jobs including 2 due today and 5 due tomorrow. OT recommended to clear today's shipments and prep tomorrow's.", "upstream": "Packaging: 22 total, 0 aging, 21 upcoming. Cleanroom surge will propagate \u2014 plan for elevated Shipping volume next 1\u20132 days."},
-  "Lab Testing": {"what": "3 total, 0 aging \u2014 AR 0%, GREEN. No flags. No upcoming. Lab is clear.", "action": "Normal flow. No action items today.", "ot": "n/a", "otText": "Lab Testing is clear with no aging jobs.", "upstream": null},
-  "Assembly": {"what": "2 aging, AR 66.7% \u2014 BLACK. Both Critical: WO 42059 and WO 42060 (Saint Gobain) \u2014 due in 2 biz days. Customer-controlled hold. No upcoming.", "action": "Contact Saint Gobain regarding 42059 and 42060 \u2014 both Critical, due in 2 biz days. Escalate to management if no response received today.", "ot": "n/a", "otText": "Customer-controlled hold. No QPC OT applicable.", "upstream": null},
-  "Source": {"what": "1 aging, AR 100% \u2014 BLACK. Critical: WO 41985 (FMH Ametek) \u2014 due in 2 biz days. Customer hold awaiting source material.", "action": "Contact FMH Ametek regarding WO 41985 \u2014 Critical, due in 2 biz days, awaiting source. Escalate if no response today.", "ot": "n/a", "otText": "Customer-controlled hold. No QPC OT applicable.", "upstream": null}
+  "Receiving/Inspection": {
+    what: "17 aging / 31 in-house \u2014 AR 54.8% (BLACK). No Critical jobs: 15 On Track (all 7\u20139 biz days to due), 1 Tight (WO 42147 Polymer Concepts, DueBD 4), 1 Reschedule Window (WO 42154 Allan Aircraft Supply, DueBD 3). No jobs approaching RI from Scheduling. 0 received today; 19 were received 04/02 and are moving through queue.",
+    action: "Escalate WO 42154 Allan Aircraft Supply now \u2014 Reschedule Window, DueBD 3, decide reschedule or commit. Watch WO 42147 Polymer Concepts \u2014 Tight, due in 4 days. Continue processing the 15 On Track jobs; all have adequate runway. Coordinate with Luis on Shipping overlap \u2014 dual coverage department.",
+    ot: "not needed",
+    otText: "No Critical jobs; 17 aging all On Track or within Tight/Reschedule Window. AR is high but dwell timing is stable.",
+    upstream: null
+  },
+  "Pre-Clean": {
+    what: "20 aging / 57 in-house \u2014 AR 35.1% (BLACK). All 20 aging jobs are Critical \u2014 every one has missed its PCL Start By. Most urgent: WO 41982 Sauer Mechanical (3 biz days behind Start By, due in 2), WO 42141 Prism Aerospace (Start By today, due today). WOs 42009 McCrometer and 42011 PDT Ametek are 1 day behind Start By, DueBD 4. Three Saint Gobain jobs (42112, 42113, 42142) at Start By today, DueBD 4. 34 upcoming non-aging jobs approaching PCL Start By \u2014 pipeline pressure building fast.",
+    action: "Start WO 41982 Sauer Mechanical immediately \u2014 3 days past Start By, due in 2 biz days. Push WO 42141 Prism Aerospace through today \u2014 due today. Begin 42009 McCrometer and 42011 PDT Ametek \u2014 1 day past Start By, DueBD 4. Work 42112, 42113, 42142 Saint Gobain today \u2014 at Start By, DueBD 4. Clear 42049 Allan Aircraft and 42064 Creative Pathways (1 day behind, DueBD 5). Push 41511 and 42045 Space Exploration (at Start By, DueBD 5). Work remaining Seytec (42055\u201342057), ISO Group 42062, Teledyne 42066, MW Components 42094, KAP 42095 (all at Start By, DueBD 6). Then JP Donovan 41448 (DueBD 7) and Orlando Spring 42028 (DueBD 11).",
+    ot: "recommended",
+    otText: "All 20 aging jobs are Critical. OT required to prevent further Start By slippage and protect due dates with 0\u20136 biz days of remaining runway.",
+    upstream: "RI has 17 aging (0 Critical, 1 Tight, 1 Reschedule Window \u2014 all manageable). 19 jobs received 04/02 are working through inspection \u2014 expect continued Pre-Clean intake. No additional upcoming jobs flagged entering RI."
+  },
+  "Cleanroom": {
+    what: "0 aging / 10 in-house \u2014 AR 0.0% (GREEN). No aging, no flags. 10 jobs are approaching CLR Start By within 3 biz days \u2014 inbound volume from Pre-Clean is on the way.",
+    action: "Prepare capacity for 10 upcoming jobs from Pre-Clean. Pre-Clean is running 20 Critical aging jobs \u2014 once Jorge's team clears the backlog, Cleanroom will see a surge. Maintain current pace and staging.",
+    ot: "not needed",
+    otText: "No aging, no Critical jobs. Monitor upcoming pressure from Pre-Clean.",
+    upstream: "Pre-Clean has 20 Critical aging (AR 35.1%) plus 34 upcoming jobs entering. Significant volume will flow into Cleanroom once Pre-Clean works through its backlog."
+  },
+  "Packaging": {
+    what: "0 aging / 22 in-house \u2014 AR 0.0% (GREEN). No aging, no flags. 21 upcoming non-aging jobs are approaching PCK Start By \u2014 pipeline is loading.",
+    action: "Prepare for 21 jobs entering Packaging. Maintain throughput. Coordinate with Erick on Cleanroom handoffs.",
+    ot: "not needed",
+    otText: "No aging, no Critical jobs. Pipeline loading from upstream is the watch item.",
+    upstream: "Cleanroom is clear (0 aging), but Pre-Clean has a 20-job Critical backlog. Once Pre-Clean clears, volume will flow through Cleanroom and into Packaging quickly."
+  },
+  "Shipping": {
+    what: "7 aging / 40 in-house \u2014 AR 17.5% (YELLOW). All 7 aging are Critical. Highest urgency: WO 41910 Engineered Machining and WO 41936 RBC-Industrial Tectonics \u2014 both due today (DueBD 0), 1 day behind Start By. Five more due tomorrow: WO 41880 Seytec, 41897 Maynard, 41937 Allan Aircraft Supply, 41938 Engineered Machining, 41959 Hydraelectric \u2014 all at Start By today, DueBD 1. 33 upcoming jobs approaching SHP Start By.",
+    action: "Ship WO 41910 (Engineered Machining) and WO 41936 (RBC-Industrial Tectonics) today \u2014 both due today. Ship WO 41880 Seytec, 41897 Maynard, 41937 Allan Aircraft Supply, 41938 Engineered Machining, and 41959 Hydraelectric by EOD tomorrow \u2014 all DueBD 1. Review 33 upcoming jobs and sequence to prevent additional aging. Coordinate with Luis \u2014 also covering RI.",
+    ot: "recommended",
+    otText: "All 7 aging jobs are Critical with 2 due today and 5 due tomorrow. OT needed to clear today's and tomorrow's obligations.",
+    upstream: "Packaging has 0 aging and 21 upcoming jobs loading \u2014 Shipping volume will increase as Packaging processes. Pre-Clean pressure (20 Critical) will flow through once cleared."
+  },
+  "Lab Testing": {
+    what: "0 aging / 3 in-house \u2014 AR 0.0% (GREEN). No aging, no flags, no upcoming jobs approaching.",
+    action: "No action required. Continue standard processing.",
+    ot: "not needed",
+    otText: "No aging, no Critical jobs.",
+    upstream: null
+  },
+  "Assembly": {
+    what: "2 aging / 3 in-house \u2014 AR 66.7% (BLACK). Both aging jobs are Critical: WO 42059 and WO 42060, Saint Gobain \u2014 both DueBD 2. Customer-controlled department. Milestone reference shows 2 biz days ahead of assembly Start By but urgency is due-date driven.",
+    action: "Contact Saint Gobain for status on WO 42059 and WO 42060 \u2014 both due in 2 biz days. If parts are not returned by Monday, escalate to management.",
+    ot: "n/a",
+    otText: "Customer-controlled department \u2014 OT not applicable.",
+    upstream: null
+  },
+  "Source": {
+    what: "1 aging / 1 in-house \u2014 AR 100.0% (BLACK). WO 41985, FMH Ametek \u2014 Critical, DueBD 2. Customer-controlled sourcing hold.",
+    action: "Contact FMH Ametek for status on WO 41985 \u2014 due in 2 biz days. Escalate if no response today.",
+    ot: "n/a",
+    otText: "Customer-controlled department \u2014 OT not applicable.",
+    upstream: null
+  }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "09:57 AM PDT";
+const GENERATED_TIME = "01:59 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
