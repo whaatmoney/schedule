@@ -174,111 +174,102 @@ table.t tr.cu{opacity:.6;}table.t tr.cu td{font-style:italic;}
 const DATA = {
   "reportDate": "04/07/2026",
   "overall": {
-    "totalJobs": 179,
-    "agingJobs": 30,
-    "ar": 16.8,
-    "receivedToday": 0,
-    "receivedYesterday": 13,
+    "totalJobs": 197,
+    "agingJobs": 9,
+    "ar": 4.6,
+    "receivedToday": 19,
+    "receivedYesterday": 12,
     "prevBizDate": "04/06",
     "flagDist": {
-      "Critical": 13,
-      "On Track": 11,
-      "Tight": 3,
-      "Reschedule Window": 1,
-      "No Date": 1,
-      "Past Due": 1
+      "Critical": 5,
+      "On Track": 2,
+      "Reschedule Window": 2
     },
     "upcomingCount": 0,
-    "expediteCount": 10,
+    "expediteCount": 15,
     "mrbCount": 14,
-    "completedNotShippedCount": 25
+    "completedNotShippedCount": 42
   },
   "departments": [
     {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 10,
+      "aging": 1,
+      "ar": 10.0,
+      "flags": {
+        "Critical": 1
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 0,
+      "completedNotShipped": 0,
+      "cmplPct": 0.0,
+      "cmplTier": "GREEN",
+      "cmplColor": "#107C10"
+    },
+    {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 31,
-      "aging": 17,
-      "ar": 54.8,
+      "total": 26,
+      "aging": 2,
+      "ar": 7.7,
       "flags": {
-        "On Track": 11,
-        "Tight": 3,
-        "Reschedule Window": 1,
+        "On Track": 2
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 0,
+      "completedNotShipped": 5,
+      "cmplPct": 19.2,
+      "cmplTier": "YELLOW",
+      "cmplColor": "#C19C00"
+    },
+    {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 67,
+      "aging": 2,
+      "ar": 3.0,
+      "flags": {
         "Critical": 1,
-        "No Date": 1
+        "Reschedule Window": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 0,
       "completedNotShipped": 4,
-      "cmplPct": 12.9,
-      "cmplTier": "GREEN",
-      "cmplColor": "#107C10"
-    },
-    {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 19,
-      "aging": 2,
-      "ar": 10.5,
-      "flags": {
-        "Critical": 1,
-        "Past Due": 1
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "completedNotShipped": 1,
-      "cmplPct": 5.3,
+      "cmplPct": 6.0,
       "cmplTier": "GREEN",
       "cmplColor": "#107C10"
     },
     {
       "name": "Shipping",
       "lead": "Luis",
-      "total": 39,
-      "aging": 4,
-      "ar": 10.3,
-      "flags": {
-        "Critical": 4
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "completedNotShipped": 12,
-      "cmplPct": 30.8,
-      "cmplTier": "RED",
-      "cmplColor": "#D13438"
-    },
-    {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 62,
-      "aging": 4,
-      "ar": 6.5,
-      "flags": {
-        "Critical": 4
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "completedNotShipped": 8,
-      "cmplPct": 12.9,
-      "cmplTier": "YELLOW",
-      "cmplColor": "#C19C00"
-    },
-    {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 5,
+      "total": 46,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 0,
-      "completedNotShipped": 0,
-      "cmplPct": 0.0,
+      "completedNotShipped": 29,
+      "cmplPct": 63.0,
+      "cmplTier": "BLACK",
+      "cmplColor": "#323130"
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 26,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 0,
+      "completedNotShipped": 4,
+      "cmplPct": 15.4,
       "cmplTier": "GREEN",
       "cmplColor": "#107C10"
     },
@@ -298,10 +289,11 @@ const DATA = {
     {
       "name": "Assembly",
       "lead": "Customer Hold",
-      "total": 4,
-      "aging": 2,
-      "ar": 50.0,
+      "total": 5,
+      "aging": 3,
+      "ar": 60.0,
       "flags": {
+        "Reschedule Window": 1,
         "Critical": 2
       },
       "isCustomerDep": true,
@@ -313,9 +305,9 @@ const DATA = {
     {
       "name": "Source",
       "lead": "Customer Hold",
-      "total": 3,
+      "total": 1,
       "aging": 1,
-      "ar": 33.3,
+      "ar": 100.0,
       "flags": {
         "Critical": 1
       },
@@ -327,22 +319,10 @@ const DATA = {
     }
   ],
   "reschedule": {
-    "totalInHouse": 179,
-    "rescheduledCount": 15,
-    "reschedulePct": 8.4,
-    "burnedAgingJobs": [
-      {
-        "wo": "41752",
-        "customer": "SAUER MECHANICAL, LLC",
-        "dept": "Packaging",
-        "dueDate": "03/31",
-        "msBD": -7,
-        "dueBD": -5,
-        "flag": "Past Due",
-        "baseFlag": "Past Due",
-        "priority": "Standard"
-      }
-    ]
+    "totalInHouse": 197,
+    "rescheduledCount": 17,
+    "reschedulePct": 8.6,
+    "burnedAgingJobs": []
   },
   "allAgingJobs": [
     {
@@ -372,201 +352,6 @@ const DATA = {
       "rescheduled": false
     },
     {
-      "wo": "41941",
-      "customer": "SPACE EXPLORATION TECHNOLOGIES",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42152",
-      "customer": "CREATIVE PATHWAYS, INC.",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42153",
-      "customer": "CREATIVE PATHWAYS, INC.",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42161",
-      "customer": "HYDRAELECTRIC CO.",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42167-1",
-      "customer": "TELEDYNE SCIENTIFIC & IMAGING",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42168",
-      "customer": "EJAY FILTRATION",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/17",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 8,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42077",
-      "customer": "SEYTEC",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/16",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 7,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42148",
-      "customer": "SEYTEC",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/16",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 7,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42137",
-      "customer": "SAINT-GOBAIN RI",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/14",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 5,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42052",
-      "customer": "AERO COMPONENT ENGINEERING",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/13",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 4,
-      "flag": "Tight",
-      "baseFlag": "Tight",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42151",
-      "customer": "BEL-AIR MACHINING CO",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/13",
-      "msDate": "04/02",
-      "msBD": -3,
-      "dueBD": 4,
-      "flag": "Tight",
-      "baseFlag": "Tight",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42169",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/13",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 4,
-      "flag": "Tight",
-      "baseFlag": "Tight",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42162",
-      "customer": "FLUID COMPONENTS INTERNATIONAL LLC",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/10",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 3,
-      "flag": "Reschedule Window",
-      "baseFlag": "Reschedule Window",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42174",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Receiving/Inspection",
-      "dueDate": "04/09",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 2,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42167-2",
-      "customer": "TELEDYNE SCIENTIFIC & IMAGING",
-      "dept": "Receiving/Inspection",
-      "dueDate": "No Date",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": null,
-      "flag": "No Date",
-      "baseFlag": "No Date",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
       "wo": "42028",
       "customer": "ORLANDO SPRING CORP",
       "dept": "Pre-Clean",
@@ -580,119 +365,41 @@ const DATA = {
       "rescheduled": false
     },
     {
-      "wo": "42056",
-      "customer": "SEYTEC",
+      "wo": "42052",
+      "customer": "AERO COMPONENT ENGINEERING",
       "dept": "Pre-Clean",
-      "dueDate": "04/14",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 5,
-      "flag": "Critical",
-      "baseFlag": "Critical",
+      "dueDate": "04/13",
+      "msDate": "04/08",
+      "msBD": 1,
+      "dueBD": 4,
+      "flag": "Reschedule Window",
+      "baseFlag": "Reschedule Window",
       "priority": "Standard",
       "rescheduled": false
     },
     {
-      "wo": "42057",
-      "customer": "SEYTEC",
-      "dept": "Pre-Clean",
-      "dueDate": "04/14",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 5,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "42094",
-      "customer": "MW COMPONENTS",
-      "dept": "Pre-Clean",
-      "dueDate": "04/14",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 5,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "41982",
-      "customer": "SAUER MECHANICAL, LLC",
-      "dept": "Packaging",
-      "dueDate": "04/08",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "41752",
-      "customer": "SAUER MECHANICAL, LLC",
-      "dept": "Packaging",
-      "dueDate": "03/31",
-      "msDate": "03/27",
-      "msBD": -7,
-      "dueBD": -5,
-      "flag": "Past Due",
-      "baseFlag": "Past Due",
-      "priority": "Standard",
-      "rescheduled": true
-    },
-    {
-      "wo": "41942",
-      "customer": "MINDRUM PRECISION, INC",
-      "dept": "Shipping",
-      "dueDate": "04/08",
+      "wo": "42014",
+      "customer": "JRI, INC",
+      "dept": "Cleanroom",
+      "dueDate": "04/13",
       "msDate": "04/06",
       "msBD": -1,
-      "dueBD": 1,
+      "dueBD": 4,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
       "rescheduled": false
     },
     {
-      "wo": "41963",
-      "customer": "PRISM AEROSPACE SUN VALLEY",
-      "dept": "Shipping",
-      "dueDate": "04/08",
-      "msDate": "04/06",
-      "msBD": -1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "41989",
-      "customer": "MARPLES GEARS INC.",
-      "dept": "Shipping",
-      "dueDate": "04/08",
-      "msDate": "04/06",
-      "msBD": -1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false
-    },
-    {
-      "wo": "41880",
-      "customer": "SEYTEC",
-      "dept": "Shipping",
-      "dueDate": "04/07",
-      "msDate": "04/03",
-      "msBD": -2,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
+      "wo": "42113",
+      "customer": "SAINT GOBAIN",
+      "dept": "Assembly",
+      "dueDate": "04/10",
+      "msDate": "04/10",
+      "msBD": 3,
+      "dueBD": 3,
+      "flag": "Reschedule Window",
+      "baseFlag": "Reschedule Window",
       "priority": "Standard",
       "rescheduled": false
     },
@@ -739,18 +446,18 @@ const DATA = {
   "upcomingJobs": [],
   "expediteJobs": [
     {
-      "wo": "42073",
-      "customer": "NUSPACE",
+      "wo": "42207",
+      "customer": "CREATIVE PATHWAYS, INC.",
       "dept": "Receiving/Inspection",
       "priority": "Expedite",
       "dueDate": "No Date"
     },
     {
-      "wo": "42181",
-      "customer": "CHEMRING ENERGETIC DEVICES",
+      "wo": "42204",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Receiving/Inspection",
       "priority": "Expedite",
-      "dueDate": "04/09"
+      "dueDate": "No Date"
     },
     {
       "wo": "42120",
@@ -760,18 +467,53 @@ const DATA = {
       "dueDate": "04/08"
     },
     {
-      "wo": "42135",
-      "customer": "PDT AMETEK",
+      "wo": "42073",
+      "customer": "NUSPACE",
       "dept": "Pre-Clean",
       "priority": "Expedite",
       "dueDate": "04/10"
     },
     {
-      "wo": "41866",
-      "customer": "PDT AMETEK",
-      "dept": "Packaging",
+      "wo": "42186",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
       "priority": "Hot Expedite",
-      "dueDate": "04/07"
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42199",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
+      "priority": "Hot Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42200",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
+      "priority": "Hot Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42135",
+      "customer": "PDT AMETEK",
+      "dept": "Cleanroom",
+      "priority": "Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42181",
+      "customer": "CHEMRING ENERGETIC DEVICES",
+      "dept": "Packaging",
+      "priority": "Expedite",
+      "dueDate": "04/09"
+    },
+    {
+      "wo": "42160",
+      "customer": "ACUTEK",
+      "dept": "Packaging",
+      "priority": "Expedite",
+      "dueDate": "04/10"
     },
     {
       "wo": "41753",
@@ -781,10 +523,10 @@ const DATA = {
       "dueDate": "04/02"
     },
     {
-      "wo": "42084",
-      "customer": "ACUTEK",
+      "wo": "41866",
+      "customer": "PDT AMETEK",
       "dept": "Shipping",
-      "priority": "Expedite",
+      "priority": "Hot Expedite",
       "dueDate": "04/07"
     },
     {
@@ -804,9 +546,9 @@ const DATA = {
     {
       "wo": "42114",
       "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Source",
+      "dept": "Assembly",
       "priority": "Hot Expedite",
-      "dueDate": "No Date"
+      "dueDate": "04/08"
     }
   ],
   "mrbJobs": [
@@ -867,10 +609,10 @@ const DATA = {
       "dueDate": "04/07"
     },
     {
-      "wo": "42160",
-      "customer": "ACUTEK",
+      "wo": "42041",
+      "customer": "ONE-WAY MANUFACTURING",
       "dept": "MRB",
-      "priority": "Expedite",
+      "priority": "Standard",
       "dueDate": "04/09"
     },
     {
@@ -881,18 +623,11 @@ const DATA = {
       "dueDate": "04/10"
     },
     {
-      "wo": "42033",
-      "customer": "D.P. TOOL",
+      "wo": "42190",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "MRB",
       "priority": "Standard",
       "dueDate": "04/10"
-    },
-    {
-      "wo": "42064",
-      "customer": "CREATIVE PATHWAYS, INC.",
-      "dept": "MRB",
-      "priority": "Standard",
-      "dueDate": "04/13"
     },
     {
       "wo": "42018",
@@ -902,6 +637,13 @@ const DATA = {
       "dueDate": "04/15"
     },
     {
+      "wo": "42077",
+      "customer": "SEYTEC",
+      "dept": "MRB",
+      "priority": "Standard",
+      "dueDate": "04/16"
+    },
+    {
       "wo": "42039",
       "customer": "JP DONOVAN CONSTRUCTION",
       "dept": "MRB",
@@ -909,35 +651,176 @@ const DATA = {
       "dueDate": "04/30"
     }
   ],
-  "receivedTodayJobs": [],
-  "completedNotShippedJobs": [
+  "receivedTodayJobs": [
     {
-      "wo": "42073",
+      "wo": "42136",
+      "customer": "SEYTEC",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42159",
+      "customer": "SEYTEC",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42188",
+      "customer": "VERIDIAM",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42198",
+      "customer": "ENGINEERED MACHINING SOLUTIONS",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42203",
       "customer": "NUSPACE",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42205",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42206",
+      "customer": "BRONSON & BRATTON, INC",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42207",
+      "customer": "CREATIVE PATHWAYS, INC.",
       "dept": "Receiving/Inspection",
       "priority": "Expedite",
       "dueDate": "No Date"
     },
     {
-      "wo": "42175",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "wo": "42212",
+      "customer": "DARMARK CORPORATION",
       "dept": "Receiving/Inspection",
       "priority": "Standard",
-      "dueDate": "04/10"
+      "dueDate": "No Date"
     },
     {
-      "wo": "42150",
-      "customer": "RUBICON GEAR",
+      "wo": "42177",
+      "customer": "SAINT-GOBAIN RI",
       "dept": "Receiving/Inspection",
       "priority": "Standard",
       "dueDate": "04/15"
     },
     {
-      "wo": "42126",
-      "customer": "JBW PRECISION INC",
+      "wo": "42194",
+      "customer": "SONFARREL, INC.",
       "dept": "Receiving/Inspection",
       "priority": "Standard",
+      "dueDate": "04/21"
+    },
+    {
+      "wo": "42196",
+      "customer": "ACUTEK",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/21"
+    },
+    {
+      "wo": "42197",
+      "customer": "ACUTEK",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/21"
+    },
+    {
+      "wo": "42204",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Receiving/Inspection",
+      "priority": "Expedite",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42202",
+      "customer": "SAINT GOBAIN",
+      "dept": "Pre-Clean",
+      "priority": "Standard",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42186",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
+      "priority": "Hot Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42199",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
+      "priority": "Hot Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42200",
+      "customer": "CREATIVE PATHWAYS, INC.",
+      "dept": "Pre-Clean",
+      "priority": "Hot Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42201",
+      "customer": "SAINT GOBAIN",
+      "dept": "Pre-Clean",
+      "priority": "Standard",
       "dueDate": "04/16"
+    }
+  ],
+  "completedNotShippedJobs": [
+    {
+      "wo": "42204",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Receiving/Inspection",
+      "priority": "Expedite",
+      "dueDate": "No Date"
+    },
+    {
+      "wo": "42158",
+      "customer": "DRAKE PLASTICS LTD. CO.",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "41941",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/17"
+    },
+    {
+      "wo": "42167-1",
+      "customer": "TELEDYNE SCIENTIFIC & IMAGING",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/17"
+    },
+    {
+      "wo": "42185",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Receiving/Inspection",
+      "priority": "Standard",
+      "dueDate": "04/17"
     },
     {
       "wo": "40495",
@@ -954,53 +837,46 @@ const DATA = {
       "dueDate": "04/08"
     },
     {
-      "wo": "42041",
-      "customer": "ONE-WAY MANUFACTURING",
+      "wo": "42009",
+      "customer": "MCCROMETER",
       "dept": "Pre-Clean",
+      "priority": "Standard",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "42073",
+      "customer": "NUSPACE",
+      "dept": "Pre-Clean",
+      "priority": "Expedite",
+      "dueDate": "04/10"
+    },
+    {
+      "wo": "41999",
+      "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
+      "dept": "Packaging",
       "priority": "Standard",
       "dueDate": "04/09"
     },
     {
-      "wo": "42113",
-      "customer": "SAINT GOBAIN",
-      "dept": "Pre-Clean",
+      "wo": "42007",
+      "customer": "PRISM AEROSPACE SUN VALLEY",
+      "dept": "Packaging",
       "priority": "Standard",
       "dueDate": "04/10"
     },
     {
-      "wo": "42143",
-      "customer": "SAINT GOBAIN",
-      "dept": "Pre-Clean",
-      "priority": "Standard",
-      "dueDate": "04/10"
-    },
-    {
-      "wo": "42045",
+      "wo": "41511",
       "customer": "SPACE EXPLORATION TECHNOLOGIES",
-      "dept": "Pre-Clean",
+      "dept": "Packaging",
       "priority": "Standard",
       "dueDate": "04/13"
     },
     {
-      "wo": "42066",
-      "customer": "TELEDYNE SCIENTIFIC & IMAGING",
-      "dept": "Pre-Clean",
-      "priority": "Standard",
-      "dueDate": "04/14"
-    },
-    {
-      "wo": "42095",
-      "customer": "KAP MANUFACTURING",
-      "dept": "Pre-Clean",
-      "priority": "Standard",
-      "dueDate": "04/14"
-    },
-    {
-      "wo": "41866",
-      "customer": "PDT AMETEK",
+      "wo": "42047",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
       "dept": "Packaging",
-      "priority": "Hot Expedite",
-      "dueDate": "04/07"
+      "priority": "Standard",
+      "dueDate": "04/13"
     },
     {
       "wo": "41740",
@@ -1038,6 +914,13 @@ const DATA = {
       "dueDate": "04/06"
     },
     {
+      "wo": "41911",
+      "customer": "ENGINEERED MACHINING SOLUTIONS",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/06"
+    },
+    {
       "wo": "41918",
       "customer": "PEGASUS MANUFACTURING",
       "dept": "Shipping",
@@ -1059,8 +942,64 @@ const DATA = {
       "dueDate": "04/06"
     },
     {
+      "wo": "41535",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41536",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
       "wo": "41668",
       "customer": "PEGASUS MANUFACTURING",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41791",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41853",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41866",
+      "customer": "PDT AMETEK",
+      "dept": "Shipping",
+      "priority": "Hot Expedite",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41880",
+      "customer": "SEYTEC",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41897",
+      "customer": "MAYNARD INC",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41937",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Shipping",
       "priority": "Standard",
       "dueDate": "04/07"
@@ -1073,6 +1012,20 @@ const DATA = {
       "dueDate": "04/07"
     },
     {
+      "wo": "41959",
+      "customer": "HYDRAELECTRIC CO.",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
+      "wo": "41965",
+      "customer": "DARMARK CORPORATION",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/07"
+    },
+    {
       "wo": "42008",
       "customer": "AERO COMPONENT ENGINEERING",
       "dept": "Shipping",
@@ -1080,79 +1033,121 @@ const DATA = {
       "dueDate": "04/07"
     },
     {
+      "wo": "41963",
+      "customer": "PRISM AEROSPACE SUN VALLEY",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/08"
+    },
+    {
+      "wo": "41967",
+      "customer": "TAMSHELL CORP.",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/08"
+    },
+    {
+      "wo": "41978",
+      "customer": "AMENTUM SERVICES, INC.",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/08"
+    },
+    {
+      "wo": "41988",
+      "customer": "AVANS PRECISION MACHINING",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/08"
+    },
+    {
       "wo": "42017",
       "customer": "NUSPACE",
       "dept": "Shipping",
       "priority": "Standard",
       "dueDate": "04/08"
+    },
+    {
+      "wo": "42085",
+      "customer": "CB MFG & ENG, INC.",
+      "dept": "Shipping",
+      "priority": "Expedite",
+      "dueDate": "04/08"
+    },
+    {
+      "wo": "41991",
+      "customer": "GP STRATEGIES",
+      "dept": "Shipping",
+      "priority": "Standard",
+      "dueDate": "04/09"
     }
   ],
-  "riDwellAging": 17,
-  "riTotal": 17
+  "riDwellAging": 2,
+  "riTotal": 2
 };
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Receiving/Inspection": {
-    "what": "AR 54.8% BLACK \u2014 17 aging of 31 in-house. Flag breakdown: 11 On Track, 3 Tight, 1 Reschedule Window, 1 Critical, 1 No Date. Received today: 0; received yesterday (04/06): 13. CMPL 12.9% GREEN (4 completed-not-shipped). Critical: WO 42174 (ALLAN AIRCRAFT SUPPLY). Reschedule Window: WO 42162 (FLUID COMPONENTS INTERNATIONAL LLC). Tight: WO 42052, 42151, 42169 (AERO COMPONENT ENGINEERING, BEL-AIR MACHINING CO, POLYMER CONCEPTS). Expedites in RI (non-aging): WO 42073, 42181 (NUSPACE, CHEMRING ENERGETIC D).",
-    "action": "Escalate WO 42174 (ALLAN AIRCRAFT SUPPLY) immediately \u2014 Critical, must release today. Reschedule or commit on WO 42162 (FLUID COMPONENTS INTERNATIONAL) \u2014 Reschedule Window. Advance WO 42052 (AERO COMPONENT ENGINEERING), 42151 (BEL-AIR MACHINING CO), 42169 (POLYMER CONCEPTS) \u2014 all Tight. Push expedites 42073 (NUSPACE) and 42181 (CHEMRING ENERGETIC DEVICES) forward \u2014 do not let them age. 13 received 04/06 need same-day triage to avoid adding to aging pile.",
+    "what": "2 aging (7.7% AR \u2014 GREEN). Both On Track: WO 42171 (Prowse Mfg, due 04/20, 9 biz days) and WO 42172 (HRD Aero Systems, due 04/20, 9 biz days) \u2014 both received 04/03, dwell at -2 biz days. 19 jobs received today including 2 expedites (WO 42207 Creative Pathways, WO 42204 Allan Aircraft). CMPL YELLOW at 19.2% \u2014 5 completed jobs still sitting in RI.",
+    "action": "Release the 5 completed RI jobs downstream immediately \u2014 CMPL YELLOW risks becoming a handoff bottleneck. Verify due dates on WOs 42136, 42159, 42188, 42198, 42203, 42205, 42206, 42212 (received today, no due date assigned). Prioritize intake of WO 42207 (Creative Pathways Expedite) and WO 42204 (Allan Aircraft Expedite).",
     "ot": "not needed",
-    "otText": "1 Critical in RI \u2014 below OT threshold. Prioritize release order rather than extended hours.",
-    "upstream": null
+    "otText": "Both aging jobs have 9 biz days of runway. OT threshold (20+ aging in RI) not met.",
+    "upstream": "19 received today, 12 received yesterday (04/06). No Scheduling data this run \u2014 upcoming job visibility unavailable."
   },
   "Pre-Clean": {
-    "what": "AR 6.5% GREEN \u2014 4 aging of 62 in-house. All 4 aging jobs are Critical: WO 42028 (ORLANDO SPRING CORP), 42056 (SEYTEC), 42057 (SEYTEC), 42094 (MW COMPONENTS). CMPL 12.9% YELLOW (8 completed-not-shipped of 62) \u2014 above healthy threshold, completed work not flowing out of Pre-Clean fast enough. Expedites in Pre-Clean: WO 42120, 42135 (SPACE EXPLORATION TECHNOL, PDT AMETEK).",
-    "action": "Start all 4 Critical jobs now: 42028 (ORLANDO SPRING CORP), 42056 (SEYTEC), 42057 (SEYTEC), 42094 (MW COMPONENTS). Ship completed work out of Pre-Clean \u2014 CMPL at 12.9%, 8 jobs done but not flowing. Expedite 42120 (SPACE EXPLORATION TECHNOLOGIES) and 42135 (PDT AMETEK) \u2014 advance ahead of queue.",
-    "ot": "recommended",
-    "otText": "All 4 aging jobs are Critical. OT recommended to clear backlog before it cascades downstream.",
-    "upstream": "RI has 17 aging (BLACK, 54.8%) \u2014 13 received 04/06 need release. High intake pressure; expect Pre-Clean volume to build through the day."
+    "what": "2 aging (3.0% AR \u2014 GREEN). WO 42028 (Orlando Spring, 1,111 pcs, due 04/21) is Critical \u2014 PCL Start By was 04/03, now 2 biz days past milestone. WO 42052 (Aero Component Engineering, due 04/13, 4 biz days) is Reschedule Window \u2014 PCL Start By is 04/08 (tomorrow). 4 completed jobs not yet released to Cleanroom (CMPL GREEN at 6%). 3 Hot Expedites received today: WOs 42186, 42199, 42200 (Creative Pathways, all due 04/10).",
+    "action": "Start WO 42028 (Orlando Spring, 1,111 pcs) immediately \u2014 PCL milestone 2 days overdue. Confirm cleaning plan for high quantity. Start or confirm plan for WO 42052 (Aero Component Engineering) today \u2014 PCL Start By is tomorrow and due 04/13. Release completed Pre-Clean jobs to Cleanroom: WOs 40495 and 41977 (both due 04/08) are urgent. Stage WOs 42186, 42199, 42200 (Creative Pathways Hot Expedites, due 04/10) for immediate start on receipt from RI.",
+    "ot": "not needed",
+    "otText": "2 aging jobs, 1 Critical. OT threshold is 5+ Critical in department. Not met.",
+    "upstream": "RI has 26 total jobs and received 19 today \u2014 intake pressure is high. Pre-Clean should expect continued volume flow from RI."
   },
   "Cleanroom": {
-    "what": "AR 0.0% GREEN \u2014 0 aging of 5 in-house. No aging jobs. CMPL 0% GREEN. Cleanroom is clear.",
-    "action": "Monitor Pre-Clean output \u2014 4 Critical jobs in Pre-Clean will arrive. Stage capacity.",
+    "what": "1 aging (10.0% AR \u2014 GREEN). WO 42014 (JRI Inc, due 04/13, 4 biz days) is Critical \u2014 CLR Start By was 04/06 (yesterday), now 1 biz day past milestone. No completed-not-shipped jobs in Cleanroom. WO 42135 (PDT AMETEK, Expedite, due 04/10) is in Cleanroom \u2014 not yet aging but approaching.",
+    "action": "Start WO 42014 (JRI Inc) immediately \u2014 CLR milestone passed yesterday, due 04/13. Escalate to Erick for floor priority. Confirm WO 42135 (PDT AMETEK Expedite, due 04/10) is actively scheduled. Push completed Cleanroom jobs to Packaging without delay.",
     "ot": "not needed",
-    "otText": "No aging jobs in Cleanroom. No OT trigger.",
-    "upstream": "Pre-Clean has 4 aging (all Critical, AR 6.5%). Expect inflow once Pre-Clean releases. RI has 17 aging \u2014 further upstream pressure building."
+    "otText": "1 Critical job. OT threshold is 5+ Critical in department. Not met.",
+    "upstream": "Pre-Clean has 67 total jobs and 2 aging. Completed Pre-Clean jobs (WOs 40495, 41977 due 04/08) are ready to hand off \u2014 expect Cleanroom input today."
   },
   "Packaging": {
-    "what": "AR 10.5% GREEN \u2014 2 aging of 19 in-house. 1 Critical: WO 41982 (SAUER MECHANICAL, LLC). 1 Past Due: WO 41752 (SAUER MECHANICAL, LLC) \u2014 reschedule burned, due 03/31 (5 biz days past). CMPL 5.3% GREEN. Expedites in Packaging: WO 41866 (PDT AMETEK).",
-    "action": "Ship WO 41752 (SAUER MECHANICAL, LLC) immediately \u2014 Past Due, reschedule burned, 5 biz days overdue. Package WO 41982 (SAUER MECHANICAL, LLC) now \u2014 Critical. Advance expedite 41866 (PDT AMETEK).",
+    "what": "0 aging (0.0% AR \u2014 GREEN). 4 completed jobs sitting in Packaging: WO 41999 (Schlumberger, due 04/09), WO 42007 (Prism Aerospace SV, due 04/10), WO 41511 and WO 42047 (SpaceX, both due 04/13). CMPL GREEN at 15.4% \u2014 at threshold, approaching YELLOW. WO 42181 (Chemring, Expedite, due 04/09) and WO 42160 (Acutek, Expedite, due 04/10) are active expedites in Packaging.",
+    "action": "Release WO 41999 (Schlumberger, due 04/09 \u2014 tomorrow) to Shipping today. Release WO 42007 (Prism Aerospace SV, due 04/10) and confirm cert/label readiness. Ensure WO 42181 (Chemring Expedite, due 04/09) and WO 42160 (Acutek Expedite, due 04/10) are being processed. Stage WOs 41511 and 42047 (SpaceX, due 04/13) for handoff.",
     "ot": "not needed",
-    "otText": "2 aging with 1 Critical, 1 Past Due \u2014 manageable without extended hours. Prioritize WO 41752 and 41982.",
-    "upstream": "Cleanroom clear (0 aging). Pre-Clean has 4 Critical aging jobs incoming."
+    "otText": "0 aging jobs. No OT trigger.",
+    "upstream": "Cleanroom has 10 total jobs, 1 Critical aging (WO 42014). Completed Cleanroom flow expected today \u2014 Packaging should be ready to receive."
   },
   "Shipping": {
-    "what": "AR 10.3% GREEN \u2014 4 aging of 39 in-house. All 4 aging jobs are Critical: WO 41942 (MINDRUM PRECISION), 41963 (PRISM AEROSPACE SUN VALLEY), 41989 (MARPLES GEARS INC.), 41880 (SEYTEC). CMPL 30.8% RED \u2014 12 jobs completed but not yet shipped out of 39 in dept. Outbound execution lag is a real risk. 4 expedites in Shipping: WO 41753 (SAUER MECHANICAL), 42084 (ACUTEK), 42085 (CB MFG & ENG), 42097 (PRECISION ADVANCED MFG).",
-    "action": "Ship all 4 Critical WOs now: 41942 (MINDRUM PRECISION), 41963 (PRISM AEROSPACE SUN VALLEY), 41989 (MARPLES GEARS INC.), 41880 (SEYTEC). Prioritize expedites: 41753 (SAUER MECHANICAL), 42084 (ACUTEK), 42085 (CB MFG & ENG), 42097 (PRECISION ADVANCED MFG). CMPL is RED \u2014 clear the 12 completed-not-shipped jobs from the floor. Contact carriers for same-day pickups if needed.",
+    "what": "0 aging (0.0% AR \u2014 GREEN). CRITICAL OPERATIONAL FLAG: CMPL BLACK at 63% \u2014 29 of 46 Shipping jobs are complete and physically sitting in the department. This is the dominant floor risk today. Overdue completed orders: WOs 41740, 41751, 41194 (due 03/26\u201303/27), WO 41753 (Sauer Expedite, due 04/02). Today-due completed orders (12+): WOs 41535, 41536 (SpaceX), 41668 (Pegasus), 41791 (Allan Aircraft), 41853 (SpaceX), 41866 (PDT AMETEK Hot Expedite), 41880 (Seytec), 41897 (Maynard), 41937 (Allan Aircraft), 41938 (EMS), 41959 (Hydraelectric), 41965 (Darmark), 42008 (Aero Component Engineering).",
+    "action": "Ship WO 41866 (PDT AMETEK Hot Expedite, due today) first \u2014 do not end the day without this out the door. Ship all 04/07-due completed orders immediately. Escalate and resolve overdue shipments for WOs 41740, 41751, 41194, 41753 \u2014 weeks overdue, requires customer contact if holds exist. WO 41753 (Sauer Expedite, due 04/02) is particularly overdue \u2014 investigate hold or ship today.",
     "ot": "recommended",
-    "otText": "All 4 aging are Critical and CMPL is RED (30.8%). OT recommended to clear shipment backlog.",
-    "upstream": "Packaging has 2 aging (1 Critical, 1 Past Due). Expect continued inflow once Packaging clears WO 41982 and 41752."
+    "otText": "29 completed jobs sitting in Shipping including 12+ due today and 4 past due. CMPL BLACK (63%) \u2014 outbound execution risk is severe. OT recommended to clear today's shipment queue.",
+    "upstream": "Packaging has 4 completed jobs ready to hand off (WO 41999 due 04/09 is most urgent). Shipping should expect additional handoffs from Packaging today."
   },
   "Lab Testing": {
-    "what": "AR 0.0% GREEN \u2014 0 aging of 2 in-house. No aging jobs.",
-    "action": "No action required. Monitor for new arrivals.",
-    "ot": "not needed",
-    "otText": "No aging jobs. No OT trigger.",
+    "what": "0 aging (0.0% AR). 2 total jobs in Lab Testing, no flags, no CMPL signal.",
+    "action": "No action required. Monitor for due date compliance.",
+    "ot": "n/a",
+    "otText": "Lab Testing is customer-paced. OT not applicable.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 50.0% BLACK \u2014 2 aging of 4 in-house. 2 Critical: WO 42059 and 42060 (both SAINT GOBAIN). Customer-controlled \u2014 tracking and escalation only.",
-    "action": "Contact SAINT GOBAIN on WO 42059 and 42060 \u2014 both Critical, customer needs to return parts.",
+    "what": "3 aging (60.0% AR \u2014 customer hold). All Saint Gobain: WO 42059 and WO 42060 (both Critical, due 04/08, 1 biz day), WO 42113 (Reschedule Window, due 04/10, 3 biz days). WO 42114 (Arrowhead Products, Hot Expedite, due 04/08) is also in Assembly \u2014 not yet aging but critical. Assembly is customer-controlled.",
+    "action": "Contact Saint Gobain today regarding WOs 42059 and 42060 \u2014 both Critical, due tomorrow (04/08). Request updated completion or push-out confirmation. Confirm WO 42113 status and expected completion for 04/10. Escalate WO 42114 (Arrowhead Hot Expedite, due 04/08) for customer-side action today.",
     "ot": "n/a",
-    "otText": "Customer-controlled department. OT not applicable.",
+    "otText": "Assembly is customer-controlled. QPC OT does not apply.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 33.3% RED \u2014 1 aging of 3 in-house. 1 Critical: WO 41985 (FMH AMETEK). Customer-controlled \u2014 tracking only. Expedite in Source: WO 42114 (ARROWHEAD PRODUCTS).",
-    "action": "Contact FMH AMETEK on WO 41985 \u2014 Critical. Chase WO 42114 (ARROWHEAD PRODUCTS) \u2014 expedite pending source.",
+    "what": "1 aging (100% AR \u2014 customer hold). WO 41985 (FMH AMETEK, Critical, due 04/08, 1 biz day). SHP Start By was 04/06 \u2014 already past. Waiting on customer-supplied material or approval. If material arrives today it must be expedited through all departments.",
+    "action": "Contact FMH AMETEK today \u2014 WO 41985 due tomorrow (04/08), SHP milestone already passed. Confirm whether material or approval is expected today. If received, escalate immediately to expedite track through Pre-Clean \u2192 Cleanroom \u2192 Packaging \u2192 Shipping.",
     "ot": "n/a",
-    "otText": "Customer-controlled department. OT not applicable.",
+    "otText": "Source is customer-controlled. QPC OT does not apply.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "07:02 AM PDT";
+const GENERATED_TIME = "01:59 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
