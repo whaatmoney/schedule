@@ -245,23 +245,6 @@ const DATA = {
       "cmplColor": "#323130"
     },
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 10,
-      "aging": 1,
-      "ar": 10.0,
-      "flags": {
-        "Critical": 1
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 9,
-      "completedNotShipped": 0,
-      "cmplPct": 0.0,
-      "cmplTier": "GREEN",
-      "cmplColor": "#107C10"
-    },
-    {
       "name": "Pre-Clean",
       "lead": "Jorge",
       "total": 60,
@@ -275,6 +258,23 @@ const DATA = {
       "incoming": 53,
       "completedNotShipped": 3,
       "cmplPct": 5.0,
+      "cmplTier": "GREEN",
+      "cmplColor": "#107C10"
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 10,
+      "aging": 1,
+      "ar": 10.0,
+      "flags": {
+        "Critical": 1
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 9,
+      "completedNotShipped": 0,
+      "cmplPct": 0.0,
       "cmplTier": "GREEN",
       "cmplColor": "#107C10"
     },
@@ -2219,59 +2219,59 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Receiving/Inspection": {
-    "what": "AR 33.3% RED. 6 aging jobs in dwell \u2014 all flagged On Track with strong due-date runway (04/23\u201304/24). WOs: 42232 (DARMARK), 42254, 42255, 42256 (ALLAN AIRCRAFT SUPPLY), 42257 (K-V ENGINEERING), 42217 (AS & D ASTROS). 1 received today: 42271 POLYMER CONCEPTS. No RI-aged expedites. No completed-not-shipped.",
-    "action": "Release all 6 dwell-aging jobs to Pre-Clean today \u2014 all are on track but the longer they sit the worse AR gets. Intake and route 42271 POLYMER CONCEPTS received today.",
+    "what": "AR 33.3% \u2014 RED. 6 aging jobs, all On Track: WO 42232 (Darmark Corporation), 42254, 42255, 42256 (Allan Aircraft Supply x3), 42257 (K-V Engineering), 42217 (AS & D Astros). 1 job received today. No upcoming jobs approaching.",
+    "action": "Move all 6 aging WOs through intake. No escalation required \u2014 all On Track. Prioritize 42254, 42255, 42256 (Allan Aircraft x3) given repeat-customer volume. Received today: confirm same-day routing.",
     "ot": "not needed",
-    "otText": "All 6 RI aging jobs are On Track with due-date runway through 04/23\u201304/24. No OT pressure from RI.",
+    "otText": "No Critical jobs in RI. Aging count below OT threshold (6 of 20).",
     "upstream": null
   },
   "Pre-Clean": {
-    "what": "AR 10.0% GREEN. 6 aging, all Critical \u2014 milestone passed for all. 53 upcoming jobs approaching PCL Start By. WOs: 42115 (ALLAN AIRCRAFT SUPPLY, due 04/15 \u2014 most urgent), 42041 (ONE-WAY MANUFACTURING, due 04/17 \u2014 burned reschedule, ms_bd=-1), 42028 (ORLANDO SPRING, due 04/21), 42136 (SEYTEC, due 04/21), 42182 (GP STRATEGIES, due 04/21), 42197 (ACUTEK, due 04/21). 3 completed-not-shipped \u2014 clear these downstream.",
-    "action": "Start 42115 ALLAN AIRCRAFT SUPPLY now \u2014 due 04/15, no time to spare. Escalate 42041 ONE-WAY MANUFACTURING immediately \u2014 burned reschedule with ms_bd=-1 and due 04/17, zero tolerance for additional delay. Move 42028, 42136, 42182, 42197 (due 04/21) through today. Release 3 completed jobs to Cleanroom. Coordinate with RI \u2014 6 dwell-aging jobs coming.",
+    "what": "AR 10.0% \u2014 GREEN. 6 aging jobs, all Critical: WO 42028 (Orlando Spring Corp), 42041 (One-Way Manufacturing), 42115 (Allan Aircraft Supply), 42136 (Seytec), 42182 (GP Strategies), 42197 (Acutek). 53 jobs approaching Pre-Clean Start By \u2014 largest incoming wave in house.",
+    "action": "Start all 6 Critical WOs immediately: 42028 (Orlando Spring), 42041 (One-Way Mfg), 42115 (Allan Aircraft), 42136 (Seytec), 42182 (GP Strategies), 42197 (Acutek). Clear aging before 53 upcoming jobs arrive. Sequence by due date.",
     "ot": "recommended",
-    "otText": "6 Critical jobs with 53 upcoming approaching PCL Start By. All aging jobs are Critical. OT needed to prevent Cleanroom starvation and hit 04/15 deadline.",
-    "upstream": "RI: 6 dwell-aging jobs (all On Track, due 04/23\u201304/24) queued for Pre-Clean. 1 received today (42271 POLYMER CONCEPTS). 53 upcoming jobs approaching PCL Start By \u2014 significant incoming wave."
+    "otText": "All 6 aging jobs are Critical. 53 upcoming jobs create a compounding pressure wave \u2014 OT needed to clear aging before intake overwhelms capacity.",
+    "upstream": "RI has 6 aging jobs (all On Track). 1 job received today. No RI upcoming pressure at this time."
   },
   "Cleanroom": {
-    "what": "AR 10.0% GREEN. 1 aging Critical: 42221 SAINT GOBAIN (due 04/17). 9 upcoming jobs approaching CLR Start By. No completed-not-shipped.",
-    "action": "Start 42221 SAINT GOBAIN now \u2014 Critical, due 04/17. Prepare for incoming wave of 9 jobs approaching CLR Start By.",
+    "what": "AR 10.0% \u2014 GREEN. 1 aging job, Critical: WO 42221 (Saint Gobain). 9 jobs approaching Cleanroom Start By. Pre-Clean upstream has 6 aging (all Critical) and 53 incoming \u2014 pressure will build.",
+    "action": "Start 42221 (Saint Gobain) immediately \u2014 Critical. Monitor 9 upcoming jobs for Start By proximity. Coordinate with Jorge on Pre-Clean handoff timing.",
     "ot": "not needed",
-    "otText": "1 Critical job in Cleanroom. OT not warranted at this volume, but monitor as Pre-Clean clears its 6 Critical jobs \u2014 incoming pressure will rise.",
-    "upstream": "Pre-Clean: 6 Critical aging jobs (including 42115 ALLAN due 04/15 and 42041 ONE-WAY with burned reschedule due 04/17). 53 approaching PCL Start By \u2014 expect a wave into Cleanroom."
+    "otText": "Only 1 Critical job in Cleanroom. Manageable without OT at current load.",
+    "upstream": "Pre-Clean has 6 aging (all Critical) and 53 upcoming jobs. Significant handoff pressure is building. Expect elevated inflow once Pre-Clean clears aging."
   },
   "Packaging": {
-    "what": "AR 32.1% RED. 9 aging, all Critical. 18 upcoming approaching PCK Start By. Most urgent: 42137 SAINT-GOBAIN RI (due 04/14 \u2014 TOMORROW). Cluster due 04/15: 42106 (PRISM AEROSPACE), 42116 (ALLAN AIRCRAFT SUPPLY), 42117 (TAYCO ENGINEERING), 42118 (L&M MACHINING), 42121, 42122, 42123, 42124 (KAP MANUFACTURING \u00d74). 3 completed-not-shipped \u2014 move to Shipping immediately.",
-    "action": "Ship 42137 SAINT-GOBAIN RI to Shipping TODAY \u2014 due 04/14, no buffer remaining. Package 42106, 42116, 42117, 42118 immediately. Run KAP MANUFACTURING 42121\u201342124 in batch \u2014 all due 04/15. Clear 3 completed jobs to Shipping now. Contact Erick \u2014 9 Critical jobs need full attention.",
+    "what": "AR 32.1% \u2014 RED. 9 aging jobs, all Critical: WO 42106 (Prism Aerospace Sun Valley), 42116 (Allan Aircraft Supply), 42117 (Tayco Engineering), 42118 (L&M Machining), 42121, 42122, 42123, 42124 (Kap Manufacturing x4), 42137 (Saint-Gobain RI). CMPL 10.7% GREEN. 18 upcoming jobs approaching.",
+    "action": "Package and release all 9 Critical WOs: 42106 (Prism Aerospace), 42116 (Allan Aircraft), 42117 (Tayco Engineering), 42118 (L&M Machining), 42121\u201342124 (Kap Manufacturing x4), 42137 (Saint-Gobain RI). Clear aging before 18 upcoming jobs arrive.",
     "ot": "recommended",
-    "otText": "9 Critical jobs with 18 upcoming. One due tomorrow, 8 due Wednesday. OT required to prevent further slippage into Shipping.",
-    "upstream": "Cleanroom: 1 Critical aging (42221 SAINT GOBAIN, due 04/17). 9 upcoming approaching CLR Start By \u2014 Packaging pressure will intensify mid-week."
+    "otText": "All 9 aging jobs are Critical. OT required to protect handoff to Shipping and prevent further AR growth.",
+    "upstream": "Cleanroom has 1 aging job (Critical) and 9 upcoming. Pre-Clean has 6 aging (all Critical). Packaging inflow will accelerate once upstream clears."
   },
   "Shipping": {
-    "what": "AR 28.6% RED. 10 aging: 9 Critical, 1 Reschedule Window. 25 upcoming approaching SHP Start By. 18 completed-not-shipped \u2014 largest CMPL backlog in house. CRITICAL TODAY: 42144 POLYMER CONCEPTS (due 04/13 \u2014 TODAY). Due 04/14: 42042 (SECO SEALS), 42066 (TELEDYNE SCIENTIFIC), 42095 (KAP MANUFACTURING). Due 04/15 with burned reschedule: 42086, 42087 (DEL AEROSPACE \u00d72). Also due 04/15: 42099 (FALCON ENGINEERING), 42101 (TECMA), 42107 (INNOVATIVE ENGINEERING). Reschedule Window: 41448 JP DONOVAN (due 04/15) \u2014 commit or reschedule now.",
-    "action": "Ship 42144 POLYMER CONCEPTS immediately \u2014 due today. Ship 42042 SECO SEALS, 42066 TELEDYNE SCIENTIFIC, 42095 KAP MANUFACTURING before EOD (due 04/14). Commit on DEL AEROSPACE 42086 and 42087 \u2014 burned reschedule, due 04/15, no more delays. Schedule 42099 FALCON, 42101 TECMA, 42107 INNOVATIVE for Wednesday. Decide on 41448 JP DONOVAN now \u2014 reschedule or commit EOD. Clear 18 completed jobs from floor \u2014 this backlog is the biggest risk to outbound execution.",
+    "what": "AR 28.6% \u2014 RED. 10 aging jobs: 9 Critical \u2014 WO 42042 (Seco Seals), 42066 (Teledyne Scientific & Imaging), 42086, 42087 (Del Aerospace x2), 42095 (Kap Manufacturing), 42099 (Falcon Engineering), 42101 (Tecma), 42107 (Innovative Engineering Solutions), 42144 (Polymer Concepts) \u2014 plus 1 Reschedule Window: WO 41448 (JP Donovan Construction). CMPL BLACK 51.4% \u2014 18 of 35 jobs completed but not yet shipped. 25 upcoming.",
+    "action": "Ship all 9 Critical WOs today: 42086, 42087 (Del Aerospace x2), 42099 (Falcon Engineering), 42101 (Tecma), 42107 (Innovative Engineering), 42042 (Seco Seals), 42066 (Teledyne Scientific), 42095 (Kap Manufacturing), 42144 (Polymer Concepts). Reschedule or commit on 41448 (JP Donovan \u2014 Reschedule Window). CMPL is BLACK at 51.4% \u2014 18 completed jobs must be processed out today or OTD risk compounds with 25 upcoming.",
     "ot": "recommended",
-    "otText": "9 Critical jobs including one due today and three due tomorrow. 18 completed-not-shipped creates outbound execution risk. OT needed to clear the completed backlog and ship today/tomorrow deadlines.",
-    "upstream": "Packaging: 9 Critical aging (42137 SAINT-GOBAIN RI due tomorrow, cluster of 8 due 04/15). 18 upcoming approaching PKG Start By \u2014 Shipping load will compound Wednesday."
+    "otText": "9 Critical jobs plus CMPL BLACK (51.4%) \u2014 18 completed jobs sitting in Shipping. Outbound execution is at high risk. OT required to clear backlog.",
+    "upstream": "Packaging has 9 aging jobs (all Critical) and 18 upcoming. Shipping will receive additional pressure as Packaging clears."
   },
   "Lab Testing": {
-    "what": "AR 0.0% GREEN. 0 aging jobs. 3 jobs in house, all on track. 1 completed-not-shipped \u2014 release when ready.",
-    "action": "No escalation needed. Release completed job when lab results are finalized.",
+    "what": "AR 0.0% \u2014 GREEN. 0 aging jobs. 3 jobs in house. No upcoming jobs.",
+    "action": "No action required \u2014 no aging jobs. Monitor for new intake.",
     "ot": "not needed",
-    "otText": "No aging jobs. Lab Testing is clear.",
+    "otText": "No aging jobs in Lab Testing.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 100.0% BLACK. 3 aging, all Critical \u2014 all customer hold (SAINT GOBAIN). 42201 and 42202 due TODAY (04/13). 42164 due 04/14 (TOMORROW). No QPC-controlled action available \u2014 pending customer.",
-    "action": "Contact SAINT GOBAIN today \u2014 42201 and 42202 are due today, 42164 is due tomorrow. Escalate if no response by noon. Flag to management for customer escalation path.",
+    "what": "AR 100.0% \u2014 BLACK. 3 aging jobs, all Critical, customer hold (Saint Gobain): WO 42164, 42201, 42202. Release is customer-controlled.",
+    "action": "Contact Saint Gobain on WOs 42164, 42201, and 42202 \u2014 all Critical. Confirm release timeline and escalate if no update.",
     "ot": "n/a",
-    "otText": "Customer hold. OT not applicable \u2014 waiting on SAINT GOBAIN.",
+    "otText": "Customer-controlled department \u2014 OT not applicable.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 100.0% BLACK. 4 aging: 3 Past Due Hot Expedites (CREATIVE PATHWAYS 42186, 42199, 42200 \u2014 all due 04/10, 3 biz days overdue), 1 Critical (42119 BERANEK INC., due 04/15). CREATIVE PATHWAYS WOs are customer-hold, past due Hot Expedites requiring immediate contact.",
-    "action": "Contact CREATIVE PATHWAYS immediately \u2014 42186, 42199, 42200 are Past Due Hot Expedites, 3 biz days overdue. Escalate to management. Contact BERANEK INC. for 42119 (due 04/15) \u2014 confirm source status and expected completion.",
+    "what": "AR 100.0% \u2014 BLACK. 4 aging jobs: 3 Past Due Hot Expedites \u2014 WO 42186, 42199, 42200 (Creative Pathways Inc) \u2014 plus 1 Critical: WO 42119 (Beranek Inc). All customer-controlled.",
+    "action": "Escalate immediately on 42186, 42199, 42200 (Creative Pathways \u2014 Past Due Hot Expedites). Contact Beranek on 42119 (Critical). Past Due expedites require same-day resolution or escalation to management.",
     "ot": "n/a",
-    "otText": "Customer hold. OT not applicable \u2014 QPC is waiting on external source.",
+    "otText": "Customer-controlled department \u2014 OT not applicable.",
     "upstream": null
   }
 };
