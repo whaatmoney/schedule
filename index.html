@@ -182,11 +182,11 @@ const DATA = {
     "prevBizDate": "04/17",
     "flagDist": {
       "Critical": 27,
-      "On Track": 8,
+      "On Track": 9,
       "Past Due": 3,
-      "No Date": 2,
       "Reschedule Window": 2,
-      "Tight": 1
+      "Tight": 1,
+      "No Date": 1
     },
     "upcomingCount": 83,
     "expediteCount": 32,
@@ -194,21 +194,6 @@ const DATA = {
     "completedNotShippedCount": 21
   },
   "departments": [
-    {
-      "name": "Other",
-      "lead": "",
-      "total": 1,
-      "aging": 1,
-      "ar": 100.0,
-      "flags": {
-        "No Date": 1
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "completedNotShipped": 0,
-      "cmplPct": 0.0
-    },
     {
       "name": "Pre-Clean",
       "lead": "Jorge",
@@ -229,11 +214,11 @@ const DATA = {
     {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 45,
-      "aging": 10,
-      "ar": 22.2,
+      "total": 46,
+      "aging": 11,
+      "ar": 23.9,
       "flags": {
-        "On Track": 8,
+        "On Track": 9,
         "Tight": 1,
         "No Date": 1
       },
@@ -241,7 +226,7 @@ const DATA = {
       "isBottom": false,
       "incoming": 0,
       "completedNotShipped": 7,
-      "cmplPct": 15.6,
+      "cmplPct": 15.2,
       "cmplTier": "YELLOW",
       "cmplColor": "#C19C00"
     },
@@ -352,13 +337,13 @@ const DATA = {
     {
       "wo": "42319",
       "customer": "MARPLES GEARS INC.",
-      "dept": "Other",
+      "dept": "Receiving/Inspection",
       "dueDate": "04/29",
-      "msDate": "04/29",
-      "msBD": 7,
+      "msDate": "04/14",
+      "msBD": -4,
       "dueBD": 7,
-      "flag": "No Date",
-      "baseFlag": "No Date",
+      "flag": "On Track",
+      "baseFlag": "On Track",
       "priority": "Standard",
       "rescheduled": false
     },
@@ -2184,8 +2169,8 @@ const DATA = {
       "dueDate": "04/20"
     }
   ],
-  "riDwellAging": 10,
-  "riTotal": 10
+  "riDwellAging": 11,
+  "riTotal": 11
 };
 
 // ─── GUIDANCE (injected by skill) ───
@@ -2195,13 +2180,13 @@ const GUIDANCE = {
     "action": "Jorge \u2014 start 42262-3 ALLAN AIRCRAFT immediately, it's due today. Then 42324 SAINT GOBAIN, 42327 IMPERIAL, 42312 POLYMER (all due within 3 biz days). Clear the rest of the 19 Critical block in order of dueBD. Staff the 30 incoming jobs so they don't slide into this bucket tomorrow.",
     "ot": "recommended",
     "otText": "OT recommended \u2014 19 Critical jobs in queue with 30 more about to hit Start By. Line needs extra hours tonight to prevent further slippage.",
-    "upstream": "RI: 10 aging in front, 1 received today, 31 received Friday. Expect fresh volume to enter Pre-Clean queue as RI clears."
+    "upstream": "RI: 11 aging in front, 1 received today, 31 received Friday. Expect fresh volume to enter Pre-Clean queue as RI clears."
   },
   "Receiving/Inspection": {
-    "what": "AR 22.2% RED \u2014 10 dwell-aging / 45 total. Most are On Track (msBD -2 to -3), 1 Tight (42331 PRISM AEROSPACE, dueBD 4), 1 No Date (42326 TECMA, 8 biz days dwell \u2014 needs date). 31 jobs landed Friday 04/17, 1 received today (42395 PRECISION ADVANCED MFG).",
-    "action": "Luis \u2014 prioritize 42331 PRISM AEROSPACE (Tight, due in 4). Get 42326 TECMA a QPC Due Date today \u2014 it's been sitting 8 biz days with no date. Push the 8 On Track jobs through inspection this shift so they don't age into Pre-Clean Critical.",
+    "what": "AR 23.9% RED \u2014 11 dwell-aging / 46 total. 9 On Track (msBD -2 to -4), 1 Tight (42331 PRISM AEROSPACE, dueBD 4), 1 No Date (42326 TECMA, 8 biz days dwell \u2014 needs QPC Due Date). 31 jobs landed Friday 04/17, 1 received today (42395 PRECISION ADVANCED MFG). Note: 42319 MARPLES GEARS had no Location assigned \u2014 bucketed here by default; verify routing.",
+    "action": "Luis \u2014 prioritize 42331 PRISM AEROSPACE (Tight, due in 4). Get 42326 TECMA a QPC Due Date today (8 biz days of dwell, no date). Assign a Location to 42319 MARPLES so it routes correctly next run. Push the On Track jobs through inspection this shift so they don't age into Pre-Clean Critical.",
     "ot": "not needed",
-    "otText": "OT not needed \u2014 10 aging is below the 20-aging RI threshold and jobs have runway (dueBD 4\u20138).",
+    "otText": "OT not needed \u2014 11 aging is below the 20-aging RI threshold and jobs have runway (dueBD 4\u20138).",
     "upstream": null
   },
   "Packaging": {
@@ -2244,13 +2229,6 @@ const GUIDANCE = {
     "action": "Escalate 42164 and 42221 with SAINT GOBAIN sourcing today \u2014 both are already past QPC Due Date. Document customer acknowledgment and reschedule path or pull decision.",
     "ot": "n/a",
     "otText": "OT n/a \u2014 Source is customer-controlled.",
-    "upstream": null
-  },
-  "Other": {
-    "what": "1 aging job with No Date: 42319 MARPLES GEARS INC. (msDate 04/29, dueDate 04/29 \u2014 but flagged No Date by the planning rules).",
-    "action": "Reconcile 42319 MARPLES GEARS \u2014 verify which department owns the work and apply the correct QPC Due Date / Start By so it can be flagged and routed.",
-    "ot": "not needed",
-    "otText": "OT not needed \u2014 data hygiene issue, not a capacity issue.",
     "upstream": null
   }
 };
