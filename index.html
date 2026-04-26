@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>QPC Aging Signal — April 26, 2026</title>
+  <title>QPC Aging Signal — 04/26/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -8106,73 +8106,66 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Receiving/Inspection": {
-    "what": "AR 50.0% \u2014 18 aging of 36 in-house, 0 received today. Flag mix: 1 Critical / 2 Tight / 15 On Track. Critical: WO 42480 ENGINEERED MACHINING SOLUTIONS (T1 Expedite, due 04/28, dueBD 1) \u2014 must move to PCL today. Tight: 42490 PACIFIC CONSOLIDATED, 42493 PRECISION TUBE BENDING (both dueBD 4). Completed Ratio is 38.9% \u2014 14 jobs finished-at-RI but not yet handed off; this is a workflow-handoff bottleneck. 7 unclassified aging WOs need profile assignment to fix scheduling math: 42383, 42389, 42368, 42341, 42326 (Pre-Clean), 42367, 42386 (Cleanroom).",
-    "action": "1) Push WO 42480 ENGINEERED MACHINING SOLUTIONS (T1 Expedite) to Pre-Clean immediately. 2) Move the 14 finished-at-RI jobs to their next op today \u2014 clearing this drops CR from 38.9% and unloads downstream queues. 3) Taylor / Anthony classify the 7 unclassified aging WOs by physical attributes today; until they have profiles, the Start By math is wrong on 5 Pre-Clean Criticals and 2 Cleanroom Criticals. 4) Watch 42490 and 42493 (Tight, dueBD 4) \u2014 escalate if not pushed to PCL by EOD Monday.",
-    "ot": "not needed",
-    "otText": "1 Critical and 18 aging (under the 20-aging threshold). Focus is handoff clearance and classification, not headcount.",
-    "upstream": null
-  },
-  "Pre-Clean": {
-    "what": "AR 30.0% \u2014 18 aging of 60 in-house, all 18 aging are Critical (the entire aging cohort). 42 incoming upcoming jobs (Start By within 3 biz days) on top of that. Completed Ratio 8.3% \u2014 5 finished-at-PCL waiting handoff to Cleanroom. Critical inventory by due-day: dueBD 0 \u2192 42262-8 ALLAN AIRCRAFT, 42363 SPACEX, 42394 PMW AERO; dueBD 1 \u2192 42326 TECMA, 42364 AERO COMPONENT ENGR; dueBD 2 \u2192 42400 NYTRON, 42416 ACTIV MFG, 42431 SAINT GOBAIN (Priority Customer); dueBD 3 \u2192 42341 TECMA, 42359 NEW VISION, 42395 PRECISION ADV MFG, 42399 TECMA. 5 of these are unclassified profile (42383, 42389, 42368, 42341, 42326) \u2014 milestone math is approximate until RI classifies.",
-    "action": "1) Run dueBD 0/1 Criticals first this morning \u2014 42262-8, 42363, 42394, 42326, 42364 are five jobs that must clear PCL today to make their ship dates. 2) 42431 SAINT GOBAIN (Priority Customer, dueBD 2) gets next priority. 3) Sequence the dueBD 2-3 Criticals in QPC-Due order behind those. 4) Coordinate with Erick on the 5 finished-at-PCL handoffs to free WIP. 5) With 42 upcoming arriving from RI, plan staffing for the back half of today and tomorrow morning.",
+"Pre-Clean": {
+    "what": "AR 30.0% RED — 18 of 60 in-dept aging, all Critical, none Past Due. WO 42359 NEW VISION (Low Qty, 88% burn) and 42341 TECMA (unclassified) are deepest at msBD -3. Then a stack at msBD -2: 42364 AERO COMPONENT (Priority Customer, 86% burn), 42369 BRONSON & BRATTON (Low Qty, 75%), 42371 DRT AEROSPACE, 42431 SAINT GOBAIN (Priority Customer), 42326 TECMA. 5 unclassified aging WOs sitting in Pre-Clean. CR 8.3% — 5 jobs finished at Pre-Clean awaiting move to Cleanroom. 42 upcoming jobs landing within 3 biz days.",
+    "action": "Start WO 42359 NEW VISION first (deepest, 88% burn, due in 3 BD). Then WO 42341 TECMA — classify it first so we know lead time. Then run the msBD -2 stack: 42364 AERO COMPONENT (Priority Customer, due tomorrow), 42431 SAINT GOBAIN, 42326 TECMA, 42369 BRONSON & BRATTON, 42371 DRT, 42394 PMW AERO, 42400 NYTRON. Move the 5 finished-at-op jobs into Cleanroom this shift so they don't stall the CR. Have Taylor or Anthony classify the 5 unclassified WOs (42341, 42368, 42326, 42383, 42389) by physical attributes today.",
     "ot": "recommended",
-    "otText": "18 Criticals \u2014 all 18 aging jobs are Critical, plus 42 upcoming inbound. OT is needed to clear today's dueBD 0-2 cohort and absorb the new arrivals without rolling them into Critical tomorrow.",
-    "upstream": "RI: 18 aging (1 Critical, 2 Tight, 15 On Track), 0 received today. RI is sitting on 14 finished-at-op jobs that include 42480 ENGINEERED MACHINING (T1 Expedite) \u2014 get that one routed to Pre-Clean first."
+    "otText": "Run OT tonight — 18 Critical in-dept and 42 upcoming dropping over the next 3 biz days.",
+    "upstream": "RI has 18 aging WOs (5 dwell-aging) but 0 received today, so no fresh intake pressure. The pressure is already inside Pre-Clean."
   },
   "Cleanroom": {
-    "what": "AR 57.1% \u2014 4 aging of 7 in-house, all 4 aging are Critical. 3 incoming upcoming. Completed Ratio 0% \u2014 nothing finished-at-CLR awaiting handoff. Critical inventory: WO 42306 FALCON ENGINEERING, 42307 KULITE SEMICONDUCTOR (Straight to CLR), 42367 SAINT GOBAIN (unclassified profile), 42386 POLYMER CONCEPTS (unclassified profile) \u2014 all four due 04/28 (dueBD 1), all msBD -2 to -3. Cleanroom is the highest AR of any production dept this run.",
-    "action": "1) Run all 4 Criticals today \u2014 they share a 04/28 due date and there is no slack. 2) Erick: stage 42367 and 42386 with whatever profile data is available; flag to Taylor/Anthony that these need classification ASAP for the 04/28 ship math. 3) 42307 KULITE is Straight-to-CLR (no Pre-Clean) \u2014 confirm it is already in your queue, not stuck at RI. 4) With 3 upcoming arriving, hold Cleanroom open for the 04/28 cohort first.",
-    "ot": "recommended",
-    "otText": "All 4 aging jobs are Critical and share a 04/28 due date \u2014 meets the 'all aging in milestone dept are Critical' OT trigger. OT is needed to keep AR from rolling further today.",
-    "upstream": "Pre-Clean: 18 aging, all Critical, with 42 incoming. Cleanroom should expect a heavy hand-off wave once Pre-Clean clears its dueBD 0-1 cohort."
+    "what": "AR 57.1% BLACK — 4 of 7 in-dept aging, all Critical. WO 42306 FALCON ENGINEERING (Standard, 90% burn) and 42307 KULITE SEMICONDUCTOR (Straight to CLR, 90%) at msBD -3 and due tomorrow. WO 42367 SAINT GOBAIN and 42386 POLYMER CONCEPTS at msBD -2, both unclassified. CR 0% — no finished-at-op holding pattern in Cleanroom. 3 upcoming.",
+    "action": "Start WO 42306 FALCON and 42307 KULITE today — both 90% burn and due tomorrow. Then WO 42367 SAINT GOBAIN and 42386 POLYMER CONCEPTS (msBD -2, due tomorrow). Get profiles assigned on 42367 and 42386 so lead-time math is correct.",
+    "ot": "not needed",
+    "otText": "No OT — 4 Critical is closable on the regular shift.",
+    "upstream": "Pre-Clean has 18 Critical plus 5 finished-at-op jobs that should hand off this shift, plus 42 upcoming behind that. Heavy feed coming this week — pace yourself."
   },
   "Packaging": {
-    "what": "AR 20.0% \u2014 4 aging of 20 in-house, all 4 aging are Critical. 15 incoming upcoming. Completed Ratio 15.0% \u2014 3 finished-at-PKG awaiting handoff to Shipping. Critical inventory: WO 42301 SONFARREL (High Qty, dueBD 1), 42305 AMERICAN BOA (Standard, dueBD 1), 42242-1 SYSTIMA TECHNOLOGIES (Standard, dueBD 0, *burned reschedule* \u2014 escalated from Critical baseline), 42277 BERANEK INC (Standard, dueBD 0). Two WOs ship today.",
-    "action": "1) 42242-1 SYSTIMA and 42277 BERANEK ship today \u2014 pack them first thing this morning. 42242-1 is a burned reschedule, so any further slip means a second customer-facing re-commit; flag if it isn't going out today. 2) 42301 SONFARREL and 42305 AMERICAN BOA ship 04/28 \u2014 pack today so Shipping has them queued. 3) Move the 3 finished-at-PKG handoffs to Shipping immediately to drop CR. 4) With 15 upcoming inbound, plan for steady packaging throughput Monday.",
-    "ot": "recommended",
-    "otText": "All 4 aging are Critical with two due today. Triggers the 'all aging in milestone dept are Critical' OT rule.",
-    "upstream": "Cleanroom: 4 aging, all Critical (due 04/28). Pre-Clean: 18 aging, all Critical with 42 incoming. The next Packaging wave depends on Cleanroom clearing the 04/28 cohort cleanly."
+    "what": "AR 20.0% YELLOW — 4 of 20 aging, all Critical. WO 42277 BERANEK (Standard, 100% burn, due today). WO 42305 AMERICAN BOA (90%, due tomorrow), WO 42301 SONFARREL (High Qty, 75%, due tomorrow). WO 42242-1 SYSTIMA TECHNOLOGIES is reschedule-burned (120% burn, due today, msBD 0). CR 15.0% — 3 jobs finished-at-op awaiting move to Shipping. 15 upcoming.",
+    "action": "Pack WO 42277 BERANEK and 42242-1 SYSTIMA today — both due today. Then WO 42305 AMERICAN BOA and 42301 SONFARREL tomorrow. Move the 3 finished-at-op jobs to Shipping this shift so CR doesn't compound.",
+    "ot": "not needed",
+    "otText": "No OT — 4 aging, all closable on the regular shift.",
+    "upstream": "Cleanroom has 4 Critical + 3 upcoming; Pre-Clean has 18 Critical + 42 upcoming further back. Light near-term feed, heavier wave in 2–3 days once Pre-Clean clears."
   },
   "Shipping": {
-    "what": "AR 42.4% \u2014 14 aging of 33 in-house, all 14 aging are Critical. 18 incoming upcoming. Completed Ratio 42.4% \u2014 14 finished-at-SHP waiting to physically ship; this is the same count as Critical aging. Critical inventory by due day: dueBD 0 (ship today) \u2192 42138 BAGHOUSE (Large Parts), 42217 AS&D ASTROS (*burned reschedule*), 42263 ALLAN AIRCRAFT (PSV Only), 42272 AMENTUM SERVICES, 42370 QED/INC (T3 Expedite), 42413 ACUTEK (T2 Expedite); dueBD 1 (ship 04/28) \u2192 42270 DARMARK, 42276 MINDRUM, 42175-2 ALLAN AIRCRAFT, 42287/42288 KAP MFG, 42289 QED/INC, 42292 ALLAN AIRCRAFT, 42298 PERFORMANCE SEALING. T3 expedite 42370 and T2 expedite 42413 are tier-compressed and ship today.",
-    "action": "1) Ship dueBD 0 cohort first \u2014 start with the tiered expedites: 42413 ACUTEK (T2) and 42370 QED/INC (T3). 2) 42217 AS&D ASTROS is a burned reschedule \u2014 confirm it ships today, no second slip. 3) After the dueBD 0 cohort, work the 8 dueBD 1 jobs in QPC-Due order. 4) The 14 finished-at-SHP need physical pickup/release today \u2014 that 42.4% CR is the same set of WOs as Critical aging, so 'completing them' here means actual ship out the door.",
+    "what": "AR 42.4% BLACK — 14 of 33 aging, all Critical. Heavy deep-burn pile: WO 42217 AS&D ASTROS is reschedule-burned (Standard, 120% burn, msBD -3, due today). 42175-2 ALLAN AIRCRAFT, 42287 KAP, 42288 KAP, 42292 ALLAN, 42276 MINDRUM are all Low Qty at 112–125% burn and due tomorrow. 42263 ALLAN AIRCRAFT (PSV Only, 110%), 42272 AMENTUM (100%), 42138 BAGHOUSE (Large Parts, 92%) all msBD -1 due today. Two short-scheduled tier expedites — WO 42370 QED (T3) and 42413 ACUTEK (T2), both due today. CR 42.4% — 14 jobs finished-at-op at Shipping, the single biggest lever to drop both AR and CR. 18 upcoming.",
+    "action": "Ship today: WO 42217 AS&D ASTROS (reschedule-burned, due today), 42263 ALLAN AIRCRAFT, 42272 AMENTUM, 42138 BAGHOUSE, 42270 DARMARK, 42289 QED, 42298 PERFORMANCE SEALING. Tomorrow: 42175-2 ALLAN, 42287 KAP, 42288 KAP, 42292 ALLAN, 42276 MINDRUM. Push WO 42370 QED (T3 Expedite) and 42413 ACUTEK (T2 Expedite) — both due today on tier clocks. Work down the 14 finished-at-op jobs in parallel — that's what drops CR and AR together.",
     "ot": "recommended",
-    "otText": "14 Criticals \u2014 well over the 5+ trigger \u2014 and the dept is sitting on 14 finished jobs that all need to physically leave today/tomorrow. OT is needed to clear out the 04/27-28 ship cohort.",
-    "upstream": "Packaging: 4 aging, all Critical (2 ship today, 2 ship 04/28). Once Packaging clears its 04/28 cohort, expect another short wave into Shipping by Monday afternoon."
+    "otText": "Run OT on packout/ship — 14 Critical, CR 42.4%, and two tier expedites due today.",
+    "upstream": "Packaging has 4 Critical + 15 upcoming; Cleanroom has 4 Critical + 3 upcoming. Near-term feed is moderate — use the capacity to clear the finished-at-op backlog and tier expedites."
   },
-  "Lab Testing": {
-    "what": "No aging jobs in Lab Testing this run.",
-    "action": "No action required.",
+  "Receiving/Inspection": {
+    "what": "Dept rollup AR shows 50.0% but the in-house picture is gentler — 5 dwell-aging jobs of 18 in-dept aging, with 1 Critical (WO 42480 ENGINEERED MACHINING SOLUTIONS, T1 Expedite, short-scheduled, due tomorrow), 2 Tight (42490 PACIFIC CONSOLIDATED, 42493 PRECISION TUBE BENDING, both at msBD -1). 0 received today. CR 38.9% — 14 jobs finished at RI waiting to move to Pre-Clean. 4 unclassified aging RI WOs (42383, 42389, 42368, 42326) plus 42341 (Pre-Clean) and 42367, 42386 (Cleanroom) for a total of 7 unclassified aging plant-wide.",
+    "action": "Inspect WO 42480 ENGINEERED MACHINING SOLUTIONS today (T1 Expedite, short-scheduled, due tomorrow). Then 42490 PACIFIC CONSOLIDATED and 42493 PRECISION TUBE BENDING. Move the 14 finished-at-op jobs out of RI into Pre-Clean today — biggest hand-off bottleneck in the plant. Taylor and Anthony classify 42383 ALLAN AIRCRAFT, 42389 A&A MACHINE, 42368 REYCO PRECISION, 42326 TECMA, 42341 TECMA, 42367 SAINT GOBAIN, 42386 POLYMER CONCEPTS on physical attributes (qty, size, complexity, PSV/assembly).",
     "ot": "not needed",
-    "otText": "No aging.",
+    "otText": "No OT — 1 Critical, 5 dwell-aging, 0 received today. Workable on the regular shift.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 100% \u2014 4 aging of 4 in-house (customer-hold dept, excluded from urgency comparisons). 3 Critical, 1 Past Due \u2014 all SAINT GOBAIN. WO 42297 is Past Due (04/21, dueBD -3); WO 42351 and 42352 due today (04/27, dueBD 0); WO 42429 due 04/29 (dueBD 2, T3 Expedite). 2 jobs are Priority Customer profile.",
-    "action": "1) Escalate 42297 SAINT GOBAIN (Past Due, 3 biz days over) to the customer contact \u2014 needs a current commit date. 2) Push status on 42351 and 42352 (due today) \u2014 confirm whether the customer can release. 3) 42429 is T3 Expedite (1-3 biz day window) and customer-held; flag the customer rep that the assembly clock is being held internally.",
+    "what": "AR 100% — 4 of 4 aging. WO 42297 SAINT GOBAIN is Past Due (Low Qty, 125% burn, 3 BD past due). WO 42352 SAINT GOBAIN (Priority Customer, due today), 42351 SAINT GOBAIN (Low Qty, due today), and 42429 SAINT GOBAIN (Priority Customer, T3 Expedite, due in 2 BD) all Critical. Customer-controlled.",
+    "action": "Contact SAINT GOBAIN today — escalate WO 42297 (past due), confirm release plan for 42351 and 42352 (due today), and align T3 commitment for 42429.",
     "ot": "n/a",
-    "otText": "Customer-controlled dept \u2014 internal OT does not move these jobs.",
+    "otText": "n/a — customer-controlled.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 100% \u2014 8 aging of 8 in-house (customer-hold dept, all Critical). All 8 are ARROWHEAD PRODUCTS, all Priority Customer profile. 5 are T1 Expedite (1-3 biz day window): 42439, 42461, 42462, 42463, 42464 (all dueBD 0, ship today). 3 are Standard priority but Critical: 42404, 42405, 42406 (dueBD 1, due 04/28).",
-    "action": "1) Confirm with ARROWHEAD on the 5 T1 expedites (42439, 42461-64) that source/witness is complete and inspection can run today. 2) For 42404, 42405, 42406 (due 04/28), get a release commitment from the customer rep this morning. 3) Single-customer concentration \u2014 coordinate with ARROWHEAD account owner so all 8 don't churn separately.",
+    "what": "AR 100% — 8 of 8 aging, all Critical, all ARROWHEAD PRODUCTS Priority Customer. Five are T1 Expedites due today and short-scheduled (42439, 42461, 42462, 42463, 42464). Three Standard (42404, 42405, 42406) due tomorrow at 71% burn.",
+    "action": "Escalate ARROWHEAD PRODUCTS today on the five T1 Expedites due today (42439, 42461, 42462, 42463, 42464) — all short-scheduled. Push for source/witness release on 42404, 42405, 42406 (due tomorrow).",
     "ot": "n/a",
-    "otText": "Customer-controlled dept \u2014 these jobs sit on a customer / witness clock.",
+    "otText": "n/a — customer-controlled.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "AR 22.2% \u2014 2 aging of 9 (synthetic profile-based bucket, excluded from in-house AR). Profiles are Source Required (2 aging visible) \u2014 all on customer / witness clocks. Flag mix on aging: 1 On Track, 1 Tight.",
-    "action": "1) Verify each Customer Hold (Profile) job has an open dialogue with the customer rep \u2014 this dept exists because dates are provisional. 2) For the Tight job, confirm the customer's witness/source schedule will land before QPC Due Date.",
+    "what": "9 jobs routed here by Source Required / DCMA profile (customer or witness clock). 2 aging — WO 42469 BRONSON & BRATTON (Source Required, Tight, due in 4 BD) and WO 42478 FMH AMETEK (Source Required, On Track, due in 7 BD). Excluded from in-house AR denominator.",
+    "action": "Monitor customer / witness status. No internal production action until the customer clock releases the job.",
     "ot": "n/a",
-    "otText": "Customer-controlled \u2014 internal OT does not advance these jobs.",
+    "otText": "n/a — customer-controlled.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "07:05 AM PDT";
+const GENERATED_TIME = "10:02 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
