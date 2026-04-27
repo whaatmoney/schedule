@@ -236,16 +236,16 @@ const DATA = {
   "reportDate": "04/27/2026",
   "overall": {
     "totalJobs": 168,
-    "agingJobs": 70,
-    "ar": 41.7,
+    "agingJobs": 71,
+    "ar": 42.3,
     "receivedToday": 0,
     "flagDist": {
-      "Critical": 52,
+      "Critical": 53,
       "On Track": 16,
       "Tight": 3,
       "Past Due": 1
     },
-    "upcomingCount": 78,
+    "upcomingCount": 77,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -388,14 +388,14 @@ const DATA = {
       "name": "Shipping",
       "lead": "Luis",
       "total": 33,
-      "aging": 14,
-      "ar": 42.4,
+      "aging": 15,
+      "ar": 45.5,
       "flags": {
-        "Critical": 14
+        "Critical": 15
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 18,
+      "incoming": 17,
       "profileMix": [
         {
           "name": "Standard",
@@ -407,7 +407,7 @@ const DATA = {
         },
         {
           "name": "Straight to CLR",
-          "count": 2
+          "count": 3
         },
         {
           "name": "Large Parts",
@@ -585,6 +585,18 @@ const DATA = {
         "baseFlag": "Critical",
         "priority": "Standard",
         "profile": "Standard"
+      },
+      {
+        "wo": "42261",
+        "customer": "EATON CORP.",
+        "dept": "Shipping",
+        "dueDate": "04/28",
+        "msBD": 0,
+        "dueBD": 1,
+        "flag": "Critical",
+        "baseFlag": "Critical",
+        "priority": "T2 Expedite",
+        "profile": "Straight to CLR"
       },
       {
         "wo": "42217",
@@ -2106,6 +2118,39 @@ const DATA = {
       "profileBurnPct": 100.0,
       "profileOverBD": 0,
       "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "42261",
+      "customer": "EATON CORP.",
+      "dept": "Shipping",
+      "dueDate": "04/28",
+      "msDate": "04/27",
+      "msBD": 0,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "T2 Expedite",
+      "rescheduled": true,
+      "profile": "Straight to CLR",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 11,
+      "scheduledLeadBD": 12,
+      "profileBurnPct": 110.0,
+      "profileOverBD": 1,
+      "schedulingSlack": 2,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -3698,16 +3743,6 @@ const DATA = {
       "dueBD": 0,
       "priority": "Standard",
       "profile": "High Qty"
-    },
-    {
-      "wo": "42261",
-      "dept": "Shipping",
-      "dueDate": "04/28",
-      "msDate": "04/27",
-      "msBD": 0,
-      "dueBD": 1,
-      "priority": "T2 Expedite",
-      "profile": "Straight to CLR"
     },
     {
       "wo": "42262-10",
@@ -7175,10 +7210,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "42270",
@@ -8107,56 +8142,56 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Pre-Clean": {
-    "what": "AR 30.0% RED — 18 of 60 in-dept aging, all Critical, none Past Due. WO 42359 NEW VISION (Low Qty, 88% burn) and WO 42341 TECMA (unclassified) deepest at msBD -4 with 3 BD to due. Then a stack at msBD -3: 42363 SPACE EXPLORATION TECHNOLOGIES (Low Qty, 63% burn, due today, short-scheduled), 42394 PMW AERO (Standard, due today, short-scheduled), 42326 TECMA (unclassified), 42364 AERO COMPONENT (Priority Customer, 86% burn), 42416 ACTIV MFG (short-scheduled), 42431 SAINT GOBAIN (Priority Customer), 42368 REYCO (unclassified), 42369 BRONSON & BRATTON (Low Qty, 75%), 42371 DRT AEROSPACE. WO 42262-8 ALLAN AIRCRAFT (PSV Only) is at 110% burn and due today. 5 unclassified aging WOs sitting in Pre-Clean. CR 8.3% — 5 jobs finished at op awaiting move to Cleanroom. 42 upcoming jobs landing within 3 biz days.",
-    "action": "Start WO 42363 SPACE EXPLORATION and WO 42394 PMW AERO first — both due today on short-scheduled windows. Then WO 42262-8 ALLAN AIRCRAFT (110% burn, due today) and WO 42359 NEW VISION (88% burn). Run the rest of the msBD -3 stack today: 42364 AERO COMPONENT, 42431 SAINT GOBAIN, 42326 TECMA, 42369 BRONSON & BRATTON, 42371 DRT, 42400 NYTRON. Move the 5 finished-at-op jobs into Cleanroom this shift so they don't stall the CR. Have Taylor or Anthony classify the 5 unclassified WOs (42341, 42326, 42368, 42383, 42389) by physical attributes today.",
+    "what": "AR 30.0% RED — 18 of 60 in-dept aging, all Critical, none Past Due. Deepest at msBD -4: WO 42359 NEW VISION (Low Qty, 88% burn, due 04/30) and WO 42341 TECMA (unclassified, due 04/30). Then a stack at msBD -3 — both due today: WO 42363 SPACE EXPLORATION (Low Qty, 63% burn, short-scheduled) and WO 42394 PMW AERO (Standard, 50% burn, short-scheduled). Due 04/28: WO 42326 TECMA (unclassified) and WO 42364 AERO COMPONENT (Priority Customer, 86% burn). WO 42262-8 ALLAN AIRCRAFT (PSV Only) at 110% burn, due today, msBD -1. 5 unclassified aging WOs sitting in Pre-Clean (42341, 42326, 42368, 42383, 42389). CR 8.3% — 5 jobs finished-at-op awaiting move to Cleanroom. 42 upcoming jobs landing within 3 biz days.",
+    "action": "Start WO 42363 SPACE EXPLORATION, WO 42394 PMW AERO, and WO 42262-8 ALLAN AIRCRAFT first — all three due today (42262-8 at 110% burn, 42363 + 42394 short-scheduled). Then WO 42359 NEW VISION (88% burn, due 04/30). Run the rest of the msBD -3 stack today: WO 42326 TECMA, WO 42364 AERO COMPONENT, WO 42431 SAINT GOBAIN, WO 42416 ACTIV MFG, WO 42368 REYCO, WO 42369 BRONSON & BRATTON, WO 42371 DRT AEROSPACE. Move the 5 finished-at-op jobs into Cleanroom this shift so the CR doesn't compound. Have Taylor or Anthony classify the 5 unclassified Pre-Clean WOs (42341, 42326, 42368, 42383, 42389) by physical attributes today.",
     "ot": "recommended",
     "otText": "Run OT tonight — 18 Critical in-dept and 42 upcoming dropping over the next 3 biz days.",
     "upstream": "RI has 18 aging WOs (12 dwell-aging) but 0 received today, so no fresh intake pressure. The pressure is already inside Pre-Clean."
   },
   "Cleanroom": {
-    "what": "AR 57.1% BLACK — 4 of 7 in-dept aging, all Critical. WO 42306 FALCON ENGINEERING (Standard, 90% burn) and WO 42307 KULITE SEMICONDUCTOR (Straight to CLR, 90%) at msBD -4 and due tomorrow. WO 42367 SAINT GOBAIN and WO 42386 POLYMER CONCEPTS at msBD -3, both unclassified, both due tomorrow. CR 0% — no finished-at-op holding pattern in Cleanroom. 3 upcoming.",
-    "action": "Start WO 42306 FALCON and WO 42307 KULITE today — both 90% burn and due tomorrow. Then WO 42367 SAINT GOBAIN and WO 42386 POLYMER CONCEPTS (msBD -3, due tomorrow). Get profiles assigned on 42367 and 42386 so lead-time math is correct.",
+    "what": "AR 57.1% BLACK — 4 of 7 in-dept aging, all Critical, all due 04/28. WO 42306 FALCON ENGINEERING (Standard, 90% burn, msBD -4) and WO 42307 KULITE SEMICONDUCTOR (Straight to CLR, 90% burn, msBD -4) deepest. WO 42367 SAINT GOBAIN and WO 42386 POLYMER CONCEPTS at msBD -3, both unclassified, both due tomorrow. CR 0% — no finished-at-op holding pattern in Cleanroom. 3 upcoming.",
+    "action": "Start WO 42306 FALCON and WO 42307 KULITE today — both at 90% burn and due tomorrow. Then WO 42367 SAINT GOBAIN and WO 42386 POLYMER CONCEPTS (msBD -3, due tomorrow). Get profiles assigned on 42367 and 42386 so lead-time math is correct.",
     "ot": "not needed",
     "otText": "No OT — 4 Critical is closable on the regular shift.",
-    "upstream": "Pre-Clean has 18 Critical plus 5 finished-at-op jobs that should hand off this shift, plus 42 upcoming behind that. Heavy feed coming this week — pace yourself."
+    "upstream": "Pre-Clean has 18 Critical plus 5 finished-at-op jobs that should hand off this shift, plus 42 upcoming behind that. Heavy feed coming this week."
   },
   "Packaging": {
-    "what": "AR 20.0% YELLOW — 4 of 20 aging, all Critical. WO 42277 BERANEK (Standard, 100% burn, due today). WO 42301 SONFARREL (High Qty, 75%, due tomorrow), WO 42305 AMERICAN BOA (Standard, 90%, due tomorrow). WO 42242-1 SYSTIMA TECHNOLOGIES is reschedule-burned (120% burn, due today, msBD -1). CR 15.0% — 3 jobs finished-at-op awaiting move to Shipping. 15 upcoming.",
-    "action": "Pack WO 42277 BERANEK and WO 42242-1 SYSTIMA today — both due today, 42242-1 is reschedule-burned. Then WO 42305 AMERICAN BOA and WO 42301 SONFARREL tomorrow. Move the 3 finished-at-op jobs to Shipping this shift so CR doesn't compound.",
+    "what": "AR 20.0% YELLOW — 4 of 20 aging, all Critical. WO 42277 BERANEK (Standard, 100% burn, msBD -3, due today). WO 42305 AMERICAN BOA (Standard, 90% burn, due 04/28) and WO 42301 SONFARREL (High Qty, 75%, due 04/28). WO 42242-1 SYSTIMA TECHNOLOGIES is reschedule-burned (Standard, 120% burn, msBD -1, due today). CR 15.0% — 3 jobs finished-at-op awaiting move to Shipping. 15 upcoming.",
+    "action": "Pack WO 42277 BERANEK and WO 42242-1 SYSTIMA today — both due today, 42242-1 is reschedule-burned at 120%. Then WO 42305 AMERICAN BOA and WO 42301 SONFARREL tomorrow. Move the 3 finished-at-op jobs to Shipping this shift so CR doesn't compound.",
     "ot": "not needed",
     "otText": "No OT — 4 aging, all closable on the regular shift.",
-    "upstream": "Cleanroom has 4 Critical + 3 upcoming; Pre-Clean has 18 Critical + 42 upcoming further back. Light near-term feed, heavier wave in 2–3 days once Pre-Clean clears."
+    "upstream": "Cleanroom has 4 Critical + 3 upcoming; Pre-Clean has 18 Critical + 42 upcoming behind that. Light near-term feed, heavier wave in 2-3 days once Pre-Clean clears."
   },
   "Shipping": {
-    "what": "AR 42.4% BLACK — 14 of 33 aging, all Critical. WO 42217 AS&D ASTROS is reschedule-burned (Standard, 120% burn, msBD -4, due today). Big deep-burn pile due tomorrow: 42175-2 ALLAN AIRCRAFT, 42287 KAP, 42288 KAP, 42292 ALLAN — all Low Qty at 125% burn. 42276 MINDRUM (Low Qty, 113%) also due tomorrow. Due today: WO 42263 ALLAN AIRCRAFT (PSV Only, 110%), 42272 AMENTUM (100%), 42138 BAGHOUSE (Large Parts, 92%). Two short-scheduled tier expedites due today — WO 42370 QED (T3) and WO 42413 ACUTEK (T2). CR 42.4% — 14 jobs finished-at-op at Shipping, the single biggest lever to drop both AR and CR. 18 upcoming.",
-    "action": "Ship today: WO 42217 AS&D ASTROS (reschedule-burned, due today), WO 42263 ALLAN AIRCRAFT, WO 42272 AMENTUM, WO 42138 BAGHOUSE, WO 42370 QED (T3 Expedite, short-sched), WO 42413 ACUTEK (T2 Expedite, short-sched). Tomorrow: 42175-2 ALLAN, 42287 KAP, 42288 KAP, 42292 ALLAN, 42276 MINDRUM, 42270 DARMARK, 42289 QED, 42298 PERFORMANCE SEALING. Work down the 14 finished-at-op jobs in parallel — that's what drops CR and AR together.",
+    "what": "AR 45.5% BLACK — 15 of 33 aging, all Critical. WO 42217 AS&D ASTROS is reschedule-burned (Standard, 120% burn, msBD -4, due today). WO 42261 EATON CORP is reschedule-burned (Straight to CLR, 110% burn, msBD 0, due 04/28). Big deep-burn pile due 04/28: WO 42175-2 ALLAN AIRCRAFT, 42287 KAP, 42288 KAP, 42292 ALLAN — all Low Qty at 125% burn. WO 42276 MINDRUM (Low Qty, 113%) also due 04/28. Due today: WO 42263 ALLAN AIRCRAFT (PSV Only, 110%), WO 42272 AMENTUM (100%), WO 42138 BAGHOUSE (Large Parts, 92%), and two short-scheduled WO 42370 QED and WO 42413 ACUTEK (Standard). CR 42.4% — 14 jobs finished-at-op at Shipping, the single biggest lever to drop both AR and CR. 17 upcoming.",
+    "action": "Ship today: WO 42217 AS&D ASTROS (reschedule-burned, due today), WO 42263 ALLAN AIRCRAFT, WO 42272 AMENTUM, WO 42138 BAGHOUSE, WO 42370 QED (short-sched), WO 42413 ACUTEK (short-sched). Tomorrow: WO 42261 EATON (reschedule-burned), 42175-2 ALLAN, 42287 KAP, 42288 KAP, 42292 ALLAN, 42276 MINDRUM, 42270 DARMARK, 42289 QED, 42298 PERFORMANCE SEALING. Work down the 14 finished-at-op jobs in parallel — that's what drops CR and AR together.",
     "ot": "recommended",
-    "otText": "Run OT on packout/ship — 14 Critical, CR 42.4%, and two tier expedites due today.",
-    "upstream": "Packaging has 4 Critical + 15 upcoming; Cleanroom has 4 Critical + 3 upcoming. Near-term feed is moderate — use the capacity to clear the finished-at-op backlog and tier expedites."
+    "otText": "Run OT on packout/ship — 15 Critical, CR 42.4%, multiple deep-burn jobs due today and tomorrow.",
+    "upstream": "Packaging has 4 Critical + 15 upcoming; Cleanroom has 4 Critical + 3 upcoming. Near-term feed is moderate — use the capacity to clear the finished-at-op backlog."
   },
   "Receiving/Inspection": {
-    "what": "Dept rollup AR shows 50.0% but the in-house picture is gentler — 12 dwell-aging jobs of 18 in-dept aging, with 1 Critical (WO 42480 ENGINEERED MACHINING SOLUTIONS, T1 Expedite, short-scheduled, due tomorrow), 2 Tight (42490 PACIFIC CONSOLIDATED, 42493 PRECISION TUBE BENDING, both at msBD -2). 0 received today. CR 38.9% — 14 jobs finished at RI waiting to move to Pre-Clean. 4 unclassified aging RI WOs (42383, 42389) plus 42341 (Pre-Clean), 42326, 42368 (Pre-Clean), 42367, 42386 (Cleanroom) for a total of 7 unclassified aging plant-wide.",
-    "action": "Inspect WO 42480 ENGINEERED MACHINING SOLUTIONS today (T1 Expedite, short-scheduled, due tomorrow). Then 42490 PACIFIC CONSOLIDATED and 42493 PRECISION TUBE BENDING (Tight, due in 4 BD). Move the 14 finished-at-op jobs out of RI into Pre-Clean today — biggest hand-off bottleneck in the plant. Taylor and Anthony classify 42383 ALLAN AIRCRAFT, 42389 A&A MACHINE, 42341 TECMA, 42326 TECMA, 42368 REYCO PRECISION, 42367 SAINT GOBAIN, 42386 POLYMER CONCEPTS on physical attributes (qty, size, complexity, PSV/assembly).",
+    "what": "Dept rollup AR shows 50.0% but the in-house picture is gentler — 12 dwell-aging jobs of 18 in-dept aging, with 1 Critical (WO 42480 ENGINEERED MACHINING SOLUTIONS, Low Qty, short-scheduled, due 04/28) and 2 Tight (WO 42490 PACIFIC CONSOLIDATED Low Qty, WO 42493 PRECISION TUBE BENDING Low Qty, both at msBD -2, due 05/01). 0 received today. CR 38.9% — 14 jobs finished at RI waiting to move to Pre-Clean. 4 unclassified aging RI WOs (42383 ALLAN AIRCRAFT, 42389 A&A MACHINE, plus 42367 SAINT GOBAIN and 42386 POLYMER CONCEPTS in Cleanroom and 42341, 42326, 42368 in Pre-Clean for a total of 7 unclassified plant-wide).",
+    "action": "Inspect WO 42480 ENGINEERED MACHINING SOLUTIONS today (short-scheduled, due tomorrow). Then WO 42490 PACIFIC CONSOLIDATED and WO 42493 PRECISION TUBE BENDING (Tight, due 05/01). Move the 14 finished-at-op jobs out of RI into Pre-Clean today — biggest hand-off bottleneck in the plant. Taylor and Anthony classify 42383 ALLAN AIRCRAFT, 42389 A&A MACHINE, 42341 TECMA, 42326 TECMA, 42368 REYCO, 42367 SAINT GOBAIN, 42386 POLYMER CONCEPTS on physical attributes (qty, size, complexity, PSV/assembly).",
     "ot": "not needed",
     "otText": "No OT — 1 Critical, 12 dwell-aging, 0 received today. Workable on the regular shift.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 100% — 4 of 4 aging. WO 42297 SAINT GOBAIN is Past Due (Low Qty, 125% burn, 4 BD past due). WO 42352 SAINT GOBAIN (Priority Customer, 100% burn, due today), WO 42351 SAINT GOBAIN (Low Qty, 88% burn, due today), and WO 42429 SAINT GOBAIN (Priority Customer, T3 Expedite, due in 2 BD) all Critical. Customer-controlled.",
-    "action": "Contact SAINT GOBAIN today — escalate WO 42297 (4 BD past due), confirm release plan for 42351 and 42352 (due today), and align T3 commitment for 42429.",
+    "what": "AR 100% — 4 of 4 aging, all SAINT GOBAIN. WO 42297 is Past Due (Low Qty, 125% burn, 4 BD past due). WO 42351 (Low Qty, 88% burn, due today) and WO 42352 (Priority Customer, 100% burn, due today) Critical. WO 42429 (Priority Customer, 57% burn, due 04/29) Critical. Customer-controlled.",
+    "action": "Contact SAINT GOBAIN today — escalate WO 42297 (4 BD past due), confirm release plan for WO 42351 and WO 42352 (both due today), and align commitment for WO 42429 (due 04/29).",
     "ot": "n/a",
     "otText": "n/a — customer-controlled.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 100% — 8 of 8 aging, all Critical, all ARROWHEAD PRODUCTS Priority Customer. Five are T1 Expedites due today and short-scheduled (42439, 42461, 42462, 42463, 42464). Three Standard (42404, 42405, 42406) due tomorrow at 71% burn.",
-    "action": "Escalate ARROWHEAD PRODUCTS today on the five T1 Expedites due today (42439, 42461, 42462, 42463, 42464) — all short-scheduled. Push for source/witness release on 42404, 42405, 42406 (due tomorrow).",
+    "what": "AR 100% — 8 of 8 aging, all Critical, all ARROWHEAD PRODUCTS Priority Customer. Five short-scheduled and due today (WO 42439, 42461, 42462, 42463, 42464). Three (WO 42404, 42405, 42406) due 04/28 at 71% burn.",
+    "action": "Escalate ARROWHEAD PRODUCTS today on the five short-scheduled WOs due today (42439, 42461, 42462, 42463, 42464). Push for source/witness release on 42404, 42405, 42406 (due 04/28).",
     "ot": "n/a",
     "otText": "n/a — customer-controlled.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "9 jobs routed here by Source Required / DCMA profile (customer or witness clock). 2 aging — WO 42469 BRONSON & BRATTON (Source Required, Tight, due in 4 BD) and WO 42478 FMH AMETEK (Source Required, On Track, due in 7 BD). Excluded from in-house AR denominator.",
+    "what": "9 jobs routed here by Source Required / DCMA profile (customer or witness clock). 2 aging — WO 42469 BRONSON & BRATTON (Source Required, Tight, due 05/01) and WO 42478 FMH AMETEK (Source Required, On Track, due 05/06). Excluded from the in-house AR denominator.",
     "action": "Monitor customer / witness status. No internal production action until the customer clock releases the job.",
     "ot": "n/a",
     "otText": "n/a — customer-controlled.",
@@ -8165,7 +8200,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "07:06 PM PDT";
+const GENERATED_TIME = "07:04 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
