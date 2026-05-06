@@ -395,30 +395,31 @@ tr.rs-expandable.open .rs-row-toggle{color:#0078D4;}
 const DATA = {
   "reportDate": "05/06/2026",
   "overall": {
-    "totalJobs": 149,
-    "agingJobs": 14,
-    "ar": 9.4,
-    "receivedToday": 2,
+    "totalJobs": 166,
+    "agingJobs": 5,
+    "ar": 3.0,
+    "receivedToday": 19,
     "flagDist": {
-      "Critical": 14
+      "Critical": 4,
+      "Reschedule Window": 1
     },
-    "upcomingCount": 119,
+    "upcomingCount": 133,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
     "mrbCount": 8,
     "unclassifiedAgingCount": 0,
-    "unclassifiedInHouseCount": 4,
-    "shortScheduledCount": 37,
-    "customerHoldProfileCount": 8,
+    "unclassifiedInHouseCount": 7,
+    "shortScheduledCount": 42,
+    "customerHoldProfileCount": 9,
     "profileDistribution": [
       {
         "name": "Standard",
-        "count": 31
+        "count": 35
       },
       {
         "name": "Low Qty",
-        "count": 25
+        "count": 28
       },
       {
         "name": "High Qty",
@@ -426,15 +427,15 @@ const DATA = {
       },
       {
         "name": "Priority Customer",
-        "count": 19
+        "count": 21
       },
       {
         "name": "Complex",
-        "count": 17
+        "count": 19
       },
       {
         "name": "Straight to CLR",
-        "count": 10
+        "count": 13
       },
       {
         "name": "Large Parts",
@@ -446,100 +447,110 @@ const DATA = {
       },
       {
         "name": "(Unclassified)",
-        "count": 4
+        "count": 7
       },
       {
         "name": "Needs Assembly",
         "count": 4
       }
     ],
-    "completedCount": 24,
-    "completedRatio": 16.1
+    "completedCount": 47,
+    "completedRatio": 28.3
   },
   "departments": [
     {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 12,
+      "aging": 1,
+      "ar": 8.3,
+      "flags": {
+        "Critical": 1
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 10,
+      "profileMix": [
+        {
+          "name": "Priority Customer",
+          "count": 1
+        }
+      ],
+      "completedCount": 5,
+      "completedRatio": 41.7,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
       "name": "Shipping",
       "lead": "Luis",
-      "total": 42,
-      "aging": 13,
-      "ar": 31.0,
+      "total": 50,
+      "aging": 2,
+      "ar": 4.0,
       "flags": {
-        "Critical": 13
+        "Critical": 2
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 45,
+      "profileMix": [
+        {
+          "name": "Standard",
+          "count": 1
+        },
+        {
+          "name": "Low Qty",
+          "count": 1
+        }
+      ],
+      "completedCount": 34,
+      "completedRatio": 68.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 29,
+      "aging": 1,
+      "ar": 3.4,
+      "flags": {
+        "Critical": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 28,
       "profileMix": [
         {
-          "name": "Low Qty",
-          "count": 6
-        },
-        {
-          "name": "Priority Customer",
-          "count": 2
-        },
-        {
-          "name": "Standard",
-          "count": 1
-        },
-        {
-          "name": "Needs Assembly",
-          "count": 1
-        },
-        {
-          "name": "PSV Only",
-          "count": 1
-        },
-        {
           "name": "Complex",
-          "count": 1
-        },
-        {
-          "name": "Large Parts",
           "count": 1
         }
       ],
-      "completedCount": 13,
-      "completedRatio": 31.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 17,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 14,
-      "profileMix": [],
-      "completedCount": 6,
-      "completedRatio": 35.3,
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
     {
       "name": "Pre-Clean",
       "lead": "Jorge",
-      "total": 62,
+      "total": 51,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 61,
+      "incoming": 50,
       "profileMix": [],
       "completedCount": 3,
-      "completedRatio": 4.8,
+      "completedRatio": 5.9,
       "tieredCount": 0,
       "tieredMix": []
     },
     {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 8,
+      "total": 21,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
@@ -547,24 +558,8 @@ const DATA = {
       "isBottom": false,
       "incoming": 0,
       "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 25.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 16,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 16,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
+      "completedCount": 5,
+      "completedRatio": 23.8,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -587,18 +582,18 @@ const DATA = {
     {
       "name": "Assembly",
       "lead": "Customer Hold",
-      "total": 3,
+      "total": 2,
       "aging": 1,
-      "ar": 33.3,
+      "ar": 50.0,
       "flags": {
-        "Critical": 1
+        "Reschedule Window": 1
       },
       "isCustomerDep": true,
       "isBottom": true,
       "incoming": 0,
       "profileMix": [
         {
-          "name": "Standard",
+          "name": "Priority Customer",
           "count": 1
         }
       ],
@@ -610,7 +605,7 @@ const DATA = {
     {
       "name": "Customer Hold (Profile)",
       "lead": "Customer Hold",
-      "total": 8,
+      "total": 9,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
@@ -618,36 +613,36 @@ const DATA = {
       "isBottom": true,
       "incoming": 0,
       "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
+      "completedCount": 1,
+      "completedRatio": 11.1,
       "tieredCount": 0,
       "tieredMix": []
     }
   ],
   "reschedule": {
-    "totalInHouse": 149,
+    "totalInHouse": 166,
     "rescheduledCount": 8,
-    "reschedulePct": 5.4,
+    "reschedulePct": 4.8,
     "burnedAgingJobs": [
       {
-        "wo": "42458",
+        "wo": "42484",
         "customer": "SAINT GOBAIN",
-        "dept": "Shipping",
-        "dueDate": "05/06",
-        "msBD": 0,
-        "dueBD": 0,
+        "dept": "Packaging",
+        "dueDate": "05/08",
+        "msBD": -1,
+        "dueBD": 2,
         "flag": "Critical",
         "baseFlag": "Critical",
         "priority": "Standard",
-        "profile": "Low Qty"
+        "profile": "Priority Customer"
       }
     ]
   },
   "rescheduleStatus": {
     "kpiTarget": 98,
-    "totalAssessed": 144,
-    "onTimeCount": 121,
-    "onTimePct": 84.0,
+    "totalAssessed": 157,
+    "onTimeCount": 134,
+    "onTimePct": 85.4,
     "atRiskCount": 23,
     "decideToday": [],
     "decideWeek": [],
@@ -708,8 +703,8 @@ const DATA = {
         "profile": "Priority Customer",
         "profileCls": "tight",
         "dept": "Packaging",
-        "flag": "On Track",
-        "flagColor": "#107C10",
+        "flag": "Critical",
+        "flagColor": "#D13438",
         "scheduledDue": "May 8",
         "forecastDate": "May 12",
         "slip": "+2 BD",
@@ -970,8 +965,8 @@ const DATA = {
         "profile": "Low Qty",
         "profileCls": "tight",
         "dept": "Shipping",
-        "flag": "Critical",
-        "flagColor": "#D13438",
+        "flag": "On Track",
+        "flagColor": "#107C10",
         "scheduledDue": "May 6",
         "forecastDate": "May 8",
         "slip": "+2 BD",
@@ -1059,8 +1054,8 @@ const DATA = {
     ],
     "escalate": [
       {
-        "wo": "42693",
-        "customer": "FMH AMETEK",
+        "wo": "42645-2",
+        "customer": "JRI, INC",
         "profile": null,
         "flag": "No Date",
         "flagColor": "#8A8886",
@@ -1069,14 +1064,64 @@ const DATA = {
         "action": "Planner owns: assign QPC Due Date."
       },
       {
-        "wo": "42694",
-        "customer": "FMH AMETEK",
+        "wo": "42698",
+        "customer": "GP STRATEGIES",
+        "profile": "Complex",
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42701",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": null,
         "flag": "No Date",
         "flagColor": "#8A8886",
         "badge": "ND",
         "reason": "Missing QPC Due Date.",
         "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42702",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42703",
+        "customer": "PDT AMETEK",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42704",
+        "customer": "PDT AMETEK",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42693",
+        "customer": "FMH AMETEK",
+        "profile": "DCMA",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "DCMA",
+        "reason": "DCMA - witness-scheduled.",
+        "action": "PM coordinates witness inspection."
       },
       {
         "wo": "42642",
@@ -1096,16 +1141,6 @@ const DATA = {
         "flagColor": "#107C10",
         "badge": "R2",
         "reason": "Reschedule window closed (-11 BD until QPC Due, < 2 BD). Per Rule 2.",
-        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
-      },
-      {
-        "wo": "42181-2",
-        "customer": "CHEMRING ENERGETIC DEVICES",
-        "profile": "Low Qty",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "badge": "R2",
-        "reason": "Reschedule window closed (-4 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
@@ -1129,14 +1164,14 @@ const DATA = {
         "action": "PM coordinates witness inspection."
       },
       {
-        "wo": "42274",
-        "customer": "FMH AMETEK",
-        "profile": "DCMA",
+        "wo": "42181-2",
+        "customer": "CHEMRING ENERGETIC DEVICES",
+        "profile": "Low Qty",
         "flag": "On Track",
         "flagColor": "#107C10",
-        "badge": "DCMA",
-        "reason": "DCMA - witness-scheduled.",
-        "action": "PM coordinates witness inspection."
+        "badge": "R2",
+        "reason": "Reschedule window closed (-4 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
         "wo": "42275",
@@ -1149,26 +1184,6 @@ const DATA = {
         "action": "PM coordinates witness inspection."
       },
       {
-        "wo": "42410",
-        "customer": "ARROWHEAD PRODUCTS",
-        "profile": "Priority Customer",
-        "flag": "No Date",
-        "flagColor": "#8A8886",
-        "badge": "ND",
-        "reason": "Missing QPC Due Date.",
-        "action": "Planner owns: assign QPC Due Date."
-      },
-      {
-        "wo": "42520",
-        "customer": "ARROWHEAD PRODUCTS",
-        "profile": "Priority Customer",
-        "flag": "No Date",
-        "flagColor": "#8A8886",
-        "badge": "ND",
-        "reason": "Missing QPC Due Date.",
-        "action": "Planner owns: assign QPC Due Date."
-      },
-      {
         "wo": "42285-2",
         "customer": "CRYOWORKS",
         "profile": "Complex",
@@ -1177,6 +1192,16 @@ const DATA = {
         "badge": "R2",
         "reason": "Reschedule window closed (-8 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
+        "wo": "42274",
+        "customer": "FMH AMETEK",
+        "profile": "DCMA",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "DCMA",
+        "reason": "DCMA - witness-scheduled.",
+        "action": "PM coordinates witness inspection."
       },
       {
         "wo": "42369",
@@ -1207,6 +1232,26 @@ const DATA = {
         "badge": "SR",
         "reason": "Source Required - date provisional.",
         "action": "PM coordinates source visit."
+      },
+      {
+        "wo": "42410",
+        "customer": "ARROWHEAD PRODUCTS",
+        "profile": "Priority Customer",
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "42520",
+        "customer": "ARROWHEAD PRODUCTS",
+        "profile": "Priority Customer",
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
       },
       {
         "wo": "41448",
@@ -1282,8 +1327,8 @@ const DATA = {
         "wo": "42441",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "PSV Only",
-        "flag": "Critical",
-        "flagColor": "#D13438",
+        "flag": "On Track",
+        "flagColor": "#107C10",
         "badge": "R2",
         "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -1302,8 +1347,8 @@ const DATA = {
         "wo": "42498",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
-        "flag": "Critical",
-        "flagColor": "#D13438",
+        "flag": "On Track",
+        "flagColor": "#107C10",
         "badge": "R2",
         "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -1319,21 +1364,11 @@ const DATA = {
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
-        "wo": "42478",
-        "customer": "FMH AMETEK",
-        "profile": "Source Required",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "badge": "SR",
-        "reason": "Source Required - date provisional.",
-        "action": "PM coordinates source visit."
-      },
-      {
         "wo": "42495",
         "customer": "POLYMER CONCEPTS",
         "profile": "Needs Assembly",
-        "flag": "Critical",
-        "flagColor": "#D13438",
+        "flag": "On Track",
+        "flagColor": "#107C10",
         "badge": "R2",
         "reason": "Reschedule window closed (1 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -1389,14 +1424,14 @@ const DATA = {
         "action": "MRB closes first. QE owns disposition."
       },
       {
-        "wo": "42601",
-        "customer": "MOONEY INDUSTRIES",
-        "profile": "Low Qty",
+        "wo": "42478",
+        "customer": "FMH AMETEK",
+        "profile": "Source Required",
         "flag": "On Track",
         "flagColor": "#107C10",
-        "badge": "MRB",
-        "reason": "In MRB - disposition unresolved.",
-        "action": "MRB closes first. QE owns disposition."
+        "badge": "SR",
+        "reason": "Source Required - date provisional.",
+        "action": "PM coordinates source visit."
       },
       {
         "wo": "42644",
@@ -1427,9 +1462,110 @@ const DATA = {
         "badge": "MRB",
         "reason": "In MRB - disposition unresolved.",
         "action": "MRB closes first. QE owns disposition."
+      },
+      {
+        "wo": "42672",
+        "customer": "GLOBAL PRECISION PRODUCTS",
+        "profile": "Standard",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "MRB",
+        "reason": "In MRB - disposition unresolved.",
+        "action": "MRB closes first. QE owns disposition."
       }
     ],
     "calibrationEntries": [
+      {
+        "runDate": "2026-05-06",
+        "wo": "42481",
+        "customer": "MINDRUM PRECISION, INC",
+        "profile": "Complex",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42690",
+        "customer": "NUSPACE",
+        "profile": "Priority Customer",
+        "qpcDue": "May 15",
+        "forecastDate": "May 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42692",
+        "customer": "MINDRUM PRECISION, INC",
+        "profile": "Low Qty",
+        "qpcDue": "May 15",
+        "forecastDate": "May 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42694",
+        "customer": "FMH AMETEK",
+        "profile": "Low Qty",
+        "qpcDue": "May 15",
+        "forecastDate": "May 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42674",
+        "customer": "ICO RALLY",
+        "profile": "Standard",
+        "qpcDue": "May 19",
+        "forecastDate": "May 19",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42675",
+        "customer": "ICO RALLY",
+        "profile": "Standard",
+        "qpcDue": "May 19",
+        "forecastDate": "May 19",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42676",
+        "customer": "ICO RALLY",
+        "profile": "Standard",
+        "qpcDue": "May 19",
+        "forecastDate": "May 19",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
       {
         "runDate": "2026-05-06",
         "wo": "42677",
@@ -1445,11 +1581,63 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42661",
-        "customer": "DARMARK CORPORATION",
+        "wo": "42689-2",
+        "customer": "SEYTEC",
         "profile": "Standard",
-        "qpcDue": "May 15",
-        "forecastDate": "May 15",
+        "qpcDue": "May 19",
+        "forecastDate": "May 19",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42697",
+        "customer": "QED/INC",
+        "profile": "Straight to CLR",
+        "qpcDue": "May 19",
+        "forecastDate": "May 19",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42157",
+        "customer": "NUSPACE",
+        "profile": "Priority Customer",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42660",
+        "customer": "KING NUTRONICS",
+        "profile": "Straight to CLR",
+        "qpcDue": "May 14",
+        "forecastDate": "May 14",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42689-1",
+        "customer": "SEYTEC",
+        "profile": "Standard",
+        "qpcDue": "May 14",
+        "forecastDate": "May 14",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
@@ -1484,32 +1672,6 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42662",
-        "customer": "REYCO PRECISION MACHINING",
-        "profile": "Standard",
-        "qpcDue": "May 18",
-        "forecastDate": "May 18",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42672",
-        "customer": "GLOBAL PRECISION PRODUCTS",
-        "profile": "Standard",
-        "qpcDue": "May 18",
-        "forecastDate": "May 18",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "42285",
         "customer": "CRYOWORKS",
         "profile": "Large Parts",
@@ -1526,64 +1688,22 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42181-2",
-        "customer": "CHEMRING ENERGETIC DEVICES",
-        "profile": "Low Qty",
-        "qpcDue": "Apr 30",
-        "forecastDate": "May 6",
-        "predictedSlipBD": 4,
-        "indicatorsFired": [
-          "Profile burn 112% (>= 95%)",
-          "Past current QPC Due"
-        ],
-        "bucket": "escalate",
-        "isBurned": false,
-        "isTightProfile": true
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42645-1",
-        "customer": "JRI, INC",
-        "profile": "Complex",
-        "qpcDue": "May 8",
-        "forecastDate": "May 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42679",
-        "customer": "RSA ENGINEERED PRODUCTS, LLC",
-        "profile": "Standard",
-        "qpcDue": "May 8",
-        "forecastDate": "May 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42682",
-        "customer": "KAVLICO AEROSPACE DIVISION",
-        "profile": "Standard",
-        "qpcDue": "May 8",
-        "forecastDate": "May 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "42686",
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
+        "qpcDue": "May 8",
+        "forecastDate": "May 8",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42696",
+        "customer": "PERFORMANCE SEALING INC",
+        "profile": "Straight to CLR",
         "qpcDue": "May 8",
         "forecastDate": "May 8",
         "predictedSlipBD": 0,
@@ -1619,45 +1739,6 @@ const DATA = {
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42559",
-        "customer": "HYDRAELECTRIC CO.",
-        "profile": "Low Qty",
-        "qpcDue": "May 11",
-        "forecastDate": "May 11",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": true
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42577",
-        "customer": "IMPERIAL MACHINE & TOOL CO.",
-        "profile": "Complex",
-        "qpcDue": "May 11",
-        "forecastDate": "May 11",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42578",
-        "customer": "IMPERIAL MACHINE & TOOL CO.",
-        "profile": "Complex",
-        "qpcDue": "May 11",
-        "forecastDate": "May 11",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
       },
       {
         "runDate": "2026-05-06",
@@ -1843,48 +1924,9 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42678",
-        "customer": "JBW PRECISION INC",
-        "profile": "Standard",
-        "qpcDue": "May 12",
-        "forecastDate": "May 12",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42685",
-        "customer": "SAINT GOBAIN",
-        "profile": "Large Parts",
-        "qpcDue": "May 12",
-        "forecastDate": "May 12",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "42502",
         "customer": "SEYTEC",
         "profile": "High Qty",
-        "qpcDue": "May 13",
-        "forecastDate": "May 13",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42582",
-        "customer": "ALLAN AIRCRAFT SUPPLY",
-        "profile": "Complex",
         "qpcDue": "May 13",
         "forecastDate": "May 13",
         "predictedSlipBD": 0,
@@ -1911,19 +1953,6 @@ const DATA = {
         "wo": "42585",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "Complex",
-        "qpcDue": "May 13",
-        "forecastDate": "May 13",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42586",
-        "customer": "ALLAN AIRCRAFT SUPPLY",
-        "profile": "Standard",
         "qpcDue": "May 13",
         "forecastDate": "May 13",
         "predictedSlipBD": 0,
@@ -2116,45 +2145,6 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42592",
-        "customer": "UNITED PARADYNE CORPORATION",
-        "profile": "Complex",
-        "qpcDue": "May 14",
-        "forecastDate": "May 14",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42611",
-        "customer": "ALLAN AIRCRAFT SUPPLY",
-        "profile": "Standard",
-        "qpcDue": "May 14",
-        "forecastDate": "May 14",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42612",
-        "customer": "ALLAN AIRCRAFT SUPPLY",
-        "profile": "Standard",
-        "qpcDue": "May 14",
-        "forecastDate": "May 14",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "42635",
         "customer": "GLOBAL PRECISION PRODUCTS",
         "profile": "Complex",
@@ -2171,6 +2161,19 @@ const DATA = {
         "wo": "42619",
         "customer": "UNITED PARADYNE CORPORATION",
         "profile": "High Qty",
+        "qpcDue": "May 15",
+        "forecastDate": "May 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42661",
+        "customer": "DARMARK CORPORATION",
+        "profile": "Standard",
         "qpcDue": "May 15",
         "forecastDate": "May 15",
         "predictedSlipBD": 0,
@@ -2210,6 +2213,19 @@ const DATA = {
         "wo": "42636",
         "customer": "L&M MACHINING",
         "profile": "High Qty",
+        "qpcDue": "May 18",
+        "forecastDate": "May 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42662",
+        "customer": "REYCO PRECISION MACHINING",
+        "profile": "Standard",
         "qpcDue": "May 18",
         "forecastDate": "May 18",
         "predictedSlipBD": 0,
@@ -2311,8 +2327,76 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42181-2",
+        "customer": "CHEMRING ENERGETIC DEVICES",
+        "profile": "Low Qty",
+        "qpcDue": "Apr 30",
+        "forecastDate": "May 6",
+        "predictedSlipBD": 4,
+        "indicatorsFired": [
+          "Profile burn 112% (>= 95%)",
+          "Past current QPC Due"
+        ],
+        "bucket": "escalate",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42645-1",
+        "customer": "JRI, INC",
+        "profile": "Complex",
+        "qpcDue": "May 8",
+        "forecastDate": "May 8",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42679",
+        "customer": "RSA ENGINEERED PRODUCTS, LLC",
+        "profile": "Standard",
+        "qpcDue": "May 8",
+        "forecastDate": "May 8",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42682",
+        "customer": "KAVLICO AEROSPACE DIVISION",
+        "profile": "Standard",
+        "qpcDue": "May 8",
+        "forecastDate": "May 8",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42558",
         "customer": "AXXIS CORPORATION",
+        "profile": "Low Qty",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42559",
+        "customer": "HYDRAELECTRIC CO.",
         "profile": "Low Qty",
         "qpcDue": "May 11",
         "forecastDate": "May 11",
@@ -2363,11 +2447,24 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42018-2",
-        "customer": "JP DONOVAN CONSTRUCTION",
+        "wo": "42577",
+        "customer": "IMPERIAL MACHINE & TOOL CO.",
         "profile": "Complex",
-        "qpcDue": "May 12",
-        "forecastDate": "May 12",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42578",
+        "customer": "IMPERIAL MACHINE & TOOL CO.",
+        "profile": "Complex",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
@@ -2467,6 +2564,58 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42678",
+        "customer": "JBW PRECISION INC",
+        "profile": "Standard",
+        "qpcDue": "May 12",
+        "forecastDate": "May 12",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42685",
+        "customer": "SAINT GOBAIN",
+        "profile": "Large Parts",
+        "qpcDue": "May 12",
+        "forecastDate": "May 12",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42582",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": "Complex",
+        "qpcDue": "May 13",
+        "forecastDate": "May 13",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42586",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": "Standard",
+        "qpcDue": "May 13",
+        "forecastDate": "May 13",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42603",
         "customer": "TECMA",
         "profile": "Complex",
@@ -2493,9 +2642,48 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42592",
+        "customer": "UNITED PARADYNE CORPORATION",
+        "profile": "Complex",
+        "qpcDue": "May 14",
+        "forecastDate": "May 14",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42599",
         "customer": "NYTRON AEROSPACE",
         "profile": "High Qty",
+        "qpcDue": "May 14",
+        "forecastDate": "May 14",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42611",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": "Standard",
+        "qpcDue": "May 14",
+        "forecastDate": "May 14",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42612",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": "Standard",
         "qpcDue": "May 14",
         "forecastDate": "May 14",
         "predictedSlipBD": 0,
@@ -2577,48 +2765,9 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42631",
-        "customer": "PERFORMANCE SEALING INC",
-        "profile": "Straight to CLR",
-        "qpcDue": "May 6",
-        "forecastDate": "May 6",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42639",
-        "customer": "GEARLES DESIGNS & MFG",
-        "profile": "High Qty",
-        "qpcDue": "May 6",
-        "forecastDate": "May 6",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42657",
-        "customer": "CB MFG & ENG, INC.",
-        "profile": "Complex",
-        "qpcDue": "May 6",
-        "forecastDate": "May 6",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42658",
-        "customer": "RBC SOUTHWEST PRODUCTS",
-        "profile": "Complex",
+        "wo": "42285-3",
+        "customer": "CRYOWORKS",
+        "profile": "Large Parts",
         "qpcDue": "May 6",
         "forecastDate": "May 6",
         "predictedSlipBD": 0,
@@ -2657,19 +2806,6 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42630",
-        "customer": "PERFORMANCE SEALING INC",
-        "profile": "Straight to CLR",
-        "qpcDue": "May 8",
-        "forecastDate": "May 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "41537",
         "customer": "SPACE EXPLORATION TECHNOLOGIES",
         "profile": "Low Qty",
@@ -2696,9 +2832,22 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42547",
-        "customer": "HIGH PRESSURE TECHNOLOGIES",
-        "profile": "Needs Assembly",
+        "wo": "42552",
+        "customer": "MICRO-TRONICS, INC.",
+        "profile": "High Qty",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42601",
+        "customer": "MOONEY INDUSTRIES",
+        "profile": "Low Qty",
         "qpcDue": "May 11",
         "forecastDate": "May 11",
         "predictedSlipBD": 0,
@@ -2709,11 +2858,11 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42552",
-        "customer": "MICRO-TRONICS, INC.",
-        "profile": "High Qty",
-        "qpcDue": "May 11",
-        "forecastDate": "May 11",
+        "wo": "42018-2",
+        "customer": "JP DONOVAN CONSTRUCTION",
+        "profile": "Complex",
+        "qpcDue": "May 12",
+        "forecastDate": "May 12",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
@@ -3005,19 +3154,6 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
-        "wo": "42285-3",
-        "customer": "CRYOWORKS",
-        "profile": "Large Parts",
-        "qpcDue": "May 6",
-        "forecastDate": "May 6",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
         "wo": "42595",
         "customer": "MACKENZIE AIRCRAFT PARTS",
         "profile": "Low Qty",
@@ -3070,11 +3206,76 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42631",
+        "customer": "PERFORMANCE SEALING INC",
+        "profile": "Straight to CLR",
+        "qpcDue": "May 6",
+        "forecastDate": "May 6",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42639",
+        "customer": "GEARLES DESIGNS & MFG",
+        "profile": "High Qty",
+        "qpcDue": "May 6",
+        "forecastDate": "May 6",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42621",
         "customer": "EATON CORP.",
         "profile": "Straight to CLR",
         "qpcDue": "May 6",
         "forecastDate": "May 6",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42657",
+        "customer": "CB MFG & ENG, INC.",
+        "profile": "Complex",
+        "qpcDue": "May 6",
+        "forecastDate": "May 6",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42658",
+        "customer": "RBC SOUTHWEST PRODUCTS",
+        "profile": "Complex",
+        "qpcDue": "May 6",
+        "forecastDate": "May 6",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
+        "wo": "42492",
+        "customer": "TA AEROSPACE",
+        "profile": "Standard",
+        "qpcDue": "May 7",
+        "forecastDate": "May 7",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
@@ -3256,6 +3457,19 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42630",
+        "customer": "PERFORMANCE SEALING INC",
+        "profile": "Straight to CLR",
+        "qpcDue": "May 8",
+        "forecastDate": "May 8",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42640",
         "customer": "CREATIVE PATHWAYS, INC.",
         "profile": "Low Qty",
@@ -3308,24 +3522,24 @@ const DATA = {
       },
       {
         "runDate": "2026-05-06",
+        "wo": "42547",
+        "customer": "HIGH PRESSURE TECHNOLOGIES",
+        "profile": "Needs Assembly",
+        "qpcDue": "May 11",
+        "forecastDate": "May 11",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-05-06",
         "wo": "42549",
         "customer": "CENTURY SPRING CORP.",
         "profile": "High Qty",
         "qpcDue": "May 13",
         "forecastDate": "May 13",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-05-06",
-        "wo": "42492",
-        "customer": "TA AEROSPACE",
-        "profile": "Standard",
-        "qpcDue": "May 7",
-        "forecastDate": "May 7",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
@@ -3362,6 +3576,72 @@ const DATA = {
   },
   "allAgingJobs": [
     {
+      "wo": "42603",
+      "customer": "TECMA",
+      "dept": "Cleanroom",
+      "dueDate": "05/13",
+      "msDate": "05/05",
+      "msBD": -1,
+      "dueBD": 5,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Complex",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 4,
+      "scheduledLeadBD": 9,
+      "profileBurnPct": 33.3,
+      "profileOverBD": -8,
+      "schedulingSlack": -3,
+      "isShortScheduled": true,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "42484",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "05/08",
+      "msDate": "05/05",
+      "msBD": -1,
+      "dueBD": 2,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": true,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 9,
+      "scheduledLeadBD": 11,
+      "profileBurnPct": 128.6,
+      "profileOverBD": 2,
+      "schedulingSlack": 4,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "42521",
       "customer": "THEONICS",
       "dept": "Shipping",
@@ -3381,171 +3661,6 @@ const DATA = {
       "profileBurnPct": 70.0,
       "profileOverBD": -3,
       "schedulingSlack": -1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42495",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Needs Assembly",
-      "profileMin": 7,
-      "profileMax": 8,
-      "elapsedBD": 9,
-      "scheduledLeadBD": 10,
-      "profileBurnPct": 112.5,
-      "profileOverBD": 1,
-      "schedulingSlack": 2,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42526",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Low Qty",
-      "profileMin": 6,
-      "profileMax": 8,
-      "elapsedBD": 7,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 87.5,
-      "profileOverBD": -1,
-      "schedulingSlack": 0,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42535",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Low Qty",
-      "profileMin": 6,
-      "profileMax": 8,
-      "elapsedBD": 7,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 87.5,
-      "profileOverBD": -1,
-      "schedulingSlack": 0,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42536",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Low Qty",
-      "profileMin": 6,
-      "profileMax": 8,
-      "elapsedBD": 7,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 87.5,
-      "profileOverBD": -1,
-      "schedulingSlack": 0,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42537",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Low Qty",
-      "profileMin": 6,
-      "profileMax": 8,
-      "elapsedBD": 7,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 87.5,
-      "profileOverBD": -1,
-      "schedulingSlack": 0,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -3593,223 +3708,25 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
-      "wo": "42571",
-      "customer": "SAINT GOBAIN",
-      "dept": "Shipping",
-      "dueDate": "05/07",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 5,
-      "scheduledLeadBD": 6,
-      "profileBurnPct": 71.4,
-      "profileOverBD": -2,
-      "schedulingSlack": -1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42441",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Shipping",
-      "dueDate": "05/06",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "PSV Only",
-      "profileMin": 8,
-      "profileMax": 10,
-      "elapsedBD": 11,
-      "scheduledLeadBD": 11,
-      "profileBurnPct": 110.0,
-      "profileOverBD": 1,
-      "schedulingSlack": 1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42454",
-      "customer": "TECMA",
-      "dept": "Shipping",
-      "dueDate": "05/06",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Complex",
-      "profileMin": 10,
-      "profileMax": 12,
-      "elapsedBD": 10,
-      "scheduledLeadBD": 10,
-      "profileBurnPct": 83.3,
-      "profileOverBD": -2,
-      "schedulingSlack": -2,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42458",
-      "customer": "SAINT GOBAIN",
-      "dept": "Shipping",
-      "dueDate": "05/06",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": true,
-      "profile": "Low Qty",
-      "profileMin": 6,
-      "profileMax": 8,
-      "elapsedBD": 10,
-      "scheduledLeadBD": 10,
-      "profileBurnPct": 125.0,
-      "profileOverBD": 2,
-      "schedulingSlack": 2,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42498",
-      "customer": "SAINT GOBAIN",
-      "dept": "Shipping",
-      "dueDate": "05/06",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 8,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 114.3,
-      "profileOverBD": 1,
-      "schedulingSlack": 1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42285-3",
-      "customer": "CRYOWORKS",
-      "dept": "Shipping",
-      "dueDate": "05/06",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "T1 Expedite",
-      "rescheduled": false,
-      "profile": "Large Parts",
-      "profileMin": 10,
-      "profileMax": 12,
-      "elapsedBD": 5,
-      "scheduledLeadBD": 5,
-      "profileBurnPct": 41.7,
-      "profileOverBD": -7,
-      "schedulingSlack": -7,
-      "isShortScheduled": true,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "42492",
-      "customer": "TA AEROSPACE",
+      "wo": "42551",
+      "customer": "POLYMER CONCEPTS",
       "dept": "Assembly",
-      "dueDate": "05/07",
-      "msDate": "05/07",
-      "msBD": 1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
+      "dueDate": "05/11",
+      "msDate": "05/11",
+      "msBD": 3,
+      "dueBD": 3,
+      "flag": "Reschedule Window",
+      "baseFlag": "Reschedule Window",
       "priority": "Standard",
       "rescheduled": false,
-      "profile": "Standard",
-      "profileMin": 8,
-      "profileMax": 10,
-      "elapsedBD": 9,
-      "scheduledLeadBD": 10,
-      "profileBurnPct": 90.0,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 9,
+      "profileBurnPct": 85.7,
       "profileOverBD": -1,
-      "schedulingSlack": 0,
+      "schedulingSlack": 2,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -3877,10 +3794,10 @@ const DATA = {
     },
     {
       "wo": "42181-2",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "dueDate": "04/30",
-      "msDate": "04/27",
-      "msBD": -7,
+      "msDate": "04/28",
+      "msBD": -6,
       "dueBD": -4,
       "priority": "T1 Expedite",
       "profile": "Low Qty"
@@ -3936,6 +3853,16 @@ const DATA = {
       "profile": "High Qty"
     },
     {
+      "wo": "42285-3",
+      "dept": "Packaging",
+      "dueDate": "05/06",
+      "msDate": "05/04",
+      "msBD": -2,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "Large Parts"
+    },
+    {
       "wo": "42516",
       "dept": "Packaging",
       "dueDate": "05/12",
@@ -3976,36 +3903,6 @@ const DATA = {
       "profile": "Standard"
     },
     {
-      "wo": "42559",
-      "dept": "Pre-Clean",
-      "dueDate": "05/11",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 3,
-      "priority": "Standard",
-      "profile": "Low Qty"
-    },
-    {
-      "wo": "42577",
-      "dept": "Pre-Clean",
-      "dueDate": "05/11",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 3,
-      "priority": "Standard",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42578",
-      "dept": "Pre-Clean",
-      "dueDate": "05/11",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 3,
-      "priority": "Standard",
-      "profile": "Complex"
-    },
-    {
       "wo": "42502",
       "dept": "Pre-Clean",
       "dueDate": "05/13",
@@ -4016,56 +3913,6 @@ const DATA = {
       "profile": "High Qty"
     },
     {
-      "wo": "42582",
-      "dept": "Pre-Clean",
-      "dueDate": "05/13",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 5,
-      "priority": "Standard",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42586",
-      "dept": "Pre-Clean",
-      "dueDate": "05/13",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 5,
-      "priority": "Standard",
-      "profile": "Standard"
-    },
-    {
-      "wo": "42592",
-      "dept": "Pre-Clean",
-      "dueDate": "05/14",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42611",
-      "dept": "Pre-Clean",
-      "dueDate": "05/14",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Standard"
-    },
-    {
-      "wo": "42612",
-      "dept": "Pre-Clean",
-      "dueDate": "05/14",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Standard"
-    },
-    {
       "wo": "42533",
       "dept": "Cleanroom",
       "dueDate": "05/12",
@@ -4074,56 +3921,6 @@ const DATA = {
       "dueBD": 4,
       "priority": "Standard",
       "profile": "High Qty"
-    },
-    {
-      "wo": "42603",
-      "dept": "Cleanroom",
-      "dueDate": "05/13",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 5,
-      "priority": "Standard",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42631",
-      "dept": "Packaging",
-      "dueDate": "05/06",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 0,
-      "priority": "T1 Expedite",
-      "profile": "Straight to CLR"
-    },
-    {
-      "wo": "42639",
-      "dept": "Packaging",
-      "dueDate": "05/06",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 0,
-      "priority": "T1 Expedite",
-      "profile": "High Qty"
-    },
-    {
-      "wo": "42657",
-      "dept": "Packaging",
-      "dueDate": "05/06",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 0,
-      "priority": "T1 Expedite",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42484",
-      "dept": "Packaging",
-      "dueDate": "05/08",
-      "msDate": "05/05",
-      "msBD": -1,
-      "dueBD": 2,
-      "priority": "Standard",
-      "profile": "Priority Customer"
     },
     {
       "wo": "42242-1",
@@ -4146,6 +3943,16 @@ const DATA = {
       "profile": "Large Parts"
     },
     {
+      "wo": "42454",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/05",
+      "msBD": -1,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "Complex"
+    },
+    {
       "wo": "42487",
       "dept": "Shipping",
       "dueDate": "05/06",
@@ -4156,33 +3963,13 @@ const DATA = {
       "profile": "Standard"
     },
     {
-      "wo": "42645-1",
-      "dept": "Pre-Clean",
-      "dueDate": "05/08",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 2,
-      "priority": "T1 Expedite",
-      "profile": "Complex"
-    },
-    {
-      "wo": "42679",
-      "dept": "Pre-Clean",
-      "dueDate": "05/08",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 2,
-      "priority": "T1 Expedite",
-      "profile": "Standard"
-    },
-    {
-      "wo": "42682",
-      "dept": "Pre-Clean",
-      "dueDate": "05/08",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 2,
-      "priority": "T1 Expedite",
+      "wo": "42492",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/05",
+      "msBD": -1,
+      "dueBD": 1,
+      "priority": "Standard",
       "profile": "Standard"
     },
     {
@@ -4194,6 +3981,16 @@ const DATA = {
       "dueBD": 2,
       "priority": "T1 Expedite",
       "profile": "High Qty"
+    },
+    {
+      "wo": "42696",
+      "dept": "Pre-Clean",
+      "dueDate": "05/08",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "profile": "Straight to CLR"
     },
     {
       "wo": "42427",
@@ -4284,16 +4081,6 @@ const DATA = {
       "dueBD": 4,
       "priority": "Standard",
       "profile": "PSV Only"
-    },
-    {
-      "wo": "42685",
-      "dept": "Pre-Clean",
-      "dueDate": "05/12",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 4,
-      "priority": "T3 Expedite",
-      "profile": "Large Parts"
     },
     {
       "wo": "42583",
@@ -4416,6 +4203,16 @@ const DATA = {
       "profile": "Low Qty"
     },
     {
+      "wo": "42559",
+      "dept": "Cleanroom",
+      "dueDate": "05/11",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 3,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
       "wo": "42574",
       "dept": "Cleanroom",
       "dueDate": "05/11",
@@ -4446,12 +4243,22 @@ const DATA = {
       "profile": "Complex"
     },
     {
-      "wo": "42018-2",
+      "wo": "42577",
       "dept": "Cleanroom",
-      "dueDate": "05/12",
+      "dueDate": "05/11",
       "msDate": "05/06",
       "msBD": 0,
-      "dueBD": 4,
+      "dueBD": 3,
+      "priority": "Standard",
+      "profile": "Complex"
+    },
+    {
+      "wo": "42578",
+      "dept": "Cleanroom",
+      "dueDate": "05/11",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Complex"
     },
@@ -4486,6 +4293,16 @@ const DATA = {
       "profile": "Straight to CLR"
     },
     {
+      "wo": "42582",
+      "dept": "Cleanroom",
+      "dueDate": "05/13",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 5,
+      "priority": "Standard",
+      "profile": "Complex"
+    },
+    {
       "wo": "42599",
       "dept": "Cleanroom",
       "dueDate": "05/14",
@@ -4494,16 +4311,6 @@ const DATA = {
       "dueBD": 6,
       "priority": "Standard",
       "profile": "High Qty"
-    },
-    {
-      "wo": "42658",
-      "dept": "Packaging",
-      "dueDate": "05/06",
-      "msDate": "05/06",
-      "msBD": 0,
-      "dueBD": 0,
-      "priority": "T1 Expedite",
-      "profile": "Complex"
     },
     {
       "wo": "42539",
@@ -4516,14 +4323,14 @@ const DATA = {
       "profile": "Low Qty"
     },
     {
-      "wo": "42630",
+      "wo": "42601",
       "dept": "Packaging",
-      "dueDate": "05/08",
+      "dueDate": "05/11",
       "msDate": "05/06",
       "msBD": 0,
-      "dueBD": 2,
-      "priority": "T2 Expedite",
-      "profile": "Straight to CLR"
+      "dueBD": 3,
+      "priority": "Standard",
+      "profile": "Low Qty"
     },
     {
       "wo": "42418",
@@ -4534,6 +4341,36 @@ const DATA = {
       "dueBD": 0,
       "priority": "Standard",
       "profile": "Standard"
+    },
+    {
+      "wo": "42441",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "PSV Only"
+    },
+    {
+      "wo": "42458",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
+      "wo": "42498",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "Priority Customer"
     },
     {
       "wo": "42517",
@@ -4586,6 +4423,26 @@ const DATA = {
       "profile": "Straight to CLR"
     },
     {
+      "wo": "42631",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "Straight to CLR"
+    },
+    {
+      "wo": "42639",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "High Qty"
+    },
+    {
       "wo": "42621",
       "dept": "Shipping",
       "dueDate": "05/06",
@@ -4596,6 +4453,36 @@ const DATA = {
       "profile": "Straight to CLR"
     },
     {
+      "wo": "42657",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "Complex"
+    },
+    {
+      "wo": "42658",
+      "dept": "Shipping",
+      "dueDate": "05/06",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "Complex"
+    },
+    {
+      "wo": "42495",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Needs Assembly"
+    },
+    {
       "wo": "42496",
       "dept": "Shipping",
       "dueDate": "05/07",
@@ -4604,6 +4491,56 @@ const DATA = {
       "dueBD": 1,
       "priority": "Standard",
       "profile": "Needs Assembly"
+    },
+    {
+      "wo": "42526",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
+      "wo": "42535",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
+      "wo": "42536",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
+      "wo": "42537",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
+      "wo": "42571",
+      "dept": "Shipping",
+      "dueDate": "05/07",
+      "msDate": "05/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Priority Customer"
     },
     {
       "wo": "41113-1",
@@ -4674,16 +4611,6 @@ const DATA = {
       "dueBD": 4,
       "priority": "Standard",
       "profile": "Priority Customer"
-    },
-    {
-      "wo": "42678",
-      "dept": "Pre-Clean",
-      "dueDate": "05/12",
-      "msDate": "05/07",
-      "msBD": 1,
-      "dueBD": 4,
-      "priority": "T2 Expedite",
-      "profile": "Standard"
     },
     {
       "wo": "42606",
@@ -4776,6 +4703,36 @@ const DATA = {
       "profile": "High Qty"
     },
     {
+      "wo": "42645-1",
+      "dept": "Cleanroom",
+      "dueDate": "05/08",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "profile": "Complex"
+    },
+    {
+      "wo": "42679",
+      "dept": "Cleanroom",
+      "dueDate": "05/08",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "profile": "Standard"
+    },
+    {
+      "wo": "42682",
+      "dept": "Cleanroom",
+      "dueDate": "05/08",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "profile": "Standard"
+    },
+    {
       "wo": "42557",
       "dept": "Cleanroom",
       "dueDate": "05/12",
@@ -4794,6 +4751,46 @@ const DATA = {
       "dueBD": 4,
       "priority": "T3 Expedite",
       "profile": "Large Parts"
+    },
+    {
+      "wo": "42685",
+      "dept": "Cleanroom",
+      "dueDate": "05/12",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 4,
+      "priority": "T3 Expedite",
+      "profile": "Large Parts"
+    },
+    {
+      "wo": "42586",
+      "dept": "Cleanroom",
+      "dueDate": "05/13",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 5,
+      "priority": "Standard",
+      "profile": "Standard"
+    },
+    {
+      "wo": "42611",
+      "dept": "Cleanroom",
+      "dueDate": "05/14",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 6,
+      "priority": "Standard",
+      "profile": "Standard"
+    },
+    {
+      "wo": "42612",
+      "dept": "Cleanroom",
+      "dueDate": "05/14",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 6,
+      "priority": "Standard",
+      "profile": "Standard"
     },
     {
       "wo": "41537",
@@ -4816,14 +4813,14 @@ const DATA = {
       "profile": "Standard"
     },
     {
-      "wo": "42547",
+      "wo": "42018-2",
       "dept": "Packaging",
-      "dueDate": "05/11",
+      "dueDate": "05/12",
       "msDate": "05/07",
       "msBD": 1,
-      "dueBD": 3,
+      "dueBD": 4,
       "priority": "Standard",
-      "profile": "Needs Assembly"
+      "profile": "Complex"
     },
     {
       "wo": "42476",
@@ -4856,6 +4853,26 @@ const DATA = {
       "profile": "PSV Only"
     },
     {
+      "wo": "42547",
+      "dept": "Shipping",
+      "dueDate": "05/11",
+      "msDate": "05/07",
+      "msBD": 1,
+      "dueBD": 3,
+      "priority": "Standard",
+      "profile": "Needs Assembly"
+    },
+    {
+      "wo": "42661",
+      "dept": "Pre-Clean",
+      "dueDate": "05/15",
+      "msDate": "05/08",
+      "msBD": 2,
+      "dueBD": 7,
+      "priority": "Standard",
+      "profile": "Standard"
+    },
+    {
       "wo": "42663",
       "dept": "Pre-Clean",
       "dueDate": "05/15",
@@ -4864,6 +4881,16 @@ const DATA = {
       "dueBD": 7,
       "priority": "Standard",
       "profile": "Low Qty"
+    },
+    {
+      "wo": "42662",
+      "dept": "Pre-Clean",
+      "dueDate": "05/18",
+      "msDate": "05/08",
+      "msBD": 2,
+      "dueBD": 8,
+      "priority": "Standard",
+      "profile": "Standard"
     },
     {
       "wo": "42666",
@@ -4926,6 +4953,16 @@ const DATA = {
       "profile": "Priority Customer"
     },
     {
+      "wo": "42678",
+      "dept": "Cleanroom",
+      "dueDate": "05/12",
+      "msDate": "05/08",
+      "msBD": 2,
+      "dueBD": 4,
+      "priority": "T2 Expedite",
+      "profile": "Standard"
+    },
+    {
       "wo": "42651",
       "dept": "Cleanroom",
       "dueDate": "05/13",
@@ -4934,6 +4971,16 @@ const DATA = {
       "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
+    },
+    {
+      "wo": "42592",
+      "dept": "Cleanroom",
+      "dueDate": "05/14",
+      "msDate": "05/08",
+      "msBD": 2,
+      "dueBD": 6,
+      "priority": "Standard",
+      "profile": "Complex"
     },
     {
       "wo": "42443",
@@ -4964,6 +5011,16 @@ const DATA = {
       "dueBD": 2,
       "priority": "Standard",
       "profile": "High Qty"
+    },
+    {
+      "wo": "42630",
+      "dept": "Shipping",
+      "dueDate": "05/08",
+      "msDate": "05/08",
+      "msBD": 2,
+      "dueBD": 2,
+      "priority": "T2 Expedite",
+      "profile": "Straight to CLR"
     },
     {
       "wo": "42640",
@@ -5084,7 +5141,7 @@ const DATA = {
     {
       "wo": "42657",
       "customer": "CB MFG & ENG, INC.",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "Complex",
       "profileMin": 10,
       "profileMax": 12,
@@ -5100,7 +5157,7 @@ const DATA = {
     {
       "wo": "42658",
       "customer": "RBC SOUTHWEST PRODUCTS",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "Complex",
       "profileMin": 10,
       "profileMax": 12,
@@ -5114,9 +5171,25 @@ const DATA = {
       "expediteTier": null
     },
     {
+      "wo": "42481",
+      "customer": "MINDRUM PRECISION, INC",
+      "dept": "Receiving/Inspection",
+      "profile": "Complex",
+      "profileMin": 10,
+      "profileMax": 12,
+      "scheduledLeadBD": 3,
+      "shortfall": 7,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "priority": "T1 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
       "wo": "42639",
       "customer": "GEARLES DESIGNS & MFG",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "High Qty",
       "profileMin": 10,
       "profileMax": 12,
@@ -5132,7 +5205,7 @@ const DATA = {
     {
       "wo": "42645-1",
       "customer": "JRI, INC",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Complex",
       "profileMin": 10,
       "profileMax": 12,
@@ -5194,9 +5267,25 @@ const DATA = {
       "expediteTier": null
     },
     {
+      "wo": "42696",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Pre-Clean",
+      "profile": "Straight to CLR",
+      "profileMin": 8,
+      "profileMax": 10,
+      "scheduledLeadBD": 2,
+      "shortfall": 6,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
       "wo": "42285-3",
       "customer": "CRYOWORKS",
-      "dept": "Shipping",
+      "dept": "Packaging",
       "profile": "Large Parts",
       "profileMin": 10,
       "profileMax": 12,
@@ -5205,7 +5294,7 @@ const DATA = {
       "dueDate": "05/06",
       "dueBD": 0,
       "priority": "T1 Expedite",
-      "isAging": true,
+      "isAging": false,
       "basis": "profile",
       "expediteTier": null
     },
@@ -5228,7 +5317,7 @@ const DATA = {
     {
       "wo": "42631",
       "customer": "PERFORMANCE SEALING INC",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "Straight to CLR",
       "profileMin": 8,
       "profileMax": 10,
@@ -5260,7 +5349,7 @@ const DATA = {
     {
       "wo": "42679",
       "customer": "RSA ENGINEERED PRODUCTS, LLC",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
@@ -5276,7 +5365,7 @@ const DATA = {
     {
       "wo": "42682",
       "customer": "KAVLICO AEROSPACE DIVISION",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
@@ -5292,7 +5381,7 @@ const DATA = {
     {
       "wo": "42685",
       "customer": "SAINT GOBAIN",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Large Parts",
       "profileMin": 10,
       "profileMax": 12,
@@ -5388,7 +5477,7 @@ const DATA = {
     {
       "wo": "42630",
       "customer": "PERFORMANCE SEALING INC",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "Straight to CLR",
       "profileMin": 8,
       "profileMax": 10,
@@ -5420,7 +5509,7 @@ const DATA = {
     {
       "wo": "42678",
       "customer": "JBW PRECISION INC",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
@@ -5429,6 +5518,22 @@ const DATA = {
       "dueDate": "05/12",
       "dueBD": 4,
       "priority": "T2 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
+      "wo": "42157",
+      "customer": "NUSPACE",
+      "dept": "Receiving/Inspection",
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "scheduledLeadBD": 3,
+      "shortfall": 2,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
       "expediteTier": null
@@ -5484,7 +5589,7 @@ const DATA = {
     {
       "wo": "42577",
       "customer": "IMPERIAL MACHINE & TOOL CO.",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Complex",
       "profileMin": 10,
       "profileMax": 12,
@@ -5500,7 +5605,7 @@ const DATA = {
     {
       "wo": "42578",
       "customer": "IMPERIAL MACHINE & TOOL CO.",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Complex",
       "profileMin": 10,
       "profileMax": 12,
@@ -5530,9 +5635,41 @@ const DATA = {
       "expediteTier": null
     },
     {
+      "wo": "42660",
+      "customer": "KING NUTRONICS",
+      "dept": "Receiving/Inspection",
+      "profile": "Straight to CLR",
+      "profileMin": 8,
+      "profileMax": 10,
+      "scheduledLeadBD": 6,
+      "shortfall": 2,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "priority": "T3 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
+      "wo": "42689-1",
+      "customer": "SEYTEC",
+      "dept": "Receiving/Inspection",
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "scheduledLeadBD": 6,
+      "shortfall": 2,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "priority": "T3 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
       "wo": "42181-2",
       "customer": "CHEMRING ENERGETIC DEVICES",
-      "dept": "Pre-Clean",
+      "dept": "Cleanroom",
       "profile": "Low Qty",
       "profileMin": 6,
       "profileMax": 8,
@@ -5589,7 +5726,7 @@ const DATA = {
       "dueDate": "05/13",
       "dueBD": 5,
       "priority": "Standard",
-      "isAging": false,
+      "isAging": true,
       "basis": "profile",
       "expediteTier": null
     },
@@ -5677,6 +5814,16 @@ const DATA = {
   "unclassifiedAgingWOs": [],
   "customerProfileJobs": [
     {
+      "wo": "42693",
+      "customer": "FMH AMETEK",
+      "dept": "Customer Hold (Profile)",
+      "profile": "DCMA",
+      "priority": "Standard",
+      "dueDate": "05/21",
+      "dueBD": 11,
+      "locationDept": "Receiving/Inspection"
+    },
+    {
       "wo": "42670",
       "customer": "SAINT GOBAIN",
       "dept": "Customer Hold (Profile)",
@@ -5697,7 +5844,7 @@ const DATA = {
       "locationDept": "Pre-Clean"
     },
     {
-      "wo": "42274",
+      "wo": "42275",
       "customer": "FMH AMETEK",
       "dept": "Customer Hold (Profile)",
       "profile": "DCMA",
@@ -5707,14 +5854,14 @@ const DATA = {
       "locationDept": "Lab Testing"
     },
     {
-      "wo": "42275",
+      "wo": "42274",
       "customer": "FMH AMETEK",
       "dept": "Customer Hold (Profile)",
       "profile": "DCMA",
       "priority": "Standard",
       "dueDate": "04/29",
       "dueBD": -5,
-      "locationDept": "Lab Testing"
+      "locationDept": "Packaging"
     },
     {
       "wo": "42469",
@@ -5754,13 +5901,49 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "05/07",
       "dueBD": 1,
-      "locationDept": "Shipping"
+      "locationDept": "MRB"
     }
   ],
   "allInHouseJobs": [
     {
-      "wo": "42693",
-      "customer": "FMH AMETEK",
+      "wo": "42645-2",
+      "customer": "JRI, INC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42698",
+      "customer": "GP STRATEGIES",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Complex",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42701",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
       "profile": null,
@@ -5777,8 +5960,8 @@ const DATA = {
       "progress": "00 - On Shelf"
     },
     {
-      "wo": "42694",
-      "customer": "FMH AMETEK",
+      "wo": "42702",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
       "profile": null,
@@ -5787,6 +5970,168 @@ const DATA = {
       "isExpedite": false,
       "dueDate": "No Date",
       "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42703",
+      "customer": "PDT AMETEK",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42704",
+      "customer": "PDT AMETEK",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42481",
+      "customer": "MINDRUM PRECISION, INC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42690",
+      "customer": "NUSPACE",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/15",
+      "dueBD": 7,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42692",
+      "customer": "MINDRUM PRECISION, INC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/15",
+      "dueBD": 7,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42694",
+      "customer": "FMH AMETEK",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/15",
+      "dueBD": 7,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42674",
+      "customer": "ICO RALLY",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/19",
+      "dueBD": 9,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42675",
+      "customer": "ICO RALLY",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/19",
+      "dueBD": 9,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42676",
+      "customer": "ICO RALLY",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/19",
+      "dueBD": 9,
       "receivedToday": true,
       "rescheduled": false,
       "isAging": false,
@@ -5813,22 +6158,94 @@ const DATA = {
       "progress": "00 - On Shelf"
     },
     {
-      "wo": "42661",
-      "customer": "DARMARK CORPORATION",
+      "wo": "42689-2",
+      "customer": "SEYTEC",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
       "profile": "Standard",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "05/15",
-      "dueBD": 7,
-      "receivedToday": false,
+      "dueDate": "05/19",
+      "dueBD": 9,
+      "receivedToday": true,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42697",
+      "customer": "QED/INC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Straight to CLR",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/19",
+      "dueBD": 9,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42157",
+      "customer": "NUSPACE",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42660",
+      "customer": "KING NUTRONICS",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Straight to CLR",
+      "priority": "T3 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42689-1",
+      "customer": "SEYTEC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Standard",
+      "priority": "T3 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42680",
@@ -5867,42 +6284,6 @@ const DATA = {
       "progress": "03 - Complete"
     },
     {
-      "wo": "42662",
-      "customer": "REYCO PRECISION MACHINING",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/18",
-      "dueBD": 8,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "04 - Paused"
-    },
-    {
-      "wo": "42672",
-      "customer": "GLOBAL PRECISION PRODUCTS",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/18",
-      "dueBD": 8,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
       "wo": "42642",
       "customer": "ARROWHEAD PRODUCTS",
       "dept": "Pre-Clean",
@@ -5939,78 +6320,6 @@ const DATA = {
       "progress": "03 - Complete"
     },
     {
-      "wo": "42181-2",
-      "customer": "CHEMRING ENERGETIC DEVICES",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Low Qty",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "04/30",
-      "dueBD": -4,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Table"
-    },
-    {
-      "wo": "42645-1",
-      "customer": "JRI, INC",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/08",
-      "dueBD": 2,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Shelf"
-    },
-    {
-      "wo": "42679",
-      "customer": "RSA ENGINEERED PRODUCTS, LLC",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/08",
-      "dueBD": 2,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Floor"
-    },
-    {
-      "wo": "42682",
-      "customer": "KAVLICO AEROSPACE DIVISION",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/08",
-      "dueBD": 2,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Shelf"
-    },
-    {
       "wo": "42686",
       "customer": "RUBICON GEAR",
       "dept": "Pre-Clean",
@@ -6025,8 +6334,26 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42696",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "41113-1",
@@ -6065,60 +6392,6 @@ const DATA = {
       "progress": "02 - Inspection"
     },
     {
-      "wo": "42559",
-      "customer": "HYDRAELECTRIC CO.",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Low Qty",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/11",
-      "dueBD": 3,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
-      "wo": "42577",
-      "customer": "IMPERIAL MACHINE & TOOL CO.",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/11",
-      "dueBD": 3,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
-    },
-    {
-      "wo": "42578",
-      "customer": "IMPERIAL MACHINE & TOOL CO.",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/11",
-      "dueBD": 3,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
-    },
-    {
       "wo": "42608",
       "customer": "JACON FASTENERS & ELECTRONICS",
       "dept": "Pre-Clean",
@@ -6134,7 +6407,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42609",
@@ -6152,7 +6425,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42626",
@@ -6188,7 +6461,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42565",
@@ -6206,7 +6479,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42566",
@@ -6224,7 +6497,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42579",
@@ -6242,7 +6515,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "42593",
@@ -6260,7 +6533,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "42604",
@@ -6371,65 +6644,11 @@ const DATA = {
       "progress": "00 - On Shelf"
     },
     {
-      "wo": "42678",
-      "customer": "JBW PRECISION INC",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "T2 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/12",
-      "dueBD": 4,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42685",
-      "customer": "SAINT GOBAIN",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Large Parts",
-      "priority": "T3 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/12",
-      "dueBD": 4,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Shelf"
-    },
-    {
       "wo": "42502",
       "customer": "SEYTEC",
       "dept": "Pre-Clean",
       "locationDept": "Pre-Clean",
       "profile": "High Qty",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/13",
-      "dueBD": 5,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42582",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Complex",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
@@ -6476,24 +6695,6 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
-    },
-    {
-      "wo": "42586",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/13",
-      "dueBD": 5,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
       "progress": "02 - Inspection"
     },
     {
@@ -6512,7 +6713,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "42606",
@@ -6749,60 +6950,6 @@ const DATA = {
       "progress": "00 - On Shelf"
     },
     {
-      "wo": "42592",
-      "customer": "UNITED PARADYNE CORPORATION",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/14",
-      "dueBD": 6,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42611",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/14",
-      "dueBD": 6,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42612",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Pre-Clean",
-      "locationDept": "Pre-Clean",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/14",
-      "dueBD": 6,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
       "wo": "42635",
       "customer": "GLOBAL PRECISION PRODUCTS",
       "dept": "Pre-Clean",
@@ -6837,6 +6984,24 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "02 - Inspection"
+    },
+    {
+      "wo": "42661",
+      "customer": "DARMARK CORPORATION",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/15",
+      "dueBD": 7,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
     },
     {
       "wo": "42663",
@@ -6891,6 +7056,24 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "42662",
+      "customer": "REYCO PRECISION MACHINING",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/18",
+      "dueBD": 8,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
     },
     {
       "wo": "42666",
@@ -7019,8 +7202,98 @@ const DATA = {
       "progress": "00 - On Floor"
     },
     {
+      "wo": "42181-2",
+      "customer": "CHEMRING ENERGETIC DEVICES",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Low Qty",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "04/30",
+      "dueBD": -4,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42645-1",
+      "customer": "JRI, INC",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "01 - In Progress"
+    },
+    {
+      "wo": "42679",
+      "customer": "RSA ENGINEERED PRODUCTS, LLC",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "02 - Inspection"
+    },
+    {
+      "wo": "42682",
+      "customer": "KAVLICO AEROSPACE DIVISION",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
       "wo": "42558",
       "customer": "AXXIS CORPORATION",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42559",
+      "customer": "HYDRAELECTRIC CO.",
       "dept": "Cleanroom",
       "locationDept": "Cleanroom",
       "profile": "Low Qty",
@@ -7052,7 +7325,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "02 - Inspection"
+      "progress": "00 - On Table"
     },
     {
       "wo": "42575",
@@ -7091,22 +7364,40 @@ const DATA = {
       "progress": "00 - On Table"
     },
     {
-      "wo": "42018-2",
-      "customer": "JP DONOVAN CONSTRUCTION",
+      "wo": "42577",
+      "customer": "IMPERIAL MACHINE & TOOL CO.",
       "dept": "Cleanroom",
       "locationDept": "Cleanroom",
       "profile": "Complex",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "05/12",
-      "dueBD": 4,
+      "dueDate": "05/11",
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "02 - Inspection"
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42578",
+      "customer": "IMPERIAL MACHINE & TOOL CO.",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Complex",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
     },
     {
       "wo": "42533",
@@ -7235,8 +7526,44 @@ const DATA = {
       "progress": "01 - In Progress"
     },
     {
-      "wo": "42603",
-      "customer": "TECMA",
+      "wo": "42678",
+      "customer": "JBW PRECISION INC",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
+      "priority": "T2 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/12",
+      "dueBD": 4,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42685",
+      "customer": "SAINT GOBAIN",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Large Parts",
+      "priority": "T3 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/12",
+      "dueBD": 4,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42582",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Cleanroom",
       "locationDept": "Cleanroom",
       "profile": "Complex",
@@ -7251,6 +7578,42 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "00 - On Table"
+    },
+    {
+      "wo": "42586",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/13",
+      "dueBD": 5,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42603",
+      "customer": "TECMA",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Complex",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/13",
+      "dueBD": 5,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": true,
+      "agingFlag": "Critical",
+      "isCompleted": false,
+      "progress": "06 - Aging"
     },
     {
       "wo": "42651",
@@ -7271,11 +7634,65 @@ const DATA = {
       "progress": "00 - On Table"
     },
     {
+      "wo": "42592",
+      "customer": "UNITED PARADYNE CORPORATION",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Complex",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
       "wo": "42599",
       "customer": "NYTRON AEROSPACE",
       "dept": "Cleanroom",
       "locationDept": "Cleanroom",
       "profile": "High Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42611",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/14",
+      "dueBD": 6,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
+    },
+    {
+      "wo": "42612",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
+      "profile": "Standard",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
@@ -7325,42 +7742,6 @@ const DATA = {
       "progress": "04 - Paused"
     },
     {
-      "wo": "42410",
-      "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Priority Customer",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "No Date",
-      "dueBD": null,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
-    },
-    {
-      "wo": "42520",
-      "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Priority Customer",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "No Date",
-      "dueBD": null,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
       "wo": "42285-2",
       "customer": "CRYOWORKS",
       "dept": "Packaging",
@@ -7394,7 +7775,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "04 - Paused"
     },
     {
       "wo": "42447",
@@ -7412,68 +7793,14 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
-      "wo": "42631",
-      "customer": "PERFORMANCE SEALING INC",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Straight to CLR",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/06",
-      "dueBD": 0,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
       "progress": "02 - Inspection"
     },
     {
-      "wo": "42639",
-      "customer": "GEARLES DESIGNS & MFG",
+      "wo": "42285-3",
+      "customer": "CRYOWORKS",
       "dept": "Packaging",
       "locationDept": "Packaging",
-      "profile": "High Qty",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/06",
-      "dueBD": 0,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42657",
-      "customer": "CB MFG & ENG, INC.",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Complex",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/06",
-      "dueBD": 0,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
-    },
-    {
-      "wo": "42658",
-      "customer": "RBC SOUTHWEST PRODUCTS",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Complex",
+      "profile": "Large Parts",
       "priority": "T1 Expedite",
       "expediteTier": null,
       "isExpedite": false,
@@ -7499,10 +7826,10 @@ const DATA = {
       "dueBD": 2,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "42539",
@@ -7521,24 +7848,6 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "00 - On Shelf"
-    },
-    {
-      "wo": "42630",
-      "customer": "PERFORMANCE SEALING INC",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Straight to CLR",
-      "priority": "T2 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/08",
-      "dueBD": 2,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
     },
     {
       "wo": "41537",
@@ -7577,24 +7886,6 @@ const DATA = {
       "progress": "03 - Complete"
     },
     {
-      "wo": "42547",
-      "customer": "HIGH PRESSURE TECHNOLOGIES",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Needs Assembly",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/11",
-      "dueBD": 3,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Table"
-    },
-    {
       "wo": "42552",
       "customer": "MICRO-TRONICS, INC.",
       "dept": "Packaging",
@@ -7609,8 +7900,44 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42601",
+      "customer": "MOONEY INDUSTRIES",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
+    },
+    {
+      "wo": "42018-2",
+      "customer": "JP DONOVAN CONSTRUCTION",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Complex",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/12",
+      "dueBD": 4,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Table"
     },
     {
       "wo": "42516",
@@ -7629,6 +7956,42 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "01 - In Progress"
+    },
+    {
+      "wo": "42410",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42520",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "41448",
@@ -7807,8 +8170,8 @@ const DATA = {
       "rescheduled": true,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42441",
@@ -7823,10 +8186,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42444",
@@ -7843,8 +8206,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42452",
@@ -7877,10 +8240,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42458",
@@ -7895,10 +8258,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42487",
@@ -7915,8 +8278,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42498",
@@ -7931,10 +8294,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42517",
@@ -7951,26 +8314,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
-    },
-    {
-      "wo": "42285-3",
-      "customer": "CRYOWORKS",
-      "dept": "Shipping",
-      "locationDept": "Shipping",
-      "profile": "Large Parts",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/06",
-      "dueBD": 0,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42595",
@@ -7987,8 +8332,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42602",
@@ -8023,8 +8368,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42616",
@@ -8045,6 +8390,42 @@ const DATA = {
       "progress": "03 - Complete"
     },
     {
+      "wo": "42631",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/06",
+      "dueBD": 0,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42639",
+      "customer": "GEARLES DESIGNS & MFG",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "High Qty",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/06",
+      "dueBD": 0,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "01 - In Progress"
+    },
+    {
       "wo": "42621",
       "customer": "EATON CORP.",
       "dept": "Shipping",
@@ -8063,6 +8444,60 @@ const DATA = {
       "progress": "03 - Complete"
     },
     {
+      "wo": "42657",
+      "customer": "CB MFG & ENG, INC.",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/06",
+      "dueBD": 0,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42658",
+      "customer": "RBC SOUTHWEST PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/06",
+      "dueBD": 0,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42492",
+      "customer": "TA AEROSPACE",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Standard",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/07",
+      "dueBD": 1,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Cart"
+    },
+    {
       "wo": "42495",
       "customer": "POLYMER CONCEPTS",
       "dept": "Shipping",
@@ -8075,10 +8510,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42496",
@@ -8095,8 +8530,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42526",
@@ -8111,10 +8546,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42535",
@@ -8129,10 +8564,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "06 - Aging"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42536",
@@ -8147,10 +8582,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42537",
@@ -8165,10 +8600,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "06 - Aging"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42538",
@@ -8201,10 +8636,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "42476",
@@ -8294,6 +8729,24 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
+      "progress": "02 - Inspection"
+    },
+    {
+      "wo": "42630",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Straight to CLR",
+      "priority": "T2 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/08",
+      "dueBD": 2,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
       "progress": "00 - On Shelf"
     },
     {
@@ -8365,8 +8818,26 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
+    },
+    {
+      "wo": "42547",
+      "customer": "HIGH PRESSURE TECHNOLOGIES",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Needs Assembly",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "05/11",
+      "dueBD": 3,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "00 - On Cart"
     },
     {
       "wo": "42549",
@@ -8385,24 +8856,6 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "00 - On Shelf"
-    },
-    {
-      "wo": "42492",
-      "customer": "TA AEROSPACE",
-      "dept": "Assembly",
-      "locationDept": "Assembly",
-      "profile": "Standard",
-      "priority": "Standard",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "05/07",
-      "dueBD": 1,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
     },
     {
       "wo": "42546",
@@ -8435,10 +8888,10 @@ const DATA = {
       "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Reschedule Window",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     }
   ],
   "mrbJobs": [
@@ -8483,16 +8936,6 @@ const DATA = {
       "dueBD": -4
     },
     {
-      "wo": "42601",
-      "customer": "MOONEY INDUSTRIES",
-      "dept": "MRB",
-      "locationDept": "MRB",
-      "profile": "Low Qty",
-      "priority": "Standard",
-      "dueDate": "05/11",
-      "dueBD": 3
-    },
-    {
       "wo": "42644",
       "customer": "ADEL WIGGINS GROUP",
       "dept": "MRB",
@@ -8521,9 +8964,49 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "05/15",
       "dueBD": 7
+    },
+    {
+      "wo": "42672",
+      "customer": "GLOBAL PRECISION PRODUCTS",
+      "dept": "MRB",
+      "locationDept": "MRB",
+      "profile": "Standard",
+      "priority": "Standard",
+      "dueDate": "05/18",
+      "dueBD": 8
     }
   ],
   "completedJobs": [
+    {
+      "wo": "42157",
+      "customer": "NUSPACE",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "dueDate": "05/11",
+      "dueBD": 3
+    },
+    {
+      "wo": "42660",
+      "customer": "KING NUTRONICS",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Straight to CLR",
+      "priority": "T3 Expedite",
+      "dueDate": "05/14",
+      "dueBD": 6
+    },
+    {
+      "wo": "42689-1",
+      "customer": "SEYTEC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": "Standard",
+      "priority": "T3 Expedite",
+      "dueDate": "05/14",
+      "dueBD": 6
+    },
     {
       "wo": "42680",
       "customer": "RSA ENGINEERED PRODUCTS, LLC",
@@ -8555,34 +9038,24 @@ const DATA = {
       "dueBD": -11
     },
     {
-      "wo": "42577",
-      "customer": "IMPERIAL MACHINE & TOOL CO.",
+      "wo": "42686",
+      "customer": "RUBICON GEAR",
       "dept": "Pre-Clean",
       "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "Standard",
-      "dueDate": "05/11",
-      "dueBD": 3
+      "profile": "High Qty",
+      "priority": "T1 Expedite",
+      "dueDate": "05/08",
+      "dueBD": 2
     },
     {
-      "wo": "42578",
-      "customer": "IMPERIAL MACHINE & TOOL CO.",
+      "wo": "42696",
+      "customer": "PERFORMANCE SEALING INC",
       "dept": "Pre-Clean",
       "locationDept": "Pre-Clean",
-      "profile": "Complex",
-      "priority": "Standard",
-      "dueDate": "05/11",
-      "dueBD": 3
-    },
-    {
-      "wo": "42410",
-      "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Priority Customer",
-      "priority": "Standard",
-      "dueDate": "No Date",
-      "dueBD": null
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "dueDate": "05/08",
+      "dueBD": 2
     },
     {
       "wo": "42285-2",
@@ -8595,24 +9068,14 @@ const DATA = {
       "dueBD": -8
     },
     {
-      "wo": "42658",
-      "customer": "RBC SOUTHWEST PRODUCTS",
+      "wo": "42285-3",
+      "customer": "CRYOWORKS",
       "dept": "Packaging",
       "locationDept": "Packaging",
-      "profile": "Complex",
+      "profile": "Large Parts",
       "priority": "T1 Expedite",
       "dueDate": "05/06",
       "dueBD": 0
-    },
-    {
-      "wo": "42630",
-      "customer": "PERFORMANCE SEALING INC",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Straight to CLR",
-      "priority": "T2 Expedite",
-      "dueDate": "05/08",
-      "dueBD": 2
     },
     {
       "wo": "41537",
@@ -8633,6 +9096,36 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "05/11",
       "dueBD": 3
+    },
+    {
+      "wo": "42552",
+      "customer": "MICRO-TRONICS, INC.",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "High Qty",
+      "priority": "Standard",
+      "dueDate": "05/11",
+      "dueBD": 3
+    },
+    {
+      "wo": "42410",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "dueDate": "No Date",
+      "dueBD": null
+    },
+    {
+      "wo": "42520",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "dueDate": "No Date",
+      "dueBD": null
     },
     {
       "wo": "41448",
@@ -8725,11 +9218,101 @@ const DATA = {
       "dueBD": -1
     },
     {
+      "wo": "42418",
+      "customer": "PROWSE MANUFACTURING",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Standard",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42441",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "PSV Only",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42444",
+      "customer": "ATLAS TOOL WORKS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Large Parts",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
       "wo": "42452",
       "customer": "3D MACHINE COMPANY",
       "dept": "Shipping",
       "locationDept": "Shipping",
       "profile": "Standard",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42454",
+      "customer": "TECMA",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Complex",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42458",
+      "customer": "SAINT GOBAIN",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42487",
+      "customer": "K-V ENGINEERING INC",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Standard",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42498",
+      "customer": "SAINT GOBAIN",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42517",
+      "customer": "SAINT GOBAIN",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42595",
+      "customer": "MACKENZIE AIRCRAFT PARTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Low Qty",
       "priority": "Standard",
       "dueDate": "05/06",
       "dueBD": 0
@@ -8745,7 +9328,27 @@ const DATA = {
       "dueBD": 0
     },
     {
+      "wo": "42607",
+      "customer": "UNITED PRECISION CORP",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "High Qty",
+      "priority": "T1 Expedite",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
       "wo": "42616",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42631",
       "customer": "PERFORMANCE SEALING INC",
       "dept": "Shipping",
       "locationDept": "Shipping",
@@ -8763,6 +9366,86 @@ const DATA = {
       "priority": "T1 Expedite",
       "dueDate": "05/06",
       "dueBD": 0
+    },
+    {
+      "wo": "42657",
+      "customer": "CB MFG & ENG, INC.",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42658",
+      "customer": "RBC SOUTHWEST PRODUCTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Complex",
+      "priority": "T1 Expedite",
+      "dueDate": "05/06",
+      "dueBD": 0
+    },
+    {
+      "wo": "42495",
+      "customer": "POLYMER CONCEPTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Needs Assembly",
+      "priority": "Standard",
+      "dueDate": "05/07",
+      "dueBD": 1
+    },
+    {
+      "wo": "42496",
+      "customer": "POLYMER CONCEPTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Needs Assembly",
+      "priority": "Standard",
+      "dueDate": "05/07",
+      "dueBD": 1
+    },
+    {
+      "wo": "42526",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "dueDate": "05/07",
+      "dueBD": 1
+    },
+    {
+      "wo": "42536",
+      "customer": "POLYMER CONCEPTS",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "dueDate": "05/07",
+      "dueBD": 1
+    },
+    {
+      "wo": "42571",
+      "customer": "SAINT GOBAIN",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Priority Customer",
+      "priority": "Standard",
+      "dueDate": "05/07",
+      "dueBD": 1
+    },
+    {
+      "wo": "42524",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "PSV Only",
+      "priority": "Standard",
+      "dueDate": "05/11",
+      "dueBD": 3
     }
   ]
 }
@@ -8770,66 +9453,66 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Receiving/Inspection": {
-    "what": "AR 0.0% GREEN — 0 dwell-aging, 8 jobs in dept. 2 received today (FMH AMETEK pair). CR 25.0% — 2 RI-Complete jobs awaiting handoff to Pre-Clean (above 15% red threshold).",
-    "action": "Drain 2 RI-Complete handoffs into Pre-Clean before midday — 25% CR is the lone bottleneck signal in RI. Taylor / Anthony continue dispositioning physical-attribute classification on incoming intake. Flag the 2 newly-received FMH AMETEK jobs as DCMA candidates if applicable to clear the persistent 12-day flag-inconsistency on 42274/42275.",
+"Packaging": {
+    "what": "AR 8.3% (1 of 12 aging) \u2014 single Critical: 42484 SAINT GOBAIN Priority Customer (RS-burned, 1 BD past PCK Start By, due 5/8). New entry since 10:02 AM PDT \u2014 was 0 Critical at run-02. CR 41.7% (5 of 12 finished-at-op awaiting handoff to Shipping) \u2014 RED, biggest plant-wide handoff drag this period. 10 upcoming jobs.",
+    "action": "Erick: package 42484 SAINT GOBAIN Priority Customer immediately (RS-burned, due 5/8) \u2014 push to Shipping today. Then drain the 5 PKG-Complete handoff backlog into Shipping (CR 41.7% RED \u2014 primary plant-wide bottleneck right now).",
     "ot": "not needed",
-    "otText": "0 aging, 0 Critical, 25% CR is in handoff territory not workload territory.",
-    "upstream": null
-  },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN — 0 aging, 62 jobs in dept. 61 upcoming (largest queue plant-wide). CR 4.8% — 3 PCL-Complete jobs awaiting handoff to Cleanroom. Pre-Clean has 14 short-scheduled jobs (largest short-sched cluster). Cleared overnight: 42611/42612 ALLAN AIRCRAFT pair (both were Critical at run-01 due 5/14).",
-    "action": "Continue working the 61 upcoming queue — none aging today, all clean. Watch the 14 short-scheduled jobs (5 BD compressed windows, biggest short-sched cluster in plant). 4 RI-Complete handoffs incoming from RI — accept them into the queue to preserve flow.",
-    "ot": "not needed",
-    "otText": "0 Critical, 0 aging, queue staged but not burning.",
-    "upstream": "RI 25% CR (2 RI-Complete handoffs pending) — small upstream draft but no urgency."
-  },
-  "Cleanroom": {
-    "what": "AR 0.0% GREEN — 0 aging, 16 jobs in dept. 16 upcoming. CR 0.0% — clean handoff state. Cleared since run-01: 42657 CB MFG T1 Complex + 42658 RBC SOUTHWEST T1 Complex (both pushed through CLR in ~3 hours).",
-    "action": "Erick continue working the 16 upcoming queue. 7 short-scheduled jobs flagged — sort by Start By proximity. No aging, no Critical, no handoff backlog — clean operating state.",
-    "ot": "not needed",
-    "otText": "0 aging, 0 Critical, 0 CR.",
-    "upstream": "Pre-Clean 4.8% CR (3 PCL-Complete handoffs incoming, low pressure)."
-  },
-  "Packaging": {
-    "what": "AR 0.0% GREEN — 0 aging, 17 jobs in dept. 14 upcoming. CR 35.3% — 6 PKG-Complete jobs awaiting handoff to Shipping (above 15% red threshold). Cleared since run-01: 42447 KAP MFG High Qty Critical (4-day persistent — finally packaged). 4 unclassified Packaging WOs (No-Profile, persistent QA gap).",
-    "action": "Erick drain the 6 PKG-Complete paperwork backlog (35.3% CR — biggest plant-wide handoff drag). 7 short-scheduled jobs flagged. QA assign profiles to the 4 No-Profile Packaging WOs (persistent classification gap).",
-    "ot": "not needed",
-    "otText": "0 aging, 0 Critical — work the CR backlog instead of expanding hours.",
-    "upstream": "Cleanroom 0.0% CR (no handoff pending). Pre-Clean 4.8% CR (3 PCL-Complete pending, low pressure)."
+    "otText": "1 Critical only; OT not required at this volume.",
+    "upstream": "10 upcoming jobs feeding Packaging from Cleanroom (29 in-house, 1 aging) and Pre-Clean (51 in-house, 0 aging)."
   },
   "Shipping": {
-    "what": "AR 31.0% RED — 13 Critical, 0 Past Due. Dominant constraint. 5 due TODAY 5/06: 42441 ALLAN AIRCRAFT SUP PSV Only (110% burn); 42454 TECMA Complex (83% burn); 42458 SAINT GOBAIN Low Qty (125% burn) RS-burned; 42498 SAINT GOBAIN Priority Customer (114% burn); 42285-3 CRYOWORKS Large Parts T1 (42% burn). 7 due TOMORROW 5/07: 42495 POLYMER CONCEPTS Needs Assembly (112% burn); 42526 ALLAN AIRCRAFT SUP Low Qty (88% burn); 42535 POLYMER CONCEPTS Low Qty (88% burn); 42536 POLYMER CONCEPTS Low Qty (88% burn); 42537 POLYMER CONCEPTS Low Qty (88% burn); 42538 POLYMER CONCEPTS Low Qty (88% burn); 42571 SAINT GOBAIN Priority Customer (71% burn). 1 due 5/08: 42521 THEONICS Standard (70% burn). CR 31.0% — 13 SHP-Complete paperwork backlog (above 15% red threshold). 8 short-scheduled. Cleared since run-01 morning: 42418 PROWSE (RS-burned), 42444 ATLAS, 42452 3D MACHINE, 42602 ACUTEK T2, 42621 EATON T1, 42496 POLYMER (6 cleared in ~3 hours).",
-    "action": "Luis prioritize the 5 due-TODAY Critical: 42458 SAINT GOBAIN Low Qty (RS-burned, 125% burn — top), 42441 ALLAN AIRCRAFT PSV Only (110% burn), 42498 SAINT GOBAIN Priority Customer (114% burn — cluster paperwork with 42458 SAINT GOBAIN), 42454 TECMA Complex (83% burn), 42285-3 CRYOWORKS T1 Large Parts (short-scheduled, profile-burn artifact — verify with planning before shipping). Then stage 8 due-tomorrow: 42495 POLYMER Needs Assembly (112% burn — top of tomorrow queue), 42526 ALLAN, 42535/42536/42537/42538 POLYMER Low Qty cluster (consider single-shipment to reduce 4 cycles), 42571 SAINT GOBAIN Priority Customer (cluster with 42498). 42521 THEONICS due 5/08 — work after due-tomorrow set. Drain the 13 SHP-Complete paperwork backlog throughout the day (CR 31% — persistent issue).",
-    "ot": "recommended",
-    "otText": "13 Critical including 5 due TODAY and 8 due TOMORROW. RS-burned 42458 already at 125% burn. CR 31% paperwork backlog. Constraint-of-the-day — bring an extra hand if Luis can spare anyone.",
-    "upstream": "Packaging 35.3% CR (6 PKG-Complete handoffs incoming). Cleanroom 0% CR (no pending). 28 upcoming Shipping jobs in Pre-Clean/Cleanroom queue."
+    "what": "AR 4.0% (2 of 50 aging) GREEN \u2014 major drain since 10:02 AM PDT (13 Critical \u2192 2). Remaining Criticals: 42521 THEONICS Standard due 5/8 (msBD=0, on-line), 42538 POLYMER CONCEPTS Low Qty due 5/7 (msBD=0). CR 68.0% (34 of 50 finished-at-op) \u2014 RED, very high SHP-Complete paperwork backlog persisting. 45 upcoming.",
+    "action": "Luis: ship 42538 POLYMER CONCEPTS Low Qty first (due 5/7, on Start By line), then 42521 THEONICS Standard (due 5/8). Drain the 34 SHP-Complete paperwork backlog throughout the day \u2014 CR 68% RED, this is now the largest single CR drag in the plant.",
+    "ot": "not needed",
+    "otText": "Only 2 Critical, both with runway; aging count down 11 in 4 hours.",
+    "upstream": "45 upcoming jobs feeding from Packaging (12 in-house, 1 aging Critical 42484)."
+  },
+  "Cleanroom": {
+    "what": "AR 3.4% (1 of 29 aging) \u2014 single Critical: 42603 TECMA Complex due 5/13 (1 BD past CLR Start By). New entry since 10:02 AM PDT \u2014 was 0 Critical at run-02. 15 short-scheduled jobs in dept (largest short-scheduled bucket plant-wide). 28 upcoming. CR 0.0%.",
+    "action": "Erick: clean 42603 TECMA Complex this afternoon (1 BD past CLR Start By, due 5/13 \u2014 runway exists, but don't let it slip). Verify the 15 short-scheduled Cleanroom jobs against profile windows with planning today.",
+    "ot": "not needed",
+    "otText": "1 Critical with multi-day runway.",
+    "upstream": "28 upcoming jobs feeding from Pre-Clean (51 in-house, 0 aging) and RI (21 in-house, 0 aging)."
+  },
+  "Pre-Clean": {
+    "what": "AR 0.0% (0 of 51 aging) GREEN. CR 5.9% (3 of 51 finished-at-op). 50 upcoming jobs queued. 7 short-scheduled in dept.",
+    "action": "Jorge: continue normal queue order; no Critical pulls this period. Watch the 7 short-scheduled jobs for window pressure.",
+    "ot": "not needed",
+    "otText": "Zero aging, zero Critical.",
+    "upstream": "50 upcoming jobs feeding from RI (21 in-house, 0 aging, 19 received today)."
+  },
+  "Receiving/Inspection": {
+    "what": "AR 0.0% (0 of 21 aging) GREEN. 19 received today \u2014 heavy intake day vs. 2 received-today at 10:02 AM PDT. CR 23.8% (5 of 21 RI-Complete awaiting handoff to Pre-Clean) \u2014 RED handoff zone. 4 short-scheduled in dept. 7 unclassified in-house plant-wide (up from 4 at run-02).",
+    "action": "Taylor / Anthony: drain the 5 RI-Complete handoffs into Pre-Clean before close (CR 23.8% RED \u2014 biggest physical-handoff drag in plant). Classify the 7 unclassified WOs (up from 4 in 4 hours) on physical attributes \u2014 profile coverage is regressing.",
+    "ot": "not needed",
+    "otText": "Zero aging; staff bandwidth applied to handoff drain and classification.",
+    "upstream": null
   },
   "Lab Testing": {
-    "what": "AR 0.0% GREEN — 0 aging, 1 job in dept. CR 0%. 1 short-scheduled.",
-    "action": "Nica continue current Lab queue. No urgency.",
+    "what": "AR 0.0% (0 of 1 aging) GREEN. 1 in-house, 1 short-scheduled.",
+    "action": "Nica: standard processing on the in-house job; no Critical pulls.",
     "ot": "not needed",
-    "otText": "0 aging.",
+    "otText": "Single job, on-track.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 33.3% RED — 1 Critical: 42492 TA AEROSPACE Standard due 5/07 (90% burn, 3rd day Critical). Customer-controlled department.",
-    "action": "Customer ops confirm 42492 TA AEROSPACE returns from Assembly on schedule for 5/07 ship. If slip is signaled, escalate now — currently 1 BD past msBD, profile burn 90%.",
+    "what": "AR 50.0% (1 of 2 aging) \u2014 customer-controlled department. 42551 POLYMER CONCEPTS Priority Customer in Reschedule Window (msBD=3, due 5/11, Pending PO Revision per discrepancy note). 0 Critical (down from 1 at run-02 \u2014 42492 TA AEROSPACE cleared).",
+    "action": "Customer ops: chase 42551 POLYMER CONCEPTS PO revision today \u2014 job sits in Reschedule Window with msBD=3 buffer; PO clarity needed before customer-clock advances further.",
     "ot": "n/a",
-    "otText": "Customer-controlled — OT on QPC side does not advance the clock.",
+    "otText": "Customer-controlled department.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "8 jobs (excluded from in-house AR — on customer/witness clock). Composition: 42035 PEGASUS MANUFA Source Required dueBD=-12; 42274 FMH AMETEK DCMA dueBD=-5; 42275 FMH AMETEK DCMA dueBD=-5; 42469 BRONSON & BRAT Source Required dueBD=-3; 42478 FMH AMETEK Source Required dueBD=1; 42489 BRONSON & BRAT Source Required dueBD=4; 42670 SAINT GOBAIN Source Required dueBD=7; 42625 FMH AMETEK DCMA dueBD=9. 42469 BRONSON & BRATTON SR has been Past Due 10 BD now — escalation overdue (now 11 days persistent without movement). 42274/42275 FMH AMETEK DCMA flag-inconsistency persists 12 days — should be Past Due, isn't firing. 42478 FMH AMETEK SR boundary dueBD=1 will Past Due tomorrow if no movement. 42035 PEGASUS SR -12 long-tail. 2 received today both FMH AMETEK — likely DCMA candidates.",
-    "action": "Travis: (1) ESCALATE 42469 BRONSON & BRATTON SR to customer account manager TODAY — 10 BD past, 11th day persistent, escalation now critically overdue; (2) Chase 42478 FMH AMETEK SR — boundary dueBD=1, will slip to Past Due tomorrow; (3) Reconcile 42274/42275 FMH AMETEK DCMA flag-inconsistency with QA / data engineering — 12 days persistent label-vs-flag mismatch; (4) Verify the 2 newly-received FMH AMETEK jobs route correctly into DCMA bucket if applicable.",
+    "what": "9 jobs on customer clock (excluded from in-house AR denominator) \u2014 composition shifted from 8 \u2192 9: 42693 FMH AMETEK DCMA (dueBD=11) added since 10:02 AM PDT. Past Due tail: 42035 PEGASUS SR (dueBD=-12, long-tail), 42274/42275 FMH AMETEK DCMA pair (dueBD=-5 each, flag-inconsistency persisting 12+ days), 42469 BRONSON & BRATTON SR (dueBD=-3, persistent escalation overdue). Boundary: 42478 FMH AMETEK SR (dueBD=1 \u2014 will Past Due 5/7 if no movement). On-track: 42489 BRONSON SR (+4), 42670 SAINT GOBAIN SR (+7), 42625 FMH AMETEK DCMA (+9), 42693 FMH AMETEK DCMA (+11).",
+    "action": "Travis: ESCALATE 42469 BRONSON & BRATTON SR to customer account manager TODAY (10 BD past, escalation critically overdue). Chase 42478 FMH AMETEK SR (boundary +1 \u2014 will slip to Past Due tomorrow). Reconcile 42274/42275 FMH AMETEK DCMA pair flag-inconsistency with QA / data engineering \u2014 12+ days persistent. Confirm 42693 FMH AMETEK DCMA receipt routing on intake.",
     "ot": "n/a",
-    "otText": "Customer-controlled (Source / DCMA witness) — internal OT does not advance the clock.",
+    "otText": "Customer-controlled bucket \u2014 internal OT does not move this clock.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "10:02 AM PDT";
+const GENERATED_TIME = "02:03 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
