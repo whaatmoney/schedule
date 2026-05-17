@@ -7797,72 +7797,72 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Receiving/Inspection": {
-    "what": "AR 7.7% GREEN (1 aging / 13 in-house). Flag breakdown: 1 Reschedule Window \u2014 42811 NUSPACE (Priority Customer, msBD=-2, dueBD=3 \u2014 last full BD to decide before Monday close). 0 received today (Saturday \u2014 Chrome export still showing zero intake). 0 upcoming RI jobs. CR 7.7% (1 RI-Complete job awaiting handoff). 3 unclassified in-house jobs flagged for physical-attribute review.",
-    "action": "(1) Decide 42811 NUSPACE Reschedule Window \u2014 reschedule or commit by Monday close (dueBD=3, hits Critical Tue). (2) Taylor / Anthony classify the 3 unclassified in-house jobs. (3) Hand off the single RI-Complete to its next op (Pre-Clean queue).",
+    "what": "AR 0% (1 aging / 13 total in RI). 0 received today (Saturday \u2014 no intake). Lone aging WO 42811 NUSPACE flagged Reschedule Window (priority=Standard, profile=Priority Customer, dueBD=3, msBD=-2). 3 unclassified in-house jobs (RI-side physical-attribute review still owed).",
+    "action": "Decide on WO 42811 NUSPACE Reschedule Window before Monday close (dueBD=3 \u2014 only 3 BD left to commit or reschedule). No Saturday-evening intake to triage. Taylor / Anthony \u2014 classify the 3 unclassified in-house jobs (physical-attribute review) so they roll into the right profile bucket.",
     "ot": "not needed",
-    "otText": "Saturday with 0 received-today and no aging Critical; nothing to surge against.",
+    "otText": "AR 7.7% GREEN; lone aging WO is a Reschedule Window decision (paperwork), not capacity.",
     "upstream": null
   },
   "Pre-Clean": {
-    "what": "AR 6.2% GREEN (1 aging / 16 in-house). Flag breakdown: 1 Critical \u2014 42708 AEROSPACE ENGINEERING (T1 Expedite, High Qty, msBD=-1, dueBD=8). 15 upcoming Pre-Clean jobs (largest non-aging queue feeding shop). CR 12.5% (2 PCL-Complete jobs awaiting Cleanroom handoff \u2014 and Cleanroom is starved at 0% CR).",
-    "action": "(1) MOVE 2-job PCL-Complete pile to Cleanroom NOW (Cleanroom is starved at CR 0%). (2) Run 42708 AEROSPACE T1 Expedite Critical (only aging Critical here). (3) Notify 42663 AXXIS Pre-Clean (TWELFTH straight straight-notify, profile burn 125%, +2 BD past PCL Start By).",
+    "what": "AR 0% (1 aging / 16 total). WO 42708 AEROSPACE ENGINEERING CORPORATION T1 Expedite Critical (profile=High Qty, dueBD=8, msBD=-1). CR 12.5% \u2014 2 jobs finished-at-PCL awaiting move to Cleanroom (CR is starved at 0%). 15 upcoming with PCL Start By within 3 BD.",
+    "action": "MOVE the 2 PCL-Complete jobs to Cleanroom now \u2014 Cleanroom is starved at 0% CR. Run WO 42708 AEROSPACE ENGINEERING T1 Expedite Critical (High Qty, msBD=-1 past PCL Start By, dueBD=8). Notify customer on WO 42663 AXXIS CORPORATION (now THIRTEENTH straight run on the notify list, +2 BD past PCL Start By).",
     "ot": "not needed",
-    "otText": "Single aging Critical and 15 upcoming queued; throughput is healthy, no surge required.",
-    "upstream": "RI: 0 received today (Saturday), 0 RI upcoming feeding Pre-Clean. No new intake until Monday."
+    "otText": "AR 6.2% GREEN; only 1 aging job. The bottleneck is handoff, not headcount.",
+    "upstream": "RI has 1 aging (decision-pending, not a flow problem) and 0 received today; expect zero new intake until Monday."
   },
   "Cleanroom": {
-    "what": "AR 9.1% GREEN-borderline (1 aging / 11 in-house). Flag breakdown: 1 Critical \u2014 42729 STANFORD MU (Standard profile, msBD=None, dueBD=3 \u2014 milestone date missing, using QPC Due fallback). 10 upcoming Cleanroom jobs. CR 0% (STARVED \u2014 no CLR-Complete jobs sitting); UNCHANGED from 02 run.",
-    "action": "(1) Run 42729 STANFORD MU Critical (dueBD=3). (2) Pull from Pre-Clean's 2-job PCL-Complete pile to feed Cleanroom queue. (3) Flag missing CLR Start By on 42729 to planner.",
+    "what": "AR 0% (1 aging / 11 total). WO 42729 STANFORD MU Standard Critical (profile=Standard, dueBD=3, msBD=0 \u2014 CLR Start By still missing on this job). CR 0% \u2014 Cleanroom is STARVED (no Complete-at-Op jobs in queue). 10 upcoming with CLR Start By within 3 BD.",
+    "action": "Run WO 42729 STANFORD MU Critical (dueBD=3, CLR Start By still blank \u2014 planner check). Pull the 2 PCL-Complete jobs from Pre-Clean to refill the line \u2014 10 upcoming queued behind that.",
     "ot": "not needed",
-    "otText": "Single aging Critical; constraint is upstream handoff, not Cleanroom capacity.",
-    "upstream": "Pre-Clean: 2 PCL-Complete jobs awaiting handoff (CR 12.5%) \u2014 primary intake. Pre-Clean: 15 upcoming. RI: 0 received today."
+    "otText": "AR 9.1% GREEN; STARVED, not overloaded.",
+    "upstream": "Pre-Clean has 2 jobs Complete-at-PCL (CR 12.5%) ready to handoff; pull them in now."
   },
   "Packaging": {
-    "what": "AR 2.6% GREEN (1 aging / 39 in-house \u2014 lowest-AR in-house dept). Flag breakdown: 1 Critical \u2014 42750 POLYMER CONCEPTS (Priority Customer, msBD=-1, dueBD=2). 38 upcoming Packaging jobs. CR 43.6% (17 PCK-Complete jobs awaiting Shipping handoff \u2014 UP from 16 at 02 run, +1 over Saturday afternoon, pile still GROWING not draining); house-wide CR also UP 22.6%\u219222.6% UNCHANGED but Packaging accounts for the bulk.",
-    "action": "(1) DRAIN 17-job PCK-Complete pile to Shipping (pile grew 16\u219217 since 02 run despite Saturday). (2) Run 42750 POLYMER Critical (dueBD=2, sister to 42751 in Assembly \u2014 coordinate ship). (3) Notify 42443 ATLAS (+2 BD past PCK Start By, profile burn 158%), 42501 SEYTEC (+2 BD, burn 130%), 42518 SEYTEC (+2 BD, burn 108%) \u2014 all on Notify list.",
+    "what": "AR 0% (1 aging / 39 total). WO 42750 POLYMER CONCEPTS Standard Critical (profile=Priority Customer, dueBD=2, msBD=-1). CR 43.6% \u2014 17 jobs PCK-Complete sitting in queue for Shipping handoff (pile unchanged from 03 run; still the largest workflow bottleneck in the shop). 38 upcoming with PCK Start By within 3 BD.",
+    "action": "DRAIN the 17-job PCK-Complete pile to Shipping \u2014 pile is unchanged from the 03 run 5 hours ago. Run WO 42750 POLYMER CONCEPTS Priority Customer Critical (dueBD=2, sister job 42751 is in Assembly). Notify customers on WO 42443 ATLAS TOOL WORKS, WO 42501 SEYTEC, WO 42518 SEYTEC (all +2 BD past PCK Start By).",
     "ot": "not needed",
-    "otText": "Single aging Critical; bottleneck is handoff drain to Shipping, not Packaging capacity.",
-    "upstream": "Cleanroom: 10 incoming, 0 CLR-Complete (CR 0% \u2014 starved). Pre-Clean: 15 incoming + 2 PCL-Complete. Packaging is the workflow throat \u2014 pile draining slowly even with weekend Cleanroom Location flow."
+    "otText": "AR 2.6% GREEN; constraint is handoff (17 PCK-Complete unmoved), not capacity. Erick has the bodies \u2014 needs Luis to pull.",
+    "upstream": "Cleanroom is starved (0% CR, 1 aging); Pre-Clean has 2 PCL-Complete to push to Cleanroom first; no jobs in the immediate Cleanroom \u2192 Packaging pipeline today."
   },
   "Shipping": {
-    "what": "AR 2.7% GREEN (1 aging / 37 in-house). Flag breakdown: 1 Critical \u2014 42695 VERIDIAM (Low Qty, msBD=None, dueBD=None \u2014 at 02 run was dueBD=0 / DUE TODAY; QPC Due now appears blank in source data \u2014 planner needs to confirm / restore). 34 upcoming Shipping jobs. CR 21.6% (8 SHP-Complete jobs awaiting final out \u2014 UNCHANGED from 02 run, pile held flat).",
-    "action": "(1) Confirm / ship 42695 VERIDIAM Critical \u2014 planner must restore missing QPC Due (was dueBD=0 at 02 run earlier today). (2) Drain 8-job SHP-Complete pile (held flat over Saturday). (3) Top notify 42039 JP DONOVAN \u2014 THIRTEENTH straight straight-notify (+12 BD slip from Apr 30 scheduled, profile burn 300%, +1 BD past current QPC Due \u2014 chronic, Jeff loop-in is the right escalation). (4) Notify 42542 CHEMRING (+1 BD past QPC Due).",
+    "what": "AR 0% (1 aging / 37 total). WO 42695 VERIDIAM Standard Critical (profile=Low Qty, dueBD=0 \u2014 DUE TODAY; planner RESTORED the missing QPC Due Date that was blank at the 03 run). CR 21.6% \u2014 8 jobs SHP-Complete in queue (unchanged from 03 run). 34 upcoming with SHP Start By within 3 BD.",
+    "action": "Confirm and ship WO 42695 VERIDIAM Critical Monday-first (QPC Due restored to TODAY by planner since 03 run \u2014 single-job, ship-and-done). Drain 8-job SHP-Complete pile (unchanged 03 \u2192 04). Customer notify priority: WO 42039 JP DONOVAN CONSTRUCTION (FOURTEENTH straight notify, +12 BD slip from original \u2014 chronic; Jeff loop-in remains the right call), then WO 42542 CHEMRING ENERGETIC DEVICES (+1 BD past QPC Due).",
     "ot": "not needed",
-    "otText": "Single aging Critical; constraint is handoff drain and a missing QPC Due, not Shipping capacity.",
-    "upstream": "Packaging: 17 PCK-Complete awaiting handoff (CR 43.6%, pile growing) \u2014 primary intake source. Shipping should outpace inflow once Packaging drains."
+    "otText": "AR 2.7% GREEN; 1 aging WO. Shipping's pull rate is the gate on Packaging's 17-job pile.",
+    "upstream": "Packaging has 17 PCK-Complete waiting \u2014 needs intake here before Erick can drain. Plan an early Monday pull."
   },
   "Lab Testing": {
-    "what": "AR 0.0% GREEN (0 aging / 1 in-house). No aging, no upcoming, single job in flow.",
-    "action": "No action.",
+    "what": "AR 0% (0 aging / 1 total). 0 jobs Complete-at-Lab. No urgent items.",
+    "action": "No action items. Lab Testing has no aging WOs and no handoff backlog.",
     "ot": "not needed",
-    "otText": "Single in-flow job, no aging signal.",
+    "otText": "1 job in dept; clean.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 16.7% YELLOW (1 aging / 6 in-house \u2014 small-N artifact). Flag breakdown: 1 Critical \u2014 42751 POLYMER CONCEPTS (Priority Customer, dueBD=1 \u2014 sister to 42750 in Packaging; coordinate to ship together). Customer-controlled queue.",
-    "action": "(1) Travis: decide-or-commit 42751 POLYMER CONCEPTS Critical (dueBD=1). Coordinate ship-out with sister 42750 in PCK (also Critical, dueBD=2).",
+    "what": "AR 0% (1 aging / 6 total). WO 42751 POLYMER CONCEPTS Standard Critical (profile=Priority Customer, dueBD=1, msBD=1). Customer-controlled clock \u2014 internal date is provisional.",
+    "action": "Decide or commit on WO 42751 POLYMER CONCEPTS Priority Customer Critical (dueBD=1; sister job 42750 is in Packaging \u2014 coordinate ship). Travis needs the customer answer.",
     "ot": "n/a",
-    "otText": "Customer-controlled (Assembly customer activity).",
+    "otText": "Customer-controlled \u2014 OT doesn't move this.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 100% RED (1 aging / 1 in-house \u2014 full sample). Flag breakdown: 1 Critical \u2014 42736 SAINT GOBAIN (Priority Customer, msBD=None, dueBD=None \u2014 was dueBD=0 / DUE TODAY at 02 run earlier today; QPC Due now appears blank \u2014 planner check). Customer-controlled (source release).",
-    "action": "(1) Travis: source-release pursuit 42736 SAINT GOBAIN Priority Customer Critical. (2) Planner: confirm / restore missing QPC Due date (was dueBD=0 at 02 run).",
+    "what": "AR 0% (1 aging / 1 total). WO 42736 SAINT GOBAIN Standard Critical (profile=Priority Customer, dueBD=0 \u2014 DUE TODAY; planner RESTORED the missing QPC Due since the 03 run). Single-job dept on a source clock.",
+    "action": "Travis: pursue source release on WO 42736 SAINT GOBAIN Critical (now dueBD=0 \u2014 DUE TODAY; planner restored the date but the source clock hasn't changed \u2014 chronic on this customer).",
     "ot": "n/a",
-    "otText": "Customer / vendor-controlled (source release).",
+    "otText": "Customer/source-controlled.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "10 jobs in profile-hold bucket (excluded from in-house AR denominator). 4 aging: 42625 FMH AMETEK DCMA Critical dueBD=1 (DCMA witness clock); 42758 CREATIVE PATHWAYS T1 Expedite Past Due dueBD=-2 Source Required (TWELFTH straight); 42572 SAINT GOBAIN Past Due dueBD=-3 Source Required (THIRTEENTH straight); 42655 SAINT GOBAIN Past Due dueBD=-3 Source Required (THIRTEENTH straight). 6 non-aging in customerProfileJobs feed including 42794 CREATIVE PATHWAYS Source dueBD=0 (becomes Past Due Monday).",
-    "action": "(1) Travis: DCMA witness confirm 42625 FMH AMETEK Critical (dueBD=1). (2) Customer-side push 42758 CREATIVE PATHWAYS T1 Past Due dueBD=-2 (TWELFTH straight). (3) Source-clock pursuit SAINT GOBAIN pair 42572 / 42655 Past Due (THIRTEENTH straight \u2014 chronic). (4) Status check 42794 CREATIVE PATHWAYS Source dueBD=0 \u2014 becomes Past Due Monday if no release.",
+    "what": "AR 0% (4 aging / 10 total, EXCLUDED from in-house AR denominator). Past Due trio (Source clock): WO 42758 CREATIVE PATHWAYS T1 dueBD=-2 THIRTEENTH straight; WO 42572 SAINT GOBAIN dueBD=-3 FOURTEENTH straight; WO 42655 SAINT GOBAIN dueBD=-3 FOURTEENTH straight. DCMA-witness Critical: WO 42625 FMH AMETEK dueBD=1. Status check: WO 42794 CREATIVE PATHWAYS T1 dueBD=0 \u2014 DUE TODAY, becomes Past Due Monday morning if source isn't released over the weekend.",
+    "action": "Travis: weekend status check on WO 42794 CREATIVE PATHWAYS T1 (becomes Past Due Monday). Continue chronic source-clock work on the SAINT GOBAIN pair (42572, 42655 \u2014 FOURTEENTH straight). Customer-side push on WO 42758 CREATIVE PATHWAYS T1 Past Due. Confirm DCMA witness scheduling on WO 42625 FMH AMETEK Critical (dueBD=1).",
     "ot": "n/a",
-    "otText": "Customer / DCMA / source-clock controlled (no in-house surge can move these).",
+    "otText": "Customer / source / DCMA clock \u2014 internal capacity isn't the lever.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "02:04 PM PDT";
+const GENERATED_TIME = "07:07 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
