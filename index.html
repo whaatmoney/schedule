@@ -5231,7 +5231,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43140",
@@ -7324,72 +7324,72 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Shipping": {
-    "what": "AR 11.4% \u2014 4 aging, all Critical at SHP Start By. Due 06/08: 42976 JBW PRECISION (Large Parts, burn 75%, short-scheduled) and 42996 CB MFG (burn 80%). Due 06/09: 43011 JEVAC MACHINE and 43037 PRECISION TUBE BENDING (both Low Qty, burn 75%). Completed Ratio 28.6% \u2014 10 jobs finished-at-op awaiting handoff. 31 upcoming within Start By window.",
-    "action": "Ship 42976 JBW and 42996 CB MFG today (due 06/08). Stage 43011 JEVAC and 43037 PRECISION TUBE BENDING for 06/09. Clear the 10 completed-at-op jobs off the floor to the next step.",
+    "what": "AR 11.4% \u2014 4 of 4 aging jobs Critical, all at SHP Start By. Due today 06/08: 42976 JBW PRECISION INC (Large Parts, short-scheduled, burn 75%) and 42996 CB MFG & ENG (Standard, burn 80%). Due 06/09: 43011 JEVAC MACHINE and 43037 PRECISION TUBE BENDING (both Low Qty, burn 75%). Completed Ratio 28.6% \u2014 10 jobs finished-at-op awaiting handoff. 31 upcoming jobs approaching Start By.",
+    "action": "Ship 42976 JBW PRECISION and 42996 CB MFG today \u2014 both due 06/08. Stage 43011 JEVAC and 43037 PRECISION TUBE BENDING for 06/09. Clear the 10 completed-at-op jobs out of Shipping to relieve the handoff backlog.",
     "ot": "recommended",
-    "otText": "All 4 aging are Critical at Start By \u2014 run OT to clear the 06/08 ships and stage 06/09.",
-    "upstream": "Packaging feeds Shipping \u2014 2 aging there, both Critical."
+    "otText": "All 4 aging jobs are Critical at Start By with two due today \u2014 run OT to clear 06/08 ships and stage 06/09.",
+    "upstream": "18 upcoming from Packaging feeding Shipping; watch Packaging's 2 Critical (43050-3, 43054)."
   },
   "Packaging": {
-    "what": "AR 10.0% \u2014 2 aging, both Critical. 43050-3 ULA/SAUER (Priority Customer, T1 Expedite) due 06/08, 1 BD past PCK Start By, burn 71.4%. 43054 FMH AMETEK (Standard, short-scheduled) due 06/10, at Start By, burn 50%. 18 upcoming within Start By window.",
-    "action": "Pack 43050-3 ULA/SAUER first \u2014 T1 Expedite, past Start By, due 06/08. Start 43054 FMH AMETEK now to hold the 06/10 date.",
+    "what": "AR 10.0% \u2014 2 of 2 aging Critical. 43050-3 ULA/SAUER MECHANICAL (Priority Customer, T1 Expedite) due 06/08, 1 biz day past PCK Start By, burn 71.4%. 43054 FMH AMETEK (Standard, short-scheduled) due 06/10, at PCK Start By, burn 50%. 18 upcoming approaching Start By.",
+    "action": "Pack 43050-3 ULA/SAUER first \u2014 T1 Expedite, past Start By, due 06/08. Start 43054 FMH AMETEK now to hold the 06/10 date. Hand both to Shipping immediately on completion.",
     "ot": "recommended",
-    "otText": "Both aging are Critical and 43050-3 is a past-Start-By T1 Expedite \u2014 run OT.",
-    "upstream": "Cleanroom 0 aging (11 upcoming); Pre-Clean 2 aging, both Critical."
+    "otText": "Both aging jobs Critical, 43050-3 past Start By and a T1 Expedite due 06/08 \u2014 OT to recover.",
+    "upstream": "24 upcoming from Pre-Clean and 11 from Cleanroom feeding Packaging."
   },
   "Pre-Clean": {
-    "what": "AR 7.7% \u2014 2 aging, both Critical. 42753 AMENTUM (Large Parts, short-scheduled) is 2 BD past PCL Start By, burn 41.7%, due 06/12. 43097 SAINT GOBAIN (Priority Customer) at PCL Start By, burn 42.9%, due 06/12. Completed Ratio 30.8% \u2014 8 finished-at-op awaiting handoff. 24 upcoming \u2014 heaviest inbound of any department.",
-    "action": "Start 42753 AMENTUM immediately \u2014 already 2 days past Start By. Start 43097 SAINT GOBAIN today at Start By. Move the 8 completed-at-op jobs to Cleanroom.",
+    "what": "AR 7.7% \u2014 2 of 2 aging Critical. 42753 AMENTUM SERVICES (Large Parts, short-scheduled) due 06/12, 2 biz days past PCL Start By, burn 41.7%. 43097 SAINT GOBAIN (Priority Customer) due 06/12, at PCL Start By, burn 42.9%. Completed Ratio 30.8% \u2014 8 finished-at-op awaiting handoff. 24 upcoming \u2014 heaviest inbound queue of any department.",
+    "action": "Start 42753 AMENTUM now \u2014 2 biz days past Start By. Start 43097 SAINT GOBAIN today, at Start By. Move the 8 completed-at-op jobs into Cleanroom to clear the bench for the heavy 24-job inbound queue.",
     "ot": "recommended",
-    "otText": "Both aging Critical, one past Start By, and 24 upcoming inbound \u2014 run OT.",
-    "upstream": "RI 0 aging, 0 received today, no RI jobs inside the Start By window."
+    "otText": "Both aging jobs Critical and past/at Start By, plus the heaviest upcoming queue \u2014 OT to stay ahead of inbound.",
+    "upstream": "Fed by Receiving/Inspection \u2014 0 received today, RI has no aging but is holding 10 finished-at-op for handoff."
   },
   "Receiving/Inspection": {
-    "what": "AR 0% \u2014 no aging jobs. Completed Ratio 43.5% \u2014 10 finished-at-op, the biggest handoff backlog in the shop. 2 in-house jobs still unclassified. 0 received today.",
-    "action": "Move the 10 completed-at-op jobs to Pre-Clean \u2014 they are clogging the bench. Have Taylor or Anthony classify the 2 unclassified WOs on physical attributes.",
+    "what": "AR 0% \u2014 no aging jobs. Completed Ratio 43.5% \u2014 10 jobs finished-at-op, the biggest handoff backlog in the shop. 0 received today. 2 in-house jobs unclassified (43151, 43152).",
+    "action": "Move the 10 completed-at-op jobs downstream to Pre-Clean to clear the RI bench. Have Taylor or Anthony classify 43151 and 43152 on physical attributes so they route correctly.",
     "ot": "not needed",
-    "otText": "No aging \u2014 the issue is handoff, not capacity. No OT.",
+    "otText": "No aging and nothing received today \u2014 the backlog is handoff, not capacity. No OT.",
     "upstream": null
   },
   "Cleanroom": {
-    "what": "AR 0% \u2014 no aging jobs. 11 upcoming within Start By window.",
-    "action": "No aging action. Stage the 11 upcoming jobs against their Start By dates.",
+    "what": "AR 0% \u2014 no aging jobs. 11 upcoming approaching Start By.",
+    "action": "No aging to clear. Stage the 11 upcoming jobs in QPC Due order so none slips into aging.",
     "ot": "not needed",
-    "otText": "No aging in Cleanroom. No OT.",
-    "upstream": "Pre-Clean 2 aging, both Critical, 24 upcoming inbound."
+    "otText": "No aging jobs \u2014 standard staffing covers the 11 upcoming.",
+    "upstream": "Fed by Pre-Clean \u2014 2 Critical aging there plus a 24-job inbound queue; expect volume."
   },
   "Lab Testing": {
-    "what": "AR 100% on a 1-job base \u2014 43101 NUSPACE (Priority Customer) is Tight, due 06/12, burn 42.9% with runway.",
-    "action": "Keep 43101 NUSPACE moving toward 06/12 \u2014 it has runway but no slack to lose.",
+    "what": "AR 100% \u2014 1 aging job, flagged Tight (not Critical). 43101 NUSPACE (Priority Customer) due 06/12, burn 42.9% with runway remaining.",
+    "action": "Keep 43101 NUSPACE moving toward the 06/12 due date \u2014 it has runway, no expedite needed.",
     "ot": "not needed",
-    "otText": "Single Tight job with runway. No OT.",
+    "otText": "Single aging job is Tight with runway \u2014 no OT.",
     "upstream": null
   },
   "Assembly": {
-    "what": "Customer-controlled. AR 100% on a 2-job base \u2014 43061 and 43062 SAINT GOBAIN (Priority Customer) both Critical, due 06/10, burn 57.1%.",
-    "action": "Confirm SAINT GOBAIN assembly instructions are in hand so 43061/43062 can run for 06/10.",
+    "what": "AR 100% \u2014 customer-controlled (excluded from house AR). 43061 and 43062 SAINT GOBAIN (Priority Customer) both Critical, due 06/10, burn 57.1%.",
+    "action": "Confirm SAINT GOBAIN assembly disposition on 43061 and 43062 \u2014 both due 06/10. Status is on a customer clock; chase the customer for direction.",
     "ot": "n/a",
-    "otText": "Customer-controlled clock \u2014 OT not applicable.",
+    "otText": "Customer-controlled \u2014 OT not applicable.",
     "upstream": null
   },
   "Source": {
-    "what": "Customer-controlled. AR 66.7% \u2014 42897 ARROWHEAD (Priority Customer) Critical, due 06/08, burn 200% (at due date). 42957 PEGASUS (Large Parts) Tight, due 06/12, burn 91.7%.",
-    "action": "Push the outside source on 42897 ARROWHEAD \u2014 it is at its 06/08 due date. Track 42957 PEGASUS toward 06/12.",
+    "what": "AR 66.7% \u2014 customer-controlled (excluded from house AR). 42897 ARROWHEAD PRODUCTS (Priority Customer) Critical, due 06/08, burn 200% \u2014 well over profile. 42957 PEGASUS MANUFACTURING (Large Parts) Tight, due 06/12, burn 91.7%.",
+    "action": "Push the vendor on 42897 ARROWHEAD \u2014 due 06/08 and 200% burned, get a firm estimate. Track 42957 PEGASUS toward 06/12.",
     "ot": "n/a",
-    "otText": "Customer/supplier clock \u2014 OT not applicable.",
+    "otText": "Customer/vendor-controlled \u2014 OT not applicable.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "AR 40% \u2014 excluded from in-house AR (Source Required, on a customer clock). 4 jobs: 42915 SAINT GOBAIN Past Due (was due 06/01, 4 BD over), 42946 BRONSON & BRATTON Critical (due 06/05), 42980 SENIOR AEROSPACE and 43012 BERANEK Critical (due 06/10).",
-    "action": "Escalate 42915 SAINT GOBAIN \u2014 4 business days past due. Chase customer source/disposition on 42946, 42980, and 43012 to release the hold.",
+    "what": "AR 40% \u2014 excluded from in-house AR (Source Required, on customer clock). 4 jobs: 42915 SAINT GOBAIN Past Due (4 biz days over, was due 06/01); 42946 BRONSON & BRATTON Critical due 06/05; 42980 SENIOR AEROSPACE and 43012 BERANEK both Critical due 06/10.",
+    "action": "Escalate 42915 SAINT GOBAIN \u2014 4 biz days past due, needs customer source direction now. Contact customers on 42946 BRONSON & BRATTON (due 06/05) and the two 06/10 jobs (42980, 43012) for release.",
     "ot": "n/a",
-    "otText": "Customer-hold clock \u2014 OT not applicable.",
+    "otText": "Provisional dates on a customer clock \u2014 OT not applicable.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "10:00 AM PDT";
+const GENERATED_TIME = "02:02 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
