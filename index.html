@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>QPC Aging Signal v12 — 06/09/2026</title>
+  <title>QPC Aging Signal v12 — 06/10/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -393,18 +393,20 @@ tr.rs-expandable.open .rs-row-toggle{color:#0078D4;}
 <script>
 // ─── DATA (injected by skill) ───
 const DATA = {
-  "reportDate": "06/09/2026",
+  "reportDate": "06/10/2026",
   "overall": {
     "totalJobs": 138,
-    "agingJobs": 8,
-    "ar": 5.8,
-    "receivedToday": 24,
+    "agingJobs": 23,
+    "ar": 16.7,
+    "receivedToday": 0,
     "flagDist": {
-      "Critical": 9,
+      "Critical": 22,
       "Past Due": 2,
-      "On Track": 2
+      "Tight": 2,
+      "Reschedule Window": 2,
+      "On Track": 1
     },
-    "upcomingCount": 109,
+    "upcomingCount": 99,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -464,20 +466,63 @@ const DATA = {
   },
   "departments": [
     {
-      "name": "Shipping",
-      "lead": "Luis",
-      "total": 48,
-      "aging": 3,
-      "ar": 6.2,
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 45,
+      "aging": 9,
+      "ar": 20.0,
       "flags": {
-        "Critical": 3
+        "Critical": 9
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 43,
+      "incoming": 35,
+      "profileMix": [
+        {
+          "name": "High Qty",
+          "count": 4
+        },
+        {
+          "name": "Low Qty",
+          "count": 2
+        },
+        {
+          "name": "Needs Assembly",
+          "count": 1
+        },
+        {
+          "name": "Standard",
+          "count": 1
+        },
+        {
+          "name": "Priority Customer",
+          "count": 1
+        }
+      ],
+      "completedCount": 4,
+      "completedRatio": 8.9,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Shipping",
+      "lead": "Luis",
+      "total": 48,
+      "aging": 6,
+      "ar": 12.5,
+      "flags": {
+        "Critical": 6
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 42,
       "profileMix": [
         {
           "name": "Standard",
+          "count": 3
+        },
+        {
+          "name": "Low Qty",
           "count": 2
         },
         {
@@ -494,45 +539,26 @@ const DATA = {
       "name": "Packaging",
       "lead": "Erick",
       "total": 21,
-      "aging": 1,
-      "ar": 4.8,
+      "aging": 2,
+      "ar": 9.5,
       "flags": {
-        "Critical": 1
+        "Critical": 2
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 20,
+      "incoming": 19,
       "profileMix": [
         {
           "name": "Large Parts",
+          "count": 1
+        },
+        {
+          "name": "Standard",
           "count": 1
         }
       ],
       "completedCount": 3,
       "completedRatio": 14.3,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 45,
-      "aging": 1,
-      "ar": 2.2,
-      "flags": {
-        "Critical": 1
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 43,
-      "profileMix": [
-        {
-          "name": "High Qty",
-          "count": 1
-        }
-      ],
-      "completedCount": 4,
-      "completedRatio": 8.9,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -588,10 +614,11 @@ const DATA = {
       "name": "Assembly",
       "lead": "Customer Hold",
       "total": 6,
-      "aging": 3,
-      "ar": 50.0,
+      "aging": 5,
+      "ar": 83.3,
       "flags": {
-        "On Track": 1,
+        "Tight": 1,
+        "Reschedule Window": 2,
         "Critical": 2
       },
       "isCustomerDep": true,
@@ -600,7 +627,7 @@ const DATA = {
       "profileMix": [
         {
           "name": "Priority Customer",
-          "count": 2
+          "count": 4
         },
         {
           "name": "Straight to CLR",
@@ -616,13 +643,20 @@ const DATA = {
       "name": "Source",
       "lead": "Customer Hold",
       "total": 2,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
+      "aging": 1,
+      "ar": 50.0,
+      "flags": {
+        "Critical": 1
+      },
       "isCustomerDep": true,
       "isBottom": true,
       "incoming": 0,
-      "profileMix": [],
+      "profileMix": [
+        {
+          "name": "Priority Customer",
+          "count": 1
+        }
+      ],
       "completedCount": 0,
       "completedRatio": 0.0,
       "tieredCount": 0,
@@ -632,12 +666,13 @@ const DATA = {
       "name": "Customer Hold (Profile)",
       "lead": "Customer Hold",
       "total": 13,
-      "aging": 5,
-      "ar": 38.5,
+      "aging": 6,
+      "ar": 46.2,
       "flags": {
         "Past Due": 2,
         "Critical": 2,
-        "On Track": 1
+        "On Track": 1,
+        "Tight": 1
       },
       "isCustomerDep": true,
       "isBottom": true,
@@ -645,7 +680,7 @@ const DATA = {
       "profileMix": [
         {
           "name": "Source Required",
-          "count": 5
+          "count": 6
         }
       ],
       "completedCount": 3,
@@ -663,47 +698,102 @@ const DATA = {
   "rescheduleStatus": {
     "kpiTarget": 98,
     "totalAssessed": 135,
-    "onTimeCount": 127,
-    "onTimePct": 94.1,
-    "atRiskCount": 8,
-    "decideToday": [],
-    "decideWeek": [
+    "onTimeCount": 124,
+    "onTimePct": 91.9,
+    "atRiskCount": 11,
+    "decideToday": [
       {
         "wo": "42957",
         "customer": "PEGASUS MANUFACTURING",
         "profile": "Large Parts",
         "profileCls": "",
+        "dept": "Packaging",
         "flag": "Critical",
         "flagColor": "#D13438",
-        "dept": "Packaging",
-        "deadlineDay": "Jun 10",
-        "deadlineBD": 1,
-        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "dueDate": "Jun 12",
+        "dueBD": 2,
         "eligibility": {
-          "state": "tight",
-          "label": "Decide by Jun 10 (1 BD)",
-          "day": "Jun 10",
-          "bdLeft": 1,
-          "note": "Rule 2 cuts in tomorrow"
+          "state": "today",
+          "label": "EOD TODAY",
+          "day": "Today",
+          "bdLeft": 0,
+          "note": "At the 2 BD boundary"
         },
+        "risks": [
+          {
+            "label": "Profile burn 108% (>= 95%)",
+            "severity": "severe"
+          }
+        ],
+        "burnTarget": {
+          "date": "Jun 16",
+          "band": "+/-3 BD",
+          "confidence": "caution",
+          "reasoning": "Forecast slip +2 BD, driven by: Profile burn 108%."
+        },
+        "commitOutcome": {
+          "date": "~Jun 16",
+          "miss": "+2 BD miss",
+          "note": "Forecast lands Jun 16 either way."
+        },
+        "recommendation": "burn",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 13,
+          "profileBurn": 1.083,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Shipping)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Profile burn 108% (>= 95%)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Jun 12"
+        }
+      }
+    ],
+    "decideWeek": [],
+    "notify": [
+      {
+        "wo": "42999",
+        "customer": "PRECISION ADVANCED MANUFACTURING",
+        "profile": "Standard",
+        "profileCls": "",
+        "dept": "Packaging",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Jun 11",
+        "forecastDate": "Jun 15",
+        "slip": "+2 BD",
+        "slipDays": 2,
         "risks": [
           {
             "label": "Profile burn 100% (>= 95%)",
             "severity": "severe"
           }
         ],
-        "target": {
-          "date": "Jun 16",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "why": "Profile burn 100%.",
         "detail": {
           "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 12,
+          "profileWindow": 10,
+          "profileElapsed": 10,
           "profileBurn": 1.0,
           "indicators": [
             {
@@ -728,11 +818,9 @@ const DATA = {
             }
           ],
           "maxSlip": 2,
-          "scheduled": "Jun 12"
+          "scheduled": "Jun 11"
         }
-      }
-    ],
-    "notify": [
+      },
       {
         "wo": "42828",
         "customer": "ISO GROUP, INC.",
@@ -747,16 +835,16 @@ const DATA = {
         "slipDays": 2,
         "risks": [
           {
-            "label": "Profile burn 225% (>= 95%)",
+            "label": "Profile burn 238% (>= 95%)",
             "severity": "severe"
           }
         ],
-        "why": "Profile burn 225%.",
+        "why": "Profile burn 238%.",
         "detail": {
           "cr": null,
           "profileWindow": 8,
-          "profileElapsed": 18,
-          "profileBurn": 2.25,
+          "profileElapsed": 19,
+          "profileBurn": 2.375,
           "indicators": [
             {
               "label": "Black-tier dept ahead",
@@ -764,7 +852,7 @@ const DATA = {
               "active": false
             },
             {
-              "label": "Profile burn 225% (>= 95%)",
+              "label": "Profile burn 238% (>= 95%)",
               "val": "+2 BD",
               "active": true
             },
@@ -784,48 +872,7 @@ const DATA = {
         }
       }
     ],
-    "monitor": [
-      {
-        "wo": "42999",
-        "customer": "PRECISION ADVANCED MANUFACTURING",
-        "profile": "Standard",
-        "dept": "Packaging",
-        "scheduledDue": "Jun 11",
-        "forecastDate": "Jun 11",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 9,
-          "profileBurn": 0.9,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Shipping)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 90% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Jun 11"
-        }
-      }
-    ],
+    "monitor": [],
     "escalate": [
       {
         "wo": "43183",
@@ -904,7 +951,7 @@ const DATA = {
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
-        "reason": "Reschedule window closed (1 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
@@ -914,7 +961,7 @@ const DATA = {
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
-        "reason": "Reschedule window closed (-9 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "reason": "Reschedule window closed (-10 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
@@ -934,7 +981,7 @@ const DATA = {
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
-        "reason": "Reschedule window closed (-4 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "reason": "Reschedule window closed (-5 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
@@ -944,7 +991,7 @@ const DATA = {
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
-        "reason": "Reschedule window closed (-2 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "reason": "Reschedule window closed (-3 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
@@ -954,13 +1001,33 @@ const DATA = {
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
-        "reason": "Reschedule window closed (-2 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "reason": "Reschedule window closed (-3 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
         "wo": "43050-3",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (-2 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
+        "wo": "42972",
+        "customer": "VALLEY SEAL COMPANY",
+        "profile": "High Qty",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (-1 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
+        "wo": "42973",
+        "customer": "VALLEY SEAL COMPANY",
+        "profile": "High Qty",
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
@@ -1141,8 +1208,8 @@ const DATA = {
         "wo": "43079",
         "customer": "TAYCO ENGINEERING, INC.",
         "profile": "Source Required",
-        "flag": "On Track",
-        "flagColor": "#107C10",
+        "flag": "Tight",
+        "flagColor": "#C19C00",
         "badge": "SR",
         "reason": "Source Required - date provisional.",
         "action": "PM coordinates source visit."
@@ -1150,7 +1217,7 @@ const DATA = {
     ],
     "calibrationEntries": [
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43148",
         "customer": "PRECISION TUBE BENDING",
         "profile": "Low Qty",
@@ -1163,7 +1230,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43202",
         "customer": "KAP MANUFACTURING",
         "profile": "Low Qty",
@@ -1176,7 +1243,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43204",
         "customer": "RSA ENGINEERED PRODUCTS, LLC",
         "profile": "Low Qty",
@@ -1189,7 +1256,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43207",
         "customer": "GP STRATEGIES",
         "profile": "Complex",
@@ -1202,7 +1269,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42752",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Large Parts",
@@ -1215,7 +1282,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43203",
         "customer": "RUBICON GEAR",
         "profile": "Complex",
@@ -1228,7 +1295,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43205",
         "customer": "SUPERIOR THREAD ROLLING",
         "profile": "Large Parts",
@@ -1241,7 +1308,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43162",
         "customer": "CREATIVE PATHWAYS, INC.",
         "profile": "Standard",
@@ -1254,7 +1321,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43206",
         "customer": "MINDRUM PRECISION, INC",
         "profile": "Complex",
@@ -1267,7 +1334,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43195",
         "customer": "POLYMER CONCEPTS",
         "profile": "High Qty",
@@ -1280,7 +1347,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43126",
         "customer": "SEYTEC",
         "profile": "High Qty",
@@ -1293,7 +1360,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43155-1",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
@@ -1306,7 +1373,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43155-2",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
@@ -1319,7 +1386,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43174",
         "customer": "GEARLES DESIGNS & MFG",
         "profile": "High Qty",
@@ -1332,7 +1399,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43190",
         "customer": "CREATIVE PATHWAYS, INC.",
         "profile": "Standard",
@@ -1345,7 +1412,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42753",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Large Parts",
@@ -1358,7 +1425,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43196",
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
@@ -1371,7 +1438,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43200",
         "customer": "ACUTEK",
         "profile": "Complex",
@@ -1384,7 +1451,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43064",
         "customer": "TRIPLETT MACHINE INC.",
         "profile": "Standard",
@@ -1397,7 +1464,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43146",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "Low Qty",
@@ -1410,7 +1477,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43147",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "PSV Only",
@@ -1423,7 +1490,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43149",
         "customer": "PRECISION TUBE BENDING",
         "profile": "Low Qty",
@@ -1436,7 +1503,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43152",
         "customer": "LEDA CORPORATION",
         "profile": "Priority Customer",
@@ -1449,7 +1516,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43045",
         "customer": "VAST",
         "profile": "High Qty",
@@ -1462,7 +1529,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43163",
         "customer": "FMH AMETEK",
         "profile": "Low Qty",
@@ -1475,7 +1542,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43111",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Low Qty",
@@ -1488,7 +1555,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43112",
         "customer": "HIGH PRESSURE TECHNOLOGIES",
         "profile": "Needs Assembly",
@@ -1501,7 +1568,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43115",
         "customer": "DARMARK CORPORATION",
         "profile": "Standard",
@@ -1514,7 +1581,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43127",
         "customer": "STELLAR TECHNOLOGY",
         "profile": "Standard",
@@ -1527,7 +1594,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43130",
         "customer": "DARMARK CORPORATION",
         "profile": "Standard",
@@ -1540,7 +1607,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43136",
         "customer": "NUSPACE",
         "profile": "Priority Customer",
@@ -1553,7 +1620,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43137",
         "customer": "NUSPACE",
         "profile": "Priority Customer",
@@ -1566,7 +1633,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43158",
         "customer": "SAINT GOBAIN",
         "profile": "High Qty",
@@ -1579,7 +1646,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43169",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -1592,7 +1659,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43170",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -1605,7 +1672,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43171",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -1618,7 +1685,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43173",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "Low Qty",
@@ -1631,7 +1698,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43186",
         "customer": "INNOVATIVE ENGINEERING SOLUTIONS",
         "profile": "Standard",
@@ -1644,7 +1711,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43194",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -1657,7 +1724,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43201",
         "customer": "KAP MANUFACTURING",
         "profile": "Low Qty",
@@ -1670,7 +1737,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42983",
         "customer": "PDT AMETEK",
         "profile": "High Qty",
@@ -1683,7 +1750,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43110",
         "customer": "CUSTOM CONTROL SENSORS, LLC",
         "profile": "Low Qty",
@@ -1696,7 +1763,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43141",
         "customer": "UNITED PRECISION CORP",
         "profile": "High Qty",
@@ -1709,7 +1776,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43154",
         "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
         "profile": "Standard",
@@ -1722,7 +1789,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43199",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -1735,7 +1802,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43143",
         "customer": "PDT AMETEK",
         "profile": "High Qty",
@@ -1748,7 +1815,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43144",
         "customer": "PRECISION MACHINING SHEETMETAL",
         "profile": "High Qty",
@@ -1761,7 +1828,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43159",
         "customer": "ATEC INC",
         "profile": "Complex",
@@ -1774,7 +1841,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43160",
         "customer": "TELEDYNE SCIENTIFIC & IMAGING",
         "profile": "Tiny Parts",
@@ -1787,7 +1854,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43168",
         "customer": "PERFORMANCE SEALING INC",
         "profile": "Straight to CLR",
@@ -1800,7 +1867,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43121",
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
@@ -1813,7 +1880,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43178",
         "customer": "SECO SEALS",
         "profile": "High Qty",
@@ -1826,7 +1893,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43182",
         "customer": "NYTRON AEROSPACE",
         "profile": "High Qty",
@@ -1839,7 +1906,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43192",
         "customer": "CREATIVE PATHWAYS, INC.",
         "profile": "High Qty",
@@ -1852,7 +1919,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43193",
         "customer": "EJAY FILTRATION",
         "profile": "Tiny Parts",
@@ -1865,7 +1932,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43155-4",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
@@ -1878,7 +1945,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43142",
         "customer": "PACIFIC CONSOLIDATED INDUSTRIES",
         "profile": "Low Qty",
@@ -1891,7 +1958,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43156",
         "customer": "EATON CORP.",
         "profile": "Low Qty",
@@ -1904,7 +1971,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43120",
         "customer": "HRD AERO SYSTEMS, INC.",
         "profile": "Low Qty",
@@ -1917,7 +1984,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42897",
         "customer": "ARROWHEAD PRODUCTS",
         "profile": "Priority Customer",
@@ -1925,14 +1992,14 @@ const DATA = {
         "forecastDate": "Jun 12",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Profile burn 214% (>= 95%)"
+          "Profile burn 229% (>= 95%)"
         ],
         "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43129",
         "customer": "VAST",
         "profile": "Standard",
@@ -1945,20 +2012,22 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42999",
         "customer": "PRECISION ADVANCED MANUFACTURING",
         "profile": "Standard",
         "qpcDue": "Jun 11",
-        "forecastDate": "Jun 11",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Jun 15",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Profile burn 100% (>= 95%)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43155-3",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
@@ -1971,7 +2040,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43161",
         "customer": "MINDRUM PRECISION, INC",
         "profile": "Standard",
@@ -1984,7 +2053,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42957",
         "customer": "PEGASUS MANUFACTURING",
         "profile": "Large Parts",
@@ -1992,14 +2061,14 @@ const DATA = {
         "forecastDate": "Jun 16",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Profile burn 100% (>= 95%)"
+          "Profile burn 108% (>= 95%)"
         ],
-        "bucket": "decide_week",
+        "bucket": "decide_today",
         "isBurned": false,
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43095",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2012,7 +2081,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43097",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2025,7 +2094,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43098",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2038,7 +2107,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43150",
         "customer": "AXXIS CORPORATION",
         "profile": "Standard",
@@ -2051,7 +2120,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43157",
         "customer": "AMETEK",
         "profile": "Low Qty",
@@ -2064,7 +2133,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43172",
         "customer": "MACKENZIE AIRCRAFT PARTS",
         "profile": "Standard",
@@ -2077,7 +2146,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43041",
         "customer": "EJAY FILTRATION",
         "profile": "High Qty",
@@ -2090,7 +2159,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43138",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -2103,7 +2172,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43139",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -2116,7 +2185,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42755",
         "customer": "SAINT-GOBAIN RI",
         "profile": "High Qty",
@@ -2129,7 +2198,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43080",
         "customer": "RUBICON GEAR",
         "profile": "Complex",
@@ -2142,7 +2211,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43081",
         "customer": "RUBICON GEAR",
         "profile": "Standard",
@@ -2155,7 +2224,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43058",
         "customer": "SAINT-GOBAIN RI",
         "profile": "High Qty",
@@ -2168,7 +2237,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43117",
         "customer": "UNITED PRECISION CORP",
         "profile": "High Qty",
@@ -2181,7 +2250,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43118",
         "customer": "SEYTEC",
         "profile": "Standard",
@@ -2194,15 +2263,15 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42728",
         "customer": "ATLAS TOOL WORKS",
         "profile": "Large Parts",
         "qpcDue": "May 27",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 9,
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 10,
         "indicatorsFired": [
-          "Profile burn 158% (>= 95%)",
+          "Profile burn 167% (>= 95%)",
           "Past current QPC Due"
         ],
         "bucket": "escalate",
@@ -2210,29 +2279,13 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42922",
         "customer": "OCEANEERING",
         "profile": "Complex",
         "qpcDue": "Jun 3",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 4,
-        "indicatorsFired": [
-          "Profile burn 117% (>= 95%)",
-          "Past current QPC Due"
-        ],
-        "bucket": "escalate",
-        "isBurned": false,
-        "isTightProfile": false
-      },
-      {
-        "runDate": "2026-06-09",
-        "wo": "42875",
-        "customer": "CRYOWORKS",
-        "profile": "Large Parts",
-        "qpcDue": "Jun 5",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 2,
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 5,
         "indicatorsFired": [
           "Profile burn 125% (>= 95%)",
           "Past current QPC Due"
@@ -2242,15 +2295,15 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
-        "wo": "42944",
-        "customer": "MARPLES GEARS INC.",
-        "profile": "Standard",
+        "runDate": "2026-06-10",
+        "wo": "42875",
+        "customer": "CRYOWORKS",
+        "profile": "Large Parts",
         "qpcDue": "Jun 5",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 2,
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 3,
         "indicatorsFired": [
-          "Profile burn 130% (>= 95%)",
+          "Profile burn 133% (>= 95%)",
           "Past current QPC Due"
         ],
         "bucket": "escalate",
@@ -2258,14 +2311,31 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
+        "wo": "42944",
+        "customer": "MARPLES GEARS INC.",
+        "profile": "Standard",
+        "qpcDue": "Jun 5",
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 3,
+        "indicatorsFired": [
+          "Profile burn 140% (>= 95%)",
+          "Past current QPC Due"
+        ],
+        "bucket": "escalate",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-06-10",
         "wo": "43050-3",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
         "qpcDue": "Jun 8",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 1,
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 2,
         "indicatorsFired": [
+          "Profile burn 100% (>= 95%)",
           "Past current QPC Due"
         ],
         "bucket": "escalate",
@@ -2273,33 +2343,37 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42972",
         "customer": "VALLEY SEAL COMPANY",
         "profile": "High Qty",
         "qpcDue": "Jun 9",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 1,
+        "indicatorsFired": [
+          "Past current QPC Due"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42973",
         "customer": "VALLEY SEAL COMPANY",
         "profile": "High Qty",
         "qpcDue": "Jun 9",
-        "forecastDate": "Jun 9",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Jun 10",
+        "predictedSlipBD": 1,
+        "indicatorsFired": [
+          "Past current QPC Due"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42828",
         "customer": "ISO GROUP, INC.",
         "profile": "Low Qty",
@@ -2307,14 +2381,14 @@ const DATA = {
         "forecastDate": "Jun 12",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Profile burn 225% (>= 95%)"
+          "Profile burn 238% (>= 95%)"
         ],
         "bucket": "notify",
         "isBurned": true,
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42987",
         "customer": "TELEDYNE SCIENTIFIC & IMAGING",
         "profile": "Standard",
@@ -2327,7 +2401,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43006",
         "customer": "BEVERLIN MFG CORP",
         "profile": "High Qty",
@@ -2340,7 +2414,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43009",
         "customer": "VERIDIAM",
         "profile": "Standard",
@@ -2353,7 +2427,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43033",
         "customer": "SAINT GOBAIN",
         "profile": "High Qty",
@@ -2366,7 +2440,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43040",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "PSV Only",
@@ -2379,7 +2453,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43049",
         "customer": "KAP MANUFACTURING",
         "profile": "Low Qty",
@@ -2392,7 +2466,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43054",
         "customer": "FMH AMETEK",
         "profile": "Standard",
@@ -2405,7 +2479,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43057",
         "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
         "profile": "Low Qty",
@@ -2418,7 +2492,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43085",
         "customer": "AS & D ASTROS",
         "profile": "Standard",
@@ -2431,7 +2505,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42928",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Complex",
@@ -2444,7 +2518,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42953",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Complex",
@@ -2457,7 +2531,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43013",
         "customer": "DARMARK CORPORATION",
         "profile": "Standard",
@@ -2470,7 +2544,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43025",
         "customer": "AMERICAN BOA",
         "profile": "Complex",
@@ -2483,7 +2557,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43046",
         "customer": "ENGINEERED MACHINING SOLUTIONS",
         "profile": "Standard",
@@ -2496,7 +2570,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43051",
         "customer": "KAP MANUFACTURING",
         "profile": "Standard",
@@ -2509,7 +2583,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43071",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "Low Qty",
@@ -2522,7 +2596,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43072",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "PSV Only",
@@ -2535,7 +2609,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43073",
         "customer": "ALLAN AIRCRAFT SUPPLY",
         "profile": "PSV Only",
@@ -2548,7 +2622,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43074",
         "customer": "PRECISION TUBE BENDING",
         "profile": "Low Qty",
@@ -2561,7 +2635,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43083",
         "customer": "PRISM AEROSPACE SUN VALLEY",
         "profile": "Low Qty",
@@ -2574,7 +2648,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43096",
         "customer": "SAINT GOBAIN",
         "profile": "Low Qty",
@@ -2587,7 +2661,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43105",
         "customer": "PACIFIC CONSOLIDATED INDUSTRIES",
         "profile": "Low Qty",
@@ -2600,7 +2674,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43128",
         "customer": "ACUTEK",
         "profile": "Complex",
@@ -2613,7 +2687,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42854",
         "customer": "NUSPACE",
         "profile": "Priority Customer",
@@ -2626,7 +2700,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "42890",
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Large Parts",
@@ -2639,7 +2713,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43053",
         "customer": "PDT AMETEK",
         "profile": "Standard",
@@ -2652,7 +2726,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43092",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2665,7 +2739,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43093",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2678,7 +2752,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43094",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2691,7 +2765,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43100",
         "customer": "RVO MANUFACTURING",
         "profile": "Standard",
@@ -2704,7 +2778,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43102",
         "customer": "EATON CORP.",
         "profile": "Standard",
@@ -2717,7 +2791,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43104",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
@@ -2730,7 +2804,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43106",
         "customer": "PRISM AEROSPACE SUN VALLEY",
         "profile": "Standard",
@@ -2743,7 +2817,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43055",
         "customer": "OMW CORPORATION",
         "profile": "Standard",
@@ -2756,7 +2830,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43063",
         "customer": "GLOBAL PRECISION PRODUCTS",
         "profile": "Standard",
@@ -2769,7 +2843,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43065",
         "customer": "PRECISION ADVANCED MANUFACTURING",
         "profile": "Standard",
@@ -2782,7 +2856,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43068",
         "customer": "AVANS PRECISION MACHINING",
         "profile": "Standard",
@@ -2795,7 +2869,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43135",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2808,7 +2882,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43069",
         "customer": "NYTRON AEROSPACE",
         "profile": "Standard",
@@ -2821,7 +2895,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43070",
         "customer": "NYTRON AEROSPACE",
         "profile": "Standard",
@@ -2834,7 +2908,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43061",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2847,7 +2921,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43062",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2860,7 +2934,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43132",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2873,7 +2947,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43134",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -2886,7 +2960,7 @@ const DATA = {
         "isTightProfile": true
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43067",
         "customer": "KING NUTRONICS",
         "profile": "Straight to CLR",
@@ -2899,7 +2973,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43103",
         "customer": "KING NUTRONICS",
         "profile": "Standard",
@@ -2912,7 +2986,7 @@ const DATA = {
         "isTightProfile": false
       },
       {
-        "runDate": "2026-06-09",
+        "runDate": "2026-06-10",
         "wo": "43099",
         "customer": "ARROWHEAD PRODUCTS",
         "profile": "Priority Customer",
@@ -2928,13 +3002,13 @@ const DATA = {
   },
   "allAgingJobs": [
     {
-      "wo": "43045",
-      "customer": "VAST",
+      "wo": "43121",
+      "customer": "RUBICON GEAR",
       "dept": "Pre-Clean",
-      "dueDate": "06/16",
-      "msDate": "06/04",
-      "msBD": -3,
-      "dueBD": 5,
+      "dueDate": "06/22",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 8,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -2942,11 +3016,275 @@ const DATA = {
       "profile": "High Qty",
       "profileMin": 10,
       "profileMax": 12,
-      "elapsedBD": 6,
-      "scheduledLeadBD": 11,
+      "elapsedBD": 4,
+      "scheduledLeadBD": 12,
+      "profileBurnPct": 33.3,
+      "profileOverBD": -8,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43143",
+      "customer": "PDT AMETEK",
+      "dept": "Pre-Clean",
+      "dueDate": "06/19",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 7,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "High Qty",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 10,
+      "profileBurnPct": 25.0,
+      "profileOverBD": -9,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43144",
+      "customer": "PRECISION MACHINING SHEETMETAL",
+      "dept": "Pre-Clean",
+      "dueDate": "06/19",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 7,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "High Qty",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 10,
+      "profileBurnPct": 25.0,
+      "profileOverBD": -9,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43112",
+      "customer": "HIGH PRESSURE TECHNOLOGIES",
+      "dept": "Pre-Clean",
+      "dueDate": "06/17",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 5,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Needs Assembly",
+      "profileMin": 7,
+      "profileMax": 8,
+      "elapsedBD": 4,
+      "scheduledLeadBD": 9,
       "profileBurnPct": 50.0,
-      "profileOverBD": -6,
+      "profileOverBD": -4,
+      "schedulingSlack": 1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43115",
+      "customer": "DARMARK CORPORATION",
+      "dept": "Pre-Clean",
+      "dueDate": "06/17",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 5,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 8,
+      "profileBurnPct": 30.0,
+      "profileOverBD": -7,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43170",
+      "customer": "POLYMER CONCEPTS",
+      "dept": "Pre-Clean",
+      "dueDate": "06/17",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 5,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 2,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 28.6,
+      "profileOverBD": -5,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43045",
+      "customer": "VAST",
+      "dept": "Pre-Clean",
+      "dueDate": "06/16",
+      "msDate": "06/04",
+      "msBD": -4,
+      "dueBD": 4,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "High Qty",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 7,
+      "scheduledLeadBD": 11,
+      "profileBurnPct": 58.3,
+      "profileOverBD": -5,
       "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43146",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Pre-Clean",
+      "dueDate": "06/15",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 3,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 37.5,
+      "profileOverBD": -5,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43149",
+      "customer": "PRECISION TUBE BENDING",
+      "dept": "Pre-Clean",
+      "dueDate": "06/15",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 3,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 37.5,
+      "profileOverBD": -5,
+      "schedulingSlack": -2,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -2966,8 +3304,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/08",
-      "msBD": -1,
-      "dueBD": 3,
+      "msBD": -2,
+      "dueBD": 2,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -2975,12 +3313,45 @@ const DATA = {
       "profile": "Large Parts",
       "profileMin": 10,
       "profileMax": 12,
-      "elapsedBD": 12,
+      "elapsedBD": 13,
       "scheduledLeadBD": 15,
-      "profileBurnPct": 100.0,
-      "profileOverBD": 0,
+      "profileBurnPct": 108.3,
+      "profileOverBD": 1,
       "schedulingSlack": 3,
       "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43129",
+      "customer": "VAST",
+      "dept": "Packaging",
+      "dueDate": "06/10",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "T1 Expedite",
+      "rescheduled": false,
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 3,
+      "profileBurnPct": 30.0,
+      "profileOverBD": -7,
+      "schedulingSlack": -7,
+      "isShortScheduled": true,
       "isUnclassified": false,
       "isProvisional": false,
       "expediteTier": null,
@@ -2999,8 +3370,8 @@ const DATA = {
       "dept": "Customer Hold (Profile)",
       "dueDate": "06/05",
       "msDate": "06/05",
-      "msBD": -2,
-      "dueBD": -2,
+      "msBD": -3,
+      "dueBD": -3,
       "flag": "Past Due",
       "baseFlag": "Past Due",
       "priority": "Standard",
@@ -3027,13 +3398,13 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
-      "wo": "43046",
-      "customer": "ENGINEERED MACHINING SOLUTIONS",
+      "wo": "43013",
+      "customer": "DARMARK CORPORATION",
       "dept": "Shipping",
       "dueDate": "06/11",
-      "msDate": "06/09",
+      "msDate": "06/10",
       "msBD": 0,
-      "dueBD": 2,
+      "dueBD": 1,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -3041,11 +3412,110 @@ const DATA = {
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
-      "elapsedBD": 6,
+      "elapsedBD": 7,
       "scheduledLeadBD": 8,
-      "profileBurnPct": 60.0,
-      "profileOverBD": -4,
+      "profileBurnPct": 70.0,
+      "profileOverBD": -3,
       "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43046",
+      "customer": "ENGINEERED MACHINING SOLUTIONS",
+      "dept": "Shipping",
+      "dueDate": "06/11",
+      "msDate": "06/09",
+      "msBD": -1,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 7,
+      "scheduledLeadBD": 8,
+      "profileBurnPct": 70.0,
+      "profileOverBD": -3,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43071",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Shipping",
+      "dueDate": "06/11",
+      "msDate": "06/10",
+      "msBD": 0,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 75.0,
+      "profileOverBD": -2,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43074",
+      "customer": "PRECISION TUBE BENDING",
+      "dept": "Shipping",
+      "dueDate": "06/11",
+      "msDate": "06/10",
+      "msBD": 0,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 75.0,
+      "profileOverBD": -2,
+      "schedulingSlack": -1,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -3065,8 +3535,8 @@ const DATA = {
       "dept": "Customer Hold (Profile)",
       "dueDate": "06/10",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 1,
+      "msBD": 0,
+      "dueBD": 0,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -3098,8 +3568,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -3107,10 +3577,10 @@ const DATA = {
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
-      "elapsedBD": 8,
+      "elapsedBD": 9,
       "scheduledLeadBD": 9,
-      "profileBurnPct": 80.0,
-      "profileOverBD": -2,
+      "profileBurnPct": 90.0,
+      "profileOverBD": -1,
       "schedulingSlack": -1,
       "isShortScheduled": false,
       "isUnclassified": false,
@@ -3131,8 +3601,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -3140,10 +3610,10 @@ const DATA = {
       "profile": "PSV Only",
       "profileMin": 8,
       "profileMax": 10,
-      "elapsedBD": 7,
+      "elapsedBD": 8,
       "scheduledLeadBD": 8,
-      "profileBurnPct": 70.0,
-      "profileOverBD": -3,
+      "profileBurnPct": 80.0,
+      "profileOverBD": -2,
       "schedulingSlack": -2,
       "isShortScheduled": false,
       "isUnclassified": false,
@@ -3159,112 +3629,13 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
-      "wo": "43067",
-      "customer": "KING NUTRONICS",
-      "dept": "Assembly",
-      "dueDate": "06/16",
-      "msDate": "06/16",
-      "msBD": 5,
-      "dueBD": 5,
-      "flag": "On Track",
-      "baseFlag": "On Track",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Straight to CLR",
-      "profileMin": 8,
-      "profileMax": 10,
-      "elapsedBD": 4,
-      "scheduledLeadBD": 9,
-      "profileBurnPct": 40.0,
-      "profileOverBD": -6,
-      "schedulingSlack": -1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "43061",
+      "wo": "43133",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "dueDate": "06/10",
-      "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 5,
-      "scheduledLeadBD": 6,
-      "profileBurnPct": 71.4,
-      "profileOverBD": -2,
-      "schedulingSlack": -1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "43062",
-      "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "dueDate": "06/10",
-      "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 5,
-      "scheduledLeadBD": 6,
-      "profileBurnPct": 71.4,
-      "profileOverBD": -2,
-      "schedulingSlack": -1,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "43079",
-      "customer": "TAYCO ENGINEERING, INC.",
       "dept": "Customer Hold (Profile)",
-      "dueDate": "06/16",
-      "msDate": "06/16",
-      "msBD": 5,
-      "dueBD": 5,
+      "dueDate": "06/18",
+      "msDate": "06/18",
+      "msBD": 6,
+      "dueBD": 6,
       "flag": "On Track",
       "baseFlag": "On Track",
       "priority": "Standard",
@@ -3291,13 +3662,244 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "43067",
+      "customer": "KING NUTRONICS",
+      "dept": "Assembly",
+      "dueDate": "06/16",
+      "msDate": "06/16",
+      "msBD": 4,
+      "dueBD": 4,
+      "flag": "Tight",
+      "baseFlag": "Tight",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Straight to CLR",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 5,
+      "scheduledLeadBD": 9,
+      "profileBurnPct": 50.0,
+      "profileOverBD": -5,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43132",
+      "customer": "SAINT GOBAIN",
+      "dept": "Assembly",
+      "dueDate": "06/15",
+      "msDate": "06/15",
+      "msBD": 3,
+      "dueBD": 3,
+      "flag": "Reschedule Window",
+      "baseFlag": "Reschedule Window",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 42.9,
+      "profileOverBD": -4,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43134",
+      "customer": "SAINT GOBAIN",
+      "dept": "Assembly",
+      "dueDate": "06/15",
+      "msDate": "06/15",
+      "msBD": 3,
+      "dueBD": 3,
+      "flag": "Reschedule Window",
+      "baseFlag": "Reschedule Window",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 42.9,
+      "profileOverBD": -4,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43061",
+      "customer": "SAINT GOBAIN",
+      "dept": "Assembly",
+      "dueDate": "06/10",
+      "msDate": "06/10",
+      "msBD": 0,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43062",
+      "customer": "SAINT GOBAIN",
+      "dept": "Assembly",
+      "dueDate": "06/10",
+      "msDate": "06/10",
+      "msBD": 0,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43079",
+      "customer": "TAYCO ENGINEERING, INC.",
+      "dept": "Customer Hold (Profile)",
+      "dueDate": "06/16",
+      "msDate": "06/16",
+      "msBD": 4,
+      "dueBD": 4,
+      "flag": "Tight",
+      "baseFlag": "Tight",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Source Required",
+      "profileMin": null,
+      "profileMax": null,
+      "elapsedBD": null,
+      "scheduledLeadBD": null,
+      "profileBurnPct": null,
+      "profileOverBD": null,
+      "schedulingSlack": null,
+      "isShortScheduled": null,
+      "isUnclassified": false,
+      "isProvisional": true,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "43099",
+      "customer": "ARROWHEAD PRODUCTS",
+      "dept": "Source",
+      "dueDate": "06/12",
+      "msDate": "06/12",
+      "msBD": 2,
+      "dueBD": 2,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 5,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 71.4,
+      "profileOverBD": -2,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "43012",
       "customer": "BERANEK INC.",
       "dept": "Customer Hold (Profile)",
       "dueDate": "06/10",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 1,
+      "msBD": 0,
+      "dueBD": 0,
       "flag": "Critical",
       "baseFlag": "Critical",
       "priority": "Standard",
@@ -3329,8 +3931,8 @@ const DATA = {
       "dept": "Customer Hold (Profile)",
       "dueDate": "06/01",
       "msDate": "06/01",
-      "msBD": -6,
-      "dueBD": -6,
+      "msBD": -7,
+      "dueBD": -7,
       "flag": "Past Due",
       "baseFlag": "Past Due",
       "priority": "Standard",
@@ -3363,8 +3965,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "05/27",
       "msDate": "05/25",
-      "msBD": -11,
-      "dueBD": -9,
+      "msBD": -12,
+      "dueBD": -10,
       "priority": "Standard",
       "profile": "Large Parts"
     },
@@ -3373,8 +3975,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/03",
       "msDate": "06/02",
-      "msBD": -5,
-      "dueBD": -4,
+      "msBD": -6,
+      "dueBD": -5,
       "priority": "Standard",
       "profile": "Complex"
     },
@@ -3383,8 +3985,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/05",
       "msDate": "06/02",
-      "msBD": -5,
-      "dueBD": -2,
+      "msBD": -6,
+      "dueBD": -3,
       "priority": "Standard",
       "profile": "Large Parts"
     },
@@ -3393,8 +3995,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/12",
       "msDate": "06/03",
-      "msBD": -4,
-      "dueBD": 3,
+      "msBD": -5,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Large Parts"
     },
@@ -3403,8 +4005,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/05",
       "msDate": "06/03",
-      "msBD": -4,
-      "dueBD": -2,
+      "msBD": -5,
+      "dueBD": -3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3413,8 +4015,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/08",
       "msDate": "06/08",
-      "msBD": -1,
-      "dueBD": -1,
+      "msBD": -2,
+      "dueBD": -2,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
     },
@@ -3423,8 +4025,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/09",
       "msDate": "06/08",
-      "msBD": -1,
-      "dueBD": 0,
+      "msBD": -2,
+      "dueBD": -1,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3433,8 +4035,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/09",
       "msDate": "06/08",
-      "msBD": -1,
-      "dueBD": 0,
+      "msBD": -2,
+      "dueBD": -1,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3443,8 +4045,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/11",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 2,
+      "msBD": -1,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
     },
@@ -3453,8 +4055,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/11",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 2,
+      "msBD": -1,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
     },
@@ -3463,8 +4065,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/11",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 2,
+      "msBD": -1,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "High Qty"
     },
@@ -3473,8 +4075,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/11",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 2,
+      "msBD": -1,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Standard"
     },
@@ -3483,78 +4085,28 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/15",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 4,
+      "msBD": -1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
-    },
-    {
-      "wo": "43146",
-      "dept": "Pre-Clean",
-      "dueDate": "06/15",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 4,
-      "priority": "Standard",
-      "profile": "Low Qty"
     },
     {
       "wo": "43147",
       "dept": "Pre-Clean",
       "dueDate": "06/15",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 4,
+      "msBD": -1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "PSV Only"
-    },
-    {
-      "wo": "43149",
-      "dept": "Pre-Clean",
-      "dueDate": "06/15",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 4,
-      "priority": "Standard",
-      "profile": "Low Qty"
-    },
-    {
-      "wo": "43112",
-      "dept": "Pre-Clean",
-      "dueDate": "06/17",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Needs Assembly"
-    },
-    {
-      "wo": "43115",
-      "dept": "Pre-Clean",
-      "dueDate": "06/17",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Standard"
-    },
-    {
-      "wo": "43170",
-      "dept": "Pre-Clean",
-      "dueDate": "06/17",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Priority Customer"
     },
     {
       "wo": "42983",
       "dept": "Pre-Clean",
       "dueDate": "06/18",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 7,
+      "msBD": -1,
+      "dueBD": 6,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3563,38 +4115,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/18",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 7,
-      "priority": "Standard",
-      "profile": "High Qty"
-    },
-    {
-      "wo": "43143",
-      "dept": "Pre-Clean",
-      "dueDate": "06/19",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 8,
-      "priority": "Standard",
-      "profile": "High Qty"
-    },
-    {
-      "wo": "43144",
-      "dept": "Pre-Clean",
-      "dueDate": "06/19",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 8,
-      "priority": "Standard",
-      "profile": "High Qty"
-    },
-    {
-      "wo": "43121",
-      "dept": "Pre-Clean",
-      "dueDate": "06/22",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 9,
+      "msBD": -1,
+      "dueBD": 6,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3603,28 +4125,18 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Priority Customer"
-    },
-    {
-      "wo": "43129",
-      "dept": "Packaging",
-      "dueDate": "06/10",
-      "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
-      "priority": "T1 Expedite",
-      "profile": "Standard"
     },
     {
       "wo": "43041",
       "dept": "Packaging",
       "dueDate": "06/15",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 4,
+      "msBD": -1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3633,8 +4145,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3643,8 +4155,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3653,8 +4165,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3663,8 +4175,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3673,8 +4185,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3683,8 +4195,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3693,8 +4205,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 1,
+      "msBD": -1,
+      "dueBD": 0,
       "priority": "T2 Expedite",
       "profile": "Standard"
     },
@@ -3703,8 +4215,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/09",
-      "msBD": 0,
-      "dueBD": 2,
+      "msBD": -1,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3713,8 +4225,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/12",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 3,
+      "msBD": 0,
+      "dueBD": 2,
       "priority": "T1 Expedite",
       "profile": "High Qty"
     },
@@ -3723,8 +4235,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/12",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 3,
+      "msBD": 0,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "profile": "Complex"
     },
@@ -3733,8 +4245,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/15",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 4,
+      "msBD": 0,
+      "dueBD": 3,
       "priority": "T3 Expedite",
       "profile": "Priority Customer"
     },
@@ -3743,8 +4255,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/16",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 5,
+      "msBD": 0,
+      "dueBD": 4,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3753,8 +4265,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3763,8 +4275,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3773,8 +4285,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3783,8 +4295,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3793,8 +4305,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3803,8 +4315,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -3813,8 +4325,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3823,8 +4335,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3833,8 +4345,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3843,8 +4355,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "T3 Expedite",
       "profile": "Standard"
     },
@@ -3853,8 +4365,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3863,8 +4375,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/17",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 6,
+      "msBD": 0,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3873,8 +4385,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/18",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 7,
+      "msBD": 0,
+      "dueBD": 6,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3883,8 +4395,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/19",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 8,
+      "msBD": 0,
+      "dueBD": 7,
       "priority": "Standard",
       "profile": "Complex"
     },
@@ -3893,8 +4405,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/19",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 8,
+      "msBD": 0,
+      "dueBD": 7,
       "priority": "Standard",
       "profile": "Tiny Parts"
     },
@@ -3903,8 +4415,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/19",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 8,
+      "msBD": 0,
+      "dueBD": 7,
       "priority": "Standard",
       "profile": "Straight to CLR"
     },
@@ -3913,8 +4425,8 @@ const DATA = {
       "dept": "Cleanroom",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
     },
@@ -3923,8 +4435,8 @@ const DATA = {
       "dept": "Cleanroom",
       "dueDate": "06/15",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 4,
+      "msBD": 0,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -3933,8 +4445,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -3943,8 +4455,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
     },
@@ -3953,8 +4465,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "profile": "Standard"
     },
@@ -3963,8 +4475,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 3,
+      "msBD": 0,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3973,8 +4485,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 3,
+      "msBD": 0,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3983,8 +4495,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 3,
+      "msBD": 0,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -3993,8 +4505,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/16",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 5,
+      "msBD": 0,
+      "dueBD": 4,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4003,8 +4515,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/16",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 5,
+      "msBD": 0,
+      "dueBD": 4,
       "priority": "Standard",
       "profile": "Complex"
     },
@@ -4013,8 +4525,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/16",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 5,
+      "msBD": 0,
+      "dueBD": 4,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4023,8 +4535,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/10",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 1,
+      "msBD": 0,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -4033,8 +4545,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Complex"
     },
@@ -4043,48 +4555,28 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Complex"
-    },
-    {
-      "wo": "43013",
-      "dept": "Shipping",
-      "dueDate": "06/11",
-      "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
-      "priority": "Standard",
-      "profile": "Standard"
     },
     {
       "wo": "43025",
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Complex"
-    },
-    {
-      "wo": "43071",
-      "dept": "Shipping",
-      "dueDate": "06/11",
-      "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
-      "priority": "Standard",
-      "profile": "Low Qty"
     },
     {
       "wo": "43072",
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "PSV Only"
     },
@@ -4093,28 +4585,18 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "PSV Only"
-    },
-    {
-      "wo": "43074",
-      "dept": "Shipping",
-      "dueDate": "06/11",
-      "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
-      "priority": "Standard",
-      "profile": "Low Qty"
     },
     {
       "wo": "43083",
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/10",
-      "msBD": 1,
-      "dueBD": 2,
+      "msBD": 0,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -4123,8 +4605,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/18",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 7,
+      "msBD": 1,
+      "dueBD": 6,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -4133,8 +4615,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/18",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 7,
+      "msBD": 1,
+      "dueBD": 6,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4143,8 +4625,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/22",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 9,
+      "msBD": 1,
+      "dueBD": 8,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4153,8 +4635,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/22",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 9,
+      "msBD": 1,
+      "dueBD": 8,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4163,8 +4645,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/22",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 9,
+      "msBD": 1,
+      "dueBD": 8,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4173,8 +4655,8 @@ const DATA = {
       "dept": "Pre-Clean",
       "dueDate": "06/22",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 9,
+      "msBD": 1,
+      "dueBD": 8,
       "priority": "Standard",
       "profile": "Tiny Parts"
     },
@@ -4183,8 +4665,8 @@ const DATA = {
       "dept": "Cleanroom",
       "dueDate": "06/15",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 4,
+      "msBD": 1,
+      "dueBD": 3,
       "priority": "T1 Expedite",
       "profile": "Low Qty"
     },
@@ -4193,8 +4675,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "profile": "Standard"
     },
@@ -4203,8 +4685,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "profile": "Low Qty"
     },
@@ -4213,8 +4695,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "profile": "Standard"
     },
@@ -4223,8 +4705,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/15",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 4,
+      "msBD": 1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4233,8 +4715,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/15",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 4,
+      "msBD": 1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4243,8 +4725,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/17",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 6,
+      "msBD": 1,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4253,8 +4735,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/17",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 6,
+      "msBD": 1,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "High Qty"
     },
@@ -4263,8 +4745,8 @@ const DATA = {
       "dept": "Packaging",
       "dueDate": "06/17",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 6,
+      "msBD": 1,
+      "dueBD": 5,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4273,8 +4755,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 2,
+      "msBD": 1,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -4283,8 +4765,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 2,
+      "msBD": 1,
+      "dueBD": 1,
       "priority": "Standard",
       "profile": "Low Qty"
     },
@@ -4293,8 +4775,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/11",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 2,
+      "msBD": 1,
+      "dueBD": 1,
       "priority": "T2 Expedite",
       "profile": "Complex"
     },
@@ -4303,8 +4785,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4313,8 +4795,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Large Parts"
     },
@@ -4323,8 +4805,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4333,8 +4815,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4343,8 +4825,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4353,8 +4835,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4363,8 +4845,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4373,8 +4855,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4383,8 +4865,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
     },
@@ -4393,8 +4875,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/12",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 3,
+      "msBD": 1,
+      "dueBD": 2,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4403,8 +4885,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/15",
       "msDate": "06/11",
-      "msBD": 2,
-      "dueBD": 4,
+      "msBD": 1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4413,8 +4895,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/15",
       "msDate": "06/12",
-      "msBD": 3,
-      "dueBD": 4,
+      "msBD": 2,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4423,8 +4905,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/15",
       "msDate": "06/12",
-      "msBD": 3,
-      "dueBD": 4,
+      "msBD": 2,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4433,8 +4915,8 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/15",
       "msDate": "06/12",
-      "msBD": 3,
-      "dueBD": 4,
+      "msBD": 2,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -4443,10 +4925,30 @@ const DATA = {
       "dept": "Shipping",
       "dueDate": "06/15",
       "msDate": "06/12",
+      "msBD": 2,
+      "dueBD": 3,
+      "priority": "Standard",
+      "profile": "Priority Customer"
+    },
+    {
+      "wo": "43069",
+      "dept": "Shipping",
+      "dueDate": "06/16",
+      "msDate": "06/15",
       "msBD": 3,
       "dueBD": 4,
       "priority": "Standard",
-      "profile": "Priority Customer"
+      "profile": "Standard"
+    },
+    {
+      "wo": "43070",
+      "dept": "Shipping",
+      "dueDate": "06/16",
+      "msDate": "06/15",
+      "msBD": 3,
+      "dueBD": 4,
+      "priority": "Standard",
+      "profile": "Standard"
     }
   ],
   "riDwellAging": 0,
@@ -4524,7 +5026,7 @@ const DATA = {
       "scheduledLeadBD": 2,
       "shortfall": 8,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4540,7 +5042,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 7,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4556,7 +5058,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 7,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4572,7 +5074,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 7,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4588,7 +5090,7 @@ const DATA = {
       "scheduledLeadBD": 4,
       "shortfall": 6,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4604,7 +5106,7 @@ const DATA = {
       "scheduledLeadBD": 2,
       "shortfall": 6,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4620,9 +5122,9 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 5,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "priority": "T1 Expedite",
-      "isAging": false,
+      "isAging": true,
       "basis": "profile",
       "expediteTier": null
     },
@@ -4636,7 +5138,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 5,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4652,7 +5154,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 5,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4668,7 +5170,7 @@ const DATA = {
       "scheduledLeadBD": 4,
       "shortfall": 4,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4684,7 +5186,7 @@ const DATA = {
       "scheduledLeadBD": 5,
       "shortfall": 3,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4700,7 +5202,7 @@ const DATA = {
       "scheduledLeadBD": 5,
       "shortfall": 3,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4716,7 +5218,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 3,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4732,7 +5234,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 3,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4748,7 +5250,7 @@ const DATA = {
       "scheduledLeadBD": 8,
       "shortfall": 2,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4764,7 +5266,7 @@ const DATA = {
       "scheduledLeadBD": 6,
       "shortfall": 2,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4780,7 +5282,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 2,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4796,7 +5298,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 2,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4812,7 +5314,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 2,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4828,7 +5330,7 @@ const DATA = {
       "scheduledLeadBD": 3,
       "shortfall": 2,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4844,7 +5346,7 @@ const DATA = {
       "scheduledLeadBD": 4,
       "shortfall": 2,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4860,7 +5362,7 @@ const DATA = {
       "scheduledLeadBD": 6,
       "shortfall": 2,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "T3 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -4876,7 +5378,7 @@ const DATA = {
       "scheduledLeadBD": 8,
       "shortfall": 2,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4892,7 +5394,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4908,7 +5410,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4924,7 +5426,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4940,7 +5442,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4956,7 +5458,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4972,7 +5474,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -4988,7 +5490,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5004,7 +5506,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5020,7 +5522,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5036,7 +5538,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5052,7 +5554,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5068,7 +5570,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5084,7 +5586,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5100,7 +5602,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5116,7 +5618,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5132,7 +5634,7 @@ const DATA = {
       "scheduledLeadBD": 7,
       "shortfall": 1,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5148,7 +5650,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5164,7 +5666,7 @@ const DATA = {
       "scheduledLeadBD": 5,
       "shortfall": 1,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "priority": "T1 Expedite",
       "isAging": false,
       "basis": "profile",
@@ -5180,7 +5682,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5196,7 +5698,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5212,7 +5714,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5228,7 +5730,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5244,7 +5746,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5260,7 +5762,7 @@ const DATA = {
       "scheduledLeadBD": 9,
       "shortfall": 1,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "priority": "Standard",
       "isAging": false,
       "basis": "profile",
@@ -5276,7 +5778,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "T1 Expedite",
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "locationDept": "Pre-Clean"
     },
     {
@@ -5286,7 +5788,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "locationDept": "Pre-Clean"
     },
     {
@@ -5296,7 +5798,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "locationDept": "Pre-Clean"
     },
     {
@@ -5306,7 +5808,7 @@ const DATA = {
       "profile": "DCMA",
       "priority": "Standard",
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "locationDept": "Lab Testing"
     },
     {
@@ -5316,7 +5818,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/05",
-      "dueBD": -2,
+      "dueBD": -3,
       "locationDept": "Packaging"
     },
     {
@@ -5326,7 +5828,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/02",
-      "dueBD": -5,
+      "dueBD": -6,
       "locationDept": "Shipping"
     },
     {
@@ -5336,7 +5838,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "locationDept": "Shipping"
     },
     {
@@ -5346,7 +5848,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "locationDept": "Shipping"
     },
     {
@@ -5356,7 +5858,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "locationDept": "Shipping"
     },
     {
@@ -5366,7 +5868,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "locationDept": "Assembly"
     },
     {
@@ -5376,7 +5878,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/01",
-      "dueBD": -6,
+      "dueBD": -7,
       "locationDept": "Source"
     },
     {
@@ -5386,7 +5888,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "locationDept": "Source"
     },
     {
@@ -5396,7 +5898,7 @@ const DATA = {
       "profile": "Source Required",
       "priority": "Standard",
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "locationDept": "Source"
     }
   ],
@@ -5411,7 +5913,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5430,7 +5932,7 @@ const DATA = {
       "isExpedite": false,
       "dueDate": "No Date",
       "dueBD": null,
-      "receivedToday": true,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5447,8 +5949,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5465,8 +5967,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5483,8 +5985,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
-      "receivedToday": true,
+      "dueBD": 7,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5501,8 +6003,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5519,8 +6021,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5537,8 +6039,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5555,7 +6057,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5573,8 +6075,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
-      "receivedToday": true,
+      "dueBD": 2,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5591,8 +6093,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
-      "receivedToday": true,
+      "dueBD": 6,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5609,8 +6111,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5645,7 +6147,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5663,7 +6165,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5681,8 +6183,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
-      "receivedToday": true,
+      "dueBD": 1,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5699,8 +6201,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
-      "receivedToday": true,
+      "dueBD": 1,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5717,7 +6219,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5735,8 +6237,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
-      "receivedToday": true,
+      "dueBD": 2,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5753,8 +6255,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
-      "receivedToday": true,
+      "dueBD": 2,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5771,7 +6273,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5789,13 +6291,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43147",
@@ -5807,7 +6309,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5825,13 +6327,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43152",
@@ -5843,7 +6345,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5861,7 +6363,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -5879,7 +6381,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5897,8 +6399,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -5915,13 +6417,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43115",
@@ -5933,13 +6435,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43127",
@@ -5951,7 +6453,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5969,7 +6471,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -5987,7 +6489,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6005,7 +6507,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6023,7 +6525,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6041,7 +6543,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6059,13 +6561,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43171",
@@ -6077,7 +6579,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6095,7 +6597,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6113,8 +6615,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6131,8 +6633,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6149,8 +6651,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
-      "receivedToday": true,
+      "dueBD": 5,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6167,7 +6669,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6185,8 +6687,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
-      "receivedToday": true,
+      "dueBD": 6,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6203,7 +6705,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6221,7 +6723,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
+      "dueBD": 6,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6239,8 +6741,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/18",
-      "dueBD": 7,
-      "receivedToday": true,
+      "dueBD": 6,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6257,13 +6759,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43144",
@@ -6275,13 +6777,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43159",
@@ -6293,7 +6795,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6311,7 +6813,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6329,7 +6831,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/19",
-      "dueBD": 8,
+      "dueBD": 7,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6347,13 +6849,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
+      "dueBD": 8,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43178",
@@ -6365,8 +6867,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6383,8 +6885,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6401,8 +6903,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6419,8 +6921,8 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/22",
-      "dueBD": 9,
-      "receivedToday": true,
+      "dueBD": 8,
+      "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
@@ -6437,7 +6939,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6455,7 +6957,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6473,7 +6975,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6491,7 +6993,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6509,7 +7011,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6527,13 +7029,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "42999",
@@ -6545,7 +7047,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": true,
       "isAging": false,
@@ -6563,7 +7065,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6581,7 +7083,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6599,7 +7101,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -6617,7 +7119,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6635,7 +7137,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6653,7 +7155,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6671,7 +7173,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6689,7 +7191,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6707,7 +7209,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6725,7 +7227,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6743,7 +7245,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6761,7 +7263,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6779,7 +7281,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6797,7 +7299,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6815,7 +7317,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6833,7 +7335,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6851,7 +7353,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6869,7 +7371,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/17",
-      "dueBD": 6,
+      "dueBD": 5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6887,7 +7389,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "05/27",
-      "dueBD": -9,
+      "dueBD": -10,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6905,7 +7407,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/03",
-      "dueBD": -4,
+      "dueBD": -5,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6923,7 +7425,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/05",
-      "dueBD": -2,
+      "dueBD": -3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6941,7 +7443,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/05",
-      "dueBD": -2,
+      "dueBD": -3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6959,7 +7461,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/08",
-      "dueBD": -1,
+      "dueBD": -2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6977,7 +7479,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/09",
-      "dueBD": 0,
+      "dueBD": -1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -6995,7 +7497,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/09",
-      "dueBD": 0,
+      "dueBD": -1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7013,7 +7515,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": true,
       "isAging": false,
@@ -7031,7 +7533,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7049,7 +7551,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7067,7 +7569,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -7085,7 +7587,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7103,7 +7605,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -7121,7 +7623,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7139,7 +7641,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7157,7 +7659,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7175,7 +7677,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7193,7 +7695,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7211,7 +7713,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7229,13 +7731,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43025",
@@ -7247,7 +7749,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7265,7 +7767,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -7283,7 +7785,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7301,13 +7803,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43072",
@@ -7319,7 +7821,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7337,7 +7839,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7355,13 +7857,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43083",
@@ -7373,7 +7875,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7391,7 +7893,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7409,7 +7911,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7427,7 +7929,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/11",
-      "dueBD": 2,
+      "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7445,7 +7947,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7463,7 +7965,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7481,7 +7983,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7499,7 +8001,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7517,7 +8019,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7535,7 +8037,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7553,7 +8055,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7571,7 +8073,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7589,7 +8091,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7607,7 +8109,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7625,7 +8127,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7643,7 +8145,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7661,7 +8163,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7679,7 +8181,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7697,7 +8199,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7715,7 +8217,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7733,7 +8235,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7751,7 +8253,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -7769,7 +8271,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/10",
-      "dueBD": 1,
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
@@ -7787,13 +8289,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Reschedule Window",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43134",
@@ -7805,13 +8307,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/15",
-      "dueBD": 4,
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Reschedule Window",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43067",
@@ -7823,11 +8325,11 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": true,
-      "agingFlag": "On Track",
+      "agingFlag": "Tight",
       "isCompleted": false,
       "progress": "06 - Aging"
     },
@@ -7841,7 +8343,7 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/16",
-      "dueBD": 5,
+      "dueBD": 4,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -7877,13 +8379,13 @@ const DATA = {
       "expediteTier": null,
       "isExpedite": false,
       "dueDate": "06/12",
-      "dueBD": 3,
+      "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     }
   ],
   "mrbJobs": [
@@ -7905,7 +8407,7 @@ const DATA = {
       "profile": "Large Parts",
       "priority": "Standard",
       "dueDate": "03/31",
-      "dueBD": -50
+      "dueBD": -51
     },
     {
       "wo": "41855",
@@ -7915,7 +8417,7 @@ const DATA = {
       "profile": "Complex",
       "priority": "Standard",
       "dueDate": "04/01",
-      "dueBD": -49
+      "dueBD": -50
     },
     {
       "wo": "42167-1",
@@ -7925,7 +8427,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "Standard",
       "dueDate": "04/17",
-      "dueBD": -37
+      "dueBD": -38
     },
     {
       "wo": "42845",
@@ -7935,7 +8437,7 @@ const DATA = {
       "profile": "Complex",
       "priority": "Standard",
       "dueDate": "05/29",
-      "dueBD": -7
+      "dueBD": -8
     },
     {
       "wo": "43131",
@@ -7945,7 +8447,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "T1 Expedite",
       "dueDate": "06/09",
-      "dueBD": 0
+      "dueBD": -1
     },
     {
       "wo": "43082",
@@ -7955,7 +8457,7 @@ const DATA = {
       "profile": "Low Qty",
       "priority": "Standard",
       "dueDate": "06/11",
-      "dueBD": 2
+      "dueBD": 1
     },
     {
       "wo": "43151",
@@ -7965,7 +8467,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "T3 Expedite",
       "dueDate": "06/12",
-      "dueBD": 3
+      "dueBD": 2
     },
     {
       "wo": "43119",
@@ -7975,7 +8477,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "Standard",
       "dueDate": "06/17",
-      "dueBD": 6
+      "dueBD": 5
     },
     {
       "wo": "43125",
@@ -7985,7 +8487,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "Standard",
       "dueDate": "06/18",
-      "dueBD": 7
+      "dueBD": 6
     }
   ],
   "completedJobs": [
@@ -7997,7 +8499,7 @@ const DATA = {
       "profile": "Low Qty",
       "priority": "Standard",
       "dueDate": "06/15",
-      "dueBD": 4
+      "dueBD": 3
     },
     {
       "wo": "43162",
@@ -8007,7 +8509,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "T1 Expedite",
       "dueDate": "06/11",
-      "dueBD": 2
+      "dueBD": 1
     },
     {
       "wo": "43190",
@@ -8017,7 +8519,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "T1 Expedite",
       "dueDate": "06/11",
-      "dueBD": 2
+      "dueBD": 1
     },
     {
       "wo": "42753",
@@ -8027,7 +8529,7 @@ const DATA = {
       "profile": "Large Parts",
       "priority": "Standard",
       "dueDate": "06/12",
-      "dueBD": 3
+      "dueBD": 2
     },
     {
       "wo": "43152",
@@ -8037,7 +8539,7 @@ const DATA = {
       "profile": "Priority Customer",
       "priority": "T3 Expedite",
       "dueDate": "06/15",
-      "dueBD": 4
+      "dueBD": 3
     },
     {
       "wo": "43141",
@@ -8047,7 +8549,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "Standard",
       "dueDate": "06/18",
-      "dueBD": 7
+      "dueBD": 6
     },
     {
       "wo": "42897",
@@ -8057,7 +8559,7 @@ const DATA = {
       "profile": "Priority Customer",
       "priority": "Standard",
       "dueDate": "06/10",
-      "dueBD": 1
+      "dueBD": 0
     },
     {
       "wo": "43097",
@@ -8067,7 +8569,7 @@ const DATA = {
       "profile": "Priority Customer",
       "priority": "Standard",
       "dueDate": "06/12",
-      "dueBD": 3
+      "dueBD": 2
     },
     {
       "wo": "43081",
@@ -8077,7 +8579,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "Standard",
       "dueDate": "06/16",
-      "dueBD": 5
+      "dueBD": 4
     },
     {
       "wo": "42728",
@@ -8087,7 +8589,7 @@ const DATA = {
       "profile": "Large Parts",
       "priority": "Standard",
       "dueDate": "05/27",
-      "dueBD": -9
+      "dueBD": -10
     },
     {
       "wo": "42922",
@@ -8097,7 +8599,7 @@ const DATA = {
       "profile": "Complex",
       "priority": "Standard",
       "dueDate": "06/03",
-      "dueBD": -4
+      "dueBD": -5
     },
     {
       "wo": "42875",
@@ -8107,7 +8609,7 @@ const DATA = {
       "profile": "Large Parts",
       "priority": "Standard",
       "dueDate": "06/05",
-      "dueBD": -2
+      "dueBD": -3
     },
     {
       "wo": "42944",
@@ -8117,7 +8619,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "Standard",
       "dueDate": "06/05",
-      "dueBD": -2
+      "dueBD": -3
     },
     {
       "wo": "43050-3",
@@ -8127,7 +8629,7 @@ const DATA = {
       "profile": "Priority Customer",
       "priority": "T1 Expedite",
       "dueDate": "06/08",
-      "dueBD": -1
+      "dueBD": -2
     },
     {
       "wo": "42972",
@@ -8137,7 +8639,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "Standard",
       "dueDate": "06/09",
-      "dueBD": 0
+      "dueBD": -1
     },
     {
       "wo": "42973",
@@ -8147,7 +8649,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "Standard",
       "dueDate": "06/09",
-      "dueBD": 0
+      "dueBD": -1
     },
     {
       "wo": "43006",
@@ -8157,7 +8659,7 @@ const DATA = {
       "profile": "High Qty",
       "priority": "Standard",
       "dueDate": "06/10",
-      "dueBD": 1
+      "dueBD": 0
     },
     {
       "wo": "43054",
@@ -8167,7 +8669,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "Standard",
       "dueDate": "06/10",
-      "dueBD": 1
+      "dueBD": 0
     },
     {
       "wo": "43085",
@@ -8177,7 +8679,7 @@ const DATA = {
       "profile": "Standard",
       "priority": "T2 Expedite",
       "dueDate": "06/10",
-      "dueBD": 1
+      "dueBD": 0
     }
   ]
 }
@@ -8185,73 +8687,73 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Shipping": {
-    "what": "AR 6.2% \u2014 3 aging of 48 in-house, all Critical at SHP Start By: WO43046 ENGINEERED MACHINING SOLUTIONS (due 06/11, burn 60%), WO43009 VERIDIAM (due 06/10, burn 80%), WO43040 ALLAN AIRCRAFT SUPPLY (due 06/10, burn 70%). CR 20.8% \u2014 10 finished-at-op awaiting handoff (largest ship-ready backlog). 43 upcoming inbound.",
-    "action": "Ship WO43009 VERIDIAM and WO43040 ALLAN AIRCRAFT (due 06/10) today; stage WO43046 ENGINEERED MACHINING (due 06/11) next. Clear the 10 completed-at-op jobs into the carrier queue.",
+"Pre-Clean": {
+    "what": "AR 20.0% (9/45 aging) \u2014 all 9 Critical, every one past its PCL Start By (1\u20134 biz days over). Nearest QPC Due: 43146 ALLAN AIRCRAFT SUPPLY and 43149 PRECISION TUBE BENDING both due 06/15 (3 BD), then 43045 VAST 06/16 (burn 58%). Profile burn otherwise low (25\u201350%), so due-date runway exists but the milestone has slipped across the board. CR 8.9% (4 finished-at-op awaiting handoff). 35 upcoming jobs inbound \u2014 largest pre-clean queue in the plant.",
+    "action": "Start all 9 aging WOs today, oldest milestone first: 43045 VAST (4 BD over Start By) leads, then the 06/15-due pair 43146 ALLAN and 43149 PRECISION TUBE BENDING. Move the 4 finished-at-op jobs to Cleanroom to clear CR. Stage against the 35 inbound so the queue doesn't compound.",
     "ot": "recommended",
-    "otText": "All aging are Critical and ship-ready backlog is the largest in house \u2014 add OT to clear the carrier queue.",
-    "upstream": "Packaging feeding 1 aging (WO42957 PEGASUS Critical) plus 20 upcoming."
+    "otText": "9 Critical in dept and all aging are Critical \u2014 add a shift to clear the milestone backlog before the 35 inbound land.",
+    "upstream": null
+  },
+  "Shipping": {
+    "what": "AR 12.5% (6/48 aging) \u2014 all 6 Critical at SHP Start By. 43009 VERIDIAM (burn 90%) and 43040 ALLAN AIRCRAFT SUPPLY (burn 80%) due 06/10 TODAY; 43013 DARMARK, 43046 ENGINEERED MACHINING SOLUTIONS, 43071 ALLAN, 43074 PRECISION TUBE BENDING all due 06/11 (burn 70\u201375%). CR 20.8% RED (10 finished-at-op awaiting handoff \u2014 largest ship-ready backlog in the plant). 42 upcoming.",
+    "action": "Ship 43009 VERIDIAM and 43040 ALLAN AIRCRAFT SUPPLY today \u2014 both due 06/10. Queue the four 06/11 jobs (43013, 43046, 43071, 43074) right behind. Clear the 10 completed-at-Shipping jobs off the floor \u2014 that backlog is the bottleneck, not capacity.",
+    "ot": "recommended",
+    "otText": "6 Critical and all aging Critical, plus a 10-job ship-ready backlog (CR 20.8%) \u2014 add hours to push the 06/10\u201306/11 cohort out.",
+    "upstream": "Packaging feeding 2 Critical (42957 PEGASUS, 43129 VAST) plus 19 upcoming."
   },
   "Packaging": {
-    "what": "AR 4.8% \u2014 1 aging of 21: WO42957 PEGASUS MANUFACTURING Critical (due 06/12, profile burn 100%). CR 14.3% \u2014 3 finished-at-op. 20 upcoming.",
-    "action": "Decide WO42957 PEGASUS now \u2014 reschedule or commit; burn is at 100%. Move the 3 completed jobs to Shipping.",
-    "ot": "not needed",
-    "otText": "Single Critical with runway to 06/12; no OT needed.",
-    "upstream": "Cleanroom feeding 0 aging plus 3 upcoming."
-  },
-  "Pre-Clean": {
-    "what": "AR 2.2% \u2014 1 aging of 45: WO43045 VAST Critical (3 BD past PCL Start By, QPC Due 06/16, burn 50%). CR 8.9% \u2014 4 finished-at-op. 43 upcoming. 14 received today (heavy fresh intake).",
-    "action": "Start WO43045 VAST now to recover the 3-day Start By slip. Work the 14 fresh receipts into the queue.",
-    "ot": "not needed",
-    "otText": "One Critical with due-date runway to 06/16; manage within shift.",
-    "upstream": "Receiving/Inspection feeding 0 dwell-aging; 10 received today at RI."
+    "what": "AR 9.5% (2/21 aging) \u2014 both Critical. 42957 PEGASUS MANUFACTURING due 06/12, profile burn 108% (over window, +1 BD); 43129 VAST due 06/10 TODAY. CR 14.3% (3 finished-at-op awaiting handoff). 19 upcoming.",
+    "action": "Pack 43129 VAST today (due 06/10). 42957 PEGASUS is burned past its profile window and is the day's decide-now job \u2014 burn the reschedule to ~06/16 or commit; forecast lands 06/16 either way. Move the 3 completed jobs to Shipping.",
+    "ot": "recommended",
+    "otText": "Both aging jobs are Critical in a milestone dept \u2014 clear 43129 and 42957 today to protect the Shipping handoff.",
+    "upstream": "Cleanroom feeding 3 upcoming; no Cleanroom aging."
   },
   "Cleanroom": {
-    "what": "AR 0.0% \u2014 0 aging of 3 in-house. 3 upcoming.",
-    "action": "No aging action. Monitor the 3 upcoming Start By dates.",
+    "what": "AR 0% (0 aging). 3 upcoming jobs with Start By within 3 BD. CR 0%.",
+    "action": "No aging action. Receive the 3 inbound and keep flow to Packaging clean.",
     "ot": "not needed",
-    "otText": "Clean board, no Critical.",
-    "upstream": "Pre-Clean feeding 1 aging (WO43045 VAST Critical) plus 43 upcoming."
+    "otText": "No aging, light queue.",
+    "upstream": "Pre-Clean carrying 9 Critical plus 35 upcoming \u2014 heavy inbound coming once those clear pre-clean."
   },
   "Receiving/Inspection": {
-    "what": "AR 0.0% \u2014 0 dwell-aging of 12 in-house. 10 received today. CR 16.7% \u2014 2 finished-at-op awaiting handoff.",
-    "action": "Classify the 10 fresh receipts (Taylor / Anthony on physical attributes) and move the 2 completed jobs downstream.",
+    "what": "AR 0% (0 dwell-aging, 12 in-house). 0 received today. CR 16.7% (2 finished-at-op awaiting handoff \u2014 small absolute count). 1 in-house unclassified job routed here per the no-Other rule.",
+    "action": "No aging action. Have Taylor / Anthony classify the 1 unclassified in-house WO on physical attributes so it carries a profile next run. Move the 2 completed jobs forward.",
     "ot": "not needed",
-    "otText": "No dwell-aging; intake is current.",
+    "otText": "No aging, no intake today.",
     "upstream": null
   },
   "Lab Testing": {
-    "what": "AR 0.0% \u2014 0 aging of 1 in-house.",
-    "action": "No action.",
+    "what": "AR 0% (0/1 aging). No flags, no upcoming.",
+    "action": "No action. Single in-house job on track.",
     "ot": "not needed",
     "otText": "No aging.",
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 50.0% (customer-controlled) \u2014 3 aging of 6: WO43061 + WO43062 SAINT GOBAIN Critical (due 06/10, burn 71%), WO43067 KING NUTRONICS On Track (due 06/16).",
-    "action": "Confirm SAINT GOBAIN WO43061/43062 assembly parts and customer sign-off for the 06/10 due date.",
+    "what": "Customer-controlled. AR 83.3% (5/6 aging): 2 Critical \u2014 43061 and 43062 SAINT GOBAIN both due 06/10 TODAY (burn 86%); 2 Reschedule Window \u2014 43132 and 43134 SAINT GOBAIN due 06/15; 1 Tight \u2014 43067 KING NUTRONICS due 06/16. The cluster is one customer (SAINT GOBAIN) on a customer-driven assembly clock.",
+    "action": "Confirm SAINT GOBAIN 43061/43062 status today \u2014 due 06/10. Decide 43132/43134 in their reschedule window before 06/15. Track KING NUTRONICS 43067 to 06/16. Escalate to the customer contact, not the floor.",
     "ot": "n/a",
-    "otText": "Customer-controlled \u2014 OT not applicable.",
+    "otText": "Customer-controlled \u2014 OT does not move these.",
     "upstream": null
   },
   "Source": {
-    "what": "AR 0.0% (customer-controlled) \u2014 0 aging of 2.",
-    "action": "No aging action.",
+    "what": "Customer-controlled. AR 50% (1/2 aging): 43099 ARROWHEAD PRODUCTS Critical, due 06/12, burn 71%. On a customer/source clock.",
+    "action": "Contact ARROWHEAD on 43099 to confirm source timing against the 06/12 due. No floor action available.",
     "ot": "n/a",
     "otText": "Customer-controlled.",
     "upstream": null
   },
   "Customer Hold (Profile)": {
-    "what": "AR 38.5% (excluded from house AR) \u2014 5 aging of 13 Source Required: WO42915 SAINT GOBAIN Past Due (6 BD over 06/01), WO42946 BRONSON & BRATTON Past Due (2 BD over 06/05), WO42980 SENIOR AEROSPACE Critical (06/10), WO43012 BERANEK Critical (06/10), WO43079 TAYCO On Track (06/16). CR 23.1% \u2014 3 finished-at-op.",
-    "action": "PM to chase source/customer dates on the two Past Due (WO42915 SAINT GOBAIN, WO42946 BRONSON & BRATTON) and confirm the 06/10 Criticals.",
+    "what": "Excluded from house AR. 6/13 aging, all Source Required: 2 Past Due \u2014 42915 SAINT GOBAIN 7 BD over (due 06/01) and 42946 BRONSON & BRATTON 3 BD over (due 06/05); 2 Critical \u2014 42980 SENIOR AEROSPACE and 43012 BERANEK both due 06/10; 1 Tight \u2014 43079 TAYCO due 06/16; 1 On Track \u2014 43133 SAINT GOBAIN due 06/18. CR 23.1% (3). These run on a customer clock; internal dates are provisional.",
+    "action": "Chase source confirmations: 42915 SAINT GOBAIN (7 BD past) and 42946 BRONSON & BRATTON (3 BD past) are the oldest \u2014 get firm dates or formally reschedule. Confirm 42980 SENIOR AEROSPACE and 43012 BERANEK (due 06/10) today.",
     "ot": "n/a",
-    "otText": "On a customer/source clock \u2014 OT not applicable.",
+    "otText": "Customer-controlled \u2014 source/witness clock, not floor capacity.",
     "upstream": null
   }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "07:04 PM PDT";
+const GENERATED_TIME = "07:05 AM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
