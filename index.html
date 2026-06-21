@@ -396,16 +396,16 @@ const DATA = {
   "reportDate": "06/20/2026",
   "overall": {
     "totalJobs": 154,
-    "agingJobs": 48,
-    "ar": 31.2,
+    "agingJobs": 49,
+    "ar": 31.8,
     "receivedToday": 0,
     "flagDist": {
-      "Critical": 43,
+      "Critical": 44,
       "On Track": 4,
       "Past Due": 4,
       "No Date": 2
     },
-    "upcomingCount": 82,
+    "upcomingCount": 81,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -506,11 +506,11 @@ const DATA = {
     {
       "name": "Packaging",
       "lead": "Erick",
-      "total": 38,
-      "aging": 13,
-      "ar": 34.2,
+      "total": 39,
+      "aging": 14,
+      "ar": 35.9,
       "flags": {
-        "Critical": 13
+        "Critical": 14
       },
       "isCustomerDep": false,
       "isBottom": false,
@@ -522,7 +522,7 @@ const DATA = {
         },
         {
           "name": "Priority Customer",
-          "count": 3
+          "count": 4
         },
         {
           "name": "Straight to CLR",
@@ -542,7 +542,7 @@ const DATA = {
         }
       ],
       "completedCount": 6,
-      "completedRatio": 15.8,
+      "completedRatio": 15.4,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -613,13 +613,13 @@ const DATA = {
     {
       "name": "Cleanroom",
       "lead": "Erick",
-      "total": 4,
+      "total": 3,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 4,
+      "incoming": 3,
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
@@ -729,9 +729,9 @@ const DATA = {
   "rescheduleStatus": {
     "kpiTarget": 98,
     "totalAssessed": 148,
-    "onTimeCount": 121,
-    "onTimePct": 81.8,
-    "atRiskCount": 27,
+    "onTimeCount": 119,
+    "onTimePct": 80.4,
+    "atRiskCount": 29,
     "decideToday": [],
     "decideWeek": [],
     "notify": [
@@ -1203,6 +1203,26 @@ const DATA = {
         "badge": "ND",
         "reason": "Missing QPC Due Date.",
         "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "43321",
+        "customer": "LEDA CORPORATION",
+        "profile": "Priority Customer",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
+        "wo": "43349",
+        "customer": "RUBICON GEAR",
+        "profile": "High Qty",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
         "wo": "43207",
@@ -2535,10 +2555,12 @@ const DATA = {
         "customer": "LEDA CORPORATION",
         "profile": "Priority Customer",
         "qpcDue": "Jun 22",
-        "forecastDate": "Jun 22",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Jun 24",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -2548,25 +2570,14 @@ const DATA = {
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
         "qpcDue": "Jun 22",
-        "forecastDate": "Jun 22",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Jun 24",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": false
-      },
-      {
-        "runDate": "2026-06-20",
-        "wo": "43378-4",
-        "customer": "ULA/SAUER MECHANICAL, LLC",
-        "profile": "Priority Customer",
-        "qpcDue": "Jun 22",
-        "forecastDate": "Jun 22",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
-        "isBurned": false,
-        "isTightProfile": true
       },
       {
         "runDate": "2026-06-20",
@@ -2574,9 +2585,11 @@ const DATA = {
         "customer": "TRIPLETT MACHINE INC.",
         "profile": "Standard",
         "qpcDue": "Jun 26",
-        "forecastDate": "Jun 26",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
+        "forecastDate": "Jun 30",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
@@ -2740,6 +2753,19 @@ const DATA = {
       {
         "runDate": "2026-06-20",
         "wo": "43378-3",
+        "customer": "ULA/SAUER MECHANICAL, LLC",
+        "profile": "Priority Customer",
+        "qpcDue": "Jun 22",
+        "forecastDate": "Jun 22",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
+      },
+      {
+        "runDate": "2026-06-20",
+        "wo": "43378-4",
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
         "qpcDue": "Jun 22",
@@ -5031,6 +5057,39 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "43378-4",
+      "customer": "ULA/SAUER MECHANICAL, LLC",
+      "dept": "Packaging",
+      "dueDate": "06/22",
+      "msDate": "06/19",
+      "msBD": 0,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "T1 Expedite",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 2,
+      "scheduledLeadBD": 2,
+      "profileBurnPct": 28.6,
+      "profileOverBD": -5,
+      "schedulingSlack": -5,
+      "isShortScheduled": true,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "43228",
       "customer": "DYNAMIC FABRICATION",
       "dept": "Packaging",
@@ -5817,16 +5876,6 @@ const DATA = {
       "dueBD": 0,
       "priority": "T1 Expedite",
       "profile": "High Qty"
-    },
-    {
-      "wo": "43378-4",
-      "dept": "Cleanroom",
-      "dueDate": "06/22",
-      "msDate": "06/19",
-      "msBD": 0,
-      "dueBD": 0,
-      "priority": "T1 Expedite",
-      "profile": "Priority Customer"
     },
     {
       "wo": "43311",
@@ -6733,7 +6782,7 @@ const DATA = {
     {
       "wo": "43378-4",
       "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Cleanroom",
+      "dept": "Packaging",
       "profile": "Priority Customer",
       "profileMin": 5,
       "profileMax": 7,
@@ -6742,7 +6791,7 @@ const DATA = {
       "dueDate": "06/22",
       "dueBD": 0,
       "priority": "T1 Expedite",
-      "isAging": false,
+      "isAging": true,
       "basis": "profile",
       "expediteTier": null
     },
@@ -8702,24 +8751,6 @@ const DATA = {
       "progress": "01 - In Progress"
     },
     {
-      "wo": "43378-4",
-      "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Cleanroom",
-      "locationDept": "Cleanroom",
-      "profile": "Priority Customer",
-      "priority": "T1 Expedite",
-      "expediteTier": null,
-      "isExpedite": false,
-      "dueDate": "06/22",
-      "dueBD": 0,
-      "receivedToday": false,
-      "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Cart"
-    },
-    {
       "wo": "43311",
       "customer": "TRIPLETT MACHINE INC.",
       "dept": "Cleanroom",
@@ -8970,6 +9001,24 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "01 - In Progress"
+    },
+    {
+      "wo": "43378-4",
+      "customer": "ULA/SAUER MECHANICAL, LLC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "06/22",
+      "dueBD": 0,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": true,
+      "agingFlag": "Critical",
+      "isCompleted": false,
+      "progress": "06 - Aging"
     },
     {
       "wo": "43378-6",
@@ -10644,72 +10693,72 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Pre-Clean": {
-  "what": "AR 53.5% — 23 of 43 aging, all 23 Critical. Oldest past PCL Start By: 43241 VAST (-3 biz days), then 43331 Rubicon Gear, 43322 Prism, 43329 Fast Lane, 43332 Allan Aircraft, 43234 & 43294 The Fitting Source, 43345 Schlumberger/Cameron (all -1 bd). Tightest QPC Due: 43386 Performance Sealing, 43387 & 43388 Eaton (due in 1 bd). 18 jobs upcoming within 3 biz days. CR low at 4.7% — work is leaving the op; the constraint is intake volume, not handoff.",
-  "action": "Start 43241 (VAST, -3 bd) now, then clear 43331, 43322, 43329, 43332, 43234, 43294, 43345. Push 43386, 43387, 43388 (due in 1 bd) to Cleanroom today. Triage the 18 upcoming before they age in.",
-  "ot": "recommended",
-  "otText": "23 Critical with several past Start By and 18 more landing — add a shift to clear the queue.",
-  "upstream": "Receiving/Inspection holds 5 (3 On Track, 2 No Date), 0 received today and no RI jobs flagged upcoming — limited new inflow, so focus capacity on the existing aging."
-},
-"Cleanroom": {
-  "what": "AR 0.0% — clean. 0 aging of 4 in-house. 4 jobs upcoming within 3 biz days.",
-  "action": "Maintain. Keep the 4 upcoming moving on schedule.",
-  "ot": "not needed",
-  "otText": "No aging and light load — no overtime needed.",
-  "upstream": "Pre-Clean carries 23 Critical and 18 upcoming — a heavy wave is headed into Cleanroom; protect capacity for it."
-},
-"Packaging": {
-  "what": "AR 34.2% — 13 of 38 aging, all Critical. 43228 Dynamic Fabrication is worst at -3 bd past PCK Start By and due TODAY. 43259 Micro Steel -2 bd, 43189 OMW -1 bd. Saint-Gobain cluster 43274/43275/43278/43279/43280 plus 43295 all at/near Start By and due in 1-2 bd. 25 jobs upcoming within 3 biz days — heavy inflow. CR 15.8% — 6 jobs finished-at-op awaiting handoff out.",
-  "action": "Close 43228 (Dynamic Fab, due today) first, then 43259 and 43189. Batch the Saint-Gobain group 43274/43275/43278/43279/43280/43295 (all due 1-2 bd). Move the 6 completed-at-op jobs downstream to drop CR.",
-  "ot": "recommended",
-  "otText": "13 Critical, one already due today and 25 more inbound — overtime to clear and stage.",
-  "upstream": "Cleanroom is clear (0 aging, 4 incoming) but Pre-Clean is backed up with 23 Critical — expect a wave into Packaging within days."
-},
-"Shipping": {
-  "what": "AR 7.9% — lowest on the floor. 3 aging: 43103 King Nutronics is Past Due (-3 bd), 43121 Rubicon Gear and 43314 Performance Sealing both Critical and due today. 35 jobs upcoming within 3 biz days — a large wave is forming. CR 39.5% — 15 jobs complete-at-op, ready to physically ship.",
-  "action": "Ship 43103 King Nutronics (past due) today, then 43121 and 43314. Stage the 15 completed jobs and pre-build paperwork for the 35 upcoming so the wave does not stall at the dock.",
-  "ot": "not needed",
-  "otText": "Only 2 Critical plus 1 past due — clear those today; watch the 35 upcoming for a possible OT call later.",
-  "upstream": "Packaging holds 13 Critical — a sizable batch will land here soon; pre-stage labels and shipping paperwork."
-},
-"Receiving/Inspection": {
-  "what": "AR 20.0% — 5 of 25 aging: 43381 Eaton, 43383 Prism, 43367 Votaw all On Track; 43348 and 43375 Arrowhead Products are No Date (missing QPC Due Date). 0 received today. CR high at 32.0% — 8 jobs finished inspection awaiting move to Pre-Clean.",
-  "action": "Get QPC Due Dates assigned to the 2 No Date jobs (43348, 43375 Arrowhead). Move the 8 completed-at-op jobs into Pre-Clean to drop CR. Taylor / Anthony to confirm physical attributes on anything unclassified.",
-  "ot": "not needed",
-  "otText": "No Critical jobs — standard staffing covers it.",
-  "upstream": null
-},
-"Lab Testing": {
-  "what": "AR 50.0% but only 2 in-house. 1 aging: 43177 Advanced Cooling Technologies, On Track with 5 biz days of runway.",
-  "action": "Keep 43177 on its test schedule. No action needed today.",
-  "ot": "not needed",
-  "otText": "Single job with runway — no overtime.",
-  "upstream": null
-},
-"Assembly": {
-  "what": "Both in-house jobs aging and Critical: 43315 and 43316 Saint Gobain, due in 2 biz days. Assembly is customer-controlled.",
-  "action": "Confirm assembly ETA with the customer on 43315 and 43316. Internal dates are provisional.",
-  "ot": "n/a",
-  "otText": "Customer-controlled — overtime not applicable.",
-  "upstream": null
-},
-"Source": {
-  "what": "1 of 2 aging — 43244 Arrowhead Products, Critical, due today. On a supplier/customer clock.",
-  "action": "Check source/supplier status on 43244 and escalate to the customer if the date cannot hold.",
-  "ot": "n/a",
-  "otText": "Customer-controlled — overtime not applicable.",
-  "upstream": null
-},
-"Customer Hold (Profile)": {
-  "what": "13 jobs on a customer/witness clock (Source Required), excluded from in-house AR. 5 aging: 43318 Creative Pathways, 43197 and 43198 Saint Gobain all Past Due; 43277 (due 2 bd) and 43246 (due today) Critical.",
-  "action": "These are provisional — confirm source/witness scheduling with the customers on the 3 past-due (43318, 43197, 43198) and on 43246 (due today).",
-  "ot": "n/a",
-  "otText": "Customer-controlled — overtime not applicable.",
-  "upstream": null
-}
+    "what": "AR 53.5% (RED) \u2014 the house constraint. 23 aging, all Critical. Oldest 43241 VAST is 3 biz days past PCL Start By; 43331 Rubicon Gear, 43322 Prism, 43329 Fast Lane, 43332 Allan Aircraft, 43234/43294 Fitting Source and 43345 Schlumberger all 1 bd past. A large group hits Start By today (43299/43334 Seytec, 43340 Seco, 43358 Rubicon, 43304 Acutek, 43306 PMW, 43366 Hydraelectric and more), and 43386 Performance Sealing + 43387/43388 Eaton are due in 1 bd. Completed Ratio low at 4.7%, so the backlog is genuine work-in-queue, not handoff. 18 non-aging jobs are within 3 bd of Start By.",
+    "action": "Start 43241 VAST first (3 bd past). Then clear the 1-bd-past cluster: 43331, 43322, 43329, 43332, 43234, 43294, 43345. Work the at-Start-By group today before it ages (43299, 43334, 43340, 43358, 43304, 43306, 43366). Stage 43386/43387/43388 so they don't slip.",
+    "ot": "recommended",
+    "otText": "23 Critical, every aging job at or past PCL Start By and 43241 VAST 3 bd over. Run OT to recover the queue.",
+    "upstream": "Receiving feeding 5 aging jobs, 0 received today. Pre-Clean also has 18 upcoming jobs approaching Start By \u2014 load builds further."
+  },
+  "Cleanroom": {
+    "what": "AR 0.0% (GREEN) \u2014 0 aging, 3 jobs in flow. No backlog here.",
+    "action": "Keep the 3 in-flow jobs moving to Packaging. No aging action required.",
+    "ot": "not needed",
+    "otText": "No aging, fewer than 5 Critical \u2014 no OT.",
+    "upstream": "Pre-Clean has 23 Critical upstream plus 18 upcoming; expect inflow to rise."
+  },
+  "Packaging": {
+    "what": "AR 35.9% (RED). 14 aging, all Critical. 43228 Dynamic Fabrication is 3 bd past PCK Start By and due today; 43259 Micro Steel 2 bd past; 43189 OMW 1 bd past. Large Saint-Gobain cluster at Start By (43280, 43295 RI, 43274, 43275, 43278, 43279) plus 43266 Walter's, 43293 KAP, 43296 Jacon, 43285 AMRO. 43378-4 ULA/Sauer is due today. Completed Ratio 15.4%. 25 non-aging jobs within 3 bd of Start By.",
+    "action": "Pack 43228 Dynamic Fabrication first (3 bd past, due today). Then 43259 Micro Steel and 43189 OMW. Clear the Saint-Gobain cluster (43274/43275/43278/43279/43280/43295). Ship 43378-4 ULA today.",
+    "ot": "recommended",
+    "otText": "14 Critical with 43228 Dynamic Fab 3 bd past and a Saint-Gobain cluster at Start By. Run OT.",
+    "upstream": "Cleanroom holds 0 aging (3 in flow); Pre-Clean's 23 Critical will cascade here. Packaging itself has 25 upcoming."
+  },
+  "Shipping": {
+    "what": "AR 7.9% (GREEN) on aging, but watch the exceptions. 3 aging: 43103 King Nutronics is Past Due, 3 bd past QPC Due; 43121 Rubicon Gear and 43314 Performance Sealing are at SHP Start By and due today. Completed Ratio high at 39.5% \u2014 15 jobs sit complete at Shipping awaiting move-out. 35 non-aging jobs within 3 bd of Start By forming.",
+    "action": "Ship 43103 King Nutronics now \u2014 it is past due. Ship 43121 Rubicon Gear and 43314 Performance Sealing today. Then clear the handoff backlog: 15 jobs are finished at Shipping but not moved out.",
+    "ot": "not needed",
+    "otText": "Only 2 Critical; the past-due 43103 must ship today but doesn't justify dept-wide OT.",
+    "upstream": "Packaging has 14 Critical feeding Shipping, and 35 upcoming are forming behind them."
+  },
+  "Receiving/Inspection": {
+    "what": "AR 20.0% (YELLOW). 5 aging: 3 On Track (43367 Votaw, 43381 Eaton, 43383 Prism) and 2 No Date \u2014 43348 and 43375, both Arrowhead Products, missing QPC Due Date. 0 received today. Completed Ratio 32.0%.",
+    "action": "Get QPC Due Dates onto 43348 and 43375 Arrowhead (No Date \u2014 Taylor/Anthony to classify and date). Move On-Track 43367, 43381, 43383 toward Pre-Clean.",
+    "ot": "not needed",
+    "otText": "0 Critical, fewer than 20 aging \u2014 no OT.",
+    "upstream": null
+  },
+  "Lab Testing": {
+    "what": "AR 50.0% (RED on a 2-job base). 1 aging: 43177 Advanced Cooling Technologies, On Track, 5 bd to QPC Due.",
+    "action": "Keep 43177 Advanced Cooling on schedule for its lab step.",
+    "ot": "not needed",
+    "otText": "Single On-Track job \u2014 no OT.",
+    "upstream": null
+  },
+  "Assembly": {
+    "what": "AR 100.0% on a 2-job base \u2014 both Critical: 43315 and 43316 Saint Gobain, due in 2 bd. Assembly is customer-controlled.",
+    "action": "Confirm Saint-Gobain assembly readiness on 43315 and 43316 so they don't slip past due.",
+    "ot": "n/a",
+    "otText": "Customer-controlled work \u2014 OT not applicable.",
+    "upstream": null
+  },
+  "Source": {
+    "what": "AR 50.0% on a 2-job base. 1 aging Critical: 43244 Arrowhead Products, due today. Source is customer-controlled.",
+    "action": "Follow up on the source/PO status for 43244 Arrowhead Products.",
+    "ot": "n/a",
+    "otText": "Customer-controlled work \u2014 OT not applicable.",
+    "upstream": null
+  },
+  "Customer Hold (Profile)": {
+    "what": "13 jobs on a customer/witness clock \u2014 excluded from in-house AR. 5 aging: 3 Past Due (43318 Creative Pathways, 43197 and 43198 Saint Gobain) and 2 Critical (43246, 43277 Saint Gobain). Completed Ratio 30.8%.",
+    "action": "Confirm customer/witness availability to release 43318, 43197 and 43198 (past due on hold). Track 43246 and 43277.",
+    "ot": "n/a",
+    "otText": "Provisional dates on a customer clock \u2014 OT not applicable.",
+    "upstream": null
+  }
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "02:02 PM PDT";
+const GENERATED_TIME = "07:05 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
