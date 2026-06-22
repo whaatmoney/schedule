@@ -3,30 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>QPC Aging Signal v12 — 06/22/2026</title>
+  <title>QPC Production Pulse — 06/22/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-/* ===== THEME TOKENS (added) ===== */
+/* ===== THEME TOKENS ===== */
 :root{
-  --bg:#FAF9F8; --surface:#FFFFFF; --surface-2:#FAFAF9; --surface-3:#F3F2F1;
-  --border:#EDEBE9; --border-strong:#D2D0CE;
-  --text-strong:#201F1E; --text:#323130; --text-2:#605E5C; --text-muted:#8A8886; --text-faint:#A19F9D;
-  --sig-green:#0B6A0B; --sig-amber:#7A6200; --sig-red:#A4262C;
-  --tint-green:#DFF6DD; --tint-amber:#FFF4CE; --tint-orange:#FFF8F0; --tint-red:#FDE7E9; --tint-purple:#F0E6FA; --tint-blue:#EFF6FC;
-  --tintb-green:#B5E9B1; --tintb-amber:#F7D98B; --tintb-orange:#F4B96A; --tintb-red:#F1BBBC; --tintb-purple:#E0D0F0; --tintb-blue:#DEECF9;
-  --kpiv-text-mix:0%;            /* light: keep signal hue as-is */
+  --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F4F6F9; --surface-3:#E7EBF0;
+  --border:#DCE1E8; --border-strong:#C2C9D4;
+  --text-strong:#0F1722; --text:#1E2733; --text-2:#5A6675; --text-muted:#8A94A3; --text-faint:#AAB2BF;
+  --sig-green:#0B6A0B; --sig-amber:#946C00; --sig-red:#B3261E;
+  --tint-green:#DCF3DC; --tint-amber:#FBEFC6; --tint-orange:#FCE6D4; --tint-red:#FADDDE; --tint-purple:#ECE3F8; --tint-blue:#DCEBFB;
+  --tintb-green:#A9E2A6; --tintb-amber:#EBD08A; --tintb-orange:#F0B98A; --tintb-red:#EFB3B5; --tintb-purple:#D6C5EC; --tintb-blue:#B9D8F5;
+  --kpiv-text-mix:0%;
   color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --bg:#1B1A19; --surface:#252423; --surface-2:#2B2A29; --surface-3:#33302F;
-  --border:#3B3A39; --border-strong:#4A4847;
-  --text-strong:#F3F2F1; --text:#E5E3E1; --text-2:#C8C6C4; --text-muted:#A6A4A2; --text-faint:#8A8886;
-  --sig-green:#5EC95E; --sig-amber:#E5C04D; --sig-red:#F4888C;
-  --tint-green:rgba(16,124,16,.24); --tint-amber:rgba(193,156,0,.22); --tint-orange:rgba(202,80,16,.24);
-  --tint-red:rgba(209,52,56,.24); --tint-purple:rgba(135,100,184,.28); --tint-blue:rgba(0,120,212,.24);
-  --tintb-green:rgba(94,201,94,.5); --tintb-amber:rgba(229,192,77,.5); --tintb-orange:rgba(202,80,16,.55);
-  --tintb-red:rgba(244,136,140,.5); --tintb-purple:rgba(176,140,224,.55); --tintb-blue:rgba(77,166,240,.55);
-  --kpiv-text-mix:62%;           /* dark: brighten signal text toward white */
+  --bg:#0C1015; --surface:#151B23; --surface-2:#1B222C; --surface-3:#232C38;
+  --border:#2A333F; --border-strong:#3A4654;
+  --text-strong:#F2F6FB; --text:#DCE3EC; --text-2:#A7B2C0; --text-muted:#7E8B9B; --text-faint:#5F6B7A;
+  --sig-green:#56D364; --sig-amber:#E3B341; --sig-red:#FF6B6E;
+  --tint-green:rgba(46,160,67,.20); --tint-amber:rgba(210,153,34,.20); --tint-orange:rgba(219,109,40,.22); --tint-red:rgba(248,81,73,.20); --tint-purple:rgba(163,113,247,.22); --tint-blue:rgba(56,139,253,.20);
+  --tintb-green:rgba(86,211,100,.5); --tintb-amber:rgba(227,179,65,.5); --tintb-orange:rgba(219,109,40,.55); --tintb-red:rgba(255,107,110,.5); --tintb-purple:rgba(163,113,247,.55); --tintb-blue:rgba(56,139,253,.55);
+  --kpiv-text-mix:62%;
   color-scheme:dark;
 }
 
@@ -71,7 +69,7 @@ table.t th{background:var(--surface-2);color:var(--text-2);font-size:10px;font-w
 table.t th.r{text-align:right;}table.t th.c{text-align:center;}
 table.t td{padding:10px 12px;border-bottom:1px solid var(--surface-3);}
 table.t td.r{text-align:right;}table.t td.c{text-align:center;}
-table.t tr.s0{background:#FFFFFF;}table.t tr.s1{background:var(--surface-2);}
+table.t tr.s0{background:var(--surface);}table.t tr.s1{background:var(--surface-2);}
 table.t tr:hover{background:var(--surface-3)!important;}
 table.t tr.cu{opacity:.6;}table.t tr.cu td{font-style:italic;}
 .dr{cursor:pointer;transition:background .12s;}
@@ -419,7 +417,57 @@ tr.rs-expandable.open .rs-row-toggle{color:#0078D4;}
 [data-theme="dark"] .theme-toggle .tt-moon{display:none;}
 .theme-toggle .tt-label::after{content:"Dark";}
 [data-theme="dark"] .theme-toggle .tt-label::after{content:"Light";}
-</style>
+
+/* ===== PROJECTOR + BRAND ===== */
+.app{max-width:1600px;}
+body{background:var(--bg);}
+.hdr{gap:18px;padding:16px 24px;align-items:center;}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-logo{width:52px;height:52px;flex-shrink:0;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,.28));}
+.brand-text{display:flex;flex-direction:column;gap:2px;}
+.hdr-title{font-size:27px;font-weight:800;letter-spacing:-.5px;line-height:1.04;}
+.hdr-date{font-size:13px;color:var(--text-2);font-weight:500;}
+.sep{height:46px;}
+
+/* Header KPI sizing for at-a-glance reading on a projector */
+.hs .l{font-size:11px;letter-spacing:.6px;color:var(--text-muted);}
+.hs .v.kpiv{font-size:26px;padding:3px 15px;font-weight:800;}
+.hs[data-kpi="ar"] .v.kpiv{font-size:37px;padding:5px 20px;}
+.hs[data-kpi="tier"] .tier-hdr.kpiv{font-size:13px;padding:7px 15px;}
+.hs[data-kpi="critical"] .v.kpiv,.hs[data-kpi="pastdue"] .v.kpiv{font-size:30px;}
+
+/* Tabs: larger, clearer active state */
+.tabs{gap:6px;margin-bottom:18px;}
+.tab{font-size:15px;font-weight:700;padding:13px 14px;}
+
+/* Department table: tall rows, big names + AR */
+table.t{font-size:15px;}
+table.t th{font-size:11px;padding:12px 14px;letter-spacing:.7px;}
+table.t td{padding:14px 14px;}
+.dn{font-size:18px;}
+.dl{font-size:12px;}
+.da{font-size:30px;font-weight:800;}
+.sl{font-size:11px;letter-spacing:1.3px;padding:11px 14px;}
+
+/* No harsh zebra; clean alternating surfaces */
+table.t tr.s0{background:var(--surface);}
+table.t tr.s1{background:var(--surface-2);}
+table.t tr:hover{background:var(--surface-3)!important;}
+
+/* Brighten signal numbers in dark so they carry across the floor */
+[data-theme="dark"] .da,
+[data-theme="dark"] .flow-ar,
+[data-theme="dark"] .rs-ontime-pct,
+[data-theme="dark"] .rs-ontime-num{filter:brightness(1.5) saturate(1.06);}
+
+@media (max-width:900px){
+  .hdr-title{font-size:22px;}
+  .brand-logo{width:44px;height:44px;}
+  .hs .v.kpiv{font-size:22px;}
+  .hs[data-kpi="ar"] .v.kpiv{font-size:30px;}
+}
+
+  </style>
 <script>
 (function(){
   try{
@@ -10667,7 +10715,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "11:57 AM PDT";
+const GENERATED_TIME = "12:09 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -10774,10 +10822,12 @@ function buildHeader() {
   const hs = (kpi, inner, title) =>
     `<div class="hs clickable" role="button" tabindex="0" data-kpi="${kpi}" title="${esc(title)}" onclick="openKpiModal('${kpi}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openKpiModal('${kpi}');}">${inner}</div>`;
   return `<div class="hdr">
-    <div>
-      <span class="hdr-title">QPC Aging Signal</span><br>
-      <span class="hdr-date">${DATA.reportDate} \u2014 Production Meeting</span><br>
-      <span class="hdr-gen">Generated ${esc(GENERATED_TIME)}</span>
+    <div class="brand">
+      <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="QPC"><circle cx="50" cy="50" r="48" fill="#C9A34D"/><g transform="translate(8.95,7.1) scale(0.3636)" fill="#1F2937" stroke="#1F2937" stroke-width="3" stroke-linejoin="miter" stroke-miterlimit="10"><polyline points="85.61 150.21 74.4 150.21 68.66 144.17 37 144.25 24.9 132.57 24.9 97.86 36.58 86.27 71.37 86.27 82.38 97.61 82.63 131.89 79.67 135.45 74.08 129.88 75.1 129.02 75.02 100.81 67.87 93.58 39.73 93.58 32.5 100.96 32.66 129.41 39.97 136.88 61.35 136.88 53.17 127.49 63.84 127.49 85.79 150.21"/><path d="M135.59,86.19h-42.48v57.86h7.51v-17.64h35.04l10.64-10.56v-18.97l-10.71-10.69ZM138.62,112.49l-5.98,6.52h-31.72v-25h31.78l5.92,5.72v12.77Z" fill-rule="evenodd"/><polygon points="200.84 86.23 200.85 93.97 167.82 93.97 160.38 101.35 160.38 129.37 167.42 136.64 200.76 136.64 200.9 144.01 165.03 144.01 152.88 132.82 152.88 97.98 164.76 86.23 200.84 86.23"/></g></svg>
+      <div class="brand-text">
+        <span class="hdr-title">QPC Production Pulse</span>
+        <span class="hdr-date">${DATA.reportDate} \u00b7 Updated ${esc(GENERATED_TIME)}</span>
+      </div>
     </div>
     <div class="sep"></div>
     ${hs('ar',       `<div class="v mc kpiv" style="--kpi:${color}">${DATA.overall.ar}%</div><div class="l">House AR</div>`, 'Click to see all aging jobs')}
@@ -11129,7 +11179,7 @@ function buildDeptSignals() {
       const deptId = d.name.replace(/[\s\/()]/g,'_');
       let html = `<tr class="dr ${z}${cuClass}" onclick="toggleGuidance('${d.name.replace(/'/g,"\\'")}')">
         <td style="border-left:4px solid ${color}"><span class="dn">${d.name === "Customer Hold (Profile)" ? "Customer Hold" : d.name}</span>${custTag}<br><span class="dl">${d.lead}</span></td>
-        <td class="c"><span class="tl mc" style="background:${color}14;color:${color};border:1px solid ${color}40">${tier}</span></td>
+        <td class="c"><span class="tl mc kpiv" style="--kpi:${color}">${tier}</span></td>
         <td class="r"><span class="da mc" style="color:${color}">${d.ar}%</span></td>
         <td class="c mc" style="color:var(--text);font-size:14px;font-weight:700">${d.aging}</td>
         <td class="c mc" style="color:var(--text-muted)">${d.total}</td>
@@ -11963,3 +12013,4 @@ document.addEventListener('keydown', (e) => {
 </script>
 </body>
 </html>
+                                             
