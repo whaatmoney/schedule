@@ -10735,7 +10735,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "12:20 PM PDT";
+const GENERATED_TIME = "12:25 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -10926,10 +10926,10 @@ function toggleLegend() {
 }
 function buildLegend() {
   const tierDefs = [
-    { tier:"GREEN", color:"#107C10", range:"≤ 12%", meaning:"Protecting OTD. Maintain pace." },
-    { tier:"YELLOW", color:"#C19C00", range:"13–20%", meaning:"OTD at risk. Determine spike vs. trend." },
-    { tier:"RED", color:"#D13438", range:"21–35%", meaning:"OTD failing. Clear exits, then address constraint." },
-    { tier:"BLACK", color:"#323130", range:"> 35%", meaning:"System failure. Full reset needed." }
+    { tier:"GREEN", color:"#107C10", ink:"#107C10", range:"≤ 12%", meaning:"Protecting OTD. Maintain pace." },
+    { tier:"YELLOW", color:"#C19C00", ink:"#C19C00", range:"13–20%", meaning:"OTD at risk. Determine spike vs. trend." },
+    { tier:"RED", color:"#D13438", ink:"#D13438", range:"21–35%", meaning:"OTD failing. Clear exits, then address constraint." },
+    { tier:"BLACK", color:"#323130", ink:"var(--sig-black)", range:"> 35%", meaning:"System failure. Full reset needed." }
   ];
   const flagDefs = [
     { flag:"On Track", color:"#107C10", desc:"3+ biz days to milestone. Normal flow." },
@@ -10940,10 +10940,10 @@ function buildLegend() {
     { flag:"No Date", color:"#8A8886", desc:"Missing due date. Cannot enter signal system." }
   ];
   const tierChips = tierDefs.map(t =>
-    `<span class="legend-chip" style="background:${t.color}14;color:${t.color};border:1px solid ${t.color}30">${t.tier}</span>`
+    `<span class="legend-chip kpiv" style="--kpi:${t.ink}">${t.tier}</span>`
   ).join("");
   const tierItems = tierDefs.map(t =>
-    `<div class="legend-item"><div class="legend-dot" style="background:${t.color}"></div><div><div class="legend-name" style="color:${t.color}">${t.tier} <span style="font-weight:400;color:var(--text-muted);font-size:10px">${t.range}</span></div><div class="legend-desc">${t.meaning}</div></div></div>`
+    `<div class="legend-item"><div class="legend-dot" style="background:${t.ink}"></div><div><div class="legend-name" style="color:${t.ink}">${t.tier} <span style="font-weight:400;color:var(--text-muted);font-size:10px">${t.range}</span></div><div class="legend-desc">${t.meaning}</div></div></div>`
   ).join("");
   const flagItems = flagDefs.map(f =>
     `<div class="legend-item"><div style="width:4px;min-height:32px;border-radius:2px;flex-shrink:0;background:${f.color}"></div><div><div class="legend-name" style="color:${f.color}">${f.flag}</div><div class="legend-desc">${f.desc}</div></div></div>`
@@ -11071,7 +11071,7 @@ function buildProductionFlow() {
   const sideNodes = sideOrder.map(name => {
     const d = deptMap[name];
     if (!d) return "";
-    const {tier, color} = getTier(d.ar);
+    const {tier, color, ink} = getTier(d.ar);
     const flags = FLAG_ORDER.filter(f => d.flags[f]).map(f =>
       `<span class="flow-flag" style="background:${FLAG_COLORS[f]}18;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f.replace("Reschedule Window","RW")}</span>`
     ).join("");
@@ -11084,7 +11084,7 @@ function buildProductionFlow() {
       <div class="flow-box" style="border-color:${ink};background:${color}06;opacity:${d.isCustomerDep?.8:1}">
         <div class="flow-dept">${name === "Customer Hold (Profile)" ? "Customer Hold" : name}</div>
         <div class="flow-lead">${d.lead}</div>
-        <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
+        <div class="flow-ar mc" style="color:${ink}">${d.ar}%</div>
         <div class="flow-ratio">${d.aging} aging / ${d.total} total</div>
         <div class="flow-flags">${flags || '<span style="font-size:9px;color:var(--text-faint)">No aging</span>'}</div>
         ${mix}
