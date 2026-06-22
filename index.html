@@ -11,7 +11,7 @@
   --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F4F6F9; --surface-3:#E7EBF0;
   --border:#DCE1E8; --border-strong:#C2C9D4;
   --text-strong:#0F1722; --text:#1E2733; --text-2:#5A6675; --text-muted:#8A94A3; --text-faint:#AAB2BF;
-  --sig-green:#0B6A0B; --sig-amber:#946C00; --sig-red:#B3261E;
+  --sig-black:#1A1A1A; --sig-green:#0B6A0B; --sig-amber:#946C00; --sig-red:#B3261E;
   --tint-green:#DCF3DC; --tint-amber:#FBEFC6; --tint-orange:#FCE6D4; --tint-red:#FADDDE; --tint-purple:#ECE3F8; --tint-blue:#DCEBFB;
   --tintb-green:#A9E2A6; --tintb-amber:#EBD08A; --tintb-orange:#F0B98A; --tintb-red:#EFB3B5; --tintb-purple:#D6C5EC; --tintb-blue:#B9D8F5;
   --kpiv-text-mix:0%;
@@ -21,7 +21,7 @@
   --bg:#0C1015; --surface:#151B23; --surface-2:#1B222C; --surface-3:#232C38;
   --border:#2A333F; --border-strong:#3A4654;
   --text-strong:#F2F6FB; --text:#DCE3EC; --text-2:#A7B2C0; --text-muted:#7E8B9B; --text-faint:#5F6B7A;
-  --sig-green:#56D364; --sig-amber:#E3B341; --sig-red:#FF6B6E;
+  --sig-black:#E9EEF5; --sig-green:#56D364; --sig-amber:#E3B341; --sig-red:#FF6B6E;
   --tint-green:rgba(46,160,67,.20); --tint-amber:rgba(210,153,34,.20); --tint-orange:rgba(219,109,40,.22); --tint-red:rgba(248,81,73,.20); --tint-purple:rgba(163,113,247,.22); --tint-blue:rgba(56,139,253,.20);
   --tintb-green:rgba(86,211,100,.5); --tintb-amber:rgba(227,179,65,.5); --tintb-orange:rgba(219,109,40,.55); --tintb-red:rgba(255,107,110,.5); --tintb-purple:rgba(163,113,247,.55); --tintb-blue:rgba(56,139,253,.55);
   --kpiv-text-mix:62%;
@@ -465,6 +465,26 @@ table.t tr:hover{background:var(--surface-3)!important;}
   .brand-logo{width:44px;height:44px;}
   .hs .v.kpiv{font-size:22px;}
   .hs[data-kpi="ar"] .v.kpiv{font-size:30px;}
+}
+
+  
+/* ===== HERO BAND ===== */
+.hdr{flex-direction:column;align-items:stretch;gap:14px;}
+.hdr-top{display:flex;align-items:center;gap:16px;}
+.hdr-top .theme-toggle{margin-left:auto;}
+.pulse-hero{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+.hero-main,.hero-exc{display:flex;align-items:center;gap:24px;}
+.hero-sep{width:1px;align-self:stretch;min-height:56px;background:var(--border);}
+.pulse-hero .hs{padding:2px 4px;}
+.pulse-hero .l{font-size:12px;font-weight:700;}
+.hero-main .hs[data-kpi="ar"] .v.kpiv{font-size:46px;padding:6px 24px;}
+.hero-exc .hs[data-kpi="critical"] .v.kpiv,.hero-exc .hs[data-kpi="pastdue"] .v.kpiv{font-size:33px;}
+.pulse-context{display:flex;align-items:center;gap:22px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:13px;}
+.pulse-context .hs .v.kpiv{font-size:21px;}
+.pulse-context .l{font-size:10px;}
+@media (max-width:760px){
+  .hero-main .hs[data-kpi="ar"] .v.kpiv{font-size:34px;}
+  .hero-sep{display:none;}
 }
 
   </style>
@@ -10715,7 +10735,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "12:09 PM PDT";
+const GENERATED_TIME = "12:20 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -10736,10 +10756,10 @@ const LONG_PROFILES  = new Set(["Large Parts","High Qty","Dirty/Used","Complex"]
 
 // ─── HELPERS ───
 function getTier(ar) {
-  if (ar <= 12) return { tier: "GREEN", color: "#107C10" };
-  if (ar <= 20) return { tier: "YELLOW", color: "#C19C00" };
-  if (ar <= 35) return { tier: "RED", color: "#D13438" };
-  return { tier: "BLACK", color: "#323130" };
+  if (ar <= 12) return { tier: "GREEN", color: "#107C10", ink: "#107C10" };
+  if (ar <= 20) return { tier: "YELLOW", color: "#C19C00", ink: "#C19C00" };
+  if (ar <= 35) return { tier: "RED", color: "#D13438", ink: "#D13438" };
+  return { tier: "BLACK", color: "#323130", ink: "var(--sig-black)" };
 }
 function esc(s) { return s == null ? "\u2014" : String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function msBDColor(v) { return v != null && v < 0 ? "#D13438" : v != null && v <= 0 ? "#CA5010" : "#8A8886"; }
@@ -10813,7 +10833,7 @@ function profilePill(j) {
 // Every .hs tile is clickable — opens the KPI drill-down modal for that metric.
 // data-kpi attr maps to a KPI_CONFIGS entry defined below.
 function buildHeader() {
-  const { tier, color } = getTier(DATA.overall.ar);
+  const { tier, color, ink } = getTier(DATA.overall.ar);
   const fd = DATA.overall.flagDist;
   const expCount = DATA.overall.expediteCount || 0;
   const mrbCount = DATA.overall.mrbCount || 0;
@@ -10822,27 +10842,35 @@ function buildHeader() {
   const hs = (kpi, inner, title) =>
     `<div class="hs clickable" role="button" tabindex="0" data-kpi="${kpi}" title="${esc(title)}" onclick="openKpiModal('${kpi}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openKpiModal('${kpi}');}">${inner}</div>`;
   return `<div class="hdr">
-    <div class="brand">
-      <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="QPC"><circle cx="50" cy="50" r="48" fill="#C9A34D"/><g transform="translate(8.95,7.1) scale(0.3636)" fill="#1F2937" stroke="#1F2937" stroke-width="3" stroke-linejoin="miter" stroke-miterlimit="10"><polyline points="85.61 150.21 74.4 150.21 68.66 144.17 37 144.25 24.9 132.57 24.9 97.86 36.58 86.27 71.37 86.27 82.38 97.61 82.63 131.89 79.67 135.45 74.08 129.88 75.1 129.02 75.02 100.81 67.87 93.58 39.73 93.58 32.5 100.96 32.66 129.41 39.97 136.88 61.35 136.88 53.17 127.49 63.84 127.49 85.79 150.21"/><path d="M135.59,86.19h-42.48v57.86h7.51v-17.64h35.04l10.64-10.56v-18.97l-10.71-10.69ZM138.62,112.49l-5.98,6.52h-31.72v-25h31.78l5.92,5.72v12.77Z" fill-rule="evenodd"/><polygon points="200.84 86.23 200.85 93.97 167.82 93.97 160.38 101.35 160.38 129.37 167.42 136.64 200.76 136.64 200.9 144.01 165.03 144.01 152.88 132.82 152.88 97.98 164.76 86.23 200.84 86.23"/></g></svg>
-      <div class="brand-text">
-        <span class="hdr-title">QPC Production Pulse</span>
-        <span class="hdr-date">${DATA.reportDate} \u00b7 Updated ${esc(GENERATED_TIME)}</span>
+    <div class="hdr-top">
+      <div class="brand">
+        <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="QPC"><circle cx="50" cy="50" r="48" fill="#C9A34D"/><g transform="translate(8.95,7.1) scale(0.3636)" fill="#1F2937" stroke="#1F2937" stroke-width="3" stroke-linejoin="miter" stroke-miterlimit="10"><polyline points="85.61 150.21 74.4 150.21 68.66 144.17 37 144.25 24.9 132.57 24.9 97.86 36.58 86.27 71.37 86.27 82.38 97.61 82.63 131.89 79.67 135.45 74.08 129.88 75.1 129.02 75.02 100.81 67.87 93.58 39.73 93.58 32.5 100.96 32.66 129.41 39.97 136.88 61.35 136.88 53.17 127.49 63.84 127.49 85.79 150.21"/><path d="M135.59,86.19h-42.48v57.86h7.51v-17.64h35.04l10.64-10.56v-18.97l-10.71-10.69ZM138.62,112.49l-5.98,6.52h-31.72v-25h31.78l5.92,5.72v12.77Z" fill-rule="evenodd"/><polygon points="200.84 86.23 200.85 93.97 167.82 93.97 160.38 101.35 160.38 129.37 167.42 136.64 200.76 136.64 200.9 144.01 165.03 144.01 152.88 132.82 152.88 97.98 164.76 86.23 200.84 86.23"/></g></svg>
+        <div class="brand-text">
+          <span class="hdr-title">QPC Production Pulse</span>
+          <span class="hdr-date">${DATA.reportDate} \u00b7 Updated ${esc(GENERATED_TIME)}</span>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light or dark mode" title="Toggle light / dark"><svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span class="tt-label"></span></button>
+    </div>
+    <div class="pulse-hero">
+      <div class="hero-main">
+        ${hs('ar',   `<div class="v mc kpiv hero-ar" style="--kpi:${ink}">${DATA.overall.ar}%</div><div class="l">House AR</div>`, 'Click to see all aging jobs')}
+        ${hs('tier', `<span class="tier-hdr mc kpiv" style="--kpi:${ink}">${tier}</span><div class="l">Signal</div>`, 'Click to see all aging jobs')}
+      </div>
+      <div class="hero-sep"></div>
+      <div class="hero-exc">
+        ${hs('critical', `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div>`, 'Click to see Critical aging jobs')}
+        ${hs('pastdue',  `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div>`, 'Click to see Past Due aging jobs')}
       </div>
     </div>
-    <div class="sep"></div>
-    ${hs('ar',       `<div class="v mc kpiv" style="--kpi:${color}">${DATA.overall.ar}%</div><div class="l">House AR</div>`, 'Click to see all aging jobs')}
-    ${hs('tier',     `<span class="tier-hdr mc kpiv" style="--kpi:${color}">${tier}</span><div class="l" style="margin-top:3px">Signal</div>`, 'Click to see all aging jobs')}
-    <div class="sep"></div>
-    ${hs('aging',    `<div class="v mc kpiv" style="--kpi:${color}">${DATA.overall.agingJobs}</div><div class="l">Aging</div>`, 'Click to see aging jobs')}
-    ${hs('inhouse',  `<div class="v mc kpiv" style="--kpi:var(--text)">${DATA.overall.totalJobs}</div><div class="l">In House</div>`, 'Click to see all in-house jobs')}
-    ${hs('rcvToday', `<div class="v mc kpiv" style="--kpi:#0078D4">${DATA.overall.receivedToday}</div><div class="l">Rcv Today</div>`, 'Click to see jobs received today')}
-    ${hs('upcoming', `<div class="v mc kpiv" style="--kpi:#0078D4">${upcomingCount}</div><div class="l">Upcoming</div>`, 'Click to see upcoming jobs (Start By ≤ 3 biz days)')}
-    <div class="sep"></div>
-    ${hs('critical', `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div>`, 'Click to see Critical aging jobs')}
-    ${hs('pastdue',  `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div>`, 'Click to see Past Due aging jobs')}
-    ${hs('expedite', `<div class="v mc kpiv" style="--kpi:#D13438">${expCount}</div><div class="l">Expedites</div>`, 'Click to see expedites in house (legacy + tiered)')}
-    ${hs('mrb',      `<div class="v mc kpiv" style="--kpi:#8764B8">${mrbCount}</div><div class="l">In MRB</div>`, 'Click to see MRB jobs')}
-    <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light or dark mode" title="Toggle light / dark"><svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span class="tt-label"></span></button>
+    <div class="pulse-context">
+      ${hs('aging',    `<div class="v mc kpiv" style="--kpi:${ink}">${DATA.overall.agingJobs}</div><div class="l">Aging</div>`, 'Click to see aging jobs')}
+      ${hs('inhouse',  `<div class="v mc kpiv" style="--kpi:var(--text-strong)">${DATA.overall.totalJobs}</div><div class="l">In House</div>`, 'Click to see all in-house jobs')}
+      ${hs('rcvToday', `<div class="v mc kpiv" style="--kpi:#0078D4">${DATA.overall.receivedToday}</div><div class="l">Rcv Today</div>`, 'Click to see jobs received today')}
+      ${hs('upcoming', `<div class="v mc kpiv" style="--kpi:#0078D4">${upcomingCount}</div><div class="l">Upcoming</div>`, 'Click to see upcoming jobs (Start By within 3 biz days)')}
+      ${hs('expedite', `<div class="v mc kpiv" style="--kpi:#D13438">${expCount}</div><div class="l">Expedites</div>`, 'Click to see expedites in house (legacy + tiered)')}
+      ${hs('mrb',      `<div class="v mc kpiv" style="--kpi:#8764B8">${mrbCount}</div><div class="l">In MRB</div>`, 'Click to see MRB jobs')}
+    </div>
   </div>`;
 }
 
@@ -10992,7 +11020,7 @@ function buildProductionFlow() {
   function flowNode(name) {
     const d = deptMap[name];
     if (!d) return "";
-    const {tier, color} = getTier(d.ar);
+    const {tier, color, ink} = getTier(d.ar);
     const isBottleneck = bottlenecks.includes(name);
     const flags = FLAG_ORDER.filter(f => d.flags[f]).map(f =>
       `<span class="flow-flag" style="background:${FLAG_COLORS[f]}18;color:${FLAG_COLORS[f]}">${d.flags[f]} ${f.replace("Reschedule Window","RW")}</span>`
@@ -11007,7 +11035,7 @@ function buildProductionFlow() {
         ${isBottleneck ? `<div class="flow-bottleneck-ring" style="border-color:${color}"></div>` : ""}
         <div class="flow-dept">${shortName}</div>
         <div class="flow-lead">${d.lead}</div>
-        <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
+        <div class="flow-ar mc" style="color:${ink}">${d.ar}%</div>
         <div class="flow-ratio">${d.aging} aging / ${d.total} total</div>
         <div class="flow-flags">${flags || '<span style="font-size:9px;color:var(--text-faint)">No aging</span>'}</div>
         ${mix}
@@ -11053,7 +11081,7 @@ function buildProductionFlow() {
       ? '<div class="flow-customer-badge" style="background:var(--tint-purple);color:#8764B8;border-color:var(--tintb-purple)">PROVISIONAL / SRC+DCMA</div>'
       : "";
     return `<div class="flow-node" style="min-width:130px;max-width:180px;">
-      <div class="flow-box" style="border-color:${color};background:${color}06;opacity:${d.isCustomerDep?.8:1}">
+      <div class="flow-box" style="border-color:${ink};background:${color}06;opacity:${d.isCustomerDep?.8:1}">
         <div class="flow-dept">${name === "Customer Hold (Profile)" ? "Customer Hold" : name}</div>
         <div class="flow-lead">${d.lead}</div>
         <div class="flow-ar mc" style="color:${color}">${d.ar}%</div>
@@ -11067,7 +11095,7 @@ function buildProductionFlow() {
 
   const callouts = bottlenecks.map(name => {
     const d = deptMap[name];
-    const {color} = getTier(d.ar);
+    const {color, ink} = getTier(d.ar);
     const critCount = d.flags["Critical"] || 0;
     const pdCount = d.flags["Past Due"] || 0;
     const idx = flowOrder.indexOf(name);
@@ -11090,7 +11118,7 @@ function buildProductionFlow() {
     return `<div class="flow-bottleneck-callout" style="background:${color}08;border-color:${color}30">
       <div class="flow-callout-icon">⚠️</div>
       <div class="flow-callout-text">
-        <div class="flow-callout-title" style="color:${color}">${name} — ${getTier(d.ar).tier} (${d.ar}% AR)</div>
+        <div class="flow-callout-title" style="color:${ink}">${name} — ${getTier(d.ar).tier} (${d.ar}% AR)</div>
         <div style="color:var(--text-2)">${impactText}</div>
         ${mixChips ? `<div class="flow-callout-mix">${mixChips}</div>` : ""}
       </div>
@@ -11146,7 +11174,7 @@ function buildDeptSignals() {
   function renderRows(depts, offset) {
     return depts.map((d, i) => {
       const idx = i + offset;
-      const { tier, color } = getTier(d.ar);
+      const { tier, color, ink } = getTier(d.ar);
       const g = GUIDANCE[d.name] || { what:"", action:"", ot:"assess", otText:"", upstream:null };
       const z = idx % 2 === 0 ? "s0" : "s1";
       const otBg = g.ot === "recommended" ? "#FFF4CE" : g.ot === "n/a" ? "#F3F2F1" : "#DFF6DD";
@@ -11178,9 +11206,9 @@ function buildDeptSignals() {
       }
       const deptId = d.name.replace(/[\s\/()]/g,'_');
       let html = `<tr class="dr ${z}${cuClass}" onclick="toggleGuidance('${d.name.replace(/'/g,"\\'")}')">
-        <td style="border-left:4px solid ${color}"><span class="dn">${d.name === "Customer Hold (Profile)" ? "Customer Hold" : d.name}</span>${custTag}<br><span class="dl">${d.lead}</span></td>
-        <td class="c"><span class="tl mc kpiv" style="--kpi:${color}">${tier}</span></td>
-        <td class="r"><span class="da mc" style="color:${color}">${d.ar}%</span></td>
+        <td style="border-left:4px solid ${ink}"><span class="dn">${d.name === "Customer Hold (Profile)" ? "Customer Hold" : d.name}</span>${custTag}<br><span class="dl">${d.lead}</span></td>
+        <td class="c"><span class="tl mc kpiv" style="--kpi:${ink}">${tier}</span></td>
+        <td class="r"><span class="da mc" style="color:${ink}">${d.ar}%</span></td>
         <td class="c mc" style="color:var(--text);font-size:14px;font-weight:700">${d.aging}</td>
         <td class="c mc" style="color:var(--text-muted)">${d.total}</td>
         <td class="c">${completeCell}</td>
@@ -11244,7 +11272,7 @@ function buildJobTable() {
   });
   const rows = jobs.map((j, i) => {
     const fc = FLAG_COLORS[j.flag];
-    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).color;
+    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).ink;
     const shortBadge = j.isShortScheduled
       ? `<span style="font-size:9px;font-weight:700;color:var(--sig-red);background:var(--tint-red);padding:1px 5px;border-radius:4px;margin-left:4px" title="Scheduled tighter than profile minimum">SHORT</span>`
       : "";
@@ -11280,7 +11308,7 @@ function buildUpcomingTable() {
     return `<div style="padding:24px;text-align:center;color:var(--text-muted);font-size:13px">No upcoming jobs for the selected filter.</div>`;
   }
   const rows = jobs.map((j, i) => {
-    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).color;
+    const dc = getTier(DATA.departments.find(d => d.name === j.dept)?.ar || 0).ink;
     const msBDC = j.msBD <= 0 ? "#D13438" : j.msBD === 1 ? "#CA5010" : "#0078D4";
     const msBDLabel = j.msBD <= 0 ? "START NOW" : j.msBD === 1 ? "TOMORROW" : `${j.msBD}d`;
     const prof = j.profile
@@ -11314,7 +11342,7 @@ function buildJobFlags() {
   }).join("");
 
   let crossTab = DATA.departments.filter(d => d.aging > 0).map((d, i) => {
-    const { color } = getTier(d.ar);
+    const { ink: color } = getTier(d.ar);
     const cuClass = d.isCustomerDep ? " cu" : "";
     const cells = FLAG_ORDER.map(f => {
       const v = d.flags[f] || 0;
