@@ -586,8 +586,8 @@ const DATA = {
         "count": 1
       }
     ],
-    "completedCount": 18,
-    "completedRatio": 17.0
+    "completedCount": 19,
+    "completedRatio": 17.9
   },
   "departments": [
     {
@@ -631,24 +631,8 @@ const DATA = {
           "count": 1
         }
       ],
-      "completedCount": 3,
-      "completedRatio": 7.9,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 23,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 22,
-      "profileMix": [],
-      "completedCount": 1,
-      "completedRatio": 4.3,
+      "completedCount": 4,
+      "completedRatio": 10.5,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -665,6 +649,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 23,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 22,
+      "profileMix": [],
+      "completedCount": 1,
+      "completedRatio": 4.3,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -5428,7 +5428,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43470",
@@ -5985,8 +5985,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "43541",
@@ -6004,7 +6004,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43542",
@@ -6401,6 +6401,16 @@ const DATA = {
       "dueBD": 3
     },
     {
+      "wo": "43466-RW",
+      "customer": "ALVA MANUFACTURING",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Low Qty",
+      "priority": "T1 Expedite",
+      "dueDate": "07/01",
+      "dueBD": 1
+    },
+    {
       "wo": "43542",
       "customer": "PRISM AEROSPACE SUN VALLEY",
       "dept": "Receiving/Inspection",
@@ -6433,18 +6443,11 @@ const GUIDANCE = {
     "upstream": "Packaging: 1 aging / 38 total, 37 upcoming."
   },
   "Packaging": {
-    "what": "AR 2.6% GREEN. 1 aging / 38 total. Flags: 1 Critical. 1 Critical: 43337 SEYTEC (High Qty, msBD=-2 dueBD=3). 37 upcoming. Tiered in dept: 2 T1. Upcoming tiered: 2 T1.",
+    "what": "AR 2.6% GREEN. 1 aging / 38 total. Flags: 1 Critical. 1 Critical: 43337 SEYTEC (High Qty, msBD=-2 dueBD=3). 37 upcoming. CR 10.5% - 4 finished-at-op awaiting handoff. Tiered in dept: 2 T1. Upcoming tiered: 2 T1.",
     "action": "Burn down before they tip: 43337. Start tiered upcoming wave in msBD order: 43496, 43466-RW.",
     "ot": "recommended",
     "otText": "OT recommended - all 1 aging jobs are Critical.",
     "upstream": "Cleanroom: 0 aging / 2 total. Pre-Clean: 0 aging / 23 total."
-  },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN. 0 aging / 23 total. 22 upcoming. Tiered in dept: 4 T1. Upcoming tiered: 4 T1.",
-    "action": "Start tiered upcoming wave in msBD order: 43481, 43524, 43525-1, 43541.",
-    "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 14 total, 15 received today, 0 upcoming."
   },
   "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 2 total. 1 upcoming. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
@@ -6452,6 +6455,13 @@ const GUIDANCE = {
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": "Pre-Clean: 0 aging / 23 total, 22 upcoming feeding in."
+  },
+  "Pre-Clean": {
+    "what": "AR 0.0% GREEN. 0 aging / 23 total. 22 upcoming. Tiered in dept: 4 T1. Upcoming tiered: 4 T1.",
+    "action": "Start tiered upcoming wave in msBD order: 43481, 43524, 43525-1, 43541.",
+    "ot": "recommended",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "RI: 0 aging / 14 total, 15 received today, 0 upcoming."
   },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 14 total. CR 42.9% - 6 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 2 T2.",
@@ -6477,7 +6487,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
