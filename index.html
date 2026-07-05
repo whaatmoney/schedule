@@ -611,22 +611,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 7,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 7,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Shipping",
       "lead": "Luis",
       "total": 46,
@@ -643,22 +627,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 5,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 5,
-      "profileMix": [],
-      "completedCount": 1,
-      "completedRatio": 20.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Receiving/Inspection",
       "lead": "Luis",
       "total": 10,
@@ -671,6 +639,38 @@ const DATA = {
       "profileMix": [],
       "completedCount": 5,
       "completedRatio": 50.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 7,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 7,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 5,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 5,
+      "profileMix": [],
+      "completedCount": 1,
+      "completedRatio": 20.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -6033,13 +6033,6 @@ const GUIDANCE = {
     "otText": "OT recommended - all 1 aging jobs are Critical.",
     "upstream": "RI: 0 aging / 10 total, 0 received today, 0 upcoming."
   },
-  "Cleanroom": {
-    "what": "AR 0.0% GREEN. 0 aging / 7 total. 7 upcoming. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43580.",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Pre-Clean: 1 aging / 5 total, 3 upcoming feeding in."
-  },
   "Shipping": {
     "what": "AR 0.0% GREEN. 0 aging / 46 total. 44 upcoming. CR 32.6% - 15 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 3 T2. Upcoming tiered: 4 T1, 3 T2.",
     "action": "Start tiered upcoming wave in msBD order: 43481, 43524, 43525-1, 43545, 43554, 43556, 43563.",
@@ -6047,19 +6040,26 @@ const GUIDANCE = {
     "otText": "OT recommended - 7 tiered expedites on compressed windows.",
     "upstream": "Packaging: 0 aging / 5 total, 5 upcoming."
   },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 5 total. 5 upcoming. CR 20.0% - 1 finished-at-op awaiting handoff. Tiered in dept: 1 T1. Upcoming tiered: 1 T1.",
-    "action": "Start tiered upcoming wave in msBD order: 43570.",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Cleanroom: 0 aging / 7 total. Pre-Clean: 1 aging / 5 total."
-  },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 10 total. CR 50.0% - 5 finished-at-op awaiting handoff.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": null
+  },
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN. 0 aging / 7 total. 7 upcoming. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43580.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": "Pre-Clean: 1 aging / 5 total, 3 upcoming feeding in."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 5 total. 5 upcoming. CR 20.0% - 1 finished-at-op awaiting handoff. Tiered in dept: 1 T1. Upcoming tiered: 1 T1.",
+    "action": "Start tiered upcoming wave in msBD order: 43570.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": "Cleanroom: 0 aging / 7 total. Pre-Clean: 1 aging / 5 total."
   },
   "Lab Testing": {
     "what": "AR 100.0% BLACK. 2 aging / 2 total. Flags: 2 Tight.",
@@ -6092,7 +6092,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
