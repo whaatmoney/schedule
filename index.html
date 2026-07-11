@@ -607,38 +607,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 10,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 9,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 9,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 9,
-      "profileMix": [],
-      "completedCount": 1,
-      "completedRatio": 11.1,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Pre-Clean",
       "lead": "Jorge",
       "total": 23,
@@ -667,6 +635,38 @@ const DATA = {
       "profileMix": [],
       "completedCount": 6,
       "completedRatio": 30.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 10,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 9,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 9,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 9,
+      "profileMix": [],
+      "completedCount": 1,
+      "completedRatio": 11.1,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -5475,7 +5475,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43636",
@@ -5889,7 +5889,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Floor"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "43671-2",
@@ -5925,7 +5925,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "42167-1-RW",
@@ -6575,20 +6575,6 @@ const GUIDANCE = {
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": null
   },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 10 total. 9 upcoming. Tiered in dept: 4 T2. Upcoming tiered: 4 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43612, 43635, 43662, 43670.",
-    "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 0 aging / 9 total. Pre-Clean: 0 aging / 23 total."
-  },
-  "Cleanroom": {
-    "what": "AR 0.0% GREEN. 0 aging / 9 total. 9 upcoming. CR 11.1% - 1 finished-at-op awaiting handoff. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43665.",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Pre-Clean: 0 aging / 23 total, 23 upcoming feeding in."
-  },
   "Pre-Clean": {
     "what": "AR 0.0% GREEN. 0 aging / 23 total. 23 upcoming. CR 8.7% - 2 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 1 T2. Upcoming tiered: 2 T1, 1 T2.",
     "action": "Start tiered upcoming wave in msBD order: 43671-1, 43671-3, 43692.",
@@ -6602,6 +6588,20 @@ const GUIDANCE = {
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": "Packaging: 0 aging / 10 total, 9 upcoming."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 10 total. 9 upcoming. Tiered in dept: 4 T2. Upcoming tiered: 4 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43612, 43635, 43662, 43670.",
+    "ot": "recommended",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "Cleanroom: 0 aging / 9 total. Pre-Clean: 0 aging / 23 total."
+  },
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN. 0 aging / 9 total. 9 upcoming. CR 11.1% - 1 finished-at-op awaiting handoff. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43665.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": "Pre-Clean: 0 aging / 23 total, 23 upcoming feeding in."
   },
   "Lab Testing": {
     "what": "AR 40.9% BLACK. 9 aging / 22 total. Flags: 5 Reschedule Window, 1 Critical, 3 Tight. 1 Critical: 43595 COX MACHINE LLC (Standard, msBD=2 dueBD=2). 1 burned reschedule(s). CR 13.6% - 3 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 2 T2.",
@@ -6634,7 +6634,7 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
