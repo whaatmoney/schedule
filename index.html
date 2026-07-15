@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>QPC Production Pulse — 07/15/2026</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 /* ===== THEME TOKENS ===== */
 :root{
@@ -498,7 +497,23 @@ table.t tr:hover{background:var(--surface-3)!important;}
 .modal.open .modal-box,#kpi-modal.open>div{animation:modalIn .16s ease-out;}
 @keyframes modalIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
-@media (max-width:700px){.tabs{flex-wrap:wrap;}.tab{flex:1 1 45%;}}
+@media (max-width:700px){
+  .tabs{flex-wrap:wrap;}.tab{flex:1 1 45%;}
+  /* tables scroll inside their card instead of clipping */
+  .card{overflow-x:auto;}
+  .card table.t{min-width:560px;}
+  table.t th,table.t td{padding:8px 8px;}
+  .pulse-hero .hero-ar{font-size:34px;}
+  /* Trends dept rows stack: name/chip/arrow, full-width spark, sentence below */
+  .tr-dept-row{grid-template-columns:1fr 56px 22px;grid-template-areas:"name chip glyph" "spark spark spark" "sent sent sent";row-gap:6px;}
+  .tr-dept-name{grid-area:name;}
+  .tr-dept-chip{grid-area:chip;}
+  .tr-dept-glyph{grid-area:glyph;}
+  .tr-dept-spark{grid-area:spark;}
+  .tr-dept-spark svg{width:100%;height:30px;}
+  .tr-dept-sent{grid-area:sent;}
+  .tr-resp-row{grid-template-columns:104px 1fr 48px;}
+}
 .pulse-hero .hero-ar{font-size:44px;letter-spacing:-0.02em;}
 .pulse-hero .hero-main .l,.pulse-context .l{letter-spacing:.04em;}
 </style>
@@ -689,22 +704,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Shipping",
-      "lead": "Luis",
-      "total": 25,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 25,
-      "profileMix": [],
-      "completedCount": 8,
-      "completedRatio": 32.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Receiving/Inspection",
       "lead": "Luis",
       "total": 9,
@@ -717,6 +716,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Shipping",
+      "lead": "Luis",
+      "total": 25,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 25,
+      "profileMix": [],
+      "completedCount": 8,
+      "completedRatio": 32.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -7480,19 +7495,19 @@ const GUIDANCE = {
     "otText": "OT recommended - 4 tiered expedites on compressed windows.",
     "upstream": "Cleanroom: 4 aging / 18 total. Pre-Clean: 5 aging / 27 total."
   },
-  "Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 25 total. 25 upcoming. CR 32.0% - 8 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2. Upcoming tiered: 2 T1, 4 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43671-3, 43662, 43664, 43665, 43670, 43671-4.",
-    "ot": "recommended",
-    "otText": "OT recommended - 6 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 0 aging / 16 total, 16 upcoming."
-  },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 9 total. Tiered in dept: 1 T2, 1 T3.",
     "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": null
+  },
+  "Shipping": {
+    "what": "AR 0.0% GREEN. 0 aging / 25 total. 25 upcoming. CR 32.0% - 8 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2. Upcoming tiered: 2 T1, 4 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43671-3, 43662, 43664, 43665, 43670, 43671-4.",
+    "ot": "recommended",
+    "otText": "OT recommended - 6 tiered expedites on compressed windows.",
+    "upstream": "Packaging: 0 aging / 16 total, 16 upcoming."
   },
   "Lab Testing": {
     "what": "AR 66.7% BLACK. 6 aging / 9 total. Flags: 4 Critical, 1 Tight, 1 Reschedule Window. 4 Critical: 43631 NUSPACE (Complex, msBD=1 dueBD=1); 43667 NUSPACE (Priority Customer, msBD=2 dueBD=2, burned); 43668 NUSPACE (Priority Customer, msBD=2 dueBD=2); 43710 EATON CORP. (Low Qty, msBD=0 dueBD=0). 1 burned reschedule(s). CR 11.1% - 1 finished-at-op awaiting handoff. Tiered in dept: 2 T1.",
@@ -7518,15 +7533,15 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "06:00 AM PDT";
+const GENERATED_TIME = "06:47 AM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-15T06:00",
+ "generatedAt": "2026-07-15T06:47",
  "realProgressCutoff": "2026-07-02T16:20",
- "hero": "Aging pressure is easing \u2014 6 aging in house vs ~20 typical. This week the floor let 54 jobs go stale (norm ~139) and picked aging jobs back up in a median 48h (norm 13h).",
+ "hero": "Aging pressure is steady \u2014 17 aging in house vs ~20 typical. This week the floor let 54 jobs go stale (norm ~139) and picked aging jobs back up in a median 48h (norm 13h).",
  "pulse": {
-  "agingToday": 6,
+  "agingToday": 17,
   "agingNorm": 20.0,
-  "agingVerdict": "BETTER",
+  "agingVerdict": "NORMAL",
   "staleThisWeek": 54,
   "staleNorm": 139,
   "staleVerdict": "BETTER",
@@ -7539,10 +7554,6 @@ const TRENDS = {
   {
    "dept": "Receiving/Inspection",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 0.0
-    },
     {
      "d": "2026-06-12",
      "ar": 0.0
@@ -7658,6 +7669,10 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 0.0
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 0.0
     }
    ],
    "trend": "worsening",
@@ -7669,10 +7684,6 @@ const TRENDS = {
   {
    "dept": "Pre-Clean",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 14.6
-    },
     {
      "d": "2026-06-12",
      "ar": 27.9
@@ -7788,10 +7799,14 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 3.7
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 18.5
     }
    ],
    "trend": "improving",
-   "sentence": "out of GREEN 1 of last 10 days, worst 25% 7/5 \u00b7 aging picked up in ~24h \u00b7 improving",
+   "sentence": "out of GREEN 1 of last 10 days, worst 18% 7/15 \u00b7 aging picked up in ~24h \u00b7 improving",
    "respH": 24.5,
    "custClock": false,
    "small": false
@@ -7799,10 +7814,6 @@ const TRENDS = {
   {
    "dept": "Cleanroom",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 0.0
-    },
     {
      "d": "2026-06-12",
      "ar": 0.0
@@ -7918,10 +7929,14 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 0.0
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 22.2
     }
    ],
    "trend": "improving",
-   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~27h \u00b7 improving",
+   "sentence": "out of GREEN 1 of last 10 days, worst 22% 7/15 \u00b7 aging picked up in ~27h \u00b7 improving",
    "respH": 26.7,
    "custClock": false,
    "small": false
@@ -7929,10 +7944,6 @@ const TRENDS = {
   {
    "dept": "Packaging",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 0.0
-    },
     {
      "d": "2026-06-12",
      "ar": 0.0
@@ -8048,6 +8059,10 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 0.0
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 0.0
     }
    ],
    "trend": "improving",
@@ -8059,10 +8074,6 @@ const TRENDS = {
   {
    "dept": "Shipping",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 4.3
-    },
     {
      "d": "2026-06-12",
      "ar": 3.8
@@ -8178,6 +8189,10 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 3.6
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 0.0
     }
    ],
    "trend": "improving",
@@ -8189,10 +8204,6 @@ const TRENDS = {
   {
    "dept": "Lab Testing",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 0.0
-    },
     {
      "d": "2026-06-12",
      "ar": 0.0
@@ -8308,10 +8319,14 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 11.1
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 66.7
     }
    ],
    "trend": "worsening",
-   "sentence": "out of GREEN 6 of last 10 days, worst 100% 7/5 \u00b7 aging picked up in ~36h \u00b7 customer clock",
+   "sentence": "out of GREEN 6 of last 10 days, worst 76% 7/12 \u00b7 aging picked up in ~36h \u00b7 customer clock",
    "respH": 36.0,
    "custClock": true,
    "small": false
@@ -8319,10 +8334,6 @@ const TRENDS = {
   {
    "dept": "Assembly",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 80.0
-    },
     {
      "d": "2026-06-12",
      "ar": 83.3
@@ -8438,6 +8449,10 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 11.1
+    },
+    {
+     "d": "2026-07-15",
+     "ar": 66.7
     }
    ],
    "trend": "worsening",
@@ -8449,10 +8464,6 @@ const TRENDS = {
   {
    "dept": "Source",
    "spark": [
-    {
-     "d": "2026-06-11",
-     "ar": 62.5
-    },
     {
      "d": "2026-06-12",
      "ar": 62.5
@@ -8568,10 +8579,14 @@ const TRENDS = {
     {
      "d": "2026-07-14",
      "ar": 66.7
+    },
+    {
+     "d": "2026-07-15",
+     "ar": null
     }
    ],
    "trend": "worsening",
-   "sentence": "aging present 9 of last 10 days (2 jobs at peak, ~2 in dept) \u00b7 aging picked up in ~60h \u00b7 customer clock",
+   "sentence": "aging present 8 of last 10 days (2 jobs at peak, ~2 in dept) \u00b7 aging picked up in ~60h \u00b7 customer clock",
    "respH": 60.0,
    "custClock": true,
    "small": true
@@ -9328,12 +9343,6 @@ const TRENDS = {
  },
  "arDaily": [
   {
-   "date": "2026-05-06",
-   "inHouse": 159,
-   "aging": 5,
-   "ar": 3.1
-  },
-  {
    "date": "2026-05-07",
    "inHouse": 150,
    "aging": 3,
@@ -9686,6 +9695,12 @@ const TRENDS = {
    "inHouse": 120,
    "aging": 6,
    "ar": 5.0
+  },
+  {
+   "date": "2026-07-15",
+   "inHouse": 107,
+   "aging": 17,
+   "ar": 15.9
   }
  ]
 };
@@ -10873,6 +10888,13 @@ function buildTrends() {
     .tr-note{font-size:10.5px;color:var(--text-muted);margin-top:10px;line-height:1.45;}
     .tr-season summary{cursor:pointer;font-size:12px;font-weight:600;color:var(--text-2);padding:10px 16px;}
     #trend-tip{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--border-strong);color:var(--text);font-size:12px;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:60;display:none;max-width:280px;}
+    @media (max-width:700px){
+      .tr-dept-row{grid-template-columns:1fr 56px 22px;grid-template-areas:"name chip glyph" "spark spark spark" "sent sent sent";row-gap:6px;}
+      .tr-dept-name{grid-area:name;}.tr-dept-chip{grid-area:chip;}.tr-dept-glyph{grid-area:glyph;}
+      .tr-dept-spark{grid-area:spark;}.tr-dept-spark svg{width:100%;height:30px;}
+      .tr-dept-sent{grid-area:sent;}
+      .tr-resp-row{grid-template-columns:104px 1fr 48px;}
+    }
   </style>
 
   <div class="tr-sec">
