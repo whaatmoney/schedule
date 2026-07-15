@@ -515,12 +515,14 @@ function toggleTheme(){
     <div class="tab" onclick="switchTab(2)">Job Flags</div>
     <div class="tab" onclick="switchTab(3)">Reschedule Status</div>
     <div class="tab" onclick="switchTab(4)">Profile Watch</div>
+    <div class="tab" onclick="switchTab(5)">Trends</div>
   </div>
   <div class="tab-content active" id="tab0"></div>
   <div class="tab-content" id="tab1"></div>
   <div class="tab-content" id="tab2"></div>
   <div class="tab-content" id="tab3"></div>
   <div class="tab-content" id="tab4"></div>
+  <div class="tab-content" id="tab5"></div>
 </div>
 
 <!-- v11: KPI drill-down modal -->
@@ -610,22 +612,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Receiving/Inspection",
-      "lead": "Luis",
-      "total": 9,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Cleanroom",
       "lead": "Erick",
       "total": 18,
@@ -642,15 +628,15 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 16,
+      "name": "Receiving/Inspection",
+      "lead": "Luis",
+      "total": 9,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 16,
+      "incoming": 0,
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
@@ -670,6 +656,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 8,
       "completedRatio": 32.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 16,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 16,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -6900,13 +6902,6 @@ const GUIDANCE = {
     "otText": "OT recommended - all 1 aging jobs are Critical.",
     "upstream": "RI: 0 aging / 9 total, 16 received today, 0 upcoming."
   },
-  "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 9 total. Tiered in dept: 1 T2, 1 T3.",
-    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": null
-  },
   "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 18 total. 17 upcoming. Tiered in dept: 1 T1, 2 T2. Upcoming tiered: 1 T1, 1 T2.",
     "action": "Start tiered upcoming wave in msBD order: 43704, 43706-1.",
@@ -6914,12 +6909,12 @@ const GUIDANCE = {
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
     "upstream": "Pre-Clean: 1 aging / 27 total, 24 upcoming feeding in."
   },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 16 total. 16 upcoming. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43671-2, 43705, 43711, 43692.",
-    "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 0 aging / 18 total. Pre-Clean: 1 aging / 27 total."
+  "Receiving/Inspection": {
+    "what": "AR 0.0% GREEN. 0 aging / 9 total. Tiered in dept: 1 T2, 1 T3.",
+    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": null
   },
   "Shipping": {
     "what": "AR 0.0% GREEN. 0 aging / 25 total. 25 upcoming. CR 32.0% - 8 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2. Upcoming tiered: 2 T1, 4 T2.",
@@ -6927,6 +6922,13 @@ const GUIDANCE = {
     "ot": "recommended",
     "otText": "OT recommended - 6 tiered expedites on compressed windows.",
     "upstream": "Packaging: 0 aging / 16 total, 16 upcoming."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 16 total. 16 upcoming. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43671-2, 43705, 43711, 43692.",
+    "ot": "recommended",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "Cleanroom: 0 aging / 18 total. Pre-Clean: 1 aging / 27 total."
   },
   "Lab Testing": {
     "what": "AR 11.1% GREEN. 1 aging / 9 total. Flags: 1 Critical. 1 Critical: 43631 NUSPACE (Complex, msBD=2 dueBD=2). CR 11.1% - 1 finished-at-op awaiting handoff. Tiered in dept: 2 T1.",
@@ -6952,7 +6954,1243 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "06:00 PM PDT";
+const GENERATED_TIME = "10:07 PM PDT";
+const TRENDS = {
+ "generatedAt": "2026-07-14T22:07",
+ "eventCounts": {
+  "Progress": 52420,
+  "QPC Due Date": 4400,
+  "Box Date": 3198,
+  "Ship Date": 3154,
+  "Location": 996
+ },
+ "realProgressCutoff": "2026-07-02T16:20",
+ "weeklyAging": [
+  {
+   "week": "2025-W47",
+   "marks": 17,
+   "recoveries": 4,
+   "medianRecoveryH": 15.8
+  },
+  {
+   "week": "2025-W48",
+   "marks": 77,
+   "recoveries": 57,
+   "medianRecoveryH": 7.4
+  },
+  {
+   "week": "2025-W49",
+   "marks": 146,
+   "recoveries": 133,
+   "medianRecoveryH": 15.3
+  },
+  {
+   "week": "2025-W50",
+   "marks": 177,
+   "recoveries": 165,
+   "medianRecoveryH": 20.2
+  },
+  {
+   "week": "2025-W51",
+   "marks": 162,
+   "recoveries": 192,
+   "medianRecoveryH": 28.5
+  },
+  {
+   "week": "2025-W52",
+   "marks": 79,
+   "recoveries": 63,
+   "medianRecoveryH": 7.7
+  },
+  {
+   "week": "2026-W01",
+   "marks": 41,
+   "recoveries": 62,
+   "medianRecoveryH": 142.0
+  },
+  {
+   "week": "2026-W02",
+   "marks": 110,
+   "recoveries": 97,
+   "medianRecoveryH": 16.7
+  },
+  {
+   "week": "2026-W03",
+   "marks": 133,
+   "recoveries": 142,
+   "medianRecoveryH": 6.7
+  },
+  {
+   "week": "2026-W04",
+   "marks": 186,
+   "recoveries": 152,
+   "medianRecoveryH": 15.4
+  },
+  {
+   "week": "2026-W05",
+   "marks": 171,
+   "recoveries": 176,
+   "medianRecoveryH": 15.1
+  },
+  {
+   "week": "2026-W06",
+   "marks": 185,
+   "recoveries": 203,
+   "medianRecoveryH": 17.9
+  },
+  {
+   "week": "2026-W07",
+   "marks": 111,
+   "recoveries": 118,
+   "medianRecoveryH": 11.1
+  },
+  {
+   "week": "2026-W08",
+   "marks": 90,
+   "recoveries": 93,
+   "medianRecoveryH": 14.3
+  },
+  {
+   "week": "2026-W09",
+   "marks": 140,
+   "recoveries": 146,
+   "medianRecoveryH": 11.1
+  },
+  {
+   "week": "2026-W10",
+   "marks": 187,
+   "recoveries": 186,
+   "medianRecoveryH": 11.7
+  },
+  {
+   "week": "2026-W11",
+   "marks": 245,
+   "recoveries": 214,
+   "medianRecoveryH": 11.7
+  },
+  {
+   "week": "2026-W12",
+   "marks": 322,
+   "recoveries": 332,
+   "medianRecoveryH": 15.1
+  },
+  {
+   "week": "2026-W13",
+   "marks": 244,
+   "recoveries": 228,
+   "medianRecoveryH": 12.0
+  },
+  {
+   "week": "2026-W14",
+   "marks": 192,
+   "recoveries": 186,
+   "medianRecoveryH": 10.9
+  },
+  {
+   "week": "2026-W15",
+   "marks": 188,
+   "recoveries": 210,
+   "medianRecoveryH": 13.8
+  },
+  {
+   "week": "2026-W16",
+   "marks": 229,
+   "recoveries": 208,
+   "medianRecoveryH": 8.7
+  },
+  {
+   "week": "2026-W17",
+   "marks": 273,
+   "recoveries": 252,
+   "medianRecoveryH": 22.7
+  },
+  {
+   "week": "2026-W18",
+   "marks": 249,
+   "recoveries": 277,
+   "medianRecoveryH": 16.0
+  },
+  {
+   "week": "2026-W19",
+   "marks": 139,
+   "recoveries": 157,
+   "medianRecoveryH": 6.3
+  },
+  {
+   "week": "2026-W20",
+   "marks": 114,
+   "recoveries": 115,
+   "medianRecoveryH": 7.0
+  },
+  {
+   "week": "2026-W21",
+   "marks": 96,
+   "recoveries": 94,
+   "medianRecoveryH": 6.9
+  },
+  {
+   "week": "2026-W22",
+   "marks": 135,
+   "recoveries": 133,
+   "medianRecoveryH": 8.2
+  },
+  {
+   "week": "2026-W23",
+   "marks": 138,
+   "recoveries": 136,
+   "medianRecoveryH": 7.5
+  },
+  {
+   "week": "2026-W24",
+   "marks": 130,
+   "recoveries": 125,
+   "medianRecoveryH": 9.9
+  },
+  {
+   "week": "2026-W25",
+   "marks": 197,
+   "recoveries": 176,
+   "medianRecoveryH": 8.8
+  },
+  {
+   "week": "2026-W26",
+   "marks": 188,
+   "recoveries": 205,
+   "medianRecoveryH": 18.9
+  },
+  {
+   "week": "2026-W27",
+   "marks": 86,
+   "recoveries": 116,
+   "medianRecoveryH": 13.7
+  },
+  {
+   "week": "2026-W28",
+   "marks": 36,
+   "recoveries": 18,
+   "medianRecoveryH": 36.0
+  },
+  {
+   "week": "2026-W29",
+   "marks": 6,
+   "recoveries": 25,
+   "medianRecoveryH": 72.0
+  }
+ ],
+ "cycleTimeWeekly": [
+  {
+   "week": "2025-W48",
+   "medianDays": 3.9,
+   "n": 13
+  },
+  {
+   "week": "2025-W49",
+   "medianDays": 9.5,
+   "n": 38
+  },
+  {
+   "week": "2025-W50",
+   "medianDays": 11.3,
+   "n": 113
+  },
+  {
+   "week": "2025-W51",
+   "medianDays": 7.2,
+   "n": 100
+  },
+  {
+   "week": "2025-W52",
+   "medianDays": 8.0,
+   "n": 60
+  },
+  {
+   "week": "2026-W01",
+   "medianDays": 13.1,
+   "n": 29
+  },
+  {
+   "week": "2026-W02",
+   "medianDays": 18.1,
+   "n": 81
+  },
+  {
+   "week": "2026-W03",
+   "medianDays": 9.0,
+   "n": 62
+  },
+  {
+   "week": "2026-W04",
+   "medianDays": 11.2,
+   "n": 103
+  },
+  {
+   "week": "2026-W05",
+   "medianDays": 9.8,
+   "n": 108
+  },
+  {
+   "week": "2026-W06",
+   "medianDays": 11.4,
+   "n": 91
+  },
+  {
+   "week": "2026-W07",
+   "medianDays": 11.2,
+   "n": 78
+  },
+  {
+   "week": "2026-W08",
+   "medianDays": 14.1,
+   "n": 95
+  },
+  {
+   "week": "2026-W09",
+   "medianDays": 13.7,
+   "n": 119
+  },
+  {
+   "week": "2026-W10",
+   "medianDays": 13.9,
+   "n": 115
+  },
+  {
+   "week": "2026-W11",
+   "medianDays": 14.9,
+   "n": 112
+  },
+  {
+   "week": "2026-W12",
+   "medianDays": 12.7,
+   "n": 137
+  },
+  {
+   "week": "2026-W13",
+   "medianDays": 12.4,
+   "n": 153
+  },
+  {
+   "week": "2026-W14",
+   "medianDays": 10.3,
+   "n": 124
+  },
+  {
+   "week": "2026-W15",
+   "medianDays": 11.1,
+   "n": 100
+  },
+  {
+   "week": "2026-W16",
+   "medianDays": 13.4,
+   "n": 89
+  },
+  {
+   "week": "2026-W17",
+   "medianDays": 11.1,
+   "n": 120
+  },
+  {
+   "week": "2026-W18",
+   "medianDays": 11.9,
+   "n": 131
+  },
+  {
+   "week": "2026-W19",
+   "medianDays": 12.1,
+   "n": 88
+  },
+  {
+   "week": "2026-W20",
+   "medianDays": 10.9,
+   "n": 127
+  },
+  {
+   "week": "2026-W21",
+   "medianDays": 9.6,
+   "n": 104
+  },
+  {
+   "week": "2026-W22",
+   "medianDays": 9.0,
+   "n": 85
+  },
+  {
+   "week": "2026-W23",
+   "medianDays": 11.2,
+   "n": 91
+  },
+  {
+   "week": "2026-W24",
+   "medianDays": 9.1,
+   "n": 87
+  },
+  {
+   "week": "2026-W25",
+   "medianDays": 9.2,
+   "n": 111
+  },
+  {
+   "week": "2026-W26",
+   "medianDays": 9.5,
+   "n": 128
+  },
+  {
+   "week": "2026-W27",
+   "medianDays": 10.0,
+   "n": 96
+  }
+ ],
+ "reschedulesWeekly": [
+  {
+   "week": "2025-W47",
+   "changes": 1,
+   "pushedOut": 0
+  },
+  {
+   "week": "2025-W48",
+   "changes": 10,
+   "pushedOut": 8
+  },
+  {
+   "week": "2025-W49",
+   "changes": 7,
+   "pushedOut": 4
+  },
+  {
+   "week": "2025-W50",
+   "changes": 30,
+   "pushedOut": 21
+  },
+  {
+   "week": "2025-W51",
+   "changes": 32,
+   "pushedOut": 29
+  },
+  {
+   "week": "2025-W52",
+   "changes": 10,
+   "pushedOut": 7
+  },
+  {
+   "week": "2026-W01",
+   "changes": 4,
+   "pushedOut": 4
+  },
+  {
+   "week": "2026-W02",
+   "changes": 22,
+   "pushedOut": 21
+  },
+  {
+   "week": "2026-W03",
+   "changes": 14,
+   "pushedOut": 12
+  },
+  {
+   "week": "2026-W04",
+   "changes": 17,
+   "pushedOut": 13
+  },
+  {
+   "week": "2026-W05",
+   "changes": 23,
+   "pushedOut": 17
+  },
+  {
+   "week": "2026-W06",
+   "changes": 36,
+   "pushedOut": 32
+  },
+  {
+   "week": "2026-W07",
+   "changes": 26,
+   "pushedOut": 22
+  },
+  {
+   "week": "2026-W08",
+   "changes": 60,
+   "pushedOut": 48
+  },
+  {
+   "week": "2026-W09",
+   "changes": 62,
+   "pushedOut": 48
+  },
+  {
+   "week": "2026-W10",
+   "changes": 47,
+   "pushedOut": 45
+  },
+  {
+   "week": "2026-W11",
+   "changes": 62,
+   "pushedOut": 47
+  },
+  {
+   "week": "2026-W12",
+   "changes": 43,
+   "pushedOut": 27
+  },
+  {
+   "week": "2026-W13",
+   "changes": 32,
+   "pushedOut": 17
+  },
+  {
+   "week": "2026-W14",
+   "changes": 41,
+   "pushedOut": 26
+  },
+  {
+   "week": "2026-W15",
+   "changes": 22,
+   "pushedOut": 18
+  },
+  {
+   "week": "2026-W16",
+   "changes": 24,
+   "pushedOut": 20
+  },
+  {
+   "week": "2026-W17",
+   "changes": 51,
+   "pushedOut": 39
+  },
+  {
+   "week": "2026-W18",
+   "changes": 29,
+   "pushedOut": 20
+  },
+  {
+   "week": "2026-W19",
+   "changes": 37,
+   "pushedOut": 25
+  },
+  {
+   "week": "2026-W20",
+   "changes": 26,
+   "pushedOut": 18
+  },
+  {
+   "week": "2026-W21",
+   "changes": 46,
+   "pushedOut": 25
+  },
+  {
+   "week": "2026-W22",
+   "changes": 19,
+   "pushedOut": 15
+  },
+  {
+   "week": "2026-W23",
+   "changes": 21,
+   "pushedOut": 15
+  },
+  {
+   "week": "2026-W24",
+   "changes": 20,
+   "pushedOut": 16
+  },
+  {
+   "week": "2026-W25",
+   "changes": 40,
+   "pushedOut": 35
+  },
+  {
+   "week": "2026-W26",
+   "changes": 30,
+   "pushedOut": 22
+  },
+  {
+   "week": "2026-W27",
+   "changes": 39,
+   "pushedOut": 33
+  },
+  {
+   "week": "2026-W28",
+   "changes": 11,
+   "pushedOut": 8
+  },
+  {
+   "week": "2026-W29",
+   "changes": 127,
+   "pushedOut": 3
+  }
+ ],
+ "arDaily": [
+  {
+   "date": "2026-03-31",
+   "inHouse": 187,
+   "aging": 14,
+   "ar": 7.5
+  },
+  {
+   "date": "2026-04-01",
+   "inHouse": 185,
+   "aging": 19,
+   "ar": 10.3
+  },
+  {
+   "date": "2026-04-02",
+   "inHouse": 184,
+   "aging": 12,
+   "ar": 6.5
+  },
+  {
+   "date": "2026-04-03",
+   "inHouse": 186,
+   "aging": 21,
+   "ar": 11.3
+  },
+  {
+   "date": "2026-04-04",
+   "inHouse": 186,
+   "aging": 47,
+   "ar": 25.3
+  },
+  {
+   "date": "2026-04-05",
+   "inHouse": 186,
+   "aging": 59,
+   "ar": 31.7
+  },
+  {
+   "date": "2026-04-06",
+   "inHouse": 190,
+   "aging": 37,
+   "ar": 19.5
+  },
+  {
+   "date": "2026-04-07",
+   "inHouse": 197,
+   "aging": 9,
+   "ar": 4.6
+  },
+  {
+   "date": "2026-04-08",
+   "inHouse": 182,
+   "aging": 5,
+   "ar": 2.7
+  },
+  {
+   "date": "2026-04-09",
+   "inHouse": 173,
+   "aging": 52,
+   "ar": 30.1
+  },
+  {
+   "date": "2026-04-10",
+   "inHouse": 173,
+   "aging": 18,
+   "ar": 10.4
+  },
+  {
+   "date": "2026-04-11",
+   "inHouse": 173,
+   "aging": 32,
+   "ar": 18.5
+  },
+  {
+   "date": "2026-04-13",
+   "inHouse": 173,
+   "aging": 21,
+   "ar": 12.1
+  },
+  {
+   "date": "2026-04-14",
+   "inHouse": 179,
+   "aging": 21,
+   "ar": 11.7
+  },
+  {
+   "date": "2026-04-15",
+   "inHouse": 172,
+   "aging": 34,
+   "ar": 19.8
+  },
+  {
+   "date": "2026-04-16",
+   "inHouse": 173,
+   "aging": 21,
+   "ar": 12.1
+  },
+  {
+   "date": "2026-04-17",
+   "inHouse": 201,
+   "aging": 32,
+   "ar": 15.9
+  },
+  {
+   "date": "2026-04-18",
+   "inHouse": 201,
+   "aging": 53,
+   "ar": 26.4
+  },
+  {
+   "date": "2026-04-19",
+   "inHouse": 201,
+   "aging": 53,
+   "ar": 26.4
+  },
+  {
+   "date": "2026-04-20",
+   "inHouse": 208,
+   "aging": 43,
+   "ar": 20.7
+  },
+  {
+   "date": "2026-04-21",
+   "inHouse": 221,
+   "aging": 58,
+   "ar": 26.2
+  },
+  {
+   "date": "2026-04-22",
+   "inHouse": 217,
+   "aging": 65,
+   "ar": 30.0
+  },
+  {
+   "date": "2026-04-23",
+   "inHouse": 209,
+   "aging": 62,
+   "ar": 29.7
+  },
+  {
+   "date": "2026-04-24",
+   "inHouse": 193,
+   "aging": 59,
+   "ar": 30.6
+  },
+  {
+   "date": "2026-04-25",
+   "inHouse": 193,
+   "aging": 66,
+   "ar": 34.2
+  },
+  {
+   "date": "2026-04-26",
+   "inHouse": 193,
+   "aging": 72,
+   "ar": 37.3
+  },
+  {
+   "date": "2026-04-27",
+   "inHouse": 195,
+   "aging": 48,
+   "ar": 24.6
+  },
+  {
+   "date": "2026-04-28",
+   "inHouse": 181,
+   "aging": 42,
+   "ar": 23.2
+  },
+  {
+   "date": "2026-04-29",
+   "inHouse": 178,
+   "aging": 11,
+   "ar": 6.2
+  },
+  {
+   "date": "2026-04-30",
+   "inHouse": 171,
+   "aging": 27,
+   "ar": 15.8
+  },
+  {
+   "date": "2026-05-01",
+   "inHouse": 166,
+   "aging": 21,
+   "ar": 12.7
+  },
+  {
+   "date": "2026-05-02",
+   "inHouse": 166,
+   "aging": 31,
+   "ar": 18.7
+  },
+  {
+   "date": "2026-05-03",
+   "inHouse": 166,
+   "aging": 47,
+   "ar": 28.3
+  },
+  {
+   "date": "2026-05-04",
+   "inHouse": 171,
+   "aging": 12,
+   "ar": 7.0
+  },
+  {
+   "date": "2026-05-05",
+   "inHouse": 163,
+   "aging": 6,
+   "ar": 3.7
+  },
+  {
+   "date": "2026-05-06",
+   "inHouse": 169,
+   "aging": 5,
+   "ar": 3.0
+  },
+  {
+   "date": "2026-05-07",
+   "inHouse": 160,
+   "aging": 3,
+   "ar": 1.9
+  },
+  {
+   "date": "2026-05-08",
+   "inHouse": 177,
+   "aging": 13,
+   "ar": 7.3
+  },
+  {
+   "date": "2026-05-09",
+   "inHouse": 177,
+   "aging": 22,
+   "ar": 12.4
+  },
+  {
+   "date": "2026-05-10",
+   "inHouse": 177,
+   "aging": 22,
+   "ar": 12.4
+  },
+  {
+   "date": "2026-05-11",
+   "inHouse": 165,
+   "aging": 11,
+   "ar": 6.7
+  },
+  {
+   "date": "2026-05-12",
+   "inHouse": 163,
+   "aging": 20,
+   "ar": 12.3
+  },
+  {
+   "date": "2026-05-13",
+   "inHouse": 148,
+   "aging": 5,
+   "ar": 3.4
+  },
+  {
+   "date": "2026-05-14",
+   "inHouse": 142,
+   "aging": 9,
+   "ar": 6.3
+  },
+  {
+   "date": "2026-05-15",
+   "inHouse": 143,
+   "aging": 10,
+   "ar": 7.0
+  },
+  {
+   "date": "2026-05-16",
+   "inHouse": 143,
+   "aging": 11,
+   "ar": 7.7
+  },
+  {
+   "date": "2026-05-19",
+   "inHouse": 154,
+   "aging": 9,
+   "ar": 5.8
+  },
+  {
+   "date": "2026-05-20",
+   "inHouse": 159,
+   "aging": 11,
+   "ar": 6.9
+  },
+  {
+   "date": "2026-05-21",
+   "inHouse": 150,
+   "aging": 12,
+   "ar": 8.0
+  },
+  {
+   "date": "2026-05-22",
+   "inHouse": 148,
+   "aging": 9,
+   "ar": 6.1
+  },
+  {
+   "date": "2026-05-23",
+   "inHouse": 148,
+   "aging": 23,
+   "ar": 15.5
+  },
+  {
+   "date": "2026-05-26",
+   "inHouse": 139,
+   "aging": 14,
+   "ar": 10.1
+  },
+  {
+   "date": "2026-05-27",
+   "inHouse": 140,
+   "aging": 14,
+   "ar": 10.0
+  },
+  {
+   "date": "2026-05-28",
+   "inHouse": 144,
+   "aging": 16,
+   "ar": 11.1
+  },
+  {
+   "date": "2026-05-29",
+   "inHouse": 133,
+   "aging": 9,
+   "ar": 6.8
+  },
+  {
+   "date": "2026-06-01",
+   "inHouse": 122,
+   "aging": 15,
+   "ar": 12.3
+  },
+  {
+   "date": "2026-06-02",
+   "inHouse": 140,
+   "aging": 10,
+   "ar": 7.1
+  },
+  {
+   "date": "2026-06-03",
+   "inHouse": 141,
+   "aging": 12,
+   "ar": 8.5
+  },
+  {
+   "date": "2026-06-04",
+   "inHouse": 133,
+   "aging": 11,
+   "ar": 8.3
+  },
+  {
+   "date": "2026-06-05",
+   "inHouse": 140,
+   "aging": 15,
+   "ar": 10.7
+  },
+  {
+   "date": "2026-06-06",
+   "inHouse": 140,
+   "aging": 18,
+   "ar": 12.9
+  },
+  {
+   "date": "2026-06-07",
+   "inHouse": 140,
+   "aging": 27,
+   "ar": 19.3
+  },
+  {
+   "date": "2026-06-08",
+   "inHouse": 149,
+   "aging": 16,
+   "ar": 10.7
+  },
+  {
+   "date": "2026-06-09",
+   "inHouse": 161,
+   "aging": 13,
+   "ar": 8.1
+  },
+  {
+   "date": "2026-06-10",
+   "inHouse": 165,
+   "aging": 14,
+   "ar": 8.5
+  },
+  {
+   "date": "2026-06-11",
+   "inHouse": 165,
+   "aging": 19,
+   "ar": 11.5
+  },
+  {
+   "date": "2026-06-12",
+   "inHouse": 168,
+   "aging": 25,
+   "ar": 14.9
+  },
+  {
+   "date": "2026-06-15",
+   "inHouse": 192,
+   "aging": 25,
+   "ar": 13.0
+  },
+  {
+   "date": "2026-06-16",
+   "inHouse": 182,
+   "aging": 17,
+   "ar": 9.3
+  },
+  {
+   "date": "2026-06-17",
+   "inHouse": 185,
+   "aging": 26,
+   "ar": 14.1
+  },
+  {
+   "date": "2026-06-18",
+   "inHouse": 186,
+   "aging": 24,
+   "ar": 12.9
+  },
+  {
+   "date": "2026-06-19",
+   "inHouse": 177,
+   "aging": 27,
+   "ar": 15.3
+  },
+  {
+   "date": "2026-06-20",
+   "inHouse": 178,
+   "aging": 54,
+   "ar": 30.3
+  },
+  {
+   "date": "2026-06-21",
+   "inHouse": 178,
+   "aging": 52,
+   "ar": 29.2
+  },
+  {
+   "date": "2026-06-22",
+   "inHouse": 182,
+   "aging": 34,
+   "ar": 18.7
+  },
+  {
+   "date": "2026-06-23",
+   "inHouse": 178,
+   "aging": 44,
+   "ar": 24.7
+  },
+  {
+   "date": "2026-06-24",
+   "inHouse": 178,
+   "aging": 34,
+   "ar": 19.1
+  },
+  {
+   "date": "2026-06-25",
+   "inHouse": 159,
+   "aging": 22,
+   "ar": 13.8
+  },
+  {
+   "date": "2026-06-26",
+   "inHouse": 144,
+   "aging": 22,
+   "ar": 15.3
+  },
+  {
+   "date": "2026-06-27",
+   "inHouse": 144,
+   "aging": 30,
+   "ar": 20.8
+  },
+  {
+   "date": "2026-06-30",
+   "inHouse": 129,
+   "aging": 1,
+   "ar": 0.8
+  },
+  {
+   "date": "2026-07-01",
+   "inHouse": 113,
+   "aging": 16,
+   "ar": 14.2
+  },
+  {
+   "date": "2026-07-02",
+   "inHouse": 114,
+   "aging": 3,
+   "ar": 2.6
+  },
+  {
+   "date": "2026-07-03",
+   "inHouse": 109,
+   "aging": 1,
+   "ar": 0.9
+  },
+  {
+   "date": "2026-07-04",
+   "inHouse": 109,
+   "aging": 8,
+   "ar": 7.3
+  },
+  {
+   "date": "2026-07-05",
+   "inHouse": 109,
+   "aging": 8,
+   "ar": 7.3
+  },
+  {
+   "date": "2026-07-06",
+   "inHouse": 100,
+   "aging": 5,
+   "ar": 5.0
+  },
+  {
+   "date": "2026-07-07",
+   "inHouse": 105,
+   "aging": 5,
+   "ar": 4.8
+  },
+  {
+   "date": "2026-07-08",
+   "inHouse": 110,
+   "aging": 4,
+   "ar": 3.6
+  },
+  {
+   "date": "2026-07-09",
+   "inHouse": 122,
+   "aging": 9,
+   "ar": 7.4
+  },
+  {
+   "date": "2026-07-10",
+   "inHouse": 121,
+   "aging": 14,
+   "ar": 11.6
+  },
+  {
+   "date": "2026-07-11",
+   "inHouse": 121,
+   "aging": 25,
+   "ar": 20.7
+  },
+  {
+   "date": "2026-07-12",
+   "inHouse": 121,
+   "aging": 26,
+   "ar": 21.5
+  },
+  {
+   "date": "2026-07-13",
+   "inHouse": 131,
+   "aging": 12,
+   "ar": 9.2
+  },
+  {
+   "date": "2026-07-14",
+   "inHouse": 127,
+   "aging": 6,
+   "ar": 4.7
+  }
+ ],
+ "repeatAgers60d": [
+  [
+   "42945",
+   5
+  ],
+  [
+   "42980",
+   5
+  ],
+  [
+   "42993",
+   5
+  ],
+  [
+   "43189",
+   5
+  ],
+  [
+   "43279",
+   5
+  ],
+  [
+   "43293",
+   5
+  ],
+  [
+   "43416",
+   5
+  ],
+  [
+   "43417",
+   5
+  ],
+  [
+   "43419",
+   5
+  ],
+  [
+   "43418",
+   5
+  ],
+  [
+   "42861",
+   4
+  ],
+  [
+   "42911",
+   4
+  ],
+  [
+   "42962",
+   4
+  ],
+  [
+   "42957",
+   4
+  ],
+  [
+   "42897",
+   4
+  ],
+  [
+   "42946",
+   4
+  ],
+  [
+   "42970",
+   4
+  ],
+  [
+   "43012",
+   4
+  ],
+  [
+   "43029",
+   4
+  ],
+  [
+   "43054",
+   4
+  ],
+  [
+   "43061",
+   4
+  ],
+  [
+   "43062",
+   4
+  ],
+  [
+   "43099",
+   4
+  ],
+  [
+   "43133",
+   4
+  ],
+  [
+   "43197",
+   4
+  ]
+ ]
+};
 
 // ─── CONSTANTS ───
 const FLAG_COLORS = {"On Track":"#107C10","Tight":"#C19C00","Reschedule Window":"#CA5010","Critical":"#D13438","Past Due":"#8764B8","No Date":"#8A8886"};
@@ -8236,6 +9474,201 @@ function buildStatusCell(j, variant) {
   return '<span class="status-none">—</span>';
 }
 
+// ─── TAB 5: TRENDS (velocity & history from the Stage History event log) ───
+const TR_MARKS = "#CA5010", TR_RECOV = "#0078D4";   // categorical pair, CVD-validated on both themes
+
+function trIsoWeek(dstr) {
+  const d = new Date(dstr + "T12:00:00");
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = t.getUTCDay() || 7;
+  t.setUTCDate(t.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  const wk = Math.ceil(((t - y0) / 86400000 + 1) / 7);
+  return t.getUTCFullYear() + "-W" + String(wk).padStart(2, "0");
+}
+function trNice(mx) {
+  if (mx <= 0) return 1;
+  const p = Math.pow(10, Math.floor(Math.log10(mx)));
+  for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= mx) return m * p;
+  return 10 * p;
+}
+function trTicks(mx) { return [0, 0.5, 1].map(f => f * mx); }
+function trFmtWk(w) { return w.slice(5); }        // 2026-W28 -> W28
+function trFmtDay(d) { return (+d.slice(5, 7)) + "/" + (+d.slice(8, 10)); }
+
+// Shared frame: left axis + recessive grid. Returns {open, close, x, y, plot}
+function trFrame(W, H, mL, yMax, yFmt) {
+  const mR = 8, mT = 10, mB = 20, pW = W - mL - mR, pH = H - mT - mB;
+  const y = v => mT + pH - (v / yMax) * pH;
+  const x0 = mL, x1 = mL + pW;
+  let g = "";
+  trTicks(yMax).forEach(v => {
+    g += `<line x1="${x0}" y1="${y(v)}" x2="${x1}" y2="${y(v)}" stroke="var(--border)" stroke-width="1"/>`
+       + `<text x="${x0 - 5}" y="${y(v) + 3.5}" text-anchor="end" class="tr-tick">${yFmt(v)}</text>`;
+  });
+  return { mL, mR, mT, mB, pW, pH, y, grid: g };
+}
+
+function trBarPath(x, yTop, w, yBase) {
+  const r = Math.min(3, w / 2, Math.max(0, yBase - yTop));
+  if (yBase - yTop < 1) return `M${x} ${yBase}h${w}v-0.5h-${w}Z`;
+  return `M${x} ${yBase}V${yTop + r}q0 -${r} ${r} -${r}h${w - 2 * r}q${r} 0 ${r} ${r}V${yBase}Z`;
+}
+
+// Panel 1a: grouped weekly bars (marks vs recoveries)
+function trWeeklyBars(rows, W, H, cutoffWk) {
+  const mx = trNice(Math.max(1, ...rows.map(r => Math.max(r.marks, r.recoveries))));
+  const f = trFrame(W, H, 30, mx, v => v);
+  const gw = f.pW / rows.length, bw = Math.min(13, (gw - 8) / 2);
+  let s = f.grid;
+  rows.forEach((r, i) => {
+    const gx = f.mL + i * gw + gw / 2;
+    const synth = cutoffWk && r.week > cutoffWk;
+    const tip = `${r.week}${synth ? " (partial capture)" : ""} — marked ${r.marks} / recovered ${r.recoveries}`;
+    s += `<g data-tip="${tip}">`
+       + `<rect x="${gx - bw - 1}" y="${f.mT}" width="${2 * bw + 2}" height="${f.pH}" fill="transparent"/>`
+       + `<path d="${trBarPath(gx - bw - 1, f.y(r.marks), bw, f.y(0))}" fill="${TR_MARKS}"${synth ? ' opacity="0.45"' : ''}/>`
+       + `<path d="${trBarPath(gx + 1, f.y(r.recoveries), bw, f.y(0))}" fill="${TR_RECOV}"${synth ? ' opacity="0.45"' : ''}/>`
+       + `</g>`;
+    if (i % 2 === 0 || rows.length <= 9)
+      s += `<text x="${gx}" y="${H - 6}" text-anchor="middle" class="tr-tick">${trFmtWk(r.week)}${synth ? "†" : ""}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Weekly aging marks vs recoveries">${s}</svg>`;
+}
+
+// Generic line panel with optional threshold lines and per-point hover targets
+function trLine(pts, W, H, opts) {
+  const o = Object.assign({ color: TR_RECOV, yMax: null, thresholds: [], mL: 34, fmt: v => v, lbl: p => p.tip }, opts);
+  const vals = pts.map(p => p.v).filter(v => v != null);
+  const yMax = o.yMax || trNice(Math.max(1, ...vals) * 1.15);
+  const f = trFrame(W, H, o.mL, yMax, o.fmt);
+  const xs = i => f.mL + (pts.length === 1 ? f.pW / 2 : (i / (pts.length - 1)) * f.pW);
+  let s = f.grid;
+  o.thresholds.forEach(t => {
+    if (t.v <= yMax) s += `<line x1="${f.mL}" y1="${f.y(t.v)}" x2="${f.mL + f.pW}" y2="${f.y(t.v)}" stroke="${t.color}" stroke-width="1" stroke-dasharray="4 3" opacity="0.55"/>`
+      + `<text x="${f.mL + f.pW}" y="${f.y(t.v) - 3}" text-anchor="end" class="tr-thr" fill="${t.color}">${t.label}</text>`;
+  });
+  let d = "", pen = "M";
+  pts.forEach((p, i) => {
+    if (p.v == null) { pen = "M"; return; }
+    d += `${pen}${xs(i).toFixed(1)} ${f.y(p.v).toFixed(1)}`; pen = "L";
+  });
+  s += `<path d="${d}" fill="none" stroke="${o.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  pts.forEach((p, i) => {
+    if (p.v == null) return;
+    s += `<g data-tip="${o.lbl(p)}"><circle cx="${xs(i)}" cy="${f.y(p.v)}" r="10" fill="transparent"/>`
+       + `<circle cx="${xs(i)}" cy="${f.y(p.v)}" r="2.5" fill="${o.color}"${p.synth ? ' opacity="0.45"' : ''}/></g>`;
+    if (p.xl) s += `<text x="${xs(i)}" y="${H - 6}" text-anchor="middle" class="tr-tick">${p.xl}</text>`;
+  });
+  const last = pts.filter(p => p.v != null).slice(-1)[0];
+  if (last) s += `<text x="${f.mL + f.pW + 2}" y="${f.y(last.v) + 3.5}" class="tr-last" fill="${o.color}">${o.fmt(last.v)}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${s}</svg>`;
+}
+
+function buildTrends() {
+  if (!TRENDS || !TRENDS.weeklyAging) {
+    return `<div class="card" style="padding:24px;color:var(--text-2)">Trends data not available for this build.</div>`;
+  }
+  const cutWk = TRENDS.realProgressCutoff ? trIsoWeek(TRENDS.realProgressCutoff.slice(0, 10)) : null;
+  const wa = TRENDS.weeklyAging.slice(-16);
+  const ar = TRENDS.arDaily.slice(-60);
+  const ct = TRENDS.cycleTimeWeekly.slice(-16);
+  const rs = TRENDS.reschedulesWeekly.slice(-16);
+
+  const arPts = ar.map((r, i) => ({
+    v: r.ar, xl: (i % 10 === 0 || i === ar.length - 1) ? trFmtDay(r.date) : null,
+    tip: `${trFmtDay(r.date)} — AR ${r.ar}% (${r.aging}/${r.inHouse} in house)`
+  }));
+  const rhPts = wa.map(r => ({
+    v: r.medianRecoveryH, xl: null, synth: cutWk && r.week > cutWk,
+    tip: `${r.week} — median recovery ${r.medianRecoveryH == null ? "n/a" : r.medianRecoveryH + "h"}${cutWk && r.week > cutWk ? " (partial capture)" : ""}`
+  }));
+  const ctPts = ct.map((r, i) => ({
+    v: r.medianDays, xl: (i % 2 === 0 || ct.length <= 9) ? trFmtWk(r.week) : null,
+    tip: `${r.week} — median ${r.medianDays} days (${r.n} shipped)`
+  }));
+
+  const woCust = {};
+  (DATA.allInHouseJobs || []).forEach(j => woCust[j.wo] = j.customer || "");
+  const raRows = (TRENDS.repeatAgers60d || []).slice(0, 12).map(([wo, n]) =>
+    `<tr><td class="tr-wo">${esc(wo)}</td><td>${esc((woCust[wo] || "—").split(",")[0])}</td><td class="tr-n">${n}×</td></tr>`).join("");
+
+  const legend = `<span class="tr-chip"><i style="background:${TR_MARKS}"></i>Marked aging</span>`
+               + `<span class="tr-chip"><i style="background:${TR_RECOV}"></i>Recovered</span>`;
+  const synthNote = cutWk
+    ? `<div class="tr-note">† After ${esc(TRENDS.realProgressCutoff.slice(0, 10))} the source flow stopped logging Progress events; these periods use pipeline-synthesized transitions (2h granularity going forward, daily for the backfill) and may undercount same-day recoveries.</div>`
+    : "";
+
+  return `
+  <style>
+    .tr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;}
+    .tr-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px 10px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+    .tr-card h3{font-size:13px;font-weight:600;color:var(--text-strong);margin-bottom:2px;}
+    .tr-card .tr-sub{font-size:11px;color:var(--text-muted);margin-bottom:8px;}
+    .tr-tick{font-size:9.5px;fill:var(--text-muted);}
+    .tr-thr{font-size:9px;font-weight:600;}
+    .tr-last{font-size:10px;font-weight:600;}
+    .tr-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--text-2);margin-right:12px;}
+    .tr-chip i{width:10px;height:10px;border-radius:3px;display:inline-block;}
+    .tr-note{font-size:10.5px;color:var(--text-muted);margin-top:10px;line-height:1.45;}
+    .tr-table{width:100%;border-collapse:collapse;font-size:12px;}
+    .tr-table td{padding:5px 8px;border-top:1px solid var(--border);color:var(--text);}
+    .tr-table .tr-wo{font-weight:600;color:var(--text-strong);}
+    .tr-table .tr-n{text-align:right;font-weight:600;color:${TR_MARKS};}
+    #trend-tip{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--border-strong);color:var(--text);font-size:11.5px;padding:5px 9px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:60;display:none;max-width:280px;}
+  </style>
+  <div class="tr-grid">
+    <div class="tr-card" style="grid-column:1/-1;">
+      <h3>Aging flow — marked vs recovered, weekly</h3>
+      <div class="tr-sub">How many jobs went stale vs how many the floor pulled back · ${legend}</div>
+      ${trWeeklyBars(wa, 720, 190, cutWk)}
+      <div class="tr-sub" style="margin:6px 0 2px;">Median hours to recover an aging job</div>
+      ${trLine(rhPts, 720, 120, { color: TR_RECOV, fmt: v => v + "h" })}
+    </div>
+    <div class="tr-card" style="grid-column:1/-1;">
+      <h3>House Aging Ratio — daily</h3>
+      <div class="tr-sub">Exact counts from each day's archived pull · signal thresholds shown</div>
+      ${trLine(arPts, 720, 200, { color: TR_RECOV, yMax: Math.max(25, trNice(Math.max(...ar.map(r => r.ar)) * 1.1)), fmt: v => v + "%", thresholds: [
+        { v: 12, color: "var(--sig-green)", label: "12% GREEN" },
+        { v: 20, color: "var(--sig-amber)", label: "20% YELLOW" },
+        { v: 35, color: "var(--sig-red)", label: "35% RED" }] })}
+    </div>
+    <div class="tr-card">
+      <h3>Cycle time — weekly median</h3>
+      <div class="tr-sub">Tracked start → shipped, calendar days</div>
+      ${trLine(ctPts, 360, 170, { color: TR_RECOV, fmt: v => v + "d" })}
+    </div>
+    <div class="tr-card">
+      <h3>Repeat agers — last 60 days</h3>
+      <div class="tr-sub">Jobs flagged aging 3+ times</div>
+      <table class="tr-table"><tbody>${raRows || '<tr><td style="color:var(--text-muted)">None — no chronic repeat agers.</td></tr>'}</tbody></table>
+    </div>
+    <div class="tr-card" style="grid-column:1/-1;">
+      <h3>Reschedules — weekly due-date changes</h3>
+      <div class="tr-sub">From the date-change audit trail (pushed out vs total)</div>
+      ${trLine(rs.map((r, i) => ({ v: r.changes, xl: (i % 2 === 0) ? trFmtWk(r.week) : null, tip: `${r.week} — ${r.changes} changes, ${r.pushedOut} pushed out` })), 720, 150, { color: TR_MARKS, fmt: v => v })}
+    </div>
+  </div>
+  ${synthNote}
+  <div id="trend-tip"></div>`;
+}
+
+function initTrendTips() {
+  const root = document.getElementById("tab5");
+  const tip = () => document.getElementById("trend-tip");
+  root.addEventListener("mousemove", e => {
+    const g = e.target.closest("[data-tip]");
+    const t = tip();
+    if (!g) { t.style.display = "none"; return; }
+    t.textContent = g.getAttribute("data-tip");
+    t.style.display = "block";
+    const vw = window.innerWidth;
+    t.style.left = Math.min(e.clientX + 14, vw - t.offsetWidth - 8) + "px";
+    t.style.top = (e.clientY + 16) + "px";
+  });
+  root.addEventListener("mouseleave", () => { tip().style.display = "none"; });
+}
+
 // ─── INIT ───
 document.getElementById("header").innerHTML = buildHeader();
 /* dq-row removed by design */
@@ -8245,6 +9678,8 @@ document.getElementById("tab1").innerHTML = buildProductionFlow();
 document.getElementById("tab2").innerHTML = buildJobFlags();
 document.getElementById("tab3").innerHTML = buildReschedule();
 document.getElementById("tab4").innerHTML = buildProfileWatch();
+document.getElementById("tab5").innerHTML = buildTrends();
+initTrendTips();
 
 // v11: backdrop click + Esc close
 document.getElementById('kpi-modal').addEventListener('click', (e) => {
