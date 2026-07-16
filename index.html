@@ -609,39 +609,23 @@ const DATA = {
         "count": 3
       }
     ],
-    "completedCount": 24,
-    "completedRatio": 20.5
+    "completedCount": 25,
+    "completedRatio": 21.4
   },
   "departments": [
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 18,
+      "name": "Shipping",
+      "lead": "Luis",
+      "total": 36,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 17,
+      "incoming": 33,
       "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 11.1,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 19,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 19,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
+      "completedCount": 21,
+      "completedRatio": 58.3,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -678,18 +662,34 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Shipping",
-      "lead": "Luis",
-      "total": 36,
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 18,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 33,
+      "incoming": 17,
       "profileMix": [],
-      "completedCount": 21,
-      "completedRatio": 58.3,
+      "completedCount": 3,
+      "completedRatio": 16.7,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 19,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 19,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -6386,7 +6386,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43698",
@@ -6404,7 +6404,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43700",
@@ -6475,8 +6475,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "00 - On Cart"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "43705",
@@ -6530,7 +6530,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "43706-3",
@@ -7633,6 +7633,16 @@ const DATA = {
       "dueBD": 2
     },
     {
+      "wo": "43704",
+      "customer": "AMETEK",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Low Qty",
+      "priority": "T2 Expedite",
+      "dueDate": "07/17",
+      "dueBD": 2
+    },
+    {
       "wo": "43705",
       "customer": "CREATIVE PATHWAYS, INC.",
       "dept": "Shipping",
@@ -7687,19 +7697,12 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 18 total. 17 upcoming. CR 11.1% - 2 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 2 T2. Upcoming tiered: 1 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43706-1, 43704.",
+"Shipping": {
+    "what": "AR 0.0% GREEN. 0 aging / 36 total. 33 upcoming. CR 58.3% - 21 finished-at-op awaiting handoff. Tiered in dept: 5 T1, 5 T2. Upcoming tiered: 5 T1, 5 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43671-3, 43662, 43664, 43665, 43670, 43671-2, 43705, 43706-3.",
     "ot": "recommended",
-    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 0 aging / 19 total. Pre-Clean: 0 aging / 25 total."
-  },
-  "Cleanroom": {
-    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. Tiered in dept: 1 T1, 2 T2, 1 T3. Upcoming tiered: 1 T1, 2 T2, 1 T3.",
-    "action": "Start tiered upcoming wave in msBD order: 43706-2, 43685, 43718, 43747.",
-    "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "Pre-Clean: 0 aging / 25 total, 25 upcoming feeding in."
+    "otText": "OT recommended - 10 tiered expedites on compressed windows.",
+    "upstream": "Packaging: 0 aging / 18 total, 17 upcoming."
   },
   "Pre-Clean": {
     "what": "AR 0.0% GREEN. 0 aging / 25 total. 25 upcoming. Tiered in dept: 2 T1, 3 T2. Upcoming tiered: 2 T1, 3 T2.",
@@ -7715,12 +7718,19 @@ const GUIDANCE = {
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": null
   },
-  "Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 36 total. 33 upcoming. CR 58.3% - 21 finished-at-op awaiting handoff. Tiered in dept: 5 T1, 5 T2. Upcoming tiered: 5 T1, 5 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43671-3, 43662, 43664, 43665, 43670, 43671-2, 43705, 43706-3.",
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 18 total. 17 upcoming. CR 16.7% - 3 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 2 T2. Upcoming tiered: 1 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43706-1, 43704.",
     "ot": "recommended",
-    "otText": "OT recommended - 10 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 0 aging / 18 total, 17 upcoming."
+    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
+    "upstream": "Cleanroom: 0 aging / 19 total. Pre-Clean: 0 aging / 25 total."
+  },
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. Tiered in dept: 1 T1, 2 T2, 1 T3. Upcoming tiered: 1 T1, 2 T2, 1 T3.",
+    "action": "Start tiered upcoming wave in msBD order: 43706-2, 43685, 43718, 43747.",
+    "ot": "recommended",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "Pre-Clean: 0 aging / 25 total, 25 upcoming feeding in."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 6 total. CR 16.7% - 1 finished-at-op awaiting handoff. Tiered in dept: 1 T1.",
@@ -7753,20 +7763,20 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-15T16:00",
+ "generatedAt": "2026-07-15T18:00",
  "realProgressCutoff": "2026-07-02T16:20",
- "hero": "Aging pressure is easing \u2014 0 aging in house vs ~20 typical. This week the floor let 65 jobs go stale (norm ~138) and picked aging jobs back up in a median 24h (norm 14h).",
+ "hero": "Aging pressure is easing \u2014 0 aging in house vs ~20 typical. This week the floor let 62 jobs go stale (norm ~139) and picked aging jobs back up in a median 24h (norm 14h).",
  "pulse": {
   "agingToday": 0,
   "agingNorm": 20.0,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 65,
-  "staleNorm": 138,
+  "staleThisWeek": 62,
+  "staleNorm": 139,
   "staleVerdict": "BETTER",
   "respThisWeekH": 24.0,
-  "respNormH": 13.6,
+  "respNormH": 14.5,
   "respVerdict": "WORSE",
   "respPartialCapture": true
  },
@@ -8417,7 +8427,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~15h \u00b7 improving",
-   "respH": 14.6,
+   "respH": 15.2,
    "custClock": false,
    "small": false
   },
@@ -8806,8 +8816,8 @@ const TRENDS = {
     }
    ],
    "trend": "worsening",
-   "sentence": "aging present 8 of last 10 days (2 jobs at peak, ~2 in dept) \u00b7 aging picked up in ~47h \u00b7 customer clock",
-   "respH": 47.3,
+   "sentence": "aging present 8 of last 10 days (2 jobs at peak, ~2 in dept) \u00b7 aging picked up in ~48h \u00b7 customer clock",
+   "respH": 48.0,
    "custClock": true,
    "small": true
   }
