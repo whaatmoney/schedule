@@ -566,7 +566,7 @@ const DATA = {
       "Critical": 2,
       "Tight": 2
     },
-    "upcomingCount": 89,
+    "upcomingCount": 91,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -609,23 +609,39 @@ const DATA = {
         "count": 3
       }
     ],
-    "completedCount": 27,
-    "completedRatio": 23.9
+    "completedCount": 25,
+    "completedRatio": 22.1
   },
   "departments": [
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 22,
+      "name": "Receiving/Inspection",
+      "lead": "Luis",
+      "total": 10,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 22,
+      "incoming": 0,
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 20,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 20,
+      "profileMix": [],
+      "completedCount": 1,
+      "completedRatio": 5.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -646,6 +662,22 @@ const DATA = {
       "tieredMix": []
     },
     {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 22,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 22,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
       "name": "Packaging",
       "lead": "Erick",
       "total": 13,
@@ -658,38 +690,6 @@ const DATA = {
       "profileMix": [],
       "completedCount": 2,
       "completedRatio": 15.4,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Receiving/Inspection",
-      "lead": "Luis",
-      "total": 12,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 16.7,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 18,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 18,
-      "profileMix": [],
-      "completedCount": 1,
-      "completedRatio": 5.6,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -3933,6 +3933,16 @@ const DATA = {
       "profile": "Low Qty"
     },
     {
+      "wo": "43802-3",
+      "dept": "Pre-Clean",
+      "dueDate": "07/20",
+      "msDate": "07/17",
+      "msBD": 1,
+      "dueBD": 2,
+      "priority": "T1 Expedite",
+      "profile": "Priority Customer"
+    },
+    {
       "wo": "43802-4",
       "dept": "Pre-Clean",
       "dueDate": "07/20",
@@ -3941,6 +3951,16 @@ const DATA = {
       "dueBD": 2,
       "priority": "T1 Expedite",
       "profile": "Priority Customer"
+    },
+    {
+      "wo": "43804",
+      "dept": "Pre-Clean",
+      "dueDate": "07/23",
+      "msDate": "07/17",
+      "msBD": 1,
+      "dueBD": 5,
+      "priority": "T2 Expedite",
+      "profile": "Standard"
     },
     {
       "wo": "43614",
@@ -4521,7 +4541,7 @@ const DATA = {
     {
       "wo": "43802-3",
       "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Receiving/Inspection",
+      "dept": "Pre-Clean",
       "profile": "Priority Customer",
       "profileMin": 5,
       "profileMax": 7,
@@ -4569,7 +4589,7 @@ const DATA = {
     {
       "wo": "43804",
       "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Receiving/Inspection",
+      "dept": "Pre-Clean",
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
@@ -7070,8 +7090,8 @@ const DATA = {
     {
       "wo": "43802-3",
       "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
       "profile": "Priority Customer",
       "priority": "T1 Expedite",
       "expediteTier": null,
@@ -7082,8 +7102,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
+      "isCompleted": false,
+      "progress": "00 - On Floor"
     },
     {
       "wo": "43802-4",
@@ -7142,8 +7162,8 @@ const DATA = {
     {
       "wo": "43804",
       "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
       "profile": "Standard",
       "priority": "T2 Expedite",
       "expediteTier": null,
@@ -7154,8 +7174,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
     },
     {
       "wo": "43805",
@@ -7506,38 +7526,25 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "07/23",
       "dueBD": 5
-    },
-    {
-      "wo": "43802-3",
-      "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
-      "profile": "Priority Customer",
-      "priority": "T1 Expedite",
-      "dueDate": "07/20",
-      "dueBD": 2
-    },
-    {
-      "wo": "43804",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
-      "profile": "Standard",
-      "priority": "T2 Expedite",
-      "dueDate": "07/23",
-      "dueBD": 5
     }
   ]
 };
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Cleanroom": {
-    "what": "AR 0.0% GREEN. 0 aging / 22 total. 22 upcoming. Tiered in dept: 1 T1, 4 T2. Upcoming tiered: 1 T1, 4 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43718, 43729, 43736, 43751, 43791.",
+"Receiving/Inspection": {
+    "what": "AR 0.0% GREEN. 0 aging / 10 total. Tiered in dept: 3 T1, 2 T2.",
+    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
     "ot": "recommended",
     "otText": "OT recommended - 5 tiered expedites on compressed windows.",
-    "upstream": "Pre-Clean: 0 aging / 18 total, 18 upcoming feeding in."
+    "upstream": null
+  },
+  "Pre-Clean": {
+    "what": "AR 0.0% GREEN. 0 aging / 20 total. 20 upcoming. Tiered in dept: 3 T1, 2 T2. Upcoming tiered: 3 T1, 2 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43520-2, 43785, 43802-3, 43802-4, 43804.",
+    "ot": "recommended",
+    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
+    "upstream": "RI: 0 aging / 10 total, 13 received today, 0 upcoming."
   },
   "Shipping": {
     "what": "AR 0.0% GREEN. 0 aging / 37 total. 36 upcoming. CR 54.1% - 20 finished-at-op awaiting handoff. Tiered in dept: 6 T2. Upcoming tiered: 6 T2.",
@@ -7546,26 +7553,19 @@ const GUIDANCE = {
     "otText": "OT recommended - 6 tiered expedites on compressed windows.",
     "upstream": "Packaging: 0 aging / 13 total, 13 upcoming."
   },
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN. 0 aging / 22 total. 22 upcoming. Tiered in dept: 1 T1, 4 T2. Upcoming tiered: 1 T1, 4 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43718, 43729, 43736, 43751, 43791.",
+    "ot": "recommended",
+    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
+    "upstream": "Pre-Clean: 0 aging / 20 total, 20 upcoming feeding in."
+  },
   "Packaging": {
     "what": "AR 0.0% GREEN. 0 aging / 13 total. 13 upcoming. CR 15.4% - 2 finished-at-op awaiting handoff.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Cleanroom: 0 aging / 22 total. Pre-Clean: 0 aging / 18 total."
-  },
-  "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 12 total. CR 16.7% - 2 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 3 T2.",
-    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
-    "ot": "recommended",
-    "otText": "OT recommended - 7 tiered expedites on compressed windows.",
-    "upstream": null
-  },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN. 0 aging / 18 total. 18 upcoming. Tiered in dept: 2 T1, 1 T2. Upcoming tiered: 2 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43520-2, 43785, 43802-4.",
-    "ot": "recommended",
-    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 12 total, 13 received today, 0 upcoming."
+    "upstream": "Cleanroom: 0 aging / 22 total. Pre-Clean: 0 aging / 20 total."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 9 total. CR 22.2% - 2 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 1 T2, 1 T3.",
@@ -7591,11 +7591,11 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-16T16:00",
- "realProgressCutoff": "2026-07-16T15:37",
- "hero": "Aging pressure is easing \u2014 0 aging in house vs ~20 typical. This week the floor let 20 jobs go stale (norm ~127) and picked aging jobs back up in a median 102m (norm 13h).",
+ "generatedAt": "2026-07-16T18:00",
+ "realProgressCutoff": "2026-07-16T16:06",
+ "hero": "Aging pressure is easing \u2014 0 aging in house vs ~20 typical. This week the floor let 20 jobs go stale (norm ~127) and picked aging jobs back up in a median 102m (norm 14h).",
  "pulse": {
   "agingToday": 0,
   "agingNorm": 19.5,
@@ -7604,7 +7604,7 @@ const TRENDS = {
   "staleNorm": 127,
   "staleVerdict": "BETTER",
   "respThisWeekH": 1.7,
-  "respNormH": 13.1,
+  "respNormH": 13.6,
   "respVerdict": "BETTER",
   "respPartialCapture": false
  },
@@ -7864,8 +7864,8 @@ const TRENDS = {
     }
    ],
    "trend": "improving",
-   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~21h \u00b7 improving",
-   "respH": 21.0,
+   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~23h \u00b7 improving",
+   "respH": 22.8,
    "custClock": false,
    "small": false
   },
@@ -8125,7 +8125,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~4h \u00b7 improving",
-   "respH": 4.5,
+   "respH": 4.2,
    "custClock": false,
    "small": false
   },
@@ -8385,7 +8385,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 6 of last 10 days, worst 76% 7/12 \u00b7 aging picked up in ~2h \u00b7 customer clock",
-   "respH": 2.1,
+   "respH": 2.3,
    "custClock": true,
    "small": false
   },
