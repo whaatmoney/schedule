@@ -619,6 +619,22 @@ const DATA = {
   },
   "departments": [
     {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 18,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 17,
+      "profileMix": [],
+      "completedCount": 2,
+      "completedRatio": 11.1,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
       "name": "Shipping",
       "lead": "Luis",
       "total": 33,
@@ -651,18 +667,18 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 18,
+      "name": "Receiving/Inspection",
+      "lead": "Luis",
+      "total": 10,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 17,
+      "incoming": 0,
       "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 11.1,
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -676,22 +692,6 @@ const DATA = {
       "isCustomerDep": false,
       "isBottom": false,
       "incoming": 16,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Receiving/Inspection",
-      "lead": "Luis",
-      "total": 10,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
@@ -6038,7 +6038,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43716",
@@ -7551,7 +7551,14 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Shipping": {
+"Pre-Clean": {
+    "what": "AR 0.0% GREEN. 0 aging / 18 total. 17 upcoming. CR 11.1% - 2 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43802-5, 43715, 43790, 43802-2, 43824.",
+    "ot": "recommended",
+    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
+    "upstream": "RI: 0 aging / 10 total, 16 received today, 0 upcoming."
+  },
+  "Shipping": {
     "what": "AR 0.0% GREEN. 0 aging / 33 total. 31 upcoming. CR 69.7% - 23 finished-at-op awaiting handoff. Tiered in dept: 7 T2. Upcoming tiered: 6 T2.",
     "action": "Start tiered upcoming wave in msBD order: 43664, 43665, 43670, 43716, 43520-2, 43729.",
     "ot": "recommended",
@@ -7565,12 +7572,12 @@ const GUIDANCE = {
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
     "upstream": "Pre-Clean: 0 aging / 18 total, 17 upcoming feeding in."
   },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN. 0 aging / 18 total. 17 upcoming. CR 11.1% - 2 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43802-5, 43715, 43790, 43802-2, 43824.",
-    "ot": "recommended",
-    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 10 total, 16 received today, 0 upcoming."
+  "Receiving/Inspection": {
+    "what": "AR 0.0% GREEN. 0 aging / 10 total.",
+    "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": null
   },
   "Packaging": {
     "what": "AR 0.0% GREEN. 0 aging / 16 total. 16 upcoming. Tiered in dept: 2 T2, 1 T3. Upcoming tiered: 2 T2, 1 T3.",
@@ -7578,13 +7585,6 @@ const GUIDANCE = {
     "ot": "recommended",
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
     "upstream": "Cleanroom: 0 aging / 21 total. Pre-Clean: 0 aging / 18 total."
-  },
-  "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 10 total.",
-    "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": null
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 8 total. CR 12.5% - 1 finished-at-op awaiting handoff. Tiered in dept: 5 T1.",
@@ -7617,11 +7617,11 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-17T16:00",
- "realProgressCutoff": "2026-07-17T15:55",
- "hero": "Aging pressure is easing \u2014 2 aging in house vs ~16 typical. This week the floor let 35 jobs go stale (norm ~120) and picked aging jobs back up in a median 2h (norm 14h).",
+ "generatedAt": "2026-07-17T18:00",
+ "realProgressCutoff": "2026-07-17T16:33",
+ "hero": "Aging pressure is easing \u2014 2 aging in house vs ~16 typical. This week the floor let 35 jobs go stale (norm ~120) and picked aging jobs back up in a median 2h (norm 15h).",
  "pulse": {
   "agingToday": 2,
   "agingNorm": 16.5,
@@ -7630,7 +7630,7 @@ const TRENDS = {
   "staleNorm": 120,
   "staleVerdict": "BETTER",
   "respThisWeekH": 2.1,
-  "respNormH": 14.5,
+  "respNormH": 14.9,
   "respVerdict": "BETTER",
   "respPartialCapture": false
  },
@@ -8281,7 +8281,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~15h \u00b7 improving",
-   "respH": 14.9,
+   "respH": 15.2,
    "custClock": false,
    "small": false
   },
@@ -8411,7 +8411,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 6 of last 10 days, worst 76% 7/12 \u00b7 aging picked up in ~2h \u00b7 customer clock",
-   "respH": 2.3,
+   "respH": 2.2,
    "custClock": true,
    "small": false
   },
