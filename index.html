@@ -476,6 +476,9 @@ table.t tr:hover{background:var(--surface-3)!important;}
 .pulse-hero{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
 .hero-main,.hero-exc{display:flex;align-items:center;gap:24px;}
 .hero-sep{width:1px;align-self:stretch;min-height:56px;background:var(--border);}
+.hero-pulse{display:flex;flex-direction:column;gap:2px;}
+.hero-pulse-cap{font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--text-muted);text-transform:uppercase;}
+@media (max-width:700px){.hero-pulse{flex:1 1 100%;order:9;}.hero-pulse svg{width:100%;height:40px;}}
 .pulse-hero .hs{padding:2px 4px;}
 .pulse-hero .l{font-size:12px;font-weight:700;}
 .hero-main .hs[data-kpi="ar"] .v.kpiv{font-size:44px;padding:6px 24px;}
@@ -619,22 +622,6 @@ const DATA = {
   },
   "departments": [
     {
-      "name": "Shipping",
-      "lead": "Luis",
-      "total": 33,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 32,
-      "profileMix": [],
-      "completedCount": 23,
-      "completedRatio": 69.7,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Receiving/Inspection",
       "lead": "Luis",
       "total": 10,
@@ -651,18 +638,34 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 19,
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 16,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 19,
+      "incoming": 15,
       "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
+      "completedCount": 1,
+      "completedRatio": 6.2,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Shipping",
+      "lead": "Luis",
+      "total": 33,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 32,
+      "profileMix": [],
+      "completedCount": 23,
+      "completedRatio": 69.7,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -683,18 +686,18 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 16,
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 19,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 15,
+      "incoming": 19,
       "profileMix": [],
-      "completedCount": 1,
-      "completedRatio": 6.2,
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -7809,26 +7812,26 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 33 total. 32 upcoming. CR 69.7% - 23 finished-at-op awaiting handoff. Tiered in dept: 7 T2. Upcoming tiered: 7 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43664, 43665, 43670, 43716, 43520-2, 43729, 43662.",
-    "ot": "recommended",
-    "otText": "OT recommended - 7 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 0 aging / 21 total, 21 upcoming."
-  },
-  "Receiving/Inspection": {
+"Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 10 total.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": null
   },
-  "Cleanroom": {
-    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. Tiered in dept: 1 T1, 2 T2. Upcoming tiered: 1 T1, 2 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43715, 43804, 43805.",
+  "Pre-Clean": {
+    "what": "AR 0.0% GREEN. 0 aging / 16 total. 15 upcoming. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43802-5, 43790, 43802-2, 43824.",
     "ot": "recommended",
-    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
-    "upstream": "Pre-Clean: 0 aging / 16 total, 15 upcoming feeding in."
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "RI: 0 aging / 10 total, 0 received today, 0 upcoming."
+  },
+  "Shipping": {
+    "what": "AR 0.0% GREEN. 0 aging / 33 total. 32 upcoming. CR 69.7% - 23 finished-at-op awaiting handoff. Tiered in dept: 7 T2. Upcoming tiered: 7 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43664, 43665, 43670, 43716, 43520-2, 43729, 43662.",
+    "ot": "recommended",
+    "otText": "OT recommended - 7 tiered expedites on compressed windows.",
+    "upstream": "Packaging: 0 aging / 21 total, 21 upcoming."
   },
   "Packaging": {
     "what": "AR 0.0% GREEN. 0 aging / 21 total. 21 upcoming. CR 19.0% - 4 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 3 T2, 1 T3. Upcoming tiered: 4 T1, 3 T2, 1 T3.",
@@ -7837,12 +7840,12 @@ const GUIDANCE = {
     "otText": "OT recommended - 8 tiered expedites on compressed windows.",
     "upstream": "Cleanroom: 0 aging / 19 total. Pre-Clean: 0 aging / 16 total."
   },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN. 0 aging / 16 total. 15 upcoming. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43802-5, 43790, 43802-2, 43824.",
+  "Cleanroom": {
+    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. Tiered in dept: 1 T1, 2 T2. Upcoming tiered: 1 T1, 2 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43715, 43804, 43805.",
     "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 10 total, 0 received today, 0 upcoming."
+    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
+    "upstream": "Pre-Clean: 0 aging / 16 total, 15 upcoming feeding in."
   },
   "Lab Testing": {
     "what": "AR 62.5% BLACK. 5 aging / 8 total. Flags: 5 Tight. Tiered in dept: 2 T1.",
@@ -7875,9 +7878,9 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "12:00 PM PDT";
+const GENERATED_TIME = "01:35 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-18T12:00",
+ "generatedAt": "2026-07-18T13:35",
  "realProgressCutoff": "2026-07-18T10:55",
  "hero": "Aging pressure is easing \u2014 7 aging in house vs ~15 typical. This week the floor let 43 jobs go stale (norm ~116) and picked aging jobs back up in a median 102m (norm 15h).",
  "pulse": {
@@ -10100,6 +10103,35 @@ function profilePill(j) {
 // ─── HEADER ───
 // Every .hs tile is clickable — opens the KPI drill-down modal for that metric.
 // data-kpi attr maps to a KPI_CONFIGS entry defined below.
+// Hero pulse: the aging score's 30-day heartbeat, rendered beside the live AR.
+// Uses TRENDS.arDaily (already in-page); degrades to nothing when trends absent.
+function buildHeroPulse() {
+  if (typeof TRENDS === 'undefined' || !TRENDS || !TRENDS.arDaily || TRENDS.arDaily.length < 5) return '';
+  const pts = TRENDS.arDaily.slice(-30);
+  const { ink } = getTier(DATA.overall.ar);
+  const W = 220, H = 44;
+  const mx = Math.max(14, ...pts.map(p => p.ar)) * 1.12;
+  const x = i => 2 + (i / Math.max(1, pts.length - 1)) * (W - 8);
+  const y = v => H - 4 - (v / mx) * (H - 10);
+  let d = '';
+  pts.forEach((p, i) => { d += `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(p.ar).toFixed(1)}`; });
+  const yG = y(12);
+  const last = pts[pts.length - 1];
+  const typical = pts.map(p => p.ar).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
+  const hi = pts.reduce((m, p) => p.ar > m.ar ? p : m, pts[0]);
+  const title = `30-day aging pulse - today ${last.ar}%, typical ~${typical}%, peak ${hi.ar}% on ${(+hi.date.slice(5,7))}/${(+hi.date.slice(8,10))}`;
+  return `<div class="hero-sep"></div>
+    <div class="hero-pulse" title="${esc(title)}">
+      <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(title)}">
+        <line x1="2" y1="${yG}" x2="${W - 2}" y2="${yG}" stroke="var(--sig-green)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+        <path d="${d} L${x(pts.length - 1)} ${H - 2} L2 ${H - 2} Z" fill="var(--acc-blue)" opacity="0.08"/>
+        <path d="${d}" fill="none" stroke="var(--acc-blue)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="${x(pts.length - 1)}" cy="${y(last.ar)}" r="3.5" fill="${ink}" stroke="var(--surface)" stroke-width="1.5"/>
+      </svg>
+      <div class="hero-pulse-cap">30-day pulse · typical ~${typical}%</div>
+    </div>`;
+}
+
 function buildHeader() {
   const { tier, color, ink } = getTier(DATA.overall.ar);
   const fd = DATA.overall.flagDist;
@@ -10130,6 +10162,7 @@ function buildHeader() {
         ${hs('critical', `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS.Critical}">${fd.Critical||0}</div><div class="l">Critical</div>`, 'Click to see Critical aging jobs')}
         ${hs('pastdue',  `<div class="v mc kpiv" style="--kpi:${FLAG_COLORS["Past Due"]}">${fd["Past Due"]||0}</div><div class="l">Past Due</div>`, 'Click to see Past Due aging jobs')}
       </div>
+      ${buildHeroPulse()}
     </div>
     <div class="pulse-context">
       ${hs('aging',    `<div class="v mc kpiv" style="--kpi:${ink}">${DATA.overall.agingJobs}</div><div class="l">Aging</div>`, 'Click to see aging jobs')}
