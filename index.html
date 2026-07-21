@@ -625,31 +625,15 @@ const DATA = {
   },
   "departments": [
     {
-      "name": "Shipping",
+      "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 30,
+      "total": 15,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 28,
-      "profileMix": [],
-      "completedCount": 13,
-      "completedRatio": 43.3,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 20,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 20,
+      "incoming": 0,
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
@@ -673,18 +657,18 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Receiving/Inspection",
+      "name": "Shipping",
       "lead": "Luis",
-      "total": 15,
+      "total": 30,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 0,
+      "incoming": 28,
       "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
+      "completedCount": 13,
+      "completedRatio": 43.3,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -701,6 +685,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 2,
       "completedRatio": 11.1,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 20,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 20,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -6363,7 +6363,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43802-2",
@@ -7190,19 +7190,12 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 30 total. 28 upcoming. CR 43.3% - 13 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 5 T2, 1 T3. Upcoming tiered: 2 T1, 5 T2, 1 T3.",
-    "action": "Start tiered upcoming wave in msBD order: 43718, 43685, 43729, 43736, 43747, 43785, 43824, 43662.",
-    "ot": "recommended",
-    "otText": "OT recommended - 8 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 0 aging / 20 total, 20 upcoming."
-  },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 20 total. 20 upcoming. Tiered in dept: 2 T2. Upcoming tiered: 2 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43804, 43805.",
+"Receiving/Inspection": {
+    "what": "AR 0.0% GREEN. 0 aging / 15 total. Tiered in dept: 1 T1.",
+    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Cleanroom: 0 aging / 15 total. Pre-Clean: 0 aging / 18 total."
+    "upstream": null
   },
   "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 15 total. 15 upcoming. Tiered in dept: 1 T1, 1 T2. Upcoming tiered: 1 T1, 1 T2.",
@@ -7211,12 +7204,12 @@ const GUIDANCE = {
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": "Pre-Clean: 0 aging / 18 total, 16 upcoming feeding in."
   },
-  "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 15 total. Tiered in dept: 1 T1.",
-    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": null
+  "Shipping": {
+    "what": "AR 0.0% GREEN. 0 aging / 30 total. 28 upcoming. CR 43.3% - 13 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 5 T2, 1 T3. Upcoming tiered: 2 T1, 5 T2, 1 T3.",
+    "action": "Start tiered upcoming wave in msBD order: 43718, 43685, 43729, 43736, 43747, 43785, 43824, 43662.",
+    "ot": "recommended",
+    "otText": "OT recommended - 8 tiered expedites on compressed windows.",
+    "upstream": "Packaging: 0 aging / 20 total, 20 upcoming."
   },
   "Pre-Clean": {
     "what": "AR 0.0% GREEN. 0 aging / 18 total. 16 upcoming. CR 11.1% - 2 finished-at-op awaiting handoff. Tiered in dept: 6 T1. Upcoming tiered: 6 T1.",
@@ -7224,6 +7217,13 @@ const GUIDANCE = {
     "ot": "recommended",
     "otText": "OT recommended - 6 tiered expedites on compressed windows.",
     "upstream": "RI: 0 aging / 15 total, 17 received today, 0 upcoming."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 20 total. 20 upcoming. Tiered in dept: 2 T2. Upcoming tiered: 2 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43804, 43805.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": "Cleanroom: 0 aging / 15 total. Pre-Clean: 0 aging / 18 total."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 3 total. Tiered in dept: 1 T1, 1 T2.",
@@ -7256,10 +7256,10 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-20T16:00",
- "realProgressCutoff": "2026-07-20T15:55",
+ "generatedAt": "2026-07-20T18:00",
+ "realProgressCutoff": "2026-07-20T16:36",
  "hero": "Aging pressure is easing \u2014 4 aging in house vs ~14 typical. This week the floor let 51 jobs go stale (norm ~111) and picked aging jobs back up in a median 2h (norm 13h).",
  "pulse": {
   "agingToday": 4,
@@ -7790,7 +7790,7 @@ const TRENDS = {
    ],
    "trend": "holding",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~4h \u00b7 holding",
-   "respH": 3.9,
+   "respH": 3.6,
    "custClock": false,
    "small": false
   },
@@ -8050,7 +8050,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "out of GREEN 5 of last 10 days, worst 76% 7/12 \u00b7 aging picked up in ~2h \u00b7 customer clock",
-   "respH": 2.3,
+   "respH": 2.1,
    "custClock": true,
    "small": false
   },
@@ -10367,6 +10367,12 @@ const TRENDS = {
   },
   {
    "t": "2026-07-20T16:00",
+   "ar": 3.8,
+   "aging": 4,
+   "inHouse": 106
+  },
+  {
+   "t": "2026-07-20T18:00",
    "ar": 3.8,
    "aging": 4,
    "inHouse": 106
