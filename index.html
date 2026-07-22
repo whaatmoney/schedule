@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="04:13 PM PDT">
   <title>QPC Production Pulse — 07/22/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -479,10 +479,14 @@ table.t tr:hover{background:var(--surface-3)!important;}
 .hero-sep{width:1px;align-self:stretch;min-height:56px;background:var(--border);}
 .hero-pulse{display:flex;flex-direction:column;gap:2px;}
 .hero-pulse svg{cursor:crosshair;touch-action:pan-y;}
-.hp-tick{font-size:9.5px;fill:var(--text-muted);font-variant-numeric:tabular-nums;}
-.hp-band{font-size:9.5px;font-weight:700;letter-spacing:.06em;fill:var(--text-2);}
 .hero-pulse-cap{font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--text-muted);text-transform:uppercase;min-height:14px;transition:color .12s;}
 .hero-pulse-cap.live{color:var(--text-strong);text-transform:none;letter-spacing:0;font-variant-numeric:tabular-nums;}
+.hp-tick{font-size:9.5px;fill:var(--text-muted);font-variant-numeric:tabular-nums;}
+.hp-band{font-size:9.5px;font-weight:700;letter-spacing:.06em;fill:var(--text-2);}
+.hp-lim{font-size:8.5px;font-weight:600;fill:var(--sig-green);}
+.hp-pair{display:flex;gap:16px;align-items:flex-end;}
+.hp-chart{width:236px;max-width:100%;height:auto;}
+@media (max-width:900px){.hp-pair{flex-wrap:wrap;}.hp-chart{flex:1 1 220px;}}
 #fresh-chip{position:fixed;left:50%;bottom:18px;transform:translate(-50%,80px);background:var(--acc-blue);color:#fff;font-size:13px;font-weight:600;padding:10px 18px;border-radius:22px;box-shadow:0 4px 16px rgba(0,0,0,.22);cursor:pointer;z-index:70;opacity:0;transition:transform .25s ease,opacity .25s ease;user-select:none;}
 #fresh-chip.show{transform:translate(-50%,0);opacity:1;}
 #fresh-chip:active{transform:translate(-50%,0) scale(.97);}
@@ -699,22 +703,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 17,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 17,
-      "profileMix": [],
-      "completedCount": 4,
-      "completedRatio": 23.5,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Shipping",
       "lead": "Luis",
       "total": 41,
@@ -727,6 +715,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 18,
       "completedRatio": 43.9,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 17,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 17,
+      "profileMix": [],
+      "completedCount": 4,
+      "completedRatio": 23.5,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -7370,19 +7374,19 @@ const GUIDANCE = {
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
     "upstream": null
   },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 17 total. 17 upcoming. CR 23.5% - 4 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43715, 43748, 43790, 43837-1, 43837-2.",
-    "ot": "recommended",
-    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 1 aging / 11 total. Pre-Clean: 1 aging / 15 total."
-  },
   "Shipping": {
     "what": "AR 0.0% GREEN. 0 aging / 41 total. 38 upcoming. CR 43.9% - 18 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2, 2 T3. Upcoming tiered: 2 T1, 4 T2, 2 T3.",
     "action": "Start tiered upcoming wave in msBD order: 43685, 43834, 43662, 43802-2, 43804, 43805, 43808, 43782.",
     "ot": "recommended",
     "otText": "OT recommended - 8 tiered expedites on compressed windows.",
     "upstream": "Packaging: 0 aging / 17 total, 17 upcoming."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 17 total. 17 upcoming. CR 23.5% - 4 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43715, 43748, 43790, 43837-1, 43837-2.",
+    "ot": "recommended",
+    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
+    "upstream": "Cleanroom: 1 aging / 11 total. Pre-Clean: 1 aging / 15 total."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 5 total. CR 20.0% - 1 finished-at-op awaiting handoff.",
@@ -7415,10 +7419,10 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "04:13 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-22T16:00",
- "realProgressCutoff": "2026-07-22T15:55",
+ "generatedAt": "2026-07-22T16:13",
+ "realProgressCutoff": "2026-07-22T16:01",
  "hero": "Aging pressure is easing \u2014 4 aging in house vs ~13 typical. This week the floor let 79 jobs go stale (norm ~91) and picked aging jobs back up in a median 2h (norm 16h).",
  "pulse": {
   "agingToday": 4,
@@ -10809,7 +10813,13 @@ const TRENDS = {
    "inHouse": 115
   },
   {
-   "t": "2026-07-22T16:00",
+   "t": "2026-07-22T16:07",
+   "ar": 3.5,
+   "aging": 4,
+   "inHouse": 115
+  },
+  {
+   "t": "2026-07-22T16:13",
    "ar": 3.5,
    "aging": 4,
    "inHouse": 115
@@ -10915,88 +10925,90 @@ function profilePill(j) {
 // Hero pulse: stock-ticker-style AR chart over every pipeline capture moment.
 // Time-scaled x, crosshair scrub (mouse + touch) with a live readout, like a
 // stock chart. Uses TRENDS.arPulse; degrades to nothing when trends absent.
-const HP = { W: 460, H: 118, pts: [], x: null, yIn: null, yAg: null };
+const HP = { CW: 236, CH: 96, pts: [], x: null, yAg: null, yIn: null };
 function buildHeroPulse() {
   const raw = (typeof TRENDS !== 'undefined' && TRENDS && TRENDS.arPulse) ? TRENDS.arPulse : null;
   if (!raw || raw.length < 5) return '';
   const pts = raw.map(p => ({ ...p, ms: new Date(p.t).getTime() }));
   const { tier, ink } = getTier(DATA.overall.ar);
-  const W = HP.W, H = HP.H;
-  // Two stacked bands, shared timeline: IN HOUSE (top, own scale) and AGING
-  // (bottom, own scale) - so the signal line finally has room to move.
-  const mL = 26, mR = 6;
-  const aTop = 12, aBot = 60;            // band A: in house
-  const bTop = 74, bBot = 104;           // band B: aging
+  const W = HP.CW, H = HP.CH, mL = 26, mR = 8, mT = 16, mB = 13;
   const t0 = pts[0].ms, t1 = pts[pts.length - 1].ms;
   const x = p => mL + ((p.ms - t0) / Math.max(1, t1 - t0)) * (W - mL - mR);
-  const inMax = Math.max(20, Math.ceil(Math.max(...pts.map(p => p.inHouse)) * 1.1 / 20) * 20);
-  // aging scale must also fit the GREEN limit curve (12% of in-house)
-  const agRaw = Math.max(5, ...pts.map(p => Math.max(p.aging, p.inHouse * 0.12)));
-  const agMax = Math.ceil(agRaw * 1.15 / 5) * 5;
-  const yIn = v => aBot - (v / inMax) * (aBot - aTop);
-  const yAg = v => bBot - (v / agMax) * (bBot - bTop);
-  HP.pts = pts; HP.x = x; HP.yIn = yIn; HP.yAg = yAg;
-  let dIn = '', dAg = '', dLim = '';
-  pts.forEach((p, i) => {
-    const pen = i ? 'L' : 'M';
-    dIn += `${pen}${x(p).toFixed(1)} ${yIn(p.inHouse).toFixed(1)}`;
-    dAg += `${pen}${x(p).toFixed(1)} ${yAg(p.aging).toFixed(1)}`;
-    dLim += `${pen}${x(p).toFixed(1)} ${yAg(p.inHouse * 0.12).toFixed(1)}`;
-  });
-  let axes = '';
-  // band A ticks (0 / max) + band label
-  [[0, aBot], [inMax, aTop]].forEach(([v, yy]) => {
-    axes += `<line x1="${mL}" y1="${yy}" x2="${W - mR}" y2="${yy}" stroke="var(--border)" stroke-width="1" opacity="0.7"/>`
-          + `<text x="${mL - 4}" y="${yy + 3}" text-anchor="end" class="hp-tick">${v}</text>`;
-  });
-  axes += `<text x="${mL}" y="${aTop - 3}" class="hp-band"><tspan fill="var(--acc-blue)">●</tspan> IN HOUSE</text>`;
-  // band B ticks (0 / max) + band label
-  [[0, bBot], [agMax, bTop]].forEach(([v, yy]) => {
-    axes += `<line x1="${mL}" y1="${yy}" x2="${W - mR}" y2="${yy}" stroke="var(--border)" stroke-width="1" opacity="0.7"/>`
-          + `<text x="${mL - 4}" y="${yy + 3}" text-anchor="end" class="hp-tick">${v}</text>`;
-  });
-  axes += `<text x="${mL}" y="${bTop - 3}" class="hp-band"><tspan fill="var(--acc-orange)">●</tspan> AGING <tspan fill="var(--text-faint)">· keep under the dashed green line (12% of house)</tspan></text>`;
-  // x axis: 4 date labels
-  for (let i = 0; i < 4; i++) {
-    const dt = new Date(t0 + (i / 3) * (t1 - t0));
-    const anchor = i === 0 ? 'start' : i === 3 ? 'end' : 'middle';
-    axes += `<text x="${(mL + (i / 3) * (W - mL - mR)).toFixed(0)}" y="${H - 3}" text-anchor="${anchor}" class="hp-tick">${dt.getMonth() + 1}/${dt.getDate()}</text>`;
-  }
+  HP.pts = pts; HP.x = x;
   const last = pts[pts.length - 1];
-  const typIn = pts.map(p => p.inHouse).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
   const days = Math.round((t1 - t0) / 86400000);
+
+  const frame = (yMax) => {
+    const y = v => (H - mB) - (v / yMax) * (H - mB - mT);
+    let g = '';
+    [[0, y(0)], [yMax, y(yMax)]].forEach(([v, yy]) => {
+      g += `<line x1="${mL}" y1="${yy}" x2="${W - mR}" y2="${yy}" stroke="var(--border)" stroke-width="1" opacity="0.7"/>`
+         + `<text x="${mL - 4}" y="${yy + 3}" text-anchor="end" class="hp-tick">${v}</text>`;
+    });
+    for (let i = 0; i < 3; i++) {
+      const dt = new Date(t0 + (i / 2) * (t1 - t0));
+      const anchor = i === 0 ? 'start' : i === 2 ? 'end' : 'middle';
+      g += `<text x="${(mL + (i / 2) * (W - mL - mR)).toFixed(0)}" y="${H - 2}" text-anchor="${anchor}" class="hp-tick">${dt.getMonth() + 1}/${dt.getDate()}</text>`;
+    }
+    return { y, grid: g };
+  };
+  const linePath = (y, get) => pts.map((p, i) => `${i ? 'L' : 'M'}${x(p).toFixed(1)} ${y(get(p)).toFixed(1)}`).join('');
+
+  // AGING pulse (the signal) - own scale, with the 12%-of-house limit curve
+  const agMax = Math.ceil(Math.max(5, ...pts.map(p => Math.max(p.aging, p.inHouse * 0.12))) * 1.15 / 5) * 5;
+  const fA = frame(agMax);
+  HP.yAg = fA.y;
+  const dAg = linePath(fA.y, p => p.aging);
+  const dLim = linePath(fA.y, p => p.inHouse * 0.12);
+  const svgA = `<svg id="hp-svg-a" class="hp-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Aging jobs over ${days} days, with the 12 percent limit line">
+    ${fA.grid}
+    <text x="${mL}" y="9" class="hp-band"><tspan fill="var(--acc-orange)">●</tspan> AGING</text>
+    <path d="${dLim}" fill="none" stroke="var(--sig-green)" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.8"/>
+    <text x="${W - mR}" y="${(fA.y(last.inHouse * 0.12) - 4).toFixed(0)}" text-anchor="end" class="hp-lim">12% limit</text>
+    <path d="${dAg}" fill="none" stroke="var(--acc-orange)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <line id="hp-cross-a" y1="${mT}" y2="${H - mB}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="2 2" style="display:none"/>
+    <circle id="hp-dot-a" r="3" fill="var(--acc-orange)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
+    <circle cx="${x(last).toFixed(1)}" cy="${fA.y(last.aging).toFixed(1)}" r="3.5" fill="${ink}" stroke="var(--surface)" stroke-width="1.5"/>
+  </svg>`;
+
+  // IN HOUSE pulse (flow context) - own scale
+  const inMax = Math.max(20, Math.ceil(Math.max(...pts.map(p => p.inHouse)) * 1.1 / 20) * 20);
+  const fB = frame(inMax);
+  HP.yIn = fB.y;
+  const dIn = linePath(fB.y, p => p.inHouse);
+  const svgB = `<svg id="hp-svg-b" class="hp-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Jobs in house over ${days} days">
+    <defs><linearGradient id="hp-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--acc-blue)" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="var(--acc-blue)" stop-opacity="0"/>
+    </linearGradient></defs>
+    ${fB.grid}
+    <text x="${mL}" y="9" class="hp-band"><tspan fill="var(--acc-blue)">●</tspan> IN HOUSE</text>
+    <path d="${dIn} L${x(last).toFixed(1)} ${fB.y(0)} L${mL} ${fB.y(0)} Z" fill="url(#hp-grad)"/>
+    <path d="${dIn}" fill="none" stroke="var(--acc-blue)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <line id="hp-cross-b" y1="${mT}" y2="${H - mB}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="2 2" style="display:none"/>
+    <circle id="hp-dot-b" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
+    <circle cx="${x(last).toFixed(1)}" cy="${fB.y(last.inHouse).toFixed(1)}" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5"/>
+  </svg>`;
+
+  const typIn = pts.map(p => p.inHouse).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
   const underLimit = last.aging <= last.inHouse * 0.12;
-  const verdict = `${last.inHouse} in house (typical ~${typIn}) · ${last.aging} aging — ${tier}${underLimit ? ', under the limit' : ', OVER the limit'}`;
-  const title = `Production pulse, ${days} days, ${pts.length} captures. ${verdict}. Hover to scrub.`;
+  const verdict = `${last.aging} aging — ${tier}${underLimit ? ', under the limit' : ', OVER the limit'} · ${last.inHouse} in house (typical ~${typIn})`;
   HP.defaultCapHTML = `<span style="color:${ink};font-weight:700">${esc(verdict)}</span>`;
   return `<div class="hero-sep"></div>
     <div class="hero-pulse">
       <div class="hero-pulse-cap" id="hp-readout">${HP.defaultCapHTML}</div>
-      <svg id="hp-svg" viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(title)}" style="max-width:${W}px">
-        <defs><linearGradient id="hp-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="var(--acc-blue)" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="var(--acc-blue)" stop-opacity="0"/>
-        </linearGradient></defs>
-        ${axes}
-        <path d="${dIn} L${x(last).toFixed(1)} ${aBot} L${mL} ${aBot} Z" fill="url(#hp-grad)"/>
-        <path d="${dIn}" fill="none" stroke="var(--acc-blue)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="${dLim}" fill="none" stroke="var(--sig-green)" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.8"/>
-        <path d="${dAg}" fill="none" stroke="var(--acc-orange)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <line id="hp-cross" y1="${aTop}" y2="${bBot}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="2 2" style="display:none"/>
-        <circle id="hp-dot" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
-        <circle id="hp-dot2" r="3" fill="var(--acc-orange)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
-        <circle cx="${x(last).toFixed(1)}" cy="${yIn(last.inHouse).toFixed(1)}" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5"/>
-        <circle cx="${x(last).toFixed(1)}" cy="${yAg(last.aging).toFixed(1)}" r="3.5" fill="${ink}" stroke="var(--surface)" stroke-width="1.5"/>
-      </svg>
+      <div class="hp-pair">${svgA}${svgB}</div>
     </div>`;
 }
 
 function initHeroPulse() {
-  const svg = document.getElementById('hp-svg');
-  if (!svg || !HP.pts.length) return;
+  const a = document.getElementById('hp-svg-a'), b = document.getElementById('hp-svg-b');
+  if (!a || !b || !HP.pts.length) return;
   const readout = document.getElementById('hp-readout');
-  const cross = document.getElementById('hp-cross');
-  const dot = document.getElementById('hp-dot');
+  const parts = {
+    crossA: document.getElementById('hp-cross-a'), dotA: document.getElementById('hp-dot-a'),
+    crossB: document.getElementById('hp-cross-b'), dotB: document.getElementById('hp-dot-b'),
+  };
   const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const fmt = p => {
     const dt = new Date(p.ms);
@@ -11004,31 +11016,33 @@ function initHeroPulse() {
     const ap = dt.getHours() < 12 ? 'AM' : 'PM';
     const when = p.daily ? `${DOW[dt.getDay()]} ${dt.getMonth() + 1}/${dt.getDate()} (EOD)`
                          : `${DOW[dt.getDay()]} ${dt.getMonth() + 1}/${dt.getDate()} ${h}:${String(dt.getMinutes()).padStart(2, '0')} ${ap}`;
-    return `${when} — ${p.ar}%  (${p.aging} aging / ${p.inHouse} in house)`;
+    return `${when} — ${p.aging} aging / ${p.inHouse} in house (${p.ar}%)`;
   };
-  const dot2 = document.getElementById('hp-dot2');
-  const scrub = clientX => {
+  // scrubbing either chart moves the crosshair in BOTH (same timeline)
+  const scrub = (svg, clientX) => {
     const r = svg.getBoundingClientRect();
-    const vx = (clientX - r.left) / r.width * HP.W;
+    const vx = (clientX - r.left) / r.width * HP.CW;
     let best = HP.pts[0], bd = Infinity;
     for (const p of HP.pts) { const dd = Math.abs(HP.x(p) - vx); if (dd < bd) { bd = dd; best = p; } }
     const px = HP.x(best);
-    cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.style.display = '';
-    dot.setAttribute('cx', px); dot.setAttribute('cy', HP.yIn(best.inHouse)); dot.style.display = '';
-    if (dot2) { dot2.setAttribute('cx', px); dot2.setAttribute('cy', HP.yAg(best.aging)); dot2.style.display = ''; }
+    parts.crossA.setAttribute('x1', px); parts.crossA.setAttribute('x2', px); parts.crossA.style.display = '';
+    parts.dotA.setAttribute('cx', px); parts.dotA.setAttribute('cy', HP.yAg(best.aging)); parts.dotA.style.display = '';
+    parts.crossB.setAttribute('x1', px); parts.crossB.setAttribute('x2', px); parts.crossB.style.display = '';
+    parts.dotB.setAttribute('cx', px); parts.dotB.setAttribute('cy', HP.yIn(best.inHouse)); parts.dotB.style.display = '';
     readout.textContent = fmt(best);
     readout.classList.add('live');
   };
   const reset = () => {
-    cross.style.display = 'none'; dot.style.display = 'none';
-    if (dot2) dot2.style.display = 'none';
+    ['crossA', 'dotA', 'crossB', 'dotB'].forEach(k => parts[k].style.display = 'none');
     readout.innerHTML = HP.defaultCapHTML; readout.classList.remove('live');
   };
-  svg.addEventListener('mousemove', e => scrub(e.clientX));
-  svg.addEventListener('mouseleave', reset);
-  svg.addEventListener('touchstart', e => { scrub(e.touches[0].clientX); }, { passive: true });
-  svg.addEventListener('touchmove', e => { scrub(e.touches[0].clientX); }, { passive: true });
-  svg.addEventListener('touchend', () => setTimeout(reset, 1600), { passive: true });
+  [a, b].forEach(svg => {
+    svg.addEventListener('mousemove', e => scrub(svg, e.clientX));
+    svg.addEventListener('mouseleave', reset);
+    svg.addEventListener('touchstart', e => scrub(svg, e.touches[0].clientX), { passive: true });
+    svg.addEventListener('touchmove', e => scrub(svg, e.touches[0].clientX), { passive: true });
+    svg.addEventListener('touchend', () => setTimeout(reset, 1600), { passive: true });
+  });
 }
 
 function buildHeader() {
