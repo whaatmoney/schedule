@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="03:40 PM PDT">
+  <meta name="qpc-build" content="03:46 PM PDT">
   <title>QPC Production Pulse — 07/22/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -624,8 +624,8 @@ const DATA = {
         "count": 2
       }
     ],
-    "completedCount": 26,
-    "completedRatio": 22.6
+    "completedCount": 27,
+    "completedRatio": 23.5
   },
   "departments": [
     {
@@ -708,8 +708,8 @@ const DATA = {
       "isBottom": false,
       "incoming": 38,
       "profileMix": [],
-      "completedCount": 17,
-      "completedRatio": 41.5,
+      "completedCount": 18,
+      "completedRatio": 43.9,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -6404,8 +6404,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "43835",
@@ -6459,7 +6459,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "43837-2",
@@ -7304,6 +7304,16 @@ const DATA = {
       "dueBD": 5
     },
     {
+      "wo": "43834",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "dueDate": "07/22",
+      "dueBD": 0
+    },
+    {
       "wo": "43495-RW",
       "customer": "RUBICON GEAR",
       "dept": "Pre-Clean",
@@ -7360,7 +7370,7 @@ const GUIDANCE = {
     "upstream": null
   },
   "Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 41 total. 38 upcoming. CR 41.5% - 17 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2, 2 T3. Upcoming tiered: 2 T1, 4 T2, 2 T3.",
+    "what": "AR 0.0% GREEN. 0 aging / 41 total. 38 upcoming. CR 43.9% - 18 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 4 T2, 2 T3. Upcoming tiered: 2 T1, 4 T2, 2 T3.",
     "action": "Start tiered upcoming wave in msBD order: 43685, 43834, 43662, 43802-2, 43804, 43805, 43808, 43782.",
     "ot": "recommended",
     "otText": "OT recommended - 8 tiered expedites on compressed windows.",
@@ -7404,10 +7414,10 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "03:40 PM PDT";
+const GENERATED_TIME = "03:46 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-22T15:40",
- "realProgressCutoff": "2026-07-22T15:30",
+ "generatedAt": "2026-07-22T15:46",
+ "realProgressCutoff": "2026-07-22T15:38",
  "hero": "Aging pressure is easing \u2014 4 aging in house vs ~13 typical. This week the floor let 79 jobs go stale (norm ~91) and picked aging jobs back up in a median 2h (norm 16h).",
  "pulse": {
   "agingToday": 4,
@@ -10780,13 +10790,13 @@ const TRENDS = {
    "inHouse": 116
   },
   {
-   "t": "2026-07-22T15:38",
+   "t": "2026-07-22T15:39",
    "ar": 3.5,
    "aging": 4,
    "inHouse": 115
   },
   {
-   "t": "2026-07-22T15:40",
+   "t": "2026-07-22T15:46",
    "ar": 3.5,
    "aging": 4,
    "inHouse": 115
@@ -10905,9 +10915,13 @@ function buildHeroPulse() {
   const yMax = Math.max(20, Math.ceil(rawMax * 1.1 / 20) * 20);  // clean 20-step so ticks stay whole
   const x = p => mL + ((p.ms - t0) / Math.max(1, t1 - t0)) * (W - mL - mR);
   const y = v => mT + (H - mT - mB) - (v / yMax) * (H - mT - mB);
-  HP.pts = pts; HP.x = x; HP.y = y; HP.val = p => p.inHouse;
-  let d = '';
-  pts.forEach((p, i) => { d += `${i ? 'L' : 'M'}${x(p).toFixed(1)} ${y(p.inHouse).toFixed(1)}`; });
+  HP.pts = pts; HP.x = x; HP.y = y; HP.val = p => p.inHouse; HP.val2 = p => p.aging;
+  // two series, one shared job-count axis: in house (capacity) + aging (signal)
+  let d = '', dAg = '';
+  pts.forEach((p, i) => {
+    d += `${i ? 'L' : 'M'}${x(p).toFixed(1)} ${y(p.inHouse).toFixed(1)}`;
+    dAg += `${i ? 'L' : 'M'}${x(p).toFixed(1)} ${y(p.aging).toFixed(1)}`;
+  });
   // y axis: jobs (0 / half / max) with recessive gridlines
   let axes = '';
   [0, yMax / 2, yMax].forEach(v => {
@@ -10922,24 +10936,28 @@ function buildHeroPulse() {
     axes += `<text x="${(mL + (i / 3) * (W - mL - mR)).toFixed(0)}" y="${H - 2}" text-anchor="${anchor}" class="hp-tick">${dt.getMonth() + 1}/${dt.getDate()}</text>`;
   }
   const last = pts[pts.length - 1];
-  const typical = pts.map(p => p.inHouse).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
-  const title = `In-house jobs pulse - ${pts.length} captures over ${Math.round((t1 - t0) / 86400000)} days. Now ${last.inHouse} jobs, typical ~${typical}. Hover to scrub.`;
-  HP.defaultCap = `jobs in house · ${Math.round((t1 - t0) / 86400000)} days · ${pts.length} captures · typical ~${typical}`;
+  const typIn = pts.map(p => p.inHouse).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
+  const typAg = pts.map(p => p.aging).sort((a, b) => a - b)[Math.floor(pts.length / 2)];
+  const days = Math.round((t1 - t0) / 86400000);
+  const title = `Production pulse - ${pts.length} captures over ${days} days. Now ${last.inHouse} in house (typical ~${typIn}) with ${last.aging} aging (typical ~${typAg}). Hover to scrub.`;
+  HP.defaultCapHTML = `<span style="color:var(--acc-blue)">●</span> in house <span style="color:var(--acc-orange)">●</span> aging · ${days}d · typical ~${typIn} / ~${typAg}`;
   return `<div class="hero-sep"></div>
     <div class="hero-pulse">
-      <div class="hero-pulse-cap" id="hp-readout">${esc(HP.defaultCap)}</div>
+      <div class="hero-pulse-cap" id="hp-readout">${HP.defaultCapHTML}</div>
       <svg id="hp-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(title)}">
         <defs><linearGradient id="hp-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="var(--acc-blue)" stop-opacity="0.22"/>
+          <stop offset="0%" stop-color="var(--acc-blue)" stop-opacity="0.18"/>
           <stop offset="100%" stop-color="var(--acc-blue)" stop-opacity="0"/>
         </linearGradient></defs>
         ${axes}
-        <line x1="${mL}" y1="${y(typical)}" x2="${W - mR}" y2="${y(typical)}" stroke="var(--sig-green)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
         <path d="${d} L${x(last).toFixed(1)} ${y(0)} L${mL} ${y(0)} Z" fill="url(#hp-grad)"/>
         <path d="${d}" fill="none" stroke="var(--acc-blue)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="${dAg}" fill="none" stroke="var(--acc-orange)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
         <line id="hp-cross" y1="${mT}" y2="${H - mB}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="2 2" style="display:none"/>
-        <circle id="hp-dot" r="3.2" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
-        <circle cx="${x(last).toFixed(1)}" cy="${y(last.inHouse).toFixed(1)}" r="3.2" fill="${ink}" stroke="var(--surface)" stroke-width="1.5"/>
+        <circle id="hp-dot" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
+        <circle id="hp-dot2" r="3" fill="var(--acc-orange)" stroke="var(--surface)" stroke-width="1.5" style="display:none"/>
+        <circle cx="${x(last).toFixed(1)}" cy="${y(last.inHouse).toFixed(1)}" r="3" fill="var(--acc-blue)" stroke="var(--surface)" stroke-width="1.5"/>
+        <circle cx="${x(last).toFixed(1)}" cy="${y(last.aging).toFixed(1)}" r="3" fill="${ink}" stroke="var(--surface)" stroke-width="1.5"/>
       </svg>
     </div>`;
 }
@@ -10959,20 +10977,23 @@ function initHeroPulse() {
                          : `${DOW[dt.getDay()]} ${dt.getMonth() + 1}/${dt.getDate()} ${h}:${String(dt.getMinutes()).padStart(2, '0')} ${ap}`;
     return `${when} — ${p.ar}%  (${p.aging} aging / ${p.inHouse} in house)`;
   };
+  const dot2 = document.getElementById('hp-dot2');
   const scrub = clientX => {
     const r = svg.getBoundingClientRect();
     const vx = (clientX - r.left) / r.width * HP.W;
     let best = HP.pts[0], bd = Infinity;
     for (const p of HP.pts) { const dd = Math.abs(HP.x(p) - vx); if (dd < bd) { bd = dd; best = p; } }
-    const px = HP.x(best), py = HP.y(HP.val ? HP.val(best) : best.ar);
+    const px = HP.x(best);
     cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.style.display = '';
-    dot.setAttribute('cx', px); dot.setAttribute('cy', py); dot.style.display = '';
+    dot.setAttribute('cx', px); dot.setAttribute('cy', HP.y(HP.val(best))); dot.style.display = '';
+    if (dot2 && HP.val2) { dot2.setAttribute('cx', px); dot2.setAttribute('cy', HP.y(HP.val2(best))); dot2.style.display = ''; }
     readout.textContent = fmt(best);
     readout.classList.add('live');
   };
   const reset = () => {
     cross.style.display = 'none'; dot.style.display = 'none';
-    readout.textContent = HP.defaultCap; readout.classList.remove('live');
+    if (dot2) dot2.style.display = 'none';
+    readout.innerHTML = HP.defaultCapHTML; readout.classList.remove('live');
   };
   svg.addEventListener('mousemove', e => scrub(e.clientX));
   svg.addEventListener('mouseleave', reset);
