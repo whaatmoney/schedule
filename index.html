@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:13 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 07/22/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -582,7 +582,7 @@ const DATA = {
       "On Track": 2,
       "Tight": 1
     },
-    "upcomingCount": 75,
+    "upcomingCount": 76,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -629,8 +629,8 @@ const DATA = {
         "count": 2
       }
     ],
-    "completedCount": 27,
-    "completedRatio": 23.5
+    "completedCount": 26,
+    "completedRatio": 22.6
   },
   "departments": [
     {
@@ -659,15 +659,15 @@ const DATA = {
     {
       "name": "Pre-Clean",
       "lead": "Jorge",
-      "total": 15,
+      "total": 16,
       "aging": 1,
-      "ar": 6.7,
+      "ar": 6.2,
       "flags": {
         "Critical": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 10,
+      "incoming": 11,
       "profileMix": [
         {
           "name": "Complex",
@@ -675,16 +675,16 @@ const DATA = {
         }
       ],
       "completedCount": 1,
-      "completedRatio": 6.7,
+      "completedRatio": 6.2,
       "tieredCount": 0,
       "tieredMix": []
     },
     {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 23,
+      "total": 22,
       "aging": 1,
-      "ar": 4.3,
+      "ar": 4.5,
       "flags": {
         "On Track": 1
       },
@@ -697,8 +697,8 @@ const DATA = {
           "count": 1
         }
       ],
-      "completedCount": 2,
-      "completedRatio": 8.7,
+      "completedCount": 1,
+      "completedRatio": 4.5,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -3698,6 +3698,16 @@ const DATA = {
       "profile": "Priority Customer"
     },
     {
+      "wo": "43820",
+      "dept": "Pre-Clean",
+      "dueDate": "No Date",
+      "msDate": "07/22",
+      "msBD": 0,
+      "dueBD": null,
+      "priority": "Standard",
+      "profile": "Priority Customer"
+    },
+    {
       "wo": "43834",
       "dept": "Shipping",
       "dueDate": "07/22",
@@ -6235,8 +6245,8 @@ const DATA = {
     {
       "wo": "43820",
       "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
+      "dept": "Pre-Clean",
+      "locationDept": "Pre-Clean",
       "profile": "Priority Customer",
       "priority": "Standard",
       "expediteTier": null,
@@ -6247,8 +6257,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
+      "isCompleted": false,
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43821",
@@ -7289,16 +7299,6 @@ const DATA = {
       "dueBD": 6
     },
     {
-      "wo": "43820",
-      "customer": "ARROWHEAD PRODUCTS",
-      "dept": "Receiving/Inspection",
-      "locationDept": "Receiving/Inspection",
-      "profile": "Priority Customer",
-      "priority": "Standard",
-      "dueDate": "No Date",
-      "dueBD": null
-    },
-    {
       "wo": "43822",
       "customer": "ALLAN AIRCRAFT SUPPLY",
       "dept": "Shipping",
@@ -7358,17 +7358,17 @@ const GUIDANCE = {
     "action": "Burn down before they tip: 43724. Start tiered upcoming wave in msBD order: 43853, 43862.",
     "ot": "recommended",
     "otText": "OT recommended - all 1 aging jobs are Critical.",
-    "upstream": "Pre-Clean: 1 aging / 15 total, 10 upcoming feeding in."
+    "upstream": "Pre-Clean: 1 aging / 16 total, 11 upcoming feeding in."
   },
   "Pre-Clean": {
-    "what": "AR 6.7% GREEN. 1 aging / 15 total. Flags: 1 Critical. 1 Critical: 43821 GP STRATEGIES (Complex, msBD=-2 dueBD=6). 10 upcoming. Tiered in dept: 3 T1, 2 T2. Upcoming tiered: 1 T2.",
+    "what": "AR 6.2% GREEN. 1 aging / 16 total. Flags: 1 Critical. 1 Critical: 43821 GP STRATEGIES (Complex, msBD=-2 dueBD=6). 11 upcoming. Tiered in dept: 3 T1, 2 T2. Upcoming tiered: 1 T2.",
     "action": "Burn down before they tip: 43821. Start tiered upcoming wave in msBD order: 43861 .",
     "ot": "recommended",
     "otText": "OT recommended - all 1 aging jobs are Critical.",
-    "upstream": "RI: 1 aging / 23 total, 18 received today, 0 upcoming."
+    "upstream": "RI: 1 aging / 22 total, 18 received today, 0 upcoming."
   },
   "Receiving/Inspection": {
-    "what": "AR 4.3% GREEN. 1 aging / 23 total. Flags: 1 On Track. CR 8.7% - 2 finished-at-op awaiting handoff. Tiered in dept: 2 T1, 1 T2.",
+    "what": "AR 4.5% GREEN. 1 aging / 22 total. Flags: 1 On Track. Tiered in dept: 2 T1, 1 T2.",
     "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
     "ot": "recommended",
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
@@ -7386,7 +7386,7 @@ const GUIDANCE = {
     "action": "Start tiered upcoming wave in msBD order: 43715, 43748, 43790, 43837-1, 43837-2.",
     "ot": "recommended",
     "otText": "OT recommended - 5 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 1 aging / 11 total. Pre-Clean: 1 aging / 15 total."
+    "upstream": "Cleanroom: 1 aging / 11 total. Pre-Clean: 1 aging / 16 total."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 5 total. CR 20.0% - 1 finished-at-op awaiting handoff.",
@@ -7419,10 +7419,10 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:13 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-22T16:13",
- "realProgressCutoff": "2026-07-22T16:01",
+ "generatedAt": "2026-07-22T18:00",
+ "realProgressCutoff": "2026-07-22T16:22",
  "hero": "Aging pressure is easing \u2014 4 aging in house vs ~13 typical. This week the floor let 79 jobs go stale (norm ~91) and picked aging jobs back up in a median 2h (norm 16h).",
  "pulse": {
   "agingToday": 4,
@@ -7558,7 +7558,7 @@ const TRENDS = {
     },
     {
      "d": "2026-07-22",
-     "ar": 4.3
+     "ar": 4.5
     }
    ],
    "trend": "worsening",
@@ -7688,7 +7688,7 @@ const TRENDS = {
     },
     {
      "d": "2026-07-22",
-     "ar": 6.7
+     "ar": 6.2
     }
    ],
    "trend": "improving",
@@ -10820,6 +10820,12 @@ const TRENDS = {
   },
   {
    "t": "2026-07-22T16:13",
+   "ar": 3.5,
+   "aging": 4,
+   "inHouse": 115
+  },
+  {
+   "t": "2026-07-22T18:00",
    "ar": 3.5,
    "aging": 4,
    "inHouse": 115
