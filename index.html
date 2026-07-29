@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 07/28/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -573,14 +573,14 @@ const DATA = {
   "reportDate": "07/28/2026",
   "overall": {
     "totalJobs": 99,
-    "agingJobs": 0,
-    "ar": 0.0,
+    "agingJobs": 1,
+    "ar": 1.0,
     "receivedToday": 11,
     "flagDist": {
       "Past Due": 3,
-      "Critical": 1
+      "Critical": 2
     },
-    "upcomingCount": 78,
+    "upcomingCount": 77,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -627,10 +627,33 @@ const DATA = {
         "count": 1
       }
     ],
-    "completedCount": 18,
-    "completedRatio": 18.2
+    "completedCount": 19,
+    "completedRatio": 19.2
   },
   "departments": [
+    {
+      "name": "Pre-Clean",
+      "lead": "Jorge",
+      "total": 44,
+      "aging": 1,
+      "ar": 2.3,
+      "flags": {
+        "Critical": 1
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 42,
+      "profileMix": [
+        {
+          "name": "Standard",
+          "count": 1
+        }
+      ],
+      "completedCount": 5,
+      "completedRatio": 11.4,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
     {
       "name": "Cleanroom",
       "lead": "Erick",
@@ -644,6 +667,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 0,
       "completedRatio": 0.0,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 19,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 19,
+      "profileMix": [],
+      "completedCount": 3,
+      "completedRatio": 15.8,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -676,38 +715,6 @@ const DATA = {
       "profileMix": [],
       "completedCount": 6,
       "completedRatio": 50.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Pre-Clean",
-      "lead": "Jorge",
-      "total": 44,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 43,
-      "profileMix": [],
-      "completedCount": 5,
-      "completedRatio": 11.4,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 19,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 19,
-      "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 10.5,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -3034,6 +3041,39 @@ const DATA = {
       "tierOverBD": null,
       "tierScheduleSlack": null,
       "isShortScheduledTier": null
+    },
+    {
+      "wo": "43895",
+      "customer": "QUALITY CONTROLLED MANUFACTURING, INC.",
+      "dept": "Pre-Clean",
+      "dueDate": "08/05",
+      "msDate": "07/27",
+      "msBD": -1,
+      "dueBD": 6,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 3,
+      "scheduledLeadBD": 9,
+      "profileBurnPct": 30.0,
+      "profileOverBD": -7,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
     }
   ],
   "upcomingJobs": [
@@ -3126,16 +3166,6 @@ const DATA = {
       "dueBD": 4,
       "priority": "Standard",
       "profile": "Low Qty"
-    },
-    {
-      "wo": "43895",
-      "dept": "Pre-Clean",
-      "dueDate": "08/05",
-      "msDate": "07/27",
-      "msBD": -1,
-      "dueBD": 6,
-      "priority": "Standard",
-      "profile": "Standard"
     },
     {
       "wo": "43900",
@@ -5577,10 +5607,10 @@ const DATA = {
       "dueBD": 6,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43897 ",
@@ -5670,7 +5700,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43902",
@@ -5975,8 +6005,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "43925-2",
@@ -6625,6 +6655,16 @@ const DATA = {
       "dueBD": 1
     },
     {
+      "wo": "43928",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Straight to CLR",
+      "priority": "T1 Expedite",
+      "dueDate": "07/29",
+      "dueBD": 1
+    },
+    {
       "wo": "43925-2",
       "customer": "ULA/SAUER MECHANICAL, LLC",
       "dept": "Lab Testing",
@@ -6639,12 +6679,26 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Cleanroom": {
+"Pre-Clean": {
+    "what": "AR 2.3% GREEN. 1 aging / 44 total. Flags: 1 Critical. 1 Critical: 43895 QUALITY CONTROLLED MANUFACTURING (Standard, msBD=-1 dueBD=6). 42 upcoming. CR 11.4% - 5 finished-at-op awaiting handoff. Tiered in dept: 7 T1, 4 T3. Upcoming tiered: 7 T1, 3 T3.",
+    "action": "Burn down before they tip: 43895. Start tiered upcoming wave in msBD order: 43833, 43920, 43925-1, 43925-4, 43931, 43939, 43950, 43923.",
+    "ot": "recommended",
+    "otText": "OT recommended - all 1 aging jobs are Critical.",
+    "upstream": "RI: 0 aging / 10 total, 11 received today, 0 upcoming."
+  },
+  "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 6 total. 6 upcoming. Tiered in dept: 1 T2. Upcoming tiered: 1 T2.",
     "action": "Start tiered upcoming wave in msBD order: 43932.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Pre-Clean: 0 aging / 44 total, 43 upcoming feeding in."
+    "upstream": "Pre-Clean: 1 aging / 44 total, 42 upcoming feeding in."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. CR 15.8% - 3 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 43899, 43919, 43927, 43928, 43925-5.",
+    "ot": "recommended",
+    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
+    "upstream": "Cleanroom: 0 aging / 6 total. Pre-Clean: 1 aging / 44 total."
   },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 10 total. CR 20.0% - 2 finished-at-op awaiting handoff. Tiered in dept: 1 T1.",
@@ -6659,20 +6713,6 @@ const GUIDANCE = {
     "ot": "recommended",
     "otText": "OT recommended - 4 tiered expedites on compressed windows.",
     "upstream": "Packaging: 0 aging / 19 total, 19 upcoming."
-  },
-  "Pre-Clean": {
-    "what": "AR 0.0% GREEN. 0 aging / 44 total. 43 upcoming. CR 11.4% - 5 finished-at-op awaiting handoff. Tiered in dept: 7 T1, 4 T3. Upcoming tiered: 7 T1, 3 T3.",
-    "action": "Start tiered upcoming wave in msBD order: 43833, 43920, 43925-1, 43925-4, 43931, 43939, 43950, 43923.",
-    "ot": "recommended",
-    "otText": "OT recommended - 11 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 10 total, 11 received today, 0 upcoming."
-  },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 19 total. 19 upcoming. CR 10.5% - 2 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 1 T2. Upcoming tiered: 4 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43899, 43919, 43927, 43928, 43925-5.",
-    "ot": "recommended",
-    "otText": "OT recommended - 5 tiered expedites on compressed windows.",
-    "upstream": "Cleanroom: 0 aging / 6 total. Pre-Clean: 0 aging / 44 total."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 7 total. CR 42.9% - 3 finished-at-op awaiting handoff. Tiered in dept: 3 T1, 1 T3.",
@@ -6698,16 +6738,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-28T16:00",
- "realProgressCutoff": "2026-07-28T15:53",
- "hero": "Aging pressure is easing \u2014 0 aging in house vs ~10 typical. This week the floor let 98 jobs go stale (norm ~72) and picked aging jobs back up in a median 4h (norm 8h).",
+ "generatedAt": "2026-07-28T18:00",
+ "realProgressCutoff": "2026-07-28T17:27",
+ "hero": "Aging pressure is easing \u2014 1 aging in house vs ~10 typical. This week the floor let 100 jobs go stale (norm ~72) and picked aging jobs back up in a median 4h (norm 8h).",
  "pulse": {
-  "agingToday": 0,
+  "agingToday": 1,
   "agingNorm": 10.0,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 98,
+  "staleThisWeek": 100,
   "staleNorm": 72,
   "staleVerdict": "WORSE",
   "respThisWeekH": 3.7,
@@ -6967,12 +7007,12 @@ const TRENDS = {
     },
     {
      "d": "2026-07-28",
-     "ar": 0.0
+     "ar": 2.3
     }
    ],
    "trend": "worsening",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~5h \u00b7 worsening",
-   "respH": 4.9,
+   "respH": 5.2,
    "custClock": false,
    "small": false
   },
@@ -7491,8 +7531,8 @@ const TRENDS = {
     }
    ],
    "trend": "improving",
-   "sentence": "out of GREEN 2 of last 10 days, worst 56% 7/19 \u00b7 aging picked up in ~108m \u00b7 customer clock",
-   "respH": 1.8,
+   "sentence": "out of GREEN 2 of last 10 days, worst 56% 7/19 \u00b7 aging picked up in ~96m \u00b7 customer clock",
+   "respH": 1.6,
    "custClock": true,
    "small": false
   },
@@ -8427,7 +8467,7 @@ const TRENDS = {
   "43885": 1,
   "43900": 1,
   "43893": 1,
-  "43895": 1,
+  "43895": 3,
   "43891": 2,
   "43898": 1,
   "43889": 1,
@@ -9138,8 +9178,8 @@ const TRENDS = {
   {
    "date": "2026-07-28",
    "inHouse": 99,
-   "aging": 0,
-   "ar": 0.0
+   "aging": 1,
+   "ar": 1.0
   }
  ],
  "arPulse": [
@@ -10406,6 +10446,12 @@ const TRENDS = {
    "t": "2026-07-28T16:00",
    "ar": 0.0,
    "aging": 0,
+   "inHouse": 99
+  },
+  {
+   "t": "2026-07-28T18:00",
+   "ar": 1.0,
+   "aging": 1,
    "inHouse": 99
   }
  ]
