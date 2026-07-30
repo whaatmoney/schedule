@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 07/29/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -586,8 +586,8 @@ const DATA = {
     "expediteTierDistribution": [],
     "mrbCount": 9,
     "unclassifiedAgingCount": 0,
-    "unclassifiedInHouseCount": 2,
-    "shortScheduledCount": 32,
+    "unclassifiedInHouseCount": 1,
+    "shortScheduledCount": 33,
     "customerHoldProfileCount": 15,
     "profileDistribution": [
       {
@@ -612,7 +612,7 @@ const DATA = {
       },
       {
         "name": "Low Qty",
-        "count": 12
+        "count": 13
       },
       {
         "name": "Complex",
@@ -623,11 +623,11 @@ const DATA = {
         "count": 5
       },
       {
-        "name": "(Unclassified)",
-        "count": 2
+        "name": "Needs Assembly",
+        "count": 1
       },
       {
-        "name": "Needs Assembly",
+        "name": "(Unclassified)",
         "count": 1
       }
     ],
@@ -698,22 +698,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Receiving/Inspection",
-      "lead": "Luis",
-      "total": 27,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 0,
-      "profileMix": [],
-      "completedCount": 18,
-      "completedRatio": 66.7,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Pre-Clean",
       "lead": "Jorge",
       "total": 39,
@@ -726,6 +710,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 1,
       "completedRatio": 2.6,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Receiving/Inspection",
+      "lead": "Luis",
+      "total": 27,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 0,
+      "profileMix": [],
+      "completedCount": 18,
+      "completedRatio": 66.7,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -807,8 +807,8 @@ const DATA = {
   },
   "rescheduleStatus": {
     "kpiTarget": 98,
-    "totalAssessed": 111,
-    "onTimeCount": 105,
+    "totalAssessed": 112,
+    "onTimeCount": 106,
     "onTimePct": 94.6,
     "atRiskCount": 6,
     "decideToday": [],
@@ -2117,16 +2117,6 @@ const DATA = {
         "badge": "SR",
         "reason": "Source Required - date provisional.",
         "action": "PM coordinates source visit."
-      },
-      {
-        "wo": "43975",
-        "customer": "AXXIS CORPORATION",
-        "profile": null,
-        "flag": "No Date",
-        "flagColor": "#8A8886",
-        "badge": "ND",
-        "reason": "Missing QPC Due Date.",
-        "action": "Planner owns: assign QPC Due Date."
       }
     ],
     "calibrationEntries": [
@@ -3585,6 +3575,19 @@ const DATA = {
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
+      },
+      {
+        "runDate": "2026-07-29",
+        "wo": "43975",
+        "customer": "AXXIS CORPORATION",
+        "profile": "Low Qty",
+        "qpcDue": "Aug 4",
+        "forecastDate": "Aug 4",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": true
       }
     ]
   },
@@ -5005,6 +5008,22 @@ const DATA = {
       "dueDate": "08/10",
       "dueBD": 8,
       "priority": "Standard",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
+      "wo": "43975",
+      "customer": "AXXIS CORPORATION",
+      "dept": "Receiving/Inspection",
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "scheduledLeadBD": 4,
+      "shortfall": 2,
+      "dueDate": "08/04",
+      "dueBD": 4,
+      "priority": "T2 Expedite",
       "isAging": false,
       "basis": "profile",
       "expediteTier": null
@@ -6586,7 +6605,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "43935",
@@ -7295,12 +7314,12 @@ const DATA = {
       "customer": "AXXIS CORPORATION",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
-      "profile": null,
+      "profile": "Low Qty",
       "priority": "T2 Expedite",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "No Date",
-      "dueBD": null,
+      "dueDate": "08/04",
+      "dueBD": 4,
       "receivedToday": true,
       "rescheduled": false,
       "isAging": false,
@@ -7758,19 +7777,19 @@ const GUIDANCE = {
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": "Pre-Clean: 0 aging / 39 total, 38 upcoming feeding in."
   },
-  "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 27 total. CR 66.7% - 18 finished-at-op awaiting handoff. Tiered in dept: 1 T2.",
-    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": null
-  },
   "Pre-Clean": {
     "what": "AR 0.0% GREEN. 0 aging / 39 total. 38 upcoming. Tiered in dept: 6 T1, 1 T2, 1 T3. Upcoming tiered: 6 T1, 1 T2, 1 T3.",
     "action": "Start tiered upcoming wave in msBD order: 43833, 43925-1, 43946, 43961, 43945, 43947, 43957, 43971.",
     "ot": "recommended",
     "otText": "OT recommended - 8 tiered expedites on compressed windows.",
     "upstream": "RI: 0 aging / 27 total, 14 received today, 0 upcoming."
+  },
+  "Receiving/Inspection": {
+    "what": "AR 0.0% GREEN. 0 aging / 27 total. CR 66.7% - 18 finished-at-op awaiting handoff. Tiered in dept: 1 T2.",
+    "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": null
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 4 total. CR 50.0% - 2 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 1 T3.",
@@ -7796,16 +7815,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-29T16:00",
- "realProgressCutoff": "2026-07-29T15:57",
- "hero": "Aging pressure is easing \u2014 2 aging in house vs ~10 typical. This week the floor let 128 jobs go stale (norm ~64) and picked aging jobs back up in a median 3h (norm 4h).",
+ "generatedAt": "2026-07-29T18:00",
+ "realProgressCutoff": "2026-07-29T16:32",
+ "hero": "Aging pressure is easing \u2014 2 aging in house vs ~10 typical. This week the floor let 126 jobs go stale (norm ~64) and picked aging jobs back up in a median 3h (norm 4h).",
  "pulse": {
   "agingToday": 2,
   "agingNorm": 9.5,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 128,
+  "staleThisWeek": 126,
   "staleNorm": 64,
   "staleVerdict": "WORSE",
   "respThisWeekH": 3.3,
@@ -8200,7 +8219,7 @@ const TRENDS = {
    ],
    "trend": "holding",
    "sentence": "out of GREEN 1 of last 10 days, worst 13% 7/21 \u00b7 aging picked up in ~2h \u00b7 holding",
-   "respH": 2.1,
+   "respH": 2.0,
    "custClock": false,
    "small": false
   },
@@ -8330,7 +8349,7 @@ const TRENDS = {
    ],
    "trend": "holding",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~2h \u00b7 holding",
-   "respH": 2.2,
+   "respH": 2.3,
    "custClock": false,
    "small": false
   },
@@ -8460,7 +8479,7 @@ const TRENDS = {
    ],
    "trend": "holding",
    "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~3h \u00b7 holding",
-   "respH": 2.7,
+   "respH": 2.8,
    "custClock": false,
    "small": false
   },
@@ -8720,7 +8739,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "aging present 7 of last 10 days (2 jobs at peak, ~2 in dept) \u00b7 aging picked up in ~24h \u00b7 customer clock",
-   "respH": 23.6,
+   "respH": 24.5,
    "custClock": true,
    "small": true
   },
@@ -9530,7 +9549,7 @@ const TRENDS = {
   "43918": 2,
   "43927": 2,
   "43921": 1,
-  "43797": 3,
+  "43797": 2,
   "43595": 2,
   "43745": 1,
   "43484": 1,
@@ -9547,7 +9566,7 @@ const TRENDS = {
   "43932": 1,
   "43943": 1,
   "43831": 1,
-  "43796": 2
+  "43796": 1
  },
  "reschedCatalog": {
   "42946": {
@@ -11565,6 +11584,12 @@ const TRENDS = {
   },
   {
    "t": "2026-07-29T16:00",
+   "ar": 1.8,
+   "aging": 2,
+   "inHouse": 112
+  },
+  {
+   "t": "2026-07-29T18:00",
    "ar": 1.8,
    "aging": 2,
    "inHouse": 112
