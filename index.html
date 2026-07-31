@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="06:00 PM PDT">
+  <meta name="qpc-build" content="06:53 PM PDT">
   <title>QPC Production Pulse — 07/30/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -586,7 +586,7 @@ const DATA = {
     "expediteTierDistribution": [],
     "mrbCount": 11,
     "unclassifiedAgingCount": 0,
-    "unclassifiedInHouseCount": 2,
+    "unclassifiedInHouseCount": 1,
     "shortScheduledCount": 29,
     "customerHoldProfileCount": 13,
     "profileDistribution": [
@@ -616,18 +616,18 @@ const DATA = {
       },
       {
         "name": "Large Parts",
-        "count": 7
+        "count": 8
       },
       {
         "name": "Complex",
         "count": 7
       },
       {
-        "name": "(Unclassified)",
-        "count": 2
+        "name": "Needs Assembly",
+        "count": 1
       },
       {
-        "name": "Needs Assembly",
+        "name": "(Unclassified)",
         "count": 1
       }
     ],
@@ -834,8 +834,8 @@ const DATA = {
   },
   "rescheduleStatus": {
     "kpiTarget": 98,
-    "totalAssessed": 122,
-    "onTimeCount": 118,
+    "totalAssessed": 123,
+    "onTimeCount": 119,
     "onTimePct": 96.7,
     "atRiskCount": 4,
     "decideToday": [],
@@ -2208,16 +2208,6 @@ const DATA = {
         "badge": "SR",
         "reason": "Source Required - date provisional.",
         "action": "PM coordinates source visit."
-      },
-      {
-        "wo": "44000",
-        "customer": "MILLWORX PRECISION MACHINING",
-        "profile": null,
-        "flag": "No Date",
-        "flagColor": "#8A8886",
-        "badge": "ND",
-        "reason": "Missing QPC Due Date.",
-        "action": "Planner owns: assign QPC Due Date."
       }
     ],
     "calibrationEntries": [
@@ -3809,6 +3799,19 @@ const DATA = {
         "wo": "43999",
         "customer": "ACUTEK",
         "profile": "High Qty",
+        "qpcDue": "Aug 13",
+        "forecastDate": "Aug 13",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-07-30",
+        "wo": "44000",
+        "customer": "MILLWORX PRECISION MACHINING",
+        "profile": "Large Parts",
         "qpcDue": "Aug 13",
         "forecastDate": "Aug 13",
         "predictedSlipBD": 0,
@@ -7772,12 +7775,12 @@ const DATA = {
       "customer": "MILLWORX PRECISION MACHINING",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
-      "profile": null,
+      "profile": "Large Parts",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "No Date",
-      "dueBD": null,
+      "dueDate": "08/13",
+      "dueBD": 10,
       "receivedToday": true,
       "rescheduled": false,
       "isAging": false,
@@ -8293,17 +8296,17 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "06:00 PM PDT";
+const GENERATED_TIME = "06:53 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-07-30T18:00",
+ "generatedAt": "2026-07-30T18:53",
  "realProgressCutoff": "2026-07-30T17:51",
- "hero": "Aging pressure is easing \u2014 5 aging in house vs ~8 typical. This week the floor let 117 jobs go stale (norm ~58) and picked aging jobs back up in a median 3h (norm 4h).",
+ "hero": "Aging pressure is easing \u2014 5 aging in house vs ~8 typical. This week the floor let 117 jobs go stale (norm ~56) and picked aging jobs back up in a median 3h (norm 4h).",
  "pulse": {
   "agingToday": 5,
   "agingNorm": 8.5,
   "agingVerdict": "BETTER",
   "staleThisWeek": 117,
-  "staleNorm": 58,
+  "staleNorm": 56,
   "staleVerdict": "WORSE",
   "respThisWeekH": 3.0,
   "respNormH": 4.1,
@@ -10812,13 +10815,6 @@ const TRENDS = {
  ],
  "arPulse": [
   {
-   "t": "2026-06-25T18:00",
-   "ar": 14.8,
-   "aging": 22,
-   "inHouse": 149,
-   "daily": true
-  },
-  {
    "t": "2026-06-26T18:00",
    "ar": 16.5,
    "aging": 22,
@@ -12160,6 +12156,12 @@ const TRENDS = {
   },
   {
    "t": "2026-07-30T18:00",
+   "ar": 4.1,
+   "aging": 5,
+   "inHouse": 123
+  },
+  {
+   "t": "2026-07-30T18:53",
    "ar": 4.1,
    "aging": 5,
    "inHouse": 123
