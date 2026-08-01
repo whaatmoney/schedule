@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="01:53 PM PDT">
+  <meta name="qpc-build" content="01:59 PM PDT">
   <title>QPC Production Pulse — 08/01/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -9527,9 +9527,9 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "01:53 PM PDT";
+const GENERATED_TIME = "01:59 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-08-01T13:53",
+ "generatedAt": "2026-08-01T13:59",
  "realProgressCutoff": "2026-08-01T09:27",
  "hero": "Aging pressure is building \u2014 27 aging in house vs ~8 typical. This week the floor let 161 jobs go stale (norm ~52) and picked aging jobs back up in a median 3h (norm 4h).",
  "pulse": {
@@ -13181,7 +13181,7 @@ const TRENDS = {
    "inHouse": 123
   },
   {
-   "t": "2026-08-01T13:53",
+   "t": "2026-08-01T13:59",
    "ar": 22.0,
    "aging": 27,
    "inHouse": 123
@@ -14016,20 +14016,29 @@ function buildReschedule() {
     const month = (TRENDS.reschedMonth || 'this month');
     const rows = Object.keys(cat).map(wo => Object.assign({ wo, j: inH[wo] }, cat[wo]))
       .sort((a, b) => b.n - a.n || (b.last > a.last ? 1 : -1));
+    // Status per the GM's OTD rule: will-call boxed = done; carrier boxed past
+    // due = already counted late on the scorecard; shipped = gone.
+    const rowStatus = r => {
+      if (!r.j) return '<span style="color:var(--text-muted)">Shipped</span>';
+      if (r.lateBox) return '<span style="color:var(--sig-red);font-weight:600">Boxed late · counted</span>';
+      if (r.wc && r.box) return '<span style="color:var(--sig-green);font-weight:600">Boxed · done (will call)</span>';
+      return escHtml(r.j.dept || '');
+    };
+    const rowDim = r => !r.j || (r.wc && r.box && !r.lateBox);
     const body = rows.map(r =>
-      '<tr' + (r.j ? '' : ' style="opacity:.65"') + '><td style="font-weight:700;color:var(--text-strong)">WO ' + escHtml(r.wo) + '</td>'
+      '<tr' + (rowDim(r) ? ' style="opacity:.65"' : '') + '><td style="font-weight:700;color:var(--text-strong)">WO ' + escHtml(r.wo) + '</td>'
       + '<td>' + escHtml(((r.j && r.j.customer) || r.cust || '').split(',')[0]) + '</td>'
-      + '<td>' + (r.j ? escHtml(r.j.dept || '') : '<span style="color:var(--text-muted)">Shipped</span>') + '</td>'
+      + '<td>' + rowStatus(r) + '</td>'
       + '<td class="c" style="font-weight:700;color:' + (r.n >= 3 ? 'var(--sig-red)' : r.n === 2 ? 'var(--sig-amber)' : 'var(--text-strong)') + '">' + r.n + '\u00d7</td>'
       + '<td class="c">' + (r.netDays > 0 ? '+' : '') + r.netDays + 'd</td>'
       + '<td class="c">' + escHtml(r.last || '') + '</td></tr>').join('');
     return '<div class="rs-section"><div class="rs-section-hdr s4"><span class="rs-section-dot s4"></span>'
       + '<div class="rs-section-title">Reschedule catalog \u2014 ' + escHtml(month) + '</div>'
       + '<div class="rs-section-count">' + rows.length + '</div>'
-      + '<div class="rs-section-sub">Every job whose QPC Due moved this calendar month \u2014 times moved, net days pushed, last move (shipped jobs dimmed)</div></div>'
+      + '<div class="rs-section-sub">Every job whose QPC Due moved this calendar month \u2014 times moved, net days pushed, last move. Status follows the OTD rule: will-call boxed = done; a carrier job boxed past due is already counted late (done rows dimmed)</div></div>'
       + (rows.length === 0
           ? '<div class="rs-empty">No QPC Due Date has moved yet in ' + escHtml(month) + '.</div>'
-          : '<div class="card sw"><table class="t"><thead><tr><th>WO</th><th>Customer</th><th>Dept</th><th class="c">Times moved</th><th class="c">Net push</th><th class="c">Last moved</th></tr></thead><tbody>' + body + '</tbody></table></div>')
+          : '<div class="card sw"><table class="t"><thead><tr><th>WO</th><th>Customer</th><th>Status</th><th class="c">Times moved</th><th class="c">Net push</th><th class="c">Last moved</th></tr></thead><tbody>' + body + '</tbody></table></div>')
       + '</div>';
   })();
 
