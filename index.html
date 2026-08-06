@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="09:22 AM PDT">
+  <meta name="qpc-build" content="09:24 AM PDT">
   <title>QPC Production Pulse — 08/06/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -579,10 +579,10 @@ function toggleTheme(){
 const DATA = {
   "reportDate": "08/06/2026",
   "overall": {
-    "totalJobs": 132,
+    "totalJobs": 133,
     "agingJobs": 16,
-    "ar": 12.1,
-    "receivedToday": 0,
+    "ar": 12.0,
+    "receivedToday": 1,
     "flagDist": {
       "Critical": 12,
       "On Track": 4,
@@ -594,7 +594,7 @@ const DATA = {
     "expediteTierDistribution": [],
     "mrbCount": 8,
     "unclassifiedAgingCount": 1,
-    "unclassifiedInHouseCount": 1,
+    "unclassifiedInHouseCount": 2,
     "shortScheduledCount": 33,
     "customerHoldProfileCount": 10,
     "profileDistribution": [
@@ -631,16 +631,16 @@ const DATA = {
         "count": 8
       },
       {
-        "name": "Needs Assembly",
-        "count": 1
+        "name": "(Unclassified)",
+        "count": 2
       },
       {
-        "name": "(Unclassified)",
+        "name": "Needs Assembly",
         "count": 1
       }
     ],
     "completedCount": 35,
-    "completedRatio": 26.5
+    "completedRatio": 26.3
   },
   "departments": [
     {
@@ -673,9 +673,9 @@ const DATA = {
     {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 7,
+      "total": 8,
       "aging": 2,
-      "ar": 28.6,
+      "ar": 25.0,
       "flags": {
         "On Track": 2
       },
@@ -689,7 +689,7 @@ const DATA = {
         }
       ],
       "completedCount": 2,
-      "completedRatio": 28.6,
+      "completedRatio": 25.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -842,9 +842,9 @@ const DATA = {
     }
   ],
   "reschedule": {
-    "totalInHouse": 132,
+    "totalInHouse": 133,
     "rescheduledCount": 28,
-    "reschedulePct": 21.2,
+    "reschedulePct": 21.1,
     "burnedAgingJobs": [
       {
         "wo": "43966",
@@ -2465,6 +2465,16 @@ const DATA = {
         "badge": "SR",
         "reason": "Source Required - date provisional.",
         "action": "PM coordinates source visit."
+      },
+      {
+        "wo": "44072",
+        "customer": "PRECISION ADVANCED MANUFACTURING",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
       }
     ],
     "calibrationEntries": [
@@ -8826,6 +8836,24 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": true,
       "progress": "03 - Complete"
+    },
+    {
+      "wo": "44072",
+      "customer": "PRECISION ADVANCED MANUFACTURING",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
     }
   ],
   "mrbJobs": [
@@ -9274,7 +9302,7 @@ const GUIDANCE = {
     "upstream": "Pre-Clean: 1 aging / 40 total, 39 upcoming feeding in."
   },
   "Receiving/Inspection": {
-    "what": "AR 28.6% RED. 2 aging / 7 total. Flags: 2 On Track. CR 28.6% - 2 finished-at-op awaiting handoff.",
+    "what": "AR 25.0% RED. 2 aging / 8 total. Flags: 2 On Track. CR 25.0% - 2 finished-at-op awaiting handoff.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
@@ -9299,7 +9327,7 @@ const GUIDANCE = {
     "action": "Burn down before they tip: 43966. Start tiered upcoming wave in msBD order: 43925-1, 44038, 44056, 44068, 44018-2.",
     "ot": "recommended",
     "otText": "OT recommended - all 1 aging jobs are Critical.",
-    "upstream": "RI: 2 aging / 7 total, 0 received today, 0 upcoming."
+    "upstream": "RI: 2 aging / 8 total, 1 received today, 0 upcoming."
   },
   "Lab Testing": {
     "what": "AR 22.2% RED. 2 aging / 9 total. Flags: 1 On Track, 1 Tight. 1 burned reschedule(s). CR 55.6% - 5 finished-at-op awaiting handoff.",
@@ -9325,9 +9353,9 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "09:22 AM PDT";
+const GENERATED_TIME = "09:24 AM PDT";
 const TRENDS = {
- "generatedAt": "2026-08-06T09:22",
+ "generatedAt": "2026-08-06T09:24",
  "realProgressCutoff": "2026-08-06T09:12",
  "hero": "Aging pressure is building \u2014 16 aging in house vs ~11 typical. This week the floor let 186 jobs go stale (norm ~54) and picked aging jobs back up in a median 5h (norm 3h).",
  "pulse": {
@@ -9464,11 +9492,11 @@ const TRENDS = {
     },
     {
      "d": "2026-08-06",
-     "ar": 28.6
+     "ar": 25.0
     }
    ],
    "trend": "improving",
-   "sentence": "out of GREEN 1 of last 10 days, worst 29% 8/6 \u00b7 aging picked up in ~6h \u00b7 improving",
+   "sentence": "out of GREEN 1 of last 10 days, worst 25% 8/6 \u00b7 aging picked up in ~6h \u00b7 improving",
    "respH": 6.3,
    "custClock": false,
    "small": false
@@ -9859,7 +9887,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 2 of last 10 days, worst 19% 8/4 \u00b7 aging picked up in ~2h \u00b7 worsening",
-   "respH": 2.2,
+   "respH": 2.3,
    "custClock": false,
    "small": false
   },
@@ -11640,9 +11668,9 @@ const TRENDS = {
   },
   {
    "date": "2026-08-06",
-   "inHouse": 132,
+   "inHouse": 133,
    "aging": 16,
-   "ar": 12.1
+   "ar": 12.0
   }
  ],
  "arPulse": [
@@ -13195,10 +13223,10 @@ const TRENDS = {
    "inHouse": 131
   },
   {
-   "t": "2026-08-06T09:22",
-   "ar": 12.1,
+   "t": "2026-08-06T09:24",
+   "ar": 12.0,
    "aging": 16,
-   "inHouse": 132
+   "inHouse": 133
   }
  ]
 };
