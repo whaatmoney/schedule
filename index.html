@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="07:56 PM PDT">
   <title>QPC Production Pulse — 08/06/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -580,16 +580,16 @@ const DATA = {
   "reportDate": "08/06/2026",
   "overall": {
     "totalJobs": 127,
-    "agingJobs": 12,
-    "ar": 9.4,
+    "agingJobs": 13,
+    "ar": 10.2,
     "receivedToday": 18,
     "flagDist": {
+      "Critical": 7,
       "Reschedule Window": 6,
-      "Critical": 6,
       "On Track": 3,
       "Tight": 1
     },
-    "upcomingCount": 97,
+    "upcomingCount": 96,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -695,31 +695,22 @@ const DATA = {
       "name": "Shipping",
       "lead": "Luis",
       "total": 21,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
+      "aging": 1,
+      "ar": 4.8,
+      "flags": {
+        "Critical": 1
+      },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 20,
-      "profileMix": [],
+      "incoming": 19,
+      "profileMix": [
+        {
+          "name": "Large Parts",
+          "count": 1
+        }
+      ],
       "completedCount": 6,
       "completedRatio": 28.6,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Packaging",
-      "lead": "Erick",
-      "total": 16,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 16,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -736,6 +727,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 1,
       "completedRatio": 4.2,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Packaging",
+      "lead": "Erick",
+      "total": 16,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 16,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -4150,6 +4157,39 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "43889",
+      "customer": "AMENTUM SERVICES, INC.",
+      "dept": "Shipping",
+      "dueDate": "08/07",
+      "msDate": "08/06",
+      "msBD": 0,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Large Parts",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 9,
+      "scheduledLeadBD": 10,
+      "profileBurnPct": 75.0,
+      "profileOverBD": -3,
+      "schedulingSlack": -2,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "43951",
       "customer": "SAINT GOBAIN",
       "dept": "Customer Hold (Profile)",
@@ -4819,16 +4859,6 @@ const DATA = {
       "dueBD": 1,
       "priority": "Standard",
       "profile": "Standard"
-    },
-    {
-      "wo": "43889",
-      "dept": "Shipping",
-      "dueDate": "08/07",
-      "msDate": "08/06",
-      "msBD": 0,
-      "dueBD": 1,
-      "priority": "Standard",
-      "profile": "Large Parts"
     },
     {
       "wo": "43894",
@@ -6454,10 +6484,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Cart"
+      "progress": "06 - Aging"
     },
     {
       "wo": "43894",
@@ -8783,18 +8813,11 @@ const GUIDANCE = {
     "upstream": "RI: 2 aging / 12 total, 18 received today, 0 upcoming."
   },
   "Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 21 total. 20 upcoming. CR 28.6% - 6 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 2 T2. Upcoming tiered: 4 T1, 2 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 43978, 43925-1, 44024, 44015, 44016, 44038.",
+    "what": "AR 4.8% GREEN. 1 aging / 21 total. Flags: 1 Critical. 1 Critical: 43889 AMENTUM SERVICES (Large Parts, msBD=0 dueBD=1). 19 upcoming. CR 28.6% - 6 finished-at-op awaiting handoff. Tiered in dept: 4 T1, 2 T2. Upcoming tiered: 4 T1, 2 T2.",
+    "action": "Burn down before they tip: 43889. Start tiered upcoming wave in msBD order: 43978, 43925-1, 44024, 44015, 44016, 44038.",
     "ot": "recommended",
-    "otText": "OT recommended - 6 tiered expedites on compressed windows.",
+    "otText": "OT recommended - all 1 aging jobs are Critical.",
     "upstream": "Packaging: 0 aging / 16 total, 16 upcoming."
-  },
-  "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 16 total. 16 upcoming. Tiered in dept: 1 T1, 1 T2. Upcoming tiered: 1 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 44035, 44025.",
-    "ot": "not needed",
-    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
-    "upstream": "Cleanroom: 0 aging / 24 total. Pre-Clean: 2 aging / 39 total."
   },
   "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 24 total. 24 upcoming. Tiered in dept: 1 T1, 1 T2, 1 T3. Upcoming tiered: 1 T1, 1 T2, 1 T3.",
@@ -8802,6 +8825,13 @@ const GUIDANCE = {
     "ot": "recommended",
     "otText": "OT recommended - 3 tiered expedites on compressed windows.",
     "upstream": "Pre-Clean: 2 aging / 39 total, 37 upcoming feeding in."
+  },
+  "Packaging": {
+    "what": "AR 0.0% GREEN. 0 aging / 16 total. 16 upcoming. Tiered in dept: 1 T1, 1 T2. Upcoming tiered: 1 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 44035, 44025.",
+    "ot": "not needed",
+    "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
+    "upstream": "Cleanroom: 0 aging / 24 total. Pre-Clean: 2 aging / 39 total."
   },
   "Lab Testing": {
     "what": "AR 50.0% BLACK. 5 aging / 10 total. Flags: 4 Reschedule Window, 1 Tight. CR 30.0% - 3 finished-at-op awaiting handoff.",
@@ -8827,16 +8857,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "07:56 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-08-06T16:00",
- "realProgressCutoff": "2026-08-06T15:38",
- "hero": "Aging pressure is steady \u2014 12 aging in house vs ~11 typical. This week the floor let 185 jobs go stale (norm ~56) and picked aging jobs back up in a median 5h (norm 3h).",
+ "generatedAt": "2026-08-06T19:56",
+ "realProgressCutoff": "2026-08-06T19:51",
+ "hero": "Aging pressure is steady \u2014 13 aging in house vs ~11 typical. This week the floor let 187 jobs go stale (norm ~56) and picked aging jobs back up in a median 5h (norm 3h).",
  "pulse": {
-  "agingToday": 12,
+  "agingToday": 13,
   "agingNorm": 11.0,
   "agingVerdict": "NORMAL",
-  "staleThisWeek": 185,
+  "staleThisWeek": 187,
   "staleNorm": 56,
   "staleVerdict": "WORSE",
   "respThisWeekH": 4.8,
@@ -9486,7 +9516,7 @@ const TRENDS = {
     },
     {
      "d": "2026-08-06",
-     "ar": 0.0
+     "ar": 4.8
     }
    ],
    "trend": "holding",
@@ -9621,7 +9651,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 6 of last 10 days, worst 61% 8/1 \u00b7 aging picked up in ~4h \u00b7 customer clock",
-   "respH": 3.7,
+   "respH": 3.5,
    "custClock": true,
    "small": false
   },
@@ -9750,8 +9780,8 @@ const TRENDS = {
     }
    ],
    "trend": "worsening",
-   "sentence": "aging present 7 of last 10 days (5 jobs at peak, ~1 in dept) \u00b7 aging picked up in ~22h \u00b7 customer clock",
-   "respH": 21.6,
+   "sentence": "aging present 7 of last 10 days (5 jobs at peak, ~1 in dept) \u00b7 aging picked up in ~23h \u00b7 customer clock",
+   "respH": 22.7,
    "custClock": true,
    "small": true
   },
@@ -9889,6 +9919,10 @@ const TRENDS = {
  "repeatAgers60d": [
   [
    "43851",
+   6
+  ],
+  [
+   "43889",
    6
   ],
   [
@@ -10037,10 +10071,6 @@ const TRENDS = {
   ],
   [
    "43820",
-   4
-  ],
-  [
-   "43889",
    4
   ],
   [
@@ -10477,7 +10507,7 @@ const TRENDS = {
   "43895": 2,
   "43891": 2,
   "43898": 1,
-  "43889": 4,
+  "43889": 6,
   "43928": 2,
   "43915": 4,
   "43916": 5,
@@ -10751,9 +10781,9 @@ const TRENDS = {
  },
  "reschedMonth": "August",
  "otd": {
-  "pct": 100.0,
-  "made": 58,
-  "shipped": 58,
+  "pct": 91.3,
+  "made": 63,
+  "shipped": 69,
   "month": "Aug",
   "asOf": "2026-08-06",
   "goal": 98
@@ -10802,11 +10832,11 @@ const TRENDS = {
    "ym": "2026-08",
    "label": "Aug",
    "mtd": true,
-   "otdPct": 100.0,
-   "shipped": 58,
-   "marks": 150,
+   "otdPct": 91.3,
+   "shipped": 69,
+   "marks": 152,
    "recovHrs": 5.7,
-   "avgAr": 14.9,
+   "avgAr": 15.1,
    "peakAr": 24.4,
    "resched": 20,
    "partial": true
@@ -11170,23 +11200,11 @@ const TRENDS = {
   {
    "date": "2026-08-06",
    "inHouse": 127,
-   "aging": 12,
-   "ar": 9.4
+   "aging": 13,
+   "ar": 10.2
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-07-02T16:00",
-   "ar": 3.3,
-   "aging": 3,
-   "inHouse": 91
-  },
-  {
-   "t": "2026-07-02T18:00",
-   "ar": 3.1,
-   "aging": 3,
-   "inHouse": 97
-  },
   {
    "t": "2026-07-03T06:00",
    "ar": 6.2,
@@ -12733,6 +12751,12 @@ const TRENDS = {
    "t": "2026-08-06T16:00",
    "ar": 9.4,
    "aging": 12,
+   "inHouse": 127
+  },
+  {
+   "t": "2026-08-06T19:56",
+   "ar": 10.2,
+   "aging": 13,
    "inHouse": 127
   }
  ]
