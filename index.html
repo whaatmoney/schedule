@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 08/28/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -580,17 +580,17 @@ const DATA = {
   "reportDate": "08/28/2026",
   "overall": {
     "totalJobs": 142,
-    "agingJobs": 19,
-    "ar": 13.4,
+    "agingJobs": 23,
+    "ar": 16.2,
     "receivedToday": 17,
     "flagDist": {
-      "Critical": 15,
+      "Critical": 19,
       "Past Due": 4,
       "Tight": 1,
       "Reschedule Window": 1,
       "On Track": 1
     },
-    "upcomingCount": 84,
+    "upcomingCount": 80,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -653,18 +653,22 @@ const DATA = {
       "name": "Packaging",
       "lead": "Erick",
       "total": 32,
-      "aging": 9,
-      "ar": 28.1,
+      "aging": 13,
+      "ar": 40.6,
       "flags": {
-        "Critical": 9
+        "Critical": 13
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 22,
+      "incoming": 18,
       "profileMix": [
         {
           "name": "Low Qty",
-          "count": 5
+          "count": 6
+        },
+        {
+          "name": "Priority Customer",
+          "count": 4
         },
         {
           "name": "High Qty",
@@ -672,10 +676,6 @@ const DATA = {
         },
         {
           "name": "Standard",
-          "count": 1
-        },
-        {
-          "name": "Priority Customer",
           "count": 1
         }
       ],
@@ -893,6 +893,18 @@ const DATA = {
         "profile": "Low Qty"
       },
       {
+        "wo": "44318",
+        "customer": "SAINT GOBAIN",
+        "dept": "Packaging",
+        "dueDate": "08/31",
+        "msBD": -1,
+        "dueBD": 1,
+        "flag": "Critical",
+        "baseFlag": "Critical",
+        "priority": "Standard",
+        "profile": "Low Qty"
+      },
+      {
         "wo": "44372",
         "customer": "VALLEY METALS",
         "dept": "Pre-Clean",
@@ -909,9 +921,9 @@ const DATA = {
   "rescheduleStatus": {
     "kpiTarget": 98,
     "totalAssessed": 135,
-    "onTimeCount": 122,
-    "onTimePct": 90.4,
-    "atRiskCount": 13,
+    "onTimeCount": 107,
+    "onTimePct": 79.3,
+    "atRiskCount": 28,
     "decideToday": [
       {
         "wo": "44260",
@@ -978,9 +990,580 @@ const DATA = {
           "maxSlip": 2,
           "scheduled": "Sep 1"
         }
+      },
+      {
+        "wo": "44287",
+        "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
+        "profile": "Low Qty",
+        "profileCls": "tight",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dueDate": "Sep 1",
+        "dueBD": 2,
+        "eligibility": {
+          "state": "today",
+          "label": "EOD TODAY",
+          "day": "Today",
+          "bdLeft": 0,
+          "note": "At the 2 BD boundary"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "burnTarget": {
+          "date": "Sep 3",
+          "band": "+/-3 BD",
+          "confidence": "caution",
+          "reasoning": "Forecast slip +2 BD, driven by: Black-tier dept ahead."
+        },
+        "commitOutcome": {
+          "date": "~Sep 3",
+          "miss": "+2 BD miss",
+          "note": "Forecast lands Sep 3 either way."
+        },
+        "recommendation": "burn",
+        "detail": {
+          "cr": null,
+          "profileWindow": 8,
+          "profileElapsed": 6,
+          "profileBurn": 0.75,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 75% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 1"
+        }
       }
     ],
-    "decideWeek": [],
+    "decideWeek": [
+      {
+        "wo": "44282",
+        "customer": "FMH AMETEK",
+        "profile": "Complex",
+        "profileCls": "",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Aug 31",
+        "deadlineBD": 1,
+        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "eligibility": {
+          "state": "tight",
+          "label": "Decide by Aug 31 (1 BD)",
+          "day": "Aug 31",
+          "bdLeft": 1,
+          "note": "Rule 2 cuts in tomorrow"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 4",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 7,
+          "profileBurn": 0.583,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 58% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 2"
+        }
+      },
+      {
+        "wo": "44321",
+        "customer": "ASTROTECH SPACE OPERATIONS LLC",
+        "profile": "High Qty",
+        "profileCls": "",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Sep 2",
+        "deadlineBD": 3,
+        "deadlineNote": "",
+        "eligibility": {
+          "state": "ok",
+          "label": "Decide by Sep 2 (3 BD)",
+          "day": "Sep 2",
+          "bdLeft": 3,
+          "note": ""
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 8",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 6,
+          "profileBurn": 0.5,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 50% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 4"
+        }
+      },
+      {
+        "wo": "44325",
+        "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
+        "profile": "Low Qty",
+        "profileCls": "tight",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Aug 31",
+        "deadlineBD": 1,
+        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "eligibility": {
+          "state": "tight",
+          "label": "Decide by Aug 31 (1 BD)",
+          "day": "Aug 31",
+          "bdLeft": 1,
+          "note": "Rule 2 cuts in tomorrow"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 4",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 8,
+          "profileElapsed": 6,
+          "profileBurn": 0.75,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 75% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 2"
+        }
+      },
+      {
+        "wo": "44326",
+        "customer": "KAP MANUFACTURING",
+        "profile": "Tiny Parts",
+        "profileCls": "",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Sep 1",
+        "deadlineBD": 2,
+        "deadlineNote": "",
+        "eligibility": {
+          "state": "ok",
+          "label": "Decide by Sep 1 (2 BD)",
+          "day": "Sep 1",
+          "bdLeft": 2,
+          "note": ""
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 7",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": null,
+          "profileElapsed": null,
+          "profileBurn": null,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn (n/a)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 3"
+        }
+      },
+      {
+        "wo": "44336",
+        "customer": "MACHINE SCIENCES CORPORATION",
+        "profile": "Standard",
+        "profileCls": "",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Sep 1",
+        "deadlineBD": 2,
+        "deadlineNote": "",
+        "eligibility": {
+          "state": "ok",
+          "label": "Decide by Sep 1 (2 BD)",
+          "day": "Sep 1",
+          "bdLeft": 2,
+          "note": ""
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 7",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 10,
+          "profileElapsed": 5,
+          "profileBurn": 0.5,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 50% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 3"
+        }
+      },
+      {
+        "wo": "44349",
+        "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
+        "profile": "Low Qty",
+        "profileCls": "tight",
+        "flag": "Critical",
+        "flagColor": "#D13438",
+        "dept": "Cleanroom",
+        "deadlineDay": "Aug 31",
+        "deadlineBD": 1,
+        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "eligibility": {
+          "state": "tight",
+          "label": "Decide by Aug 31 (1 BD)",
+          "day": "Aug 31",
+          "bdLeft": 1,
+          "note": "Rule 2 cuts in tomorrow"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 4",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 8,
+          "profileElapsed": 4,
+          "profileBurn": 0.5,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 50% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 2"
+        }
+      },
+      {
+        "wo": "44350",
+        "customer": "AERO COMPONENT ENGINEERING",
+        "profile": "Priority Customer",
+        "profileCls": "tight",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Aug 31",
+        "deadlineBD": 1,
+        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "eligibility": {
+          "state": "tight",
+          "label": "Decide by Aug 31 (1 BD)",
+          "day": "Aug 31",
+          "bdLeft": 1,
+          "note": "Rule 2 cuts in tomorrow"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 4",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 7,
+          "profileElapsed": 4,
+          "profileBurn": 0.5710000000000001,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 57% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 2"
+        }
+      },
+      {
+        "wo": "44351",
+        "customer": "RAH INDUSTRIES",
+        "profile": "Low Qty",
+        "profileCls": "tight",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "dept": "Cleanroom",
+        "deadlineDay": "Aug 31",
+        "deadlineBD": 1,
+        "deadlineNote": "Rule 2 cuts in tomorrow",
+        "eligibility": {
+          "state": "tight",
+          "label": "Decide by Aug 31 (1 BD)",
+          "day": "Aug 31",
+          "bdLeft": 1,
+          "note": "Rule 2 cuts in tomorrow"
+        },
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "target": {
+          "date": "Sep 4",
+          "band": "+/-3 BD",
+          "confidence": "caution"
+        },
+        "action": "burn",
+        "actionLabel": "Burn",
+        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 8,
+          "profileElapsed": 4,
+          "profileBurn": 0.5,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 50% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 2"
+        }
+      }
+    ],
     "notify": [
       {
         "wo": "44142",
@@ -1180,6 +1763,256 @@ const DATA = {
           ],
           "maxSlip": 2,
           "scheduled": "Aug 28"
+        }
+      },
+      {
+        "wo": "44358",
+        "customer": "MARPLES GEARS INC.",
+        "profile": "High Qty",
+        "profileCls": "",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Sep 8",
+        "forecastDate": "Sep 10",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Black-tier dept ahead.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 4,
+          "profileBurn": 0.33299999999999996,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 33% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 8"
+        }
+      },
+      {
+        "wo": "44359",
+        "customer": "RUBICON GEAR",
+        "profile": "High Qty",
+        "profileCls": "",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Sep 8",
+        "forecastDate": "Sep 10",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Black-tier dept ahead.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 4,
+          "profileBurn": 0.33299999999999996,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 33% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 8"
+        }
+      },
+      {
+        "wo": "44364",
+        "customer": "SEYTEC",
+        "profile": "High Qty",
+        "profileCls": "",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Sep 8",
+        "forecastDate": "Sep 10",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Black-tier dept ahead.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 12,
+          "profileElapsed": 4,
+          "profileBurn": 0.33299999999999996,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 33% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 8"
+        }
+      },
+      {
+        "wo": "44379",
+        "customer": "OMW CORPORATION",
+        "profile": "Standard",
+        "profileCls": "",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Sep 8",
+        "forecastDate": "Sep 10",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Black-tier dept ahead.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 10,
+          "profileElapsed": 3,
+          "profileBurn": 0.3,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 30% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 8"
+        }
+      },
+      {
+        "wo": "44382 ",
+        "customer": "POLYMER CONCEPTS",
+        "profile": "Priority Customer",
+        "profileCls": "tight",
+        "dept": "Cleanroom",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Sep 3",
+        "forecastDate": "Sep 7",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Black-tier dept ahead (Packaging)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Black-tier dept ahead.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 7,
+          "profileElapsed": 3,
+          "profileBurn": 0.429,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Profile burn 43% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Sep 3"
         }
       }
     ],
@@ -1385,86 +2218,6 @@ const DATA = {
         }
       },
       {
-        "wo": "44358",
-        "customer": "MARPLES GEARS INC.",
-        "profile": "High Qty",
-        "dept": "Cleanroom",
-        "scheduledDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 4,
-          "profileBurn": 0.33299999999999996,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 33% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Sep 8"
-        }
-      },
-      {
-        "wo": "44359",
-        "customer": "RUBICON GEAR",
-        "profile": "High Qty",
-        "dept": "Cleanroom",
-        "scheduledDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 4,
-          "profileBurn": 0.33299999999999996,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 33% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Sep 8"
-        }
-      },
-      {
         "wo": " 44360",
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
@@ -1481,46 +2234,6 @@ const DATA = {
           "indicators": [
             {
               "label": "Black-tier dept ahead (Cleanroom)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 33% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Sep 8"
-        }
-      },
-      {
-        "wo": "44364",
-        "customer": "SEYTEC",
-        "profile": "High Qty",
-        "dept": "Cleanroom",
-        "scheduledDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 4,
-          "profileBurn": 0.33299999999999996,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
               "val": null,
               "active": false
             },
@@ -1625,46 +2338,6 @@ const DATA = {
         }
       },
       {
-        "wo": "44379",
-        "customer": "OMW CORPORATION",
-        "profile": "Standard",
-        "dept": "Cleanroom",
-        "scheduledDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 3,
-          "profileBurn": 0.3,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 30% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Sep 8"
-        }
-      },
-      {
         "wo": "44381",
         "customer": "MINDRUM PRECISION, INC",
         "profile": "Standard",
@@ -1702,46 +2375,6 @@ const DATA = {
           ],
           "maxSlip": 0,
           "scheduled": "Aug 28"
-        }
-      },
-      {
-        "wo": "44382 ",
-        "customer": "POLYMER CONCEPTS",
-        "profile": "Priority Customer",
-        "dept": "Cleanroom",
-        "scheduledDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "delta": "On time",
-        "note": "Burned but tracking. No risk indicators firing.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 7,
-          "profileElapsed": 3,
-          "profileBurn": 0.429,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Profile burn 43% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 0,
-          "scheduled": "Sep 3"
         }
       },
       {
@@ -2457,6 +3090,16 @@ const DATA = {
         "action": "MRB closes first. QE owns disposition."
       },
       {
+        "wo": "44419-4",
+        "customer": "ULA/SAUER MECHANICAL, LLC",
+        "profile": "Priority Customer",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (1 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
         "wo": "44427",
         "customer": "SAINT GOBAIN",
         "profile": "Source Required",
@@ -2622,9 +3265,11 @@ const DATA = {
         "customer": "TECMA",
         "profile": "High Qty",
         "qpcDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
+        "forecastDate": "Sep 7",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
@@ -2886,10 +3531,12 @@ const DATA = {
         "customer": "FMH AMETEK",
         "profile": "Complex",
         "qpcDue": "Sep 2",
-        "forecastDate": "Sep 2",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 4",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -2912,10 +3559,12 @@ const DATA = {
         "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
         "profile": "Low Qty",
         "qpcDue": "Sep 1",
-        "forecastDate": "Sep 1",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 3",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_today",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -3159,10 +3808,12 @@ const DATA = {
         "customer": "ASTROTECH SPACE OPERATIONS LLC",
         "profile": "High Qty",
         "qpcDue": "Sep 4",
-        "forecastDate": "Sep 4",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 8",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -3185,10 +3836,12 @@ const DATA = {
         "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
         "profile": "Low Qty",
         "qpcDue": "Sep 2",
-        "forecastDate": "Sep 2",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 4",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -3198,10 +3851,12 @@ const DATA = {
         "customer": "KAP MANUFACTURING",
         "profile": "Tiny Parts",
         "qpcDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 7",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -3239,10 +3894,12 @@ const DATA = {
         "customer": "MACHINE SCIENCES CORPORATION",
         "profile": "Standard",
         "qpcDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 7",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -3330,9 +3987,11 @@ const DATA = {
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
         "qpcDue": "Sep 4",
-        "forecastDate": "Sep 4",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
+        "forecastDate": "Sep 8",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
@@ -3369,10 +4028,12 @@ const DATA = {
         "customer": "SCHLUMBERGER/CAMERON TECHNOLOGIES US INC",
         "profile": "Low Qty",
         "qpcDue": "Sep 2",
-        "forecastDate": "Sep 2",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 4",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -3382,10 +4043,12 @@ const DATA = {
         "customer": "AERO COMPONENT ENGINEERING",
         "profile": "Priority Customer",
         "qpcDue": "Sep 2",
-        "forecastDate": "Sep 2",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 4",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -3395,10 +4058,12 @@ const DATA = {
         "customer": "RAH INDUSTRIES",
         "profile": "Low Qty",
         "qpcDue": "Sep 2",
-        "forecastDate": "Sep 2",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 4",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "decide_week",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -3434,10 +4099,12 @@ const DATA = {
         "customer": "MARPLES GEARS INC.",
         "profile": "High Qty",
         "qpcDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Sep 10",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": false
       },
@@ -3447,10 +4114,12 @@ const DATA = {
         "customer": "RUBICON GEAR",
         "profile": "High Qty",
         "qpcDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Sep 10",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": false
       },
@@ -3486,10 +4155,12 @@ const DATA = {
         "customer": "SEYTEC",
         "profile": "High Qty",
         "qpcDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Sep 10",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": false
       },
@@ -3590,10 +4261,12 @@ const DATA = {
         "customer": "OMW CORPORATION",
         "profile": "Standard",
         "qpcDue": "Sep 8",
-        "forecastDate": "Sep 8",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Sep 10",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": false
       },
@@ -3629,10 +4302,12 @@ const DATA = {
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
         "qpcDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "monitor",
+        "forecastDate": "Sep 7",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "notify",
         "isBurned": true,
         "isTightProfile": true
       },
@@ -3759,9 +4434,11 @@ const DATA = {
         "customer": "ACUTEK",
         "profile": "Standard",
         "qpcDue": "Sep 3",
-        "forecastDate": "Sep 3",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
+        "forecastDate": "Sep 7",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
@@ -3980,10 +4657,12 @@ const DATA = {
         "customer": "ULA/SAUER MECHANICAL, LLC",
         "profile": "Priority Customer",
         "qpcDue": "Aug 31",
-        "forecastDate": "Aug 31",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Sep 2",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -4646,6 +5325,39 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "44300",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "08/31",
+      "msDate": "08/27",
+      "msBD": -1,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "44302",
       "customer": "AS & D ASTROS",
       "dept": "Packaging",
@@ -4746,6 +5458,105 @@ const DATA = {
     },
     {
       "wo": "44316",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "08/31",
+      "msDate": "08/27",
+      "msBD": -1,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "44317",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "08/31",
+      "msDate": "08/27",
+      "msBD": -1,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": 0,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "44318",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "08/31",
+      "msDate": "08/27",
+      "msBD": -1,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": true,
+      "profile": "Low Qty",
+      "profileMin": 6,
+      "profileMax": 8,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 7,
+      "profileBurnPct": 75.0,
+      "profileOverBD": -2,
+      "schedulingSlack": -1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "44320",
       "customer": "SAINT GOBAIN",
       "dept": "Packaging",
       "dueDate": "08/31",
@@ -5212,46 +6023,6 @@ const DATA = {
       "dueBD": 0,
       "priority": "Standard",
       "profile": "Low Qty"
-    },
-    {
-      "wo": "44300",
-      "dept": "Packaging",
-      "dueDate": "08/31",
-      "msDate": "08/27",
-      "msBD": -1,
-      "dueBD": 1,
-      "priority": "Standard",
-      "profile": "Priority Customer"
-    },
-    {
-      "wo": "44317",
-      "dept": "Packaging",
-      "dueDate": "08/31",
-      "msDate": "08/27",
-      "msBD": -1,
-      "dueBD": 1,
-      "priority": "Standard",
-      "profile": "Priority Customer"
-    },
-    {
-      "wo": "44318",
-      "dept": "Packaging",
-      "dueDate": "08/31",
-      "msDate": "08/27",
-      "msBD": -1,
-      "dueBD": 1,
-      "priority": "Standard",
-      "profile": "Low Qty"
-    },
-    {
-      "wo": "44320",
-      "dept": "Packaging",
-      "dueDate": "08/31",
-      "msDate": "08/27",
-      "msBD": -1,
-      "dueBD": 1,
-      "priority": "Standard",
-      "profile": "Priority Customer"
     },
     {
       "wo": "44330",
@@ -7345,10 +8116,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44302",
@@ -7489,10 +8260,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44318",
@@ -7507,10 +8278,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44320",
@@ -7525,10 +8296,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44321",
@@ -9848,10 +10619,10 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Packaging": {
-    "what": "AR 28.1% RED. 9 aging / 32 total. Flags: 9 Critical. 9 Critical: 44260 VAST (Low Qty, msBD=-2 dueBD=2); 44265 SONFARREL (High Qty, msBD=-3 dueBD=1); 44269 UNITED PRECISION CORP (High Qty, msBD=-3 dueBD=1); 44288 KAP MANUFACTURING (Standard, msBD=-3 dueBD=2); 44302 AS & D ASTROS (Low Qty, msBD=-2 dueBD=1); 44313 STARK INDUSTRIAL LLC (Low Qty, msBD=-1 dueBD=1); 44314 MW COMPONENTS (Low Qty, msBD=-1 dueBD=1); 44316 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=1); 44323 KAP MANUFACTURING (Low Qty, msBD=-1 dueBD=1). 22 upcoming. Tiered in dept: 2 T1, 2 T3. Upcoming tiered: 1 T1, 2 T3.",
-    "action": "Burn down before they tip: 44260, 44265, 44269, 44288, 44302, 44313, 44314, 44316, 44323. Start tiered upcoming wave in msBD order: 44341, 44396, 44419-5.",
+    "what": "AR 40.6% BLACK. 13 aging / 32 total. Flags: 13 Critical. 13 Critical: 44260 VAST (Low Qty, msBD=-2 dueBD=2); 44265 SONFARREL (High Qty, msBD=-3 dueBD=1); 44269 UNITED PRECISION CORP (High Qty, msBD=-3 dueBD=1); 44288 KAP MANUFACTURING (Standard, msBD=-3 dueBD=2); 44300 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=1); 44302 AS & D ASTROS (Low Qty, msBD=-2 dueBD=1); 44313 STARK INDUSTRIAL LLC (Low Qty, msBD=-1 dueBD=1); 44314 MW COMPONENTS (Low Qty, msBD=-1 dueBD=1); 44316 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=1); 44317 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=1); 44318 SAINT GOBAIN (Low Qty, msBD=-1 dueBD=1, burned); 44320 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=1); 44323 KAP MANUFACTURING (Low Qty, msBD=-1 dueBD=1). 1 burned reschedule(s). 18 upcoming. Tiered in dept: 2 T1, 2 T3. Upcoming tiered: 1 T1, 2 T3.",
+    "action": "Burn down before they tip: 44260, 44265, 44269, 44288, 44300, 44302, 44313, 44314, 44316, 44317, 44318, 44320, 44323. Start tiered upcoming wave in msBD order: 44341, 44396, 44419-5.",
     "ot": "recommended",
-    "otText": "OT recommended - 9 Critical jobs in Packaging.",
+    "otText": "OT recommended - 13 Critical jobs in Packaging.",
     "upstream": "Cleanroom: 2 aging / 18 total. Pre-Clean: 1 aging / 33 total."
   },
   "Shipping": {
@@ -9859,7 +10630,7 @@ const GUIDANCE = {
     "action": "Escalate / notify customer: 44110. Burn down before they tip: 44252, 44268. Start tiered upcoming wave in msBD order: 44330, 44380, 44381, 44388.",
     "ot": "recommended",
     "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 9 aging / 32 total, 22 upcoming."
+    "upstream": "Packaging: 13 aging / 32 total, 18 upcoming."
   },
   "Cleanroom": {
     "what": "AR 11.1% GREEN. 2 aging / 18 total. Flags: 2 Critical. 2 Critical: 44343 RUBICON GEAR (High Qty, msBD=-1 dueBD=5); 44349 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Low Qty, msBD=-1 dueBD=3). 16 upcoming. Tiered in dept: 1 T1, 1 T3. Upcoming tiered: 1 T1, 1 T3.",
@@ -9913,16 +10684,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-08-28T16:00",
- "realProgressCutoff": "2026-08-28T15:40",
- "hero": "Aging pressure is steady \u2014 19 aging in house vs ~18 typical. This week the floor let 332 jobs go stale (norm ~173) and picked aging jobs back up in a median 5h (norm 4h).",
+ "generatedAt": "2026-08-28T18:00",
+ "realProgressCutoff": "2026-08-28T17:27",
+ "hero": "Aging pressure is steady \u2014 23 aging in house vs ~18 typical. This week the floor let 334 jobs go stale (norm ~173) and picked aging jobs back up in a median 5h (norm 4h).",
  "pulse": {
-  "agingToday": 19,
+  "agingToday": 23,
   "agingNorm": 17.5,
   "agingVerdict": "NORMAL",
-  "staleThisWeek": 332,
+  "staleThisWeek": 334,
   "staleNorm": 173,
   "staleVerdict": "WORSE",
   "respThisWeekH": 5.1,
@@ -10442,12 +11213,12 @@ const TRENDS = {
     },
     {
      "d": "2026-08-28",
-     "ar": 28.1
+     "ar": 40.6
     }
    ],
-   "trend": "improving",
-   "sentence": "out of GREEN 9 of last 10 days, worst 44% 8/21 \u00b7 aging picked up in ~4h \u00b7 improving",
-   "respH": 4.2,
+   "trend": "holding",
+   "sentence": "out of GREEN 9 of last 10 days, worst 44% 8/21 \u00b7 aging picked up in ~4h \u00b7 holding",
+   "respH": 4.3,
    "custClock": false,
    "small": false
   },
@@ -10577,7 +11348,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 4 of last 10 days, worst 30% 8/25 \u00b7 aging picked up in ~4h \u00b7 worsening",
-   "respH": 3.9,
+   "respH": 4.0,
    "custClock": false,
    "small": false
   },
@@ -10707,7 +11478,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 3 of last 10 days, worst 29% 8/24 \u00b7 aging picked up in ~4h \u00b7 customer clock",
-   "respH": 4.2,
+   "respH": 4.1,
    "custClock": true,
    "small": false
   },
@@ -10836,8 +11607,8 @@ const TRENDS = {
     }
    ],
    "trend": "worsening",
-   "sentence": "aging present 8 of last 10 days (6 jobs at peak, ~3 in dept) \u00b7 aging picked up in ~20h \u00b7 customer clock",
-   "respH": 20.5,
+   "sentence": "aging present 8 of last 10 days (6 jobs at peak, ~3 in dept) \u00b7 aging picked up in ~22h \u00b7 customer clock",
+   "respH": 22.4,
    "custClock": true,
    "small": true
   },
@@ -11086,10 +11857,6 @@ const TRENDS = {
    5
   ],
   [
-   "44269",
-   5
-  ],
-  [
    "44276",
    5
   ],
@@ -11110,15 +11877,19 @@ const TRENDS = {
    5
   ],
   [
-   "44288",
+   "44300",
    5
   ],
   [
-   "44316",
+   "44317",
    5
   ],
   [
-   "44329",
+   "44318",
+   5
+  ],
+  [
+   "44320",
    5
   ],
   [
@@ -11568,7 +12339,7 @@ const TRENDS = {
   "44251": 1,
   "44184": 2,
   "44069": 1,
-  "44269": 5,
+  "44269": 4,
   " 44271": 4,
   "44276": 5,
   "44277": 4,
@@ -11587,7 +12358,7 @@ const TRENDS = {
   "44250": 4,
   "44256": 4,
   "44266": 3,
-  "44265": 4,
+  "44265": 3,
   "44267": 5,
   "44270": 2,
   "44268": 4,
@@ -11613,22 +12384,22 @@ const TRENDS = {
   "44238": 1,
   "44273": 3,
   "44278": 5,
-  "44288": 5,
+  "44288": 4,
   "44282": 2,
   "44199": 1,
   "44297-4": 1,
   "44297-2": 1,
   "44297-3": 1,
-  "44300": 3,
+  "44300": 5,
   "44311": 3,
   "44314": 3,
   "44312": 2,
-  "44317": 3,
-  "44316": 5,
+  "44317": 5,
+  "44316": 4,
   "44313": 3,
-  "44318": 3,
+  "44318": 5,
   "44319": 2,
-  "44320": 3,
+  "44320": 5,
   "44322": 3,
   "44321": 3,
   "44325": 3,
@@ -11657,7 +12428,7 @@ const TRENDS = {
   "44315": 2,
   "44181": 3,
   "44336": 3,
-  "44329": 5,
+  "44329": 4,
   "44335": 2,
   "44337": 2,
   "44339": 2,
@@ -12745,12 +13516,12 @@ const TRENDS = {
  "reschedMonth": "August",
  "otd": {
   "pct": 95.7,
-  "made": 359,
-  "shipped": 375,
+  "made": 379,
+  "shipped": 396,
   "month": "Aug",
   "asOf": "2026-08-28",
   "goal": 98,
-  "received": 424,
+  "received": 428,
   "recMonth": "Aug"
  },
  "monthly": [
@@ -12801,11 +13572,11 @@ const TRENDS = {
    "label": "Aug",
    "mtd": true,
    "otdPct": 95.7,
-   "shipped": 375,
-   "received": 424,
-   "marks": 888,
+   "shipped": 396,
+   "received": 428,
+   "marks": 891,
    "recovHrs": 4.8,
-   "avgAr": 13.7,
+   "avgAr": 13.8,
    "peakAr": 24.4,
    "resched": 133,
    "partial": true
@@ -12865,8 +13636,8 @@ const TRENDS = {
    "ym": "2026-08",
    "label": "Aug",
    "mtd": true,
-   "rec": 424,
-   "done": 375
+   "rec": 428,
+   "done": 396
   }
  ],
  "arDaily": [
@@ -13227,17 +13998,11 @@ const TRENDS = {
   {
    "date": "2026-08-28",
    "inHouse": 142,
-   "aging": 19,
-   "ar": 13.4
+   "aging": 23,
+   "ar": 16.2
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-07-24T16:00",
-   "ar": 0.9,
-   "aging": 1,
-   "inHouse": 115
-  },
   {
    "t": "2026-07-24T18:00",
    "ar": 0.9,
@@ -14784,6 +15549,12 @@ const TRENDS = {
    "t": "2026-08-28T16:00",
    "ar": 13.4,
    "aging": 19,
+   "inHouse": 142
+  },
+  {
+   "t": "2026-08-28T18:00",
+   "ar": 16.2,
+   "aging": 23,
    "inHouse": 142
   }
  ]
