@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="08:00 AM PDT">
+  <meta name="qpc-build" content="10:00 AM PDT">
   <title>QPC Production Pulse — 09/12/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -579,20 +579,20 @@ function toggleTheme(){
 const DATA = {
   "reportDate": "09/12/2026",
   "overall": {
-    "totalJobs": 165,
+    "totalJobs": 167,
     "agingJobs": 33,
-    "ar": 20.0,
+    "ar": 19.8,
     "receivedToday": 0,
     "flagDist": {
       "Critical": 32,
       "Tight": 1,
       "Past Due": 1
     },
-    "upcomingCount": 104,
+    "upcomingCount": 106,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
-    "mrbCount": 24,
+    "mrbCount": 22,
     "unclassifiedAgingCount": 0,
     "unclassifiedInHouseCount": 16,
     "shortScheduledCount": 34,
@@ -600,7 +600,7 @@ const DATA = {
     "profileDistribution": [
       {
         "name": "Low Qty",
-        "count": 33
+        "count": 34
       },
       {
         "name": "Standard",
@@ -624,7 +624,7 @@ const DATA = {
       },
       {
         "name": "Straight to CLR",
-        "count": 9
+        "count": 10
       },
       {
         "name": "Complex",
@@ -639,22 +639,22 @@ const DATA = {
         "count": 1
       }
     ],
-    "completedCount": 43,
-    "completedRatio": 26.1
+    "completedCount": 46,
+    "completedRatio": 27.5
   },
   "departments": [
     {
       "name": "Packaging",
       "lead": "Erick",
-      "total": 27,
+      "total": 30,
       "aging": 10,
-      "ar": 37.0,
+      "ar": 33.3,
       "flags": {
         "Critical": 10
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 17,
+      "incoming": 20,
       "profileMix": [
         {
           "name": "Priority Customer",
@@ -665,16 +665,20 @@ const DATA = {
           "count": 2
         },
         {
-          "name": "Standard",
-          "count": 2
+          "name": "High Qty",
+          "count": 1
         },
         {
           "name": "Low Qty",
           "count": 1
+        },
+        {
+          "name": "Standard",
+          "count": 1
         }
       ],
-      "completedCount": 5,
-      "completedRatio": 18.5,
+      "completedCount": 8,
+      "completedRatio": 26.7,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -725,15 +729,15 @@ const DATA = {
     {
       "name": "Cleanroom",
       "lead": "Erick",
-      "total": 17,
+      "total": 16,
       "aging": 3,
-      "ar": 17.6,
+      "ar": 18.8,
       "flags": {
         "Critical": 3
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 13,
+      "incoming": 12,
       "profileMix": [
         {
           "name": "Priority Customer",
@@ -860,10 +864,22 @@ const DATA = {
     }
   ],
   "reschedule": {
-    "totalInHouse": 165,
+    "totalInHouse": 167,
     "rescheduledCount": 22,
-    "reschedulePct": 13.3,
+    "reschedulePct": 13.2,
     "burnedAgingJobs": [
+      {
+        "wo": "44147-2",
+        "customer": "RELATIVITY",
+        "dept": "Packaging",
+        "dueDate": "09/18",
+        "msBD": -2,
+        "dueBD": 4,
+        "flag": "Critical",
+        "baseFlag": "Critical",
+        "priority": "Standard",
+        "profile": "High Qty"
+      },
       {
         "wo": "44417",
         "customer": "PDT AMETEK",
@@ -892,10 +908,10 @@ const DATA = {
   },
   "rescheduleStatus": {
     "kpiTarget": 98,
-    "totalAssessed": 147,
-    "onTimeCount": 91,
-    "onTimePct": 61.9,
-    "atRiskCount": 56,
+    "totalAssessed": 149,
+    "onTimeCount": 105,
+    "onTimePct": 70.5,
+    "atRiskCount": 44,
     "decideToday": [
       {
         "wo": "44512",
@@ -962,706 +978,9 @@ const DATA = {
           "maxSlip": 2,
           "scheduled": "Sep 16"
         }
-      },
-      {
-        "wo": "44538",
-        "customer": "MW SPRINGS OPCO, LLC",
-        "profile": "Standard",
-        "profileCls": "",
-        "dept": "Cleanroom",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dueDate": "Sep 16",
-        "dueBD": 2,
-        "eligibility": {
-          "state": "today",
-          "label": "EOD TODAY",
-          "day": "Today",
-          "bdLeft": 0,
-          "note": "At the 2 BD boundary"
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "burnTarget": {
-          "date": "Sep 18",
-          "band": "+/-3 BD",
-          "confidence": "caution",
-          "reasoning": "Forecast slip +2 BD, driven by: Black-tier dept ahead."
-        },
-        "commitOutcome": {
-          "date": "~Sep 18",
-          "miss": "+2 BD miss",
-          "note": "Forecast lands Sep 18 either way."
-        },
-        "recommendation": "burn",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 7,
-          "profileBurn": 0.7,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 70% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 16"
-        }
       }
     ],
-    "decideWeek": [
-      {
-        "wo": "44394",
-        "customer": "AMENTUM SERVICES, INC.",
-        "profile": "Standard",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 15",
-        "deadlineBD": 1,
-        "deadlineNote": "Rule 2 cuts in tomorrow",
-        "eligibility": {
-          "state": "tight",
-          "label": "Decide by Sep 15 (1 BD)",
-          "day": "Sep 15",
-          "bdLeft": 1,
-          "note": "Rule 2 cuts in tomorrow"
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 21",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 6,
-          "profileBurn": 0.6,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 60% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 17"
-        }
-      },
-      {
-        "wo": "44513",
-        "customer": "KAVLICO AEROSPACE DIVISION",
-        "profile": "Complex",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 15",
-        "deadlineBD": 1,
-        "deadlineNote": "Rule 2 cuts in tomorrow",
-        "eligibility": {
-          "state": "tight",
-          "label": "Decide by Sep 15 (1 BD)",
-          "day": "Sep 15",
-          "bdLeft": 1,
-          "note": "Rule 2 cuts in tomorrow"
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 21",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 8,
-          "profileBurn": 0.667,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 67% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 17"
-        }
-      },
-      {
-        "wo": "44519",
-        "customer": "TELEDYNE SCIENTIFIC & IMAGING",
-        "profile": "High Qty",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 15",
-        "deadlineBD": 1,
-        "deadlineNote": "Rule 2 cuts in tomorrow",
-        "eligibility": {
-          "state": "tight",
-          "label": "Decide by Sep 15 (1 BD)",
-          "day": "Sep 15",
-          "bdLeft": 1,
-          "note": "Rule 2 cuts in tomorrow"
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 21",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 12,
-          "profileElapsed": 7,
-          "profileBurn": 0.583,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 58% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 17"
-        }
-      },
-      {
-        "wo": "44543",
-        "customer": "SPACE EXPLORATION TECHNOLOGIES",
-        "profile": "Standard",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 17",
-        "deadlineBD": 3,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 17 (3 BD)",
-          "day": "Sep 17",
-          "bdLeft": 3,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 23",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 6,
-          "profileBurn": 0.6,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 60% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 21"
-        }
-      },
-      {
-        "wo": "44547",
-        "customer": "TECMA",
-        "profile": "Low Qty",
-        "profileCls": "tight",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 15",
-        "deadlineBD": 1,
-        "deadlineNote": "Rule 2 cuts in tomorrow",
-        "eligibility": {
-          "state": "tight",
-          "label": "Decide by Sep 15 (1 BD)",
-          "day": "Sep 15",
-          "bdLeft": 1,
-          "note": "Rule 2 cuts in tomorrow"
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 21",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 8,
-          "profileElapsed": 6,
-          "profileBurn": 0.75,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 75% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 17"
-        }
-      },
-      {
-        "wo": "44548",
-        "customer": "TECMA",
-        "profile": "Standard",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 16",
-        "deadlineBD": 2,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 16 (2 BD)",
-          "day": "Sep 16",
-          "bdLeft": 2,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 22",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 6,
-          "profileBurn": 0.6,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 60% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 18"
-        }
-      },
-      {
-        "wo": "44549",
-        "customer": "MACHINE SCIENCES CORPORATION",
-        "profile": "Standard",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 16",
-        "deadlineBD": 2,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 16 (2 BD)",
-          "day": "Sep 16",
-          "bdLeft": 2,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 22",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 6,
-          "profileBurn": 0.6,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 60% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 18"
-        }
-      },
-      {
-        "wo": "44557",
-        "customer": "CB MFG & ENG, INC.",
-        "profile": "Standard",
-        "profileCls": "",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 16",
-        "deadlineBD": 2,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 16 (2 BD)",
-          "day": "Sep 16",
-          "bdLeft": 2,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 22",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 10,
-          "profileElapsed": 6,
-          "profileBurn": 0.6,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 60% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 18"
-        }
-      },
-      {
-        "wo": "44564",
-        "customer": "POLYMER CONCEPTS",
-        "profile": "Priority Customer",
-        "profileCls": "tight",
-        "flag": "Critical",
-        "flagColor": "#D13438",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 16",
-        "deadlineBD": 2,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 16 (2 BD)",
-          "day": "Sep 16",
-          "bdLeft": 2,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 22",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 7,
-          "profileElapsed": 6,
-          "profileBurn": 0.857,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 86% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 18"
-        }
-      },
-      {
-        "wo": "44579",
-        "customer": "SAINT GOBAIN",
-        "profile": "Priority Customer",
-        "profileCls": "tight",
-        "flag": "Critical",
-        "flagColor": "#D13438",
-        "dept": "Cleanroom",
-        "deadlineDay": "Sep 16",
-        "deadlineBD": 2,
-        "deadlineNote": "",
-        "eligibility": {
-          "state": "ok",
-          "label": "Decide by Sep 16 (2 BD)",
-          "day": "Sep 16",
-          "bdLeft": 2,
-          "note": ""
-        },
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "target": {
-          "date": "Sep 22",
-          "band": "+/-3 BD",
-          "confidence": "caution"
-        },
-        "action": "burn",
-        "actionLabel": "Burn",
-        "tradeoff": "Forecast slips +2 BD past current QPC Due. Burn now to set a date you can hit and protect OTD.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 7,
-          "profileElapsed": 4,
-          "profileBurn": 0.5710000000000001,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 57% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 18"
-        }
-      }
-    ],
+    "decideWeek": [],
     "notify": [
       {
         "wo": "42242-2",
@@ -2096,24 +1415,20 @@ const DATA = {
         "customer": "RELATIVITY",
         "profile": "High Qty",
         "profileCls": "",
-        "dept": "Cleanroom",
-        "flag": "On Track",
-        "flagColor": "#107C10",
+        "dept": "Packaging",
+        "flag": "Critical",
+        "flagColor": "#D13438",
         "scheduledDue": "Sep 18",
         "forecastDate": "Sep 22",
         "slip": "+2 BD",
         "slipDays": 2,
         "risks": [
           {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          },
-          {
             "label": "Profile burn 158% (>= 95%)",
             "severity": "severe"
           }
         ],
-        "why": "Black-tier dept ahead. Profile burn 158%.",
+        "why": "Profile burn 158%.",
         "detail": {
           "cr": null,
           "profileWindow": 12,
@@ -2121,9 +1436,9 @@ const DATA = {
           "profileBurn": 1.5830000000000002,
           "indicators": [
             {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
+              "label": "Black-tier dept ahead (Shipping)",
+              "val": null,
+              "active": false
             },
             {
               "label": "Profile burn 158% (>= 95%)",
@@ -2614,56 +1929,6 @@ const DATA = {
           "maxSlip": 1,
           "scheduled": "Sep 11"
         }
-      },
-      {
-        "wo": "44626",
-        "customer": "SAINT GOBAIN",
-        "profile": "Low Qty",
-        "profileCls": "tight",
-        "dept": "Cleanroom",
-        "flag": "Critical",
-        "flagColor": "#D13438",
-        "scheduledDue": "Sep 15",
-        "forecastDate": "Sep 17",
-        "slip": "+2 BD",
-        "slipDays": 2,
-        "risks": [
-          {
-            "label": "Black-tier dept ahead (Packaging)",
-            "severity": "severe"
-          }
-        ],
-        "why": "Black-tier dept ahead.",
-        "detail": {
-          "cr": null,
-          "profileWindow": 8,
-          "profileElapsed": 2,
-          "profileBurn": 0.25,
-          "indicators": [
-            {
-              "label": "Black-tier dept ahead (Packaging)",
-              "val": "+2 BD",
-              "active": true
-            },
-            {
-              "label": "Profile burn 25% (< 95%)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Vendor pending (no confirmed estimate)",
-              "val": null,
-              "active": false
-            },
-            {
-              "label": "Past current QPC Due",
-              "val": null,
-              "active": false
-            }
-          ],
-          "maxSlip": 2,
-          "scheduled": "Sep 15"
-        }
       }
     ],
     "monitor": [
@@ -2785,6 +2050,46 @@ const DATA = {
           ],
           "maxSlip": 0,
           "scheduled": "Sep 14"
+        }
+      },
+      {
+        "wo": "44626",
+        "customer": "SAINT GOBAIN",
+        "profile": "Low Qty",
+        "dept": "Cleanroom",
+        "scheduledDue": "Sep 15",
+        "forecastDate": "Sep 15",
+        "delta": "On time",
+        "note": "Burned but tracking. No risk indicators firing.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 8,
+          "profileElapsed": 2,
+          "profileBurn": 0.25,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Packaging)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Profile burn 25% (< 95%)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 0,
+          "scheduled": "Sep 15"
         }
       }
     ],
@@ -3010,16 +2315,6 @@ const DATA = {
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
-        "wo": "44472",
-        "customer": "PERFORMANCE SEALING INC",
-        "profile": "Straight to CLR",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "badge": "MRB",
-        "reason": "In MRB - disposition unresolved.",
-        "action": "MRB closes first. QE owns disposition."
-      },
-      {
         "wo": "44471",
         "customer": "FMH AMETEK",
         "profile": "Low Qty",
@@ -3065,9 +2360,9 @@ const DATA = {
         "profile": "Low Qty",
         "flag": "On Track",
         "flagColor": "#107C10",
-        "badge": "MRB",
-        "reason": "In MRB - disposition unresolved.",
-        "action": "MRB closes first. QE owns disposition."
+        "badge": "R2",
+        "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
       },
       {
         "wo": "44493",
@@ -3143,8 +2438,8 @@ const DATA = {
         "wo": "44503",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
-        "flag": "On Track",
-        "flagColor": "#107C10",
+        "flag": "Critical",
+        "flagColor": "#D13438",
         "badge": "R2",
         "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -3153,8 +2448,8 @@ const DATA = {
         "wo": "44504",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
-        "flag": "On Track",
-        "flagColor": "#107C10",
+        "flag": "Critical",
+        "flagColor": "#D13438",
         "badge": "R2",
         "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -3193,8 +2488,8 @@ const DATA = {
         "wo": "44511",
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
-        "flag": "Critical",
-        "flagColor": "#D13438",
+        "flag": "On Track",
+        "flagColor": "#107C10",
         "badge": "R2",
         "reason": "Reschedule window closed (1 BD until QPC Due, < 2 BD). Per Rule 2.",
         "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
@@ -3253,16 +2548,6 @@ const DATA = {
         "wo": "44535",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "badge": "R2",
-        "reason": "Reschedule window closed (1 BD until QPC Due, < 2 BD). Per Rule 2.",
-        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
-      },
-      {
-        "wo": "44536",
-        "customer": "A & H WIRE E.D.M. INC.",
-        "profile": "Low Qty",
         "flag": "On Track",
         "flagColor": "#107C10",
         "badge": "R2",
@@ -3680,7 +2965,6 @@ const DATA = {
         "forecastDate": "Sep 22",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)",
           "Profile burn 158% (>= 95%)"
         ],
         "bucket": "notify",
@@ -3772,12 +3056,10 @@ const DATA = {
         "customer": "AMENTUM SERVICES, INC.",
         "profile": "Standard",
         "qpcDue": "Sep 17",
-        "forecastDate": "Sep 21",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 17",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -3996,6 +3278,19 @@ const DATA = {
       },
       {
         "runDate": "2026-09-12",
+        "wo": "44472",
+        "customer": "PERFORMANCE SEALING INC",
+        "profile": "Straight to CLR",
+        "qpcDue": "Sep 15",
+        "forecastDate": "Sep 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
+      },
+      {
+        "runDate": "2026-09-12",
         "wo": "44473",
         "customer": "PERFORMANCE SEALING INC",
         "profile": "Straight to CLR",
@@ -4094,6 +3389,21 @@ const DATA = {
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
+      },
+      {
+        "runDate": "2026-09-12",
+        "wo": "44488",
+        "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": "Low Qty",
+        "qpcDue": "Sep 14",
+        "forecastDate": "Sep 16",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Profile burn 112% (>= 95%)"
+        ],
+        "bucket": "escalate",
+        "isBurned": false,
+        "isTightProfile": true
       },
       {
         "runDate": "2026-09-12",
@@ -4202,7 +3512,6 @@ const DATA = {
         "forecastDate": "Sep 17",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)",
           "Profile burn 114% (>= 95%)"
         ],
         "bucket": "escalate",
@@ -4333,12 +3642,10 @@ const DATA = {
         "customer": "KAVLICO AEROSPACE DIVISION",
         "profile": "Complex",
         "qpcDue": "Sep 17",
-        "forecastDate": "Sep 21",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 17",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4374,12 +3681,10 @@ const DATA = {
         "customer": "TELEDYNE SCIENTIFIC & IMAGING",
         "profile": "High Qty",
         "qpcDue": "Sep 17",
-        "forecastDate": "Sep 21",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 17",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4470,7 +3775,6 @@ const DATA = {
         "forecastDate": "Sep 17",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)",
           "Profile burn 100% (>= 95%)"
         ],
         "bucket": "escalate",
@@ -4483,12 +3787,10 @@ const DATA = {
         "customer": "A & H WIRE E.D.M. INC.",
         "profile": "Low Qty",
         "qpcDue": "Sep 15",
-        "forecastDate": "Sep 17",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "escalate",
+        "forecastDate": "Sep 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -4498,12 +3800,10 @@ const DATA = {
         "customer": "MW SPRINGS OPCO, LLC",
         "profile": "Standard",
         "qpcDue": "Sep 16",
-        "forecastDate": "Sep 18",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_today",
+        "forecastDate": "Sep 16",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4541,12 +3841,10 @@ const DATA = {
         "customer": "SPACE EXPLORATION TECHNOLOGIES",
         "profile": "Standard",
         "qpcDue": "Sep 21",
-        "forecastDate": "Sep 23",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 21",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4569,12 +3867,10 @@ const DATA = {
         "customer": "TECMA",
         "profile": "Low Qty",
         "qpcDue": "Sep 17",
-        "forecastDate": "Sep 21",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 17",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -4584,12 +3880,10 @@ const DATA = {
         "customer": "TECMA",
         "profile": "Standard",
         "qpcDue": "Sep 18",
-        "forecastDate": "Sep 22",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4599,12 +3893,10 @@ const DATA = {
         "customer": "MACHINE SCIENCES CORPORATION",
         "profile": "Standard",
         "qpcDue": "Sep 18",
-        "forecastDate": "Sep 22",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4653,12 +3945,10 @@ const DATA = {
         "customer": "CB MFG & ENG, INC.",
         "profile": "Standard",
         "qpcDue": "Sep 18",
-        "forecastDate": "Sep 22",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -4733,12 +4023,10 @@ const DATA = {
         "customer": "POLYMER CONCEPTS",
         "profile": "Priority Customer",
         "qpcDue": "Sep 18",
-        "forecastDate": "Sep 22",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -4925,12 +4213,10 @@ const DATA = {
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
         "qpcDue": "Sep 18",
-        "forecastDate": "Sep 22",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "decide_week",
+        "forecastDate": "Sep 18",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
       },
@@ -5044,11 +4330,9 @@ const DATA = {
         "customer": "ABSOLUTE TECHNOLOGIES, INC.",
         "profile": "Straight to CLR",
         "qpcDue": "Sep 17",
-        "forecastDate": "Sep 21",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
+        "forecastDate": "Sep 17",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": false
@@ -5373,12 +4657,10 @@ const DATA = {
         "customer": "SAINT GOBAIN",
         "profile": "Low Qty",
         "qpcDue": "Sep 15",
-        "forecastDate": "Sep 17",
-        "predictedSlipBD": 2,
-        "indicatorsFired": [
-          "Black-tier dept ahead (Packaging)"
-        ],
-        "bucket": "notify",
+        "forecastDate": "Sep 15",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "monitor",
         "isBurned": true,
         "isTightProfile": true
       },
@@ -5580,6 +4862,39 @@ const DATA = {
     ]
   },
   "allAgingJobs": [
+    {
+      "wo": "44147-2",
+      "customer": "RELATIVITY",
+      "dept": "Packaging",
+      "dueDate": "09/18",
+      "msDate": "09/10",
+      "msBD": -2,
+      "dueBD": 4,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": true,
+      "profile": "High Qty",
+      "profileMin": 10,
+      "profileMax": 12,
+      "elapsedBD": 19,
+      "scheduledLeadBD": 23,
+      "profileBurnPct": 158.3,
+      "profileOverBD": 7,
+      "schedulingSlack": 11,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
     {
       "wo": "44417",
       "customer": "PDT AMETEK",
@@ -5845,6 +5160,72 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "44503",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "09/14",
+      "msDate": "09/10",
+      "msBD": -2,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 8,
+      "scheduledLeadBD": 8,
+      "profileBurnPct": 114.3,
+      "profileOverBD": 1,
+      "schedulingSlack": 1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
+      "wo": "44504",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "09/14",
+      "msDate": "09/10",
+      "msBD": -2,
+      "dueBD": 0,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 8,
+      "scheduledLeadBD": 8,
+      "profileBurnPct": 114.3,
+      "profileOverBD": 1,
+      "schedulingSlack": 1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "44505",
       "customer": "SAINT GOBAIN",
       "dept": "Packaging",
@@ -5897,72 +5278,6 @@ const DATA = {
       "profileBurnPct": 100.0,
       "profileOverBD": 0,
       "schedulingSlack": 0,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "44511",
-      "customer": "POLYMER CONCEPTS",
-      "dept": "Packaging",
-      "dueDate": "09/15",
-      "msDate": "09/11",
-      "msBD": -1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 8,
-      "scheduledLeadBD": 9,
-      "profileBurnPct": 114.3,
-      "profileOverBD": 1,
-      "schedulingSlack": 2,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "44515",
-      "customer": "AERO COMPONENT ENGINEERING",
-      "dept": "Packaging",
-      "dueDate": "09/15",
-      "msDate": "09/11",
-      "msBD": -1,
-      "dueBD": 1,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Standard",
-      "profileMin": 8,
-      "profileMax": 10,
-      "elapsedBD": 7,
-      "scheduledLeadBD": 8,
-      "profileBurnPct": 70.0,
-      "profileOverBD": -3,
-      "schedulingSlack": -2,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -6604,39 +5919,6 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
-      "wo": "44618-3",
-      "customer": "ULA/SAUER MECHANICAL, LLC",
-      "dept": "Packaging",
-      "dueDate": "09/14",
-      "msDate": "09/11",
-      "msBD": -1,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "T1 Expedite",
-      "rescheduled": false,
-      "profile": "Priority Customer",
-      "profileMin": 5,
-      "profileMax": 7,
-      "elapsedBD": 2,
-      "scheduledLeadBD": 2,
-      "profileBurnPct": 28.6,
-      "profileOverBD": -5,
-      "schedulingSlack": -5,
-      "isShortScheduled": true,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
       "wo": "44624",
       "customer": "SAINT GOBAIN",
       "dept": "Pre-Clean",
@@ -6785,16 +6067,6 @@ const DATA = {
       "profile": "High Qty"
     },
     {
-      "wo": "44147-2",
-      "dept": "Cleanroom",
-      "dueDate": "09/18",
-      "msDate": "09/08",
-      "msBD": -4,
-      "dueBD": 4,
-      "priority": "Standard",
-      "profile": "High Qty"
-    },
-    {
       "wo": "44458",
       "dept": "Packaging",
       "dueDate": "09/14",
@@ -6803,6 +6075,16 @@ const DATA = {
       "dueBD": 0,
       "priority": "Standard",
       "profile": "High Qty"
+    },
+    {
+      "wo": "44472",
+      "dept": "Packaging",
+      "dueDate": "09/15",
+      "msDate": "09/08",
+      "msBD": -4,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Straight to CLR"
     },
     {
       "wo": "44238-2",
@@ -6883,6 +6165,16 @@ const DATA = {
       "dueBD": 2,
       "priority": "Standard",
       "profile": "Tiny Parts"
+    },
+    {
+      "wo": "44488",
+      "dept": "Packaging",
+      "dueDate": "09/14",
+      "msDate": "09/09",
+      "msBD": -3,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "Low Qty"
     },
     {
       "wo": "44491",
@@ -7003,26 +6295,6 @@ const DATA = {
       "dueBD": -1,
       "priority": "Standard",
       "profile": "Low Qty"
-    },
-    {
-      "wo": "44503",
-      "dept": "Packaging",
-      "dueDate": "09/14",
-      "msDate": "09/10",
-      "msBD": -2,
-      "dueBD": 0,
-      "priority": "Standard",
-      "profile": "Priority Customer"
-    },
-    {
-      "wo": "44504",
-      "dept": "Packaging",
-      "dueDate": "09/14",
-      "msDate": "09/10",
-      "msBD": -2,
-      "dueBD": 0,
-      "priority": "Standard",
-      "profile": "Priority Customer"
     },
     {
       "wo": "44509",
@@ -7265,6 +6537,16 @@ const DATA = {
       "profile": "High Qty"
     },
     {
+      "wo": "44511",
+      "dept": "Packaging",
+      "dueDate": "09/15",
+      "msDate": "09/11",
+      "msBD": -1,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Priority Customer"
+    },
+    {
       "wo": "44512",
       "dept": "Packaging",
       "dueDate": "09/16",
@@ -7273,6 +6555,16 @@ const DATA = {
       "dueBD": 2,
       "priority": "Standard",
       "profile": "Priority Customer"
+    },
+    {
+      "wo": "44515",
+      "dept": "Packaging",
+      "dueDate": "09/15",
+      "msDate": "09/11",
+      "msBD": -1,
+      "dueBD": 1,
+      "priority": "Standard",
+      "profile": "Standard"
     },
     {
       "wo": "44539",
@@ -7386,6 +6678,16 @@ const DATA = {
     },
     {
       "wo": "44618-1",
+      "dept": "Packaging",
+      "dueDate": "09/14",
+      "msDate": "09/11",
+      "msBD": -1,
+      "dueBD": 0,
+      "priority": "T1 Expedite",
+      "profile": "Priority Customer"
+    },
+    {
+      "wo": "44618-3",
       "dept": "Packaging",
       "dueDate": "09/14",
       "msDate": "09/11",
@@ -8014,7 +7316,7 @@ const DATA = {
       "dueDate": "09/14",
       "dueBD": 0,
       "priority": "T1 Expedite",
-      "isAging": true,
+      "isAging": false,
       "basis": "profile",
       "expediteTier": null
     },
@@ -8594,8 +7896,8 @@ const DATA = {
     {
       "wo": "44147-2",
       "customer": "RELATIVITY",
-      "dept": "Cleanroom",
-      "locationDept": "Cleanroom",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
       "profile": "High Qty",
       "priority": "Standard",
       "expediteTier": null,
@@ -8604,10 +7906,10 @@ const DATA = {
       "dueBD": 4,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "02 - Inspection"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44147-3",
@@ -8988,6 +8290,24 @@ const DATA = {
       "progress": "02 - Inspection"
     },
     {
+      "wo": "44472",
+      "customer": "PERFORMANCE SEALING INC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Straight to CLR",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "09/15",
+      "dueBD": 1,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "02 - Inspection"
+    },
+    {
       "wo": "44473",
       "customer": "PERFORMANCE SEALING INC",
       "dept": "Packaging",
@@ -9106,6 +8426,24 @@ const DATA = {
       "isExpedite": false,
       "dueDate": "09/16",
       "dueBD": 2,
+      "receivedToday": false,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "02 - Inspection"
+    },
+    {
+      "wo": "44488",
+      "customer": "ALLAN AIRCRAFT SUPPLY",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "09/14",
+      "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -9270,10 +8608,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44504",
@@ -9288,10 +8626,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44505",
@@ -9378,10 +8716,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "06 - Aging"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "44512",
@@ -9432,10 +8770,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "06 - Aging"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "44516",
@@ -10728,10 +10066,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
-      "isCompleted": false,
-      "progress": "06 - Aging"
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "44618-4",
@@ -10748,8 +10086,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "44618-5",
@@ -10766,8 +10104,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "44618-6",
@@ -11512,16 +10850,6 @@ const DATA = {
       "dueBD": -8
     },
     {
-      "wo": "44472",
-      "customer": "PERFORMANCE SEALING INC",
-      "dept": "MRB",
-      "locationDept": "MRB",
-      "profile": "Straight to CLR",
-      "priority": "Standard",
-      "dueDate": "09/15",
-      "dueBD": 1
-    },
-    {
       "wo": "44476",
       "customer": "COLLINS AEROSPACE",
       "dept": "MRB",
@@ -11530,16 +10858,6 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "09/11",
       "dueBD": -1
-    },
-    {
-      "wo": "44488",
-      "customer": "ALLAN AIRCRAFT SUPPLY",
-      "dept": "MRB",
-      "locationDept": "MRB",
-      "profile": "Low Qty",
-      "priority": "Standard",
-      "dueDate": "09/14",
-      "dueBD": 0
     },
     {
       "wo": "44498",
@@ -12024,6 +11342,36 @@ const DATA = {
       "dueBD": 0
     },
     {
+      "wo": "44618-3",
+      "customer": "ULA/SAUER MECHANICAL, LLC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "dueDate": "09/14",
+      "dueBD": 0
+    },
+    {
+      "wo": "44618-4",
+      "customer": "ULA/SAUER MECHANICAL, LLC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "dueDate": "09/14",
+      "dueBD": 0
+    },
+    {
+      "wo": "44618-5",
+      "customer": "ULA/SAUER MECHANICAL, LLC",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Priority Customer",
+      "priority": "T1 Expedite",
+      "dueDate": "09/14",
+      "dueBD": 0
+    },
+    {
       "wo": "44627",
       "customer": "POLYMER CONCEPTS",
       "dept": "Pre-Clean",
@@ -12079,11 +11427,11 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Packaging": {
-    "what": "AR 37.0% BLACK. 10 aging / 27 total. Flags: 10 Critical. 10 Critical: 44474 PMW AERO (Large Parts, msBD=-2 dueBD=3); 44501 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44505 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44511 POLYMER CONCEPTS (Priority Customer, msBD=-1 dueBD=1); 44515 AERO COMPONENT ENGINEERING (Standard, msBD=-1 dueBD=1); 44525 PRISM AEROSPACE SUN VALLEY (Low Qty, msBD=-2 dueBD=1); 44530 ALTERNATIVE HOSE INC. (Large Parts, msBD=-2 dueBD=3); 44533 SEYTEC (Standard, msBD=-1 dueBD=3); 44618-2 ULA/SAUER MECHANICAL (Priority Customer, msBD=-1 dueBD=0); 44618-3 ULA/SAUER MECHANICAL (Priority Customer, msBD=-1 dueBD=0). 17 upcoming. CR 18.5% - 5 finished-at-op awaiting handoff. Tiered in dept: 5 T1. Upcoming tiered: 3 T1.",
-    "action": "Clear today (dueBD<=0): 44501, 44505, 44618-2, 44618-3. Burn down before they tip: 44474, 44511, 44515, 44525, 44530, 44533. Start tiered upcoming wave in msBD order: 44618-1, 44618-4, 44618-5.",
+    "what": "AR 33.3% RED. 10 aging / 30 total. Flags: 10 Critical. 10 Critical: 44147-2 RELATIVITY (High Qty, msBD=-2 dueBD=4, burned); 44474 PMW AERO (Large Parts, msBD=-2 dueBD=3); 44501 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44503 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44504 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44505 SAINT GOBAIN (Priority Customer, msBD=-2 dueBD=0); 44525 PRISM AEROSPACE SUN VALLEY (Low Qty, msBD=-2 dueBD=1); 44530 ALTERNATIVE HOSE INC. (Large Parts, msBD=-2 dueBD=3); 44533 SEYTEC (Standard, msBD=-1 dueBD=3); 44618-2 ULA/SAUER MECHANICAL (Priority Customer, msBD=-1 dueBD=0). 1 burned reschedule(s). 20 upcoming. CR 26.7% - 8 finished-at-op awaiting handoff. Tiered in dept: 5 T1. Upcoming tiered: 4 T1.",
+    "action": "Clear today (dueBD<=0): 44501, 44503, 44504, 44505, 44618-2. Burn down before they tip: 44147-2, 44474, 44525, 44530, 44533. Start tiered upcoming wave in msBD order: 44618-1, 44618-3, 44618-4, 44618-5.",
     "ot": "recommended",
     "otText": "OT recommended - 10 Critical jobs in Packaging.",
-    "upstream": "Cleanroom: 3 aging / 17 total. Pre-Clean: 13 aging / 57 total."
+    "upstream": "Cleanroom: 3 aging / 16 total. Pre-Clean: 13 aging / 57 total."
   },
   "Pre-Clean": {
     "what": "AR 22.8% RED. 13 aging / 57 total. Flags: 12 Critical, 1 Past Due. Past Due: 44567 EATON CORP. (Standard, msBD=-3 dueBD=-2). 12 Critical: 44417 PDT AMETEK (High Qty, msBD=-1 dueBD=5, burned); 44569 BOEING CO. (High Qty, msBD=-2 dueBD=5); 44573 PRECISION TUBE BENDING (Standard, msBD=-1 dueBD=5); 44580 SAINT GOBAIN (High Qty, msBD=-2 dueBD=5); 44582 RUBICON GEAR (High Qty, msBD=-1 dueBD=6); 44583 AERO COMPONENT ENGINEERING (Priority Customer, msBD=-1 dueBD=4); 44585 VALLEY SEAL COMPANY (Standard, msBD=-1 dueBD=6); 44594 TAMSHELL CORP. (Complex, msBD=-1 dueBD=5); 44600 MACHINE SCIENCES CORPORATION (Low Qty, msBD=-1 dueBD=4); 44603 HRD AERO SYSTEMS (Standard, msBD=-1 dueBD=5); 44605 UNITED STATES BALL CORP. (Low Qty, msBD=-1 dueBD=5); 44624 SAINT GOBAIN (Large Parts, msBD=-1 dueBD=5). 1 burned reschedule(s). 42 upcoming. CR 24.6% - 14 finished-at-op awaiting handoff. Tiered in dept: 6 T1, 2 T2. Upcoming tiered: 5 T1, 2 T2.",
@@ -12093,7 +11441,7 @@ const GUIDANCE = {
     "upstream": "RI: 0 aging / 21 total, 0 received today, 0 upcoming."
   },
   "Cleanroom": {
-    "what": "AR 17.6% YELLOW. 3 aging / 17 total. Flags: 3 Critical. 3 Critical: 44564 POLYMER CONCEPTS (Priority Customer, msBD=-2 dueBD=4); 44579 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=4); 44626 SAINT GOBAIN (Low Qty, msBD=-1 dueBD=1, burned). 1 burned reschedule(s). 13 upcoming. Tiered in dept: 1 T1.",
+    "what": "AR 18.8% YELLOW. 3 aging / 16 total. Flags: 3 Critical. 3 Critical: 44564 POLYMER CONCEPTS (Priority Customer, msBD=-2 dueBD=4); 44579 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=4); 44626 SAINT GOBAIN (Low Qty, msBD=-1 dueBD=1, burned). 1 burned reschedule(s). 12 upcoming. Tiered in dept: 1 T1.",
     "action": "Burn down before they tip: 44564, 44579, 44626.",
     "ot": "recommended",
     "otText": "OT recommended - all 3 aging jobs are Critical.",
@@ -12104,7 +11452,7 @@ const GUIDANCE = {
     "action": "Ship today (dueBD<=0): 44451, 44454, 44460, 44483, 44493, 44510. Start tiered upcoming wave in msBD order: 44238, 44238-2, 44566-1, 44566-2, 44395, 44539, 44527-8, 44568.",
     "ot": "recommended",
     "otText": "OT recommended - 6 Critical jobs in Shipping.",
-    "upstream": "Packaging: 10 aging / 27 total, 17 upcoming."
+    "upstream": "Packaging: 10 aging / 30 total, 20 upcoming."
   },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 21 total. CR 19.0% - 4 finished-at-op awaiting handoff. Tiered in dept: 2 T3.",
@@ -12137,16 +11485,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "08:00 AM PDT";
+const GENERATED_TIME = "10:00 AM PDT";
 const TRENDS = {
- "generatedAt": "2026-09-12T08:00",
- "realProgressCutoff": "2026-09-12T07:39",
- "hero": "Aging pressure is building \u2014 33 aging in house vs ~21 typical. This week the floor let 225 jobs go stale (norm ~229) and picked aging jobs back up in a median 5h (norm 5h).",
+ "generatedAt": "2026-09-12T10:00",
+ "realProgressCutoff": "2026-09-12T09:27",
+ "hero": "Aging pressure is building \u2014 33 aging in house vs ~21 typical. This week the floor let 226 jobs go stale (norm ~229) and picked aging jobs back up in a median 5h (norm 5h).",
  "pulse": {
   "agingToday": 33,
   "agingNorm": 21.0,
   "agingVerdict": "WORSE",
-  "staleThisWeek": 225,
+  "staleThisWeek": 226,
   "staleNorm": 229,
   "staleVerdict": "NORMAL",
   "respThisWeekH": 5.2,
@@ -12411,7 +11759,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 5 of last 10 days, worst 42% 9/5 \u00b7 aging picked up in ~5h \u00b7 worsening",
-   "respH": 5.1,
+   "respH": 5.3,
    "custClock": false,
    "small": false
   },
@@ -12536,12 +11884,12 @@ const TRENDS = {
     },
     {
      "d": "2026-09-12",
-     "ar": 17.6
+     "ar": 18.8
     }
    ],
    "trend": "improving",
    "sentence": "out of GREEN 4 of last 10 days, worst 30% 9/5 \u00b7 aging picked up in ~5h \u00b7 improving",
-   "respH": 5.2,
+   "respH": 5.3,
    "custClock": false,
    "small": false
   },
@@ -12666,12 +12014,12 @@ const TRENDS = {
     },
     {
      "d": "2026-09-12",
-     "ar": 37.0
+     "ar": 33.3
     }
    ],
    "trend": "holding",
-   "sentence": "out of GREEN 7 of last 10 days, worst 37% 9/12 \u00b7 aging picked up in ~4h \u00b7 holding",
-   "respH": 4.5,
+   "sentence": "out of GREEN 7 of last 10 days, worst 33% 9/12 \u00b7 aging picked up in ~4h \u00b7 holding",
+   "respH": 4.4,
    "custClock": false,
    "small": false
   },
@@ -12801,7 +12149,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 8 of last 10 days, worst 27% 9/10 \u00b7 aging picked up in ~6h \u00b7 worsening",
-   "respH": 5.8,
+   "respH": 5.9,
    "custClock": false,
    "small": false
   },
@@ -13950,7 +13298,7 @@ const TRENDS = {
   "44384": 1,
   "44437": 2,
   "44147": 1,
-  "44147-2": 2,
+  "44147-2": 4,
   "44147-3": 1,
   "44424": 1,
   "44465": 3,
@@ -13961,11 +13309,11 @@ const TRENDS = {
   "44497": 4,
   "44499": 3,
   "44493": 3,
-  "44501": 5,
+  "44501": 4,
   "44502": 2,
-  "44504": 3,
-  "44503": 3,
-  "44505": 4,
+  "44504": 5,
+  "44503": 5,
+  "44505": 3,
   "44522-1": 4,
   "44527-2": 2,
   "44527-7": 1,
@@ -14007,7 +13355,7 @@ const TRENDS = {
   "44519": 2,
   "44530": 3,
   "44536": 2,
-  "44537": 4,
+  "44537": 3,
   "44471": 2,
   "44451": 2,
   "44456": 1,
@@ -14071,8 +13419,8 @@ const TRENDS = {
   "44624": 1,
   "44618-4": 2,
   "44626": 1,
-  "44618-2": 2,
-  "44618-3": 2,
+  "44618-2": 1,
+  "44618-3": 1,
   "44618-5": 1
  },
  "reschedCatalog": {
@@ -17640,7 +16988,7 @@ const TRENDS = {
    "otdPct": 90.0,
    "shipped": 160,
    "received": 185,
-   "marks": 385,
+   "marks": 386,
    "recovHrs": 5.2,
    "avgAr": 14.9,
    "peakAr": 25.3,
@@ -18070,18 +17418,12 @@ const TRENDS = {
   },
   {
    "date": "2026-09-12",
-   "inHouse": 165,
+   "inHouse": 167,
    "aging": 33,
-   "ar": 20.0
+   "ar": 19.8
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-08-08T08:00",
-   "ar": 19.7,
-   "aging": 25,
-   "inHouse": 127
-  },
   {
    "t": "2026-08-08T10:00",
    "ar": 18.1,
@@ -19575,6 +18917,12 @@ const TRENDS = {
    "ar": 20.0,
    "aging": 33,
    "inHouse": 165
+  },
+  {
+   "t": "2026-09-12T10:00",
+   "ar": 19.8,
+   "aging": 33,
+   "inHouse": 167
   }
  ]
 };
