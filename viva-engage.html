@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="QPC Viva Engage post formats, rules, and copy-ready templates for every department.">
+  <title>QPC Viva Engage Templates</title>
+  <style>
+/* ===== THEME TOKENS (shared with Production Pulse) ===== */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F4F6F9; --surface-3:#E7EBF0;
+  --border:#DCE1E8; --border-strong:#C2C9D4;
+  --text-strong:#0F1722; --text:#1E2733; --text-2:#5A6675; --text-muted:#8A94A3; --text-faint:#AAB2BF;
+  --sig-green:#0B6A0B; --sig-amber:#946C00; --sig-red:#B3261E;
+  --tint-green:#DCF3DC; --tint-amber:#FBEFC6; --tint-red:#FADDDE; --tint-purple:#ECE3F8; --tint-blue:#DCEBFB;
+  --tintb-green:#A9E2A6; --tintb-amber:#EBD08A; --tintb-red:#EFB3B5; --tintb-purple:#D6C5EC; --tintb-blue:#B9D8F5;
+  --acc-blue:#0078D4; --acc-purple:#8764B8; --acc-orange:#CA5010;
+  --code-bg:#F7F9FC;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#0C1015; --surface:#151B23; --surface-2:#1B222C; --surface-3:#232C38;
+  --border:#2A333F; --border-strong:#3A4654;
+  --text-strong:#F2F6FB; --text:#DCE3EC; --text-2:#A7B2C0; --text-muted:#7E8B9B; --text-faint:#5F6B7A;
+  --sig-green:#56D364; --sig-amber:#E3B341; --sig-red:#FF6B6E;
+  --tint-green:rgba(46,160,67,.20); --tint-amber:rgba(210,153,34,.20); --tint-red:rgba(248,81,73,.20); --tint-purple:rgba(163,113,247,.22); --tint-blue:rgba(56,139,253,.20);
+  --tintb-green:rgba(86,211,100,.5); --tintb-amber:rgba(227,179,65,.5); --tintb-red:rgba(255,107,110,.5); --tintb-purple:rgba(163,113,247,.55); --tintb-blue:rgba(56,139,253,.55);
+  --acc-blue:#4DA3E8; --acc-purple:#A98CD6; --acc-orange:#E8823D;
+  --code-bg:#0F141A;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1015; --surface:#151B23; --surface-2:#1B222C; --surface-3:#232C38;
+    --border:#2A333F; --border-strong:#3A4654;
+    --text-strong:#F2F6FB; --text:#DCE3EC; --text-2:#A7B2C0; --text-muted:#7E8B9B; --text-faint:#5F6B7A;
+    --sig-green:#56D364; --sig-amber:#E3B341; --sig-red:#FF6B6E;
+    --tint-green:rgba(46,160,67,.20); --tint-amber:rgba(210,153,34,.20); --tint-red:rgba(248,81,73,.20); --tint-purple:rgba(163,113,247,.22); --tint-blue:rgba(56,139,253,.20);
+    --tintb-green:rgba(86,211,100,.5); --tintb-amber:rgba(227,179,65,.5); --tintb-red:rgba(255,107,110,.5); --tintb-purple:rgba(163,113,247,.55); --tintb-blue:rgba(56,139,253,.55);
+    --acc-blue:#4DA3E8; --acc-purple:#A98CD6; --acc-orange:#E8823D;
+    --code-bg:#0F141A;
+    color-scheme:dark;
+  }
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI','Segoe UI Web',Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.45;}
+.app{max-width:1320px;margin:0 auto;padding:16px 16px 48px;}
+a{color:var(--acc-blue);}
+
+/* ===== HEADER ===== */
+.hdr{display:flex;align-items:center;gap:14px;padding:14px 20px;background:var(--surface);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:12px;flex-wrap:wrap;border:1px solid var(--border);}
+.hdr-title{font-size:18px;font-weight:700;color:var(--text-strong);letter-spacing:-.3px;}
+.hdr-sub{font-size:12px;color:var(--text-2);}
+.hdr-gen{font-size:10px;color:var(--text-faint);margin-top:1px;}
+.hdr .grow{flex:1;}
+.theme-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-2);font-size:12px;cursor:pointer;font-family:inherit;}
+.theme-toggle:hover{border-color:var(--border-strong);color:var(--text-strong);}
+.theme-toggle .tt-sun{display:none;}
+:root[data-theme="dark"] .theme-toggle .tt-sun{display:inline;}
+:root[data-theme="dark"] .theme-toggle .tt-moon{display:none;}
+.theme-toggle .tt-label::after{content:"Dark";}
+:root[data-theme="dark"] .theme-toggle .tt-label::after{content:"Light";}
+
+/* ===== STICKY NAV ===== */
+.nav{position:sticky;top:0;z-index:20;background:var(--bg);padding:6px 0 8px;margin:0 -16px;padding-left:16px;padding-right:16px;}
+.nav-inner{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:8px 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.chips{display:flex;gap:6px;overflow-x:auto;flex:1;padding-bottom:2px;scrollbar-width:thin;}
+.chip{flex:0 0 auto;padding:6px 11px;border-radius:999px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;text-decoration:none;}
+.chip:hover{border-color:var(--border-strong);color:var(--text-strong);}
+.chip.active{background:var(--acc-blue);border-color:var(--acc-blue);color:#fff;}
+.search{flex:0 0 100%;display:flex;gap:6px;}
+@media (min-width:900px){.search{flex:0 0 260px;}}
+.search input{flex:1;padding:7px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:13px;font-family:inherit;}
+.search input:focus{outline:2px solid var(--acc-blue);outline-offset:0;border-color:var(--acc-blue);}
+
+/* ===== QUICK FILL ===== */
+.qf{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:12px 0;}
+.qf-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.qf-title{font-size:13px;font-weight:700;color:var(--text-strong);}
+.qf-hint{font-size:11px;color:var(--text-muted);}
+.qf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;}
+.qf-grid label{display:flex;flex-direction:column;gap:3px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);}
+.qf-grid input{padding:7px 9px;border-radius:7px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:13px;font-family:inherit;text-transform:uppercase;}
+.qf-grid input:focus{outline:2px solid var(--acc-blue);outline-offset:0;border-color:var(--acc-blue);}
+.qf-actions{display:flex;gap:8px;margin-left:auto;}
+.btn{padding:6px 11px;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-2);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;}
+.btn:hover{border-color:var(--border-strong);color:var(--text-strong);}
+.btn.primary{background:var(--acc-blue);border-color:var(--acc-blue);color:#fff;}
+.btn.primary:hover{filter:brightness(1.08);}
+.btn.copied{background:var(--tint-green);border-color:var(--tintb-green);color:var(--sig-green);}
+
+/* ===== SECTIONS ===== */
+.section{scroll-margin-top:70px;margin-top:18px;}
+.sec-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 4px 8px;}
+.sec-title{font-size:16px;font-weight:700;color:var(--text-strong);letter-spacing:-.2px;}
+.sec-sub{font-size:12px;color:var(--text-2);}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:6px;border:1px solid;}
+.tag.blue{background:var(--tint-blue);border-color:var(--tintb-blue);color:var(--acc-blue);}
+.tag.green{background:var(--tint-green);border-color:var(--tintb-green);color:var(--sig-green);}
+.tag.amber{background:var(--tint-amber);border-color:var(--tintb-amber);color:var(--sig-amber);}
+.tag.red{background:var(--tint-red);border-color:var(--tintb-red);color:var(--sig-red);}
+.tag.purple{background:var(--tint-purple);border-color:var(--tintb-purple);color:var(--acc-purple);}
+
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.card h3{font-size:13px;font-weight:700;color:var(--text-strong);margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card p{font-size:13px;color:var(--text);margin-bottom:6px;}
+.card ul{padding-left:18px;font-size:13px;}
+.card li{margin-bottom:4px;}
+.since{font-size:10px;color:var(--text-faint);font-weight:400;margin-left:auto;}
+
+/* ===== DEPARTMENT BLOCK ===== */
+.dept{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.dept-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+.dept-name{font-size:17px;font-weight:700;color:var(--text-strong);letter-spacing:-.2px;}
+.dept-chan{font-size:12px;color:var(--text-2);}
+.dept-chan b{color:var(--text);}
+.dept-when{font-size:13px;color:var(--text-2);margin:4px 0 12px;}
+.dept-body{display:grid;gap:14px;grid-template-columns:1fr;}
+@media (min-width:980px){.dept-body{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);}}
+.tpl{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--code-bg);margin-bottom:12px;}
+.tpl-head{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface-2);border-bottom:1px solid var(--border);}
+.tpl-title{font-size:12px;font-weight:700;color:var(--text-strong);}
+.tpl-note{font-size:11px;color:var(--text-muted);}
+.tpl-head .btn{margin-left:auto;padding:5px 10px;}
+.tpl pre{margin:0;padding:12px 14px;font-family:Consolas,'Cascadia Mono','Courier New',monospace;font-size:12.5px;line-height:1.55;color:var(--text);white-space:pre-wrap;word-break:break-word;}
+.tpl pre .ph{color:var(--text-faint);}
+.tpl pre .fill{color:var(--acc-blue);font-weight:700;}
+.side h4{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text-muted);margin:10px 0 6px;}
+.side h4:first-child{margin-top:0;}
+.side ul{padding-left:18px;font-size:13px;}
+.side li{margin-bottom:4px;}
+.side li.no{list-style:none;margin-left:-18px;padding-left:18px;position:relative;}
+.side li.no::before{content:"✕";position:absolute;left:0;color:var(--sig-red);font-weight:700;}
+.side li.yes{list-style:none;margin-left:-18px;padding-left:18px;position:relative;}
+.side li.yes::before{content:"✓";position:absolute;left:0;color:var(--sig-green);font-weight:700;}
+.photos{display:grid;gap:6px;grid-template-columns:1fr;}
+.photo{display:flex;gap:8px;align-items:flex-start;padding:7px 9px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);font-size:12.5px;}
+.photo .ic{flex:0 0 auto;width:18px;height:18px;border-radius:4px;background:var(--tint-blue);border:1px solid var(--tintb-blue);color:var(--acc-blue);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.src{font-size:11px;color:var(--text-faint);margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;}
+.src b{color:var(--text-muted);font-weight:600;}
+.callout{border-left:3px solid var(--acc-orange);background:var(--surface-2);padding:8px 12px;border-radius:0 8px 8px 0;font-size:12.5px;margin-bottom:12px;color:var(--text);}
+.callout.red{border-color:var(--sig-red);}
+.callout.blue{border-color:var(--acc-blue);}
+.callout.amber{border-color:var(--sig-amber);}
+
+/* ===== TABLE ===== */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.tbl th,.tbl td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+.tbl th{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);background:var(--surface-2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl-wrap{overflow-x:auto;border-radius:12px;}
+
+.hidden{display:none !important;}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--text-strong);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;}
+.toast.show{opacity:1;}
+.foot{font-size:11px;color:var(--text-faint);margin-top:28px;text-align:center;}
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== HEADER ===== -->
+  <div class="hdr">
+    <div>
+      <div class="hdr-title">QPC Viva Engage Templates</div>
+      <div class="hdr-sub">Post formats and rules by department. Pick your department, copy the template, fill it in, post it.</div>
+      <div class="hdr-gen">Compiled 09/16/2026 from QPC posting guidelines, the PCL template, and 2026 production directives. Formats below are the official ones. Do not change them.</div>
+    </div>
+    <div class="grow"></div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+      <span class="tt-moon">🌙</span><span class="tt-sun">☀️</span><span class="tt-label"></span>
+    </button>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="chips" id="chips">
+        <a class="chip" href="#rules">Rules</a>
+        <a class="chip" href="#receiving">Receiving</a>
+        <a class="chip" href="#ri">Receiving Inspection</a>
+        <a class="chip" href="#pcl">Pre-Clean</a>
+        <a class="chip" href="#clr">Cleanroom</a>
+        <a class="chip" href="#lab">Lab</a>
+        <a class="chip" href="#pck">Packaging Inspection</a>
+        <a class="chip" href="#fi">Final Inspection</a>
+        <a class="chip" href="#shp">Shipping</a>
+        <a class="chip" href="#cc">Customer Comm.</a>
+        <a class="chip" href="#req">Requisition</a>
+        <a class="chip" href="#ncr">NCR &amp; Escalation</a>
+        <a class="chip" href="#photos">Photos</a>
+        <a class="chip" href="#where">Where things go</a>
+        <a class="chip" href="#sources">Sources</a>
+      </div>
+      <div class="search"><input id="search" type="search" placeholder="Search rules and templates…" aria-label="Search"></div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK FILL ===== -->
+  <div class="qf">
+    <div class="qf-head">
+      <div class="qf-title">Quick fill (optional)</div>
+      <div class="qf-hint">Type the job info once. Every template below fills in as you type. Leave blank to copy the empty format.</div>
+      <div class="qf-actions"><button class="btn" id="qfClear" type="button">Clear</button></div>
+    </div>
+    <div class="qf-grid">
+      <label>Company<input data-k="COMPANY" placeholder="SAINT GOBAIN"></label>
+      <label>WO<input data-k="WO" placeholder="44455" inputmode="numeric"></label>
+      <label>PO<input data-k="PO" placeholder="PO number"></label>
+      <label>Total lines<input data-k="LINES" placeholder="1" inputmode="numeric"></label>
+      <label>Line no<input data-k="LINE" placeholder="1" inputmode="numeric"></label>
+      <label>P/N<input data-k="PN" placeholder="Part number"></label>
+      <label>Qty<input data-k="QTY" placeholder="Qty" inputmode="numeric"></label>
+      <label>Tech<input data-k="TECH" placeholder="Your name"></label>
+    </div>
+  </div>
+
+  <!-- ===== RULES ===== -->
+  <section class="section" id="rules">
+    <div class="sec-head">
+      <div class="sec-title">Rules for every post</div>
+      <div class="sec-sub">These apply in every channel. Format errors count against the tech.</div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Use the official format. Do not change it. <span class="since">Feb 2026</span></h3>
+        <p>Every post uses the department format on this page, field for field. No shortcuts, no personal versions. Wrong format is counted against the tech.</p>
+      </div>
+      <div class="card">
+        <h3>One post per job per department</h3>
+        <p>The main post is the cover post for the whole job. Line items, boxes, pauses, and inspections go in comments under it. Do not start a second main post for the same job in the same department unless the job comes back for reprocessing.</p>
+      </div>
+      <div class="card">
+        <h3>Hashtag the WO on every post</h3>
+        <p>Add <b>#WOxxxxx</b> (no spaces, five digits) and write the WO number in the text too. A search on the WO must pull the full trail from receiving to shipping. Purchased materials use <b>#PURCHASING</b>.</p>
+      </div>
+      <div class="card">
+        <h3>Start time in the post. End time by editing the same post.</h3>
+        <p>Post the start time when you begin. When you finish, <b>edit the original post</b> to add the end time. Do not post the end time as a new post or comment. HH:MM am/pm.</p>
+      </div>
+      <div class="card">
+        <h3>Special Instructions: write them in your own words <span class="since">Feb 26, 2026</span></h3>
+        <p>"Yes" or "No" is not enough. Rewrite what the special instruction means for your step. If it does not apply to your operation, say why, not just "N/A". Wrong interpretation flags a training need and reflects on the supervisor.</p>
+      </div>
+      <div class="card">
+        <h3>General Notes must always be filled in</h3>
+        <p>Never leave General Notes blank. Include who processed, special instructions, verified quantity, and any cross-department handoff. Edit it after all inspections are complete.</p>
+      </div>
+      <div class="card">
+        <h3>Router photo at every handoff <span class="since">Aug 26, 2026</span></h3>
+        <p>Pre-clean, cleanroom, and packaging techs photograph their completed router before handing off. Inspectors photograph the stamped router before it leaves them. Full page, flat, readable. One photo per section. Both pages if the router has a back page. Missing router photos have led to written warnings.</p>
+      </div>
+      <div class="card">
+        <h3>Traceability label in every photo</h3>
+        <p>Every part photo shows the traceability label: company, WO, line, part ID, qty, batch, department. If the label is not in the frame, the photo does not count.</p>
+      </div>
+      <div class="card">
+        <h3>Verified quantity, not assumed</h3>
+        <p>Qty in the post is a count you made and it matches the traveler. Note any extra or missing pieces. Pre-clean inspection posts must have a verified quantity.</p>
+      </div>
+      <div class="card">
+        <h3>Reprocessing gets a new post and a new router <span class="since">Sep 4, 2026</span></h3>
+        <p>When parts are rejected and sent back for recleaning, the supervisor documents the rejection on Viva Engage, identifies the exact pieces, and the reprocessing gets its own post and router.</p>
+      </div>
+      <div class="card">
+        <h3>NCRs are reported in Teams, not Viva Engage <span class="since">Aug 19, 2026</span></h3>
+        <p>The Viva Engage NCR channel is retired. Report and disposition NCRs in the Teams <b>NCR - CA</b> channel. Viva Engage keeps the photo proof and the department post. Tag the NCR number in the department post so they link.</p>
+      </div>
+      <div class="card">
+        <h3>Tag people with @ so it links</h3>
+        <p>When you need a response, @mention the person. If several techs worked one job, @mention each name. A plain typed name does not notify anyone.</p>
+      </div>
+      <div class="card">
+        <h3>Photos may be shared with customers</h3>
+        <p>Clear, in focus, well lit, oriented. Packaging inspection photos represent QPC's work and are sometimes sent to the customer as-is.</p>
+      </div>
+      <div class="card">
+        <h3>Edited a post and it disappeared? Log it.</h3>
+        <p>If editing a post deletes it, write it up in the incident log and report it. Do not quietly re-post.</p>
+      </div>
+      <div class="card">
+        <h3>Post before the job leaves your hands</h3>
+        <p>The post is made at your inspection point, after your step is complete and before the next operator touches the job. Batching posts at end of day breaks the timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECEIVING ===== -->
+  <section class="section" id="receiving">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Receiving</div>
+        <span class="tag blue">Channel: Incoming WOs - CA</span>
+        <span class="tag amber">Observed format</span>
+      </div>
+      <div class="dept-when">Post when a customer job or purchased material arrives at the dock. Before anything is opened or moved to receiving inspection. Shipping later pulls the "how it arrived" photo from this post.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post: customer parts</span><span class="tpl-note">one per WO</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>PRIORITY: STANDARD / EXPEDITE
+CUSTOMER: {COMPANY}
+WO: {WO}
+PO: {PO}
+QTY: {QTY}
+ARRIVED: MM/DD @ HH:MM am/pm
+PACKAGING: # of packages + type (box, crate, tote, tray)
+RECEIVED BY: @{TECH}
+EXPEDITE FEE: $____ (expedites only)
+NOTES:
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post: purchased materials</span><span class="tpl-note">vendor deliveries</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>ARRIVED: MM/DD @ HH:MM am/pm
+VENDOR NAME:
+ITW #:
+QPC PO: {PO}
+PACKAGING: # of packages + type
+ITEM(S) SUMMARY:
+RECEIVED BY: @{TECH}
+#PURCHASING</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Packaging condition of the box(es) as they arrived</span></div>
+            <div class="photo"><span class="ic">2</span><span>Big shipping label clearly visible on the package</span></div>
+            <div class="photo"><span class="ic">3</span><span>Packaging condition of the parts inside the box(es)</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Mark EXPEDITE in the priority line when the PO or office says so. Include the fee.</li>
+            <li class="yes">If a PO is missing or pending, write PO: PENDING. Do not leave it blank.</li>
+            <li class="yes">Note partial receipts (only 3 of 5 received) in NOTES and @mention the office.</li>
+            <li class="no">Do not open sealed customer packaging for the photo. Photograph as received.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Live posts in Incoming WOs - CA (Jan–Jun 2026, Ruben Heredia) and "VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT" (2024). No controlled 2026 guideline doc exists for this channel; the fields above are the ones in current use.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECEIVING INSPECTION ===== -->
+  <section class="section" id="ri">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Receiving Inspection</div>
+        <span class="tag blue">Channel: Receiving Inspection</span>
+        <span class="tag green">Controlled guideline</span>
+      </div>
+      <div class="dept-when">Post at the start of inspection. Your post must let the office verify the job from the post alone. The quality of these posts is a KPI for receiving inspection.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post (cover post for the job)</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Company Name: {COMPANY}
+WO: {WO}
+Total Line Items: {LINES}
+Start: HH:MM am/pm
+End: HH:MM am/pm (edit in when done)
+General Notes:
+Special Instructions: (rewrite in your own words, or why they do not apply)
+Tech(s): @{TECH}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Line No: {LINE}
+P/N: {PN}
+Job No / Heat Lot No / S/N / WO No:
+Measurements: L = ____ W = ____ H = ____  (or ID = ____ OD = ____)
+Qty: {QTY} (verified as complete; note any extra or missing pcs)</pre>
+          </div>
+          <div class="callout red">Found a problem? Do not describe it here. Report it in the Teams <b>NCR - CA</b> channel using the NCR format in the <a href="#ncr">NCR section</a>, then tag the NCR number in this post.</div>
+        </div>
+        <div class="side">
+          <h4>Required photos: main post</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Overall image(s) of how the job was received: trays, containers, packaging</span></div>
+          </div>
+          <h4>Required photos: each line item</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Part with traceability label in frame</span></div>
+            <div class="photo"><span class="ic">2</span><span>Part with a ruler showing dimensions</span></div>
+            <div class="photo"><span class="ic">3</span><span>Close-up of critical markings (serial, lot, heat)</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Include every identifier on the part: job no, heat lot, S/N, WO. All of them.</li>
+            <li class="yes">Measure every line item. Lab and shipping pull dimensions from this post.</li>
+            <li class="no">Do not skip measurements because the part looks standard. Lab has had to re-measure parts that were never measured here.</li>
+          </ul>
+          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION" (rev. Nov 6, 2025; also filed in the Inspection SharePoint site). NCR routing updated per Aug 19, 2026 directive.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRE-CLEAN ===== -->
+  <section class="section" id="pcl">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Pre-Clean</div>
+        <span class="tag blue">Channel: Pre-Clean</span>
+        <span class="tag green">Controlled template</span>
+      </div>
+      <div class="dept-when">Post when you receive the job from receiving inspection, before processing. Update with comments as batches complete, pause, and resume. Edit the end time in when the last batch is done.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Company Name: {COMPANY}
+WO: {WO}
+Total Line Items: {LINES}
+Traveler: Y / N
+Start Time: HH:MM am/pm
+End Time: HH:MM am/pm (edit in when done)
+General Notes:
+Processed by: @{TECH}
+Special Instructions: (rewrite in your own words, or why they do not apply)
+Total Qty: {QTY}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment 1: completed line / batch</span><span class="tpl-note">one per line item or batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Line No: {LINE}
+P/N: {PN}
+Qty Processed: {QTY}
+Batch #:
+Notes:</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment 2: job paused</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>JOB PAUSED
+Reason:
+Pause Time: HH:MM am/pm</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment 3: job resumed</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>JOB RESUMED
+Start Time: HH:MM am/pm</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: pre-clean inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>PRE-CLEAN INSPECTION
+Inspected by: @{TECH}
+Verified Qty: {QTY}
+Condition: (cleanliness, damage, FOD)
+Result: APPROVED / REJECTED (reason)
+Router inspected and stamped: photo attached
+Time: HH:MM am/pm</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>How the job was received from the previous department, and the parts before processing (main post)</span></div>
+            <div class="photo"><span class="ic">2</span><span>Completed processed parts with traceability labels in view (each line/batch comment)</span></div>
+            <div class="photo"><span class="ic">3</span><span>Completed router, full page, before it goes to the pre-clean inspector. Both pages if there is a back page.</span></div>
+            <div class="photo"><span class="ic">4</span><span>Inspector: router once inspected and stamped, before it goes to cleanroom</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">If the job goes STRAIGHT TO CLEANROOM, write the reason in General Notes.</li>
+            <li class="yes">Inspection posts must carry a verified quantity.</li>
+            <li class="yes">Rejected pieces sent back: supervisor documents the rejection, names the pieces, and the reclean gets a new post and new router.</li>
+            <li class="no">Do not post a finish time without a finish photo and traceability labels. That was the most repeated pre-clean mistake.</li>
+          </ul>
+          <div class="src"><b>Source:</b> "PCL Template" (Oct 10, 2025). Router photo rule from Aug 26, 2026 directive; two-page router and reclean rules from Sep 4, 2026 production meeting action items. Inspection comment fields are consolidated from those directives; the PCL template itself only says the inspection post must have a verified quantity.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLEANROOM ===== -->
+  <section class="section" id="clr">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Cleanroom</div>
+        <span class="tag blue">Channel: Cleanroom</span>
+        <span class="tag amber">Observed format</span>
+      </div>
+      <div class="dept-when">Post when the batch starts in the cleanroom. Edit the end time in when it finishes. One post per line item or batch, in the format below. Nica confirmed this format on Feb 26, 2026.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per line / batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>{COMPANY}
+WO: {WO}
+LINE: {LINE}
+P/N: {PN}  REV:
+QTY: {QTY}
+S/N or LOT (if serialized):
+TECH: @{TECH}
+CLR BATCH #:
+START: HH:MM am/pm
+END: HH:MM am/pm (edit in when done)
+SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: cleanroom inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>CLEANROOM INSPECTION
+Inspected by: @{TECH}
+Verified Qty: {QTY}
+S/N verified: (list, or N/A)
+Result: APPROVED / REJECTED (reason)
+Router inspected and stamped: photo attached
+Time: HH:MM am/pm</pre>
+          </div>
+          <div class="callout amber">Serialized parts: list every serial number you processed. Missing serials in the post caused a customer corrective action request in Jan 2026 (Performance Sealing, WO 40625).</div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Parts as received into the cleanroom, labels in view</span></div>
+            <div class="photo"><span class="ic">2</span><span>Parts after processing with traceability labels in view</span></div>
+            <div class="photo"><span class="ic">3</span><span>Serial numbers or lot markings, legible</span></div>
+            <div class="photo"><span class="ic">4</span><span>Completed router, full page, before it goes to the cleanroom inspector</span></div>
+            <div class="photo"><span class="ic">5</span><span>Inspector: router once inspected and stamped, before it goes to packaging</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Assembly jobs: update progress and status in the post. Do not go silent for days.</li>
+            <li class="yes">Missing a serial or a piece? Say so in a comment and @mention the final inspector immediately.</li>
+            <li class="yes">Dew point on ULA/Sauer jobs is recorded on the router, and the router photo has to show it.</li>
+            <li class="no">Do not batch multiple WOs in one post. One WO per post.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Live Cleanroom posts Sep 2024 through Jul 2026 (RBC 32880, Saint Gobain 35954, Chemring 38034, Performance Sealing 40625, NuSpace 40448) and Nica Rodriguez's confirmation of Feb 26, 2026. There is no controlled cleanroom guideline document; this is the format in consistent use. Router photo rule from Aug 26, 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAB ===== -->
+  <section class="section" id="lab">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Lab</div>
+        <span class="tag blue">Channel: Lab</span>
+        <span class="tag red">Proposed, confirm with Lab lead</span>
+      </div>
+      <div class="dept-when">Post when testing starts on a batch. Edit results and end time in when done. If a job bypasses the lab, that decision is recorded in the cleanroom post, not here.</div>
+      <div class="dept-body">
+        <div>
+          <div class="callout red">No controlled Lab posting guideline exists. This template is built from the cleanroom format plus the Jul 14, 2026 correction that lab posts must include photos and measurements. Confirm with Nica before treating it as official.</div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per batch tested</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>{COMPANY}
+WO: {WO}
+LINE: {LINE}
+P/N: {PN}
+QTY TESTED: {QTY} of ____
+S/N or LOT (if serialized):
+TEST(S): Particle / NVR / UV / VC / Dew Point / Pressure / Other
+SPEC / LEVEL:
+MEASUREMENTS: (surface area, dimensions used for the test)
+RESULT: PASS / FAIL  (readings: ____)
+TECH: @{TECH}
+START: HH:MM am/pm
+END: HH:MM am/pm (edit in when done)
+SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
+#WO{WO}</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Part with traceability label in view</span></div>
+            <div class="photo"><span class="ic">2</span><span>Measurements: ruler or caliper on the part, legible</span></div>
+            <div class="photo"><span class="ic">3</span><span>Test setup and readings (gauge, counter, meter display)</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">If receiving inspection never measured the part, measure it and post the measurement here. Then flag it to the inspection lead.</li>
+            <li class="yes">A FAIL is an NCR. Report it in Teams NCR - CA and tag the number here.</li>
+            <li class="no">Do not post "tested, passed" with no readings and no photos.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Delilah Pena to Nica Rodriguez, Jul 14, 2026 ("photos/measurements not found on lab post, pls ensure these are posted along with photos of measurements"). Field list inferred.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGING INSPECTION ===== -->
+  <section class="section" id="pck">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Packaging Inspection</div>
+        <span class="tag blue">Channel: Packaging Inspection</span>
+        <span class="tag green">Controlled guideline</span>
+      </div>
+      <div class="dept-when">Main post when packaging starts. One comment per line item as it is packaged and inspected. These photos represent QPC's work and may be sent to the customer.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post (cover post for the job)</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Company Name: {COMPANY}
+WO: {WO}
+Total Line Items: {LINES}
+Packaging Spec: (ask if unsure)
+Start Time: HH:MM am/pm
+End Time: HH:MM am/pm (edit in when done)
+General Notes:
+  Packaged by: @{TECH}
+  Special Instructions: (rewrite in your own words, or why they do not apply)
+  Verified packaged qty: {QTY} (matches the work order)
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Line No: {LINE}
+P/N: {PN}
+Part Identifiers: (S/N, job no, heat lot)
+Qty: {QTY} (verified all parts packaged)
+Seal Verification: heat seal / vacuum seal intact
+FOD Check: no foreign objects inside packaging
+Label Verification: labels correct and match traveler description
+Materials used: (poly, nylon, Aclar, desiccant, humidity indicator, red tamper seal)</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: packaging inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>PACKAGING INSPECTION
+Inspected by: @{TECH}
+Verified Qty: {QTY}
+Seals / FOD / Labels: OK or (issue)
+Result: APPROVED / REJECTED (reason)
+Router inspected and stamped: photo attached
+Time: HH:MM am/pm</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Overall pictures of the packaged job (main post)</span></div>
+            <div class="photo"><span class="ic">2</span><span>Each packaging step as a separate photo: nylon bag, poly bag, completed package (since Sep 4, 2026)</span></div>
+            <div class="photo"><span class="ic">3</span><span>Packaged parts with traceability labels clearly visible</span></div>
+            <div class="photo"><span class="ic">4</span><span>Seal close-ups</span></div>
+            <div class="photo"><span class="ic">5</span><span>Humidity indicators, desiccant, tamper seals if used</span></div>
+            <div class="photo"><span class="ic">6</span><span>Completed router before the packaging inspector; inspector posts the stamped router before shipping</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Packaging spec goes in the main post and the materials go in each comment.</li>
+            <li class="yes">Special instructions from the traveler: state whether they apply and what you did.</li>
+            <li class="no">Do not post one photo of a finished box and call it done. Each step is shown separately.</li>
+          </ul>
+          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION" (Dec 29, 2025) and TR-011 Rev. A Packaging Inspection training. Per-step photo rule from Sep 4, 2026 action items.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL INSPECTION ===== -->
+  <section class="section" id="fi">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Final Inspection</div>
+        <span class="tag blue">Channel: Final Inspection</span>
+        <span class="tag green">Controlled guideline</span>
+      </div>
+      <div class="dept-when">Post at final inspection, before shipping approval. The post must let the office verify release from the content alone.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post (cover post)</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Company Name: {COMPANY}
+WO: {WO}
+PO: {PO}
+Customer:
+Ship To:
+Ship Method:
+Total Line Items: {LINES}
+Start: HH:MM am/pm
+End: HH:MM am/pm (edit in when done)
+General Notes: (special instructions, packaging notes, cross-department handoffs)
+Special Instructions: Verified YES / NO (and what they were)
+Inspected by: @{TECH}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Line No: {LINE}
+P/N: {PN}
+Qty: {QTY} (verified complete; matches Traveler, Pack Slip, and Cert)
+Condition: verified clean, free of damage, contamination, and FOD
+Packaging / Label Verification: correct material, bags clean and undamaged, heat/tamper seals proper, foam padding secured, label placement correct
+Shipping Label: correct address and customer
+Paperwork Verification: Cert and Pack Slip in shipment
+Shake test performed: YES / NO</pre>
+          </div>
+          <div class="callout blue"><b>Shipping Approved</b> means the packaging and boxing check is complete: parts safely packed, labeled, and meeting packaging requirements. It does not authorize shipment. <b>Final Approved</b> means all inspections passed, paperwork is correct, and packaging is fully verified. That is the release to ship.</div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Main post: overall shipment ready for release, labels visible</span></div>
+            <div class="photo"><span class="ic">2</span><span>Line item: packaged part with traceability label, shipping label, and paperwork</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Cross-check qty against three documents: traveler, pack slip, cert.</li>
+            <li class="yes">If any check fails, the job stays. Report in Teams NCR - CA.</li>
+            <li class="no">Do not write "Final Approved" if the shake test or paperwork line is blank.</li>
+          </ul>
+          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR FINAL INSPECTION" (Nov 12, 2025, Delilah Pena). Note the document's header still reads "Receiving Inspection"; the content is the Final Inspection format.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHIPPING ===== -->
+  <section class="section" id="shp">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Shipping</div>
+        <span class="tag blue">Channel: Shipping</span>
+        <span class="tag green">Controlled guideline</span>
+      </div>
+      <div class="dept-when">Main post when boxing starts. One comment per box. Before you start: go to Incoming WOs - CA, download the photo of how the job arrived, and reuse the original packaging if possible.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post (cover post for the job)</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>COMPANY: {COMPANY}
+WO: {WO}
+PO: {PO}
+TOTAL LINE ITEMS: {LINES}
+SHIP METHOD: (FedEx, UPS, Will Call, freight)
+TOTAL BOXES:
+START TIME: HH:MM am/pm
+END TIME: HH:MM am/pm (edit in when done)
+GENERAL NOTES:
+  Boxed By: @{TECH}
+  Special Shipping Instructions: YES / NO (and what they are)
+  Verified Boxed Total QTY: {QTY}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per box</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Box Number: __ of __
+Box Dimensions: __ x __ x __
+Box Weight: __ lbs (always give an approximate weight for crates and pallets)
+Line Items Included:
+  Line No: {LINE}
+  P/N: {PN}
+  Qty: {QTY} (verified per line item)
+  Part Identifiers: (S/N, heat lot, job no)</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos: main post (only these 2)</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Original packaging as received (downloaded from the Incoming WOs - CA post)</span></div>
+            <div class="photo"><span class="ic">2</span><span>Final packaged job: palletized or organized boxes, traceability labels visible</span></div>
+          </div>
+          <h4>Required photos: each box comment</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Step-by-step progression of the boxing</span></div>
+            <div class="photo"><span class="ic">2</span><span>Box contents with traceability labels visible</span></div>
+            <div class="photo"><span class="ic">3</span><span>Box exterior showing dimensions and labels</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Edit comments after all shipments are complete. There must always be a general note.</li>
+            <li class="yes">Leave the top of the box open on the "Ready for Approval" table. Seal only after final approval.</li>
+            <li class="yes">Everything must match the work order and the shipping requirements.</li>
+            <li class="no">Do not stack extra photos in the main post. Two in the main post; the rest go in box comments.</li>
+          </ul>
+          <div class="src"><b>Source:</b> "07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES" (Dec 29, 2025) and "QPC SHIPPING CHECKLIST" (Jan 6, 2026).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOMER COMMUNICATION ===== -->
+  <section class="section" id="cc">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Customer Communication / SCR</div>
+        <span class="tag blue">Channels: Customer Communication, SCR, Expedites</span>
+        <span class="tag amber">Observed format</span>
+      </div>
+      <div class="dept-when">Office and front desk. Post when a customer says something the floor or another department needs on record: pricing questions, approvals, expedite terms, disposition instructions, pickup requests. Quote the customer. Do not paraphrase.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Customer communication post</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>CUSTOMER: {COMPANY}
+WO: {WO}
+PO: {PO}
+#WO{WO}
+TOPIC: (PLEASE VERIFY PRICING / CUSTOMER APPROVAL / EXPEDITE / DISPOSITION / PICKUP)
+LINE {LINE}  P/N: {PN}  QTY: {QTY}
+DETAILS: (PO priced at $___ / DB shows $___ / spec ___ / ECD ___)
+PER [customer name, date]: "exact quote from the email or call"
+ACTION NEEDED FROM: @name</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: reply / disposition</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>PER [name, date]: "exact reply"
+ACTION TAKEN: (DB updated / labels reprinted / job released / rescheduled to ___)
+BY: @{TECH}  HH:MM am/pm</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Quote the customer word for word inside quotation marks with "Per [Name]". That quote is what protects QPC later.</li>
+            <li class="yes">Attach or name the source: the email, the call, the PO line.</li>
+            <li class="yes">@mention who has to act. Department leads acknowledge within 24 hours.</li>
+            <li class="yes">Expedites: post the expedite fee and the agreed date in the post.</li>
+            <li class="no">Do not summarize a customer decision from memory. If you do not have the exact words, get them first.</li>
+            <li class="no">Real-time back-and-forth belongs in Teams. Viva is the record of what was decided.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Live Customer Communication and SCR posts (James Velasquez, Seth Marquez, Mikaela Fulks, 2024–2026) and "Training Guide for Front Desk Employee" (Oct 2024). No controlled guideline document; fields reflect consistent practice.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REQUISITION ===== -->
+  <section class="section" id="req">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Requisition</div>
+        <span class="tag blue">Channel: Requisition</span>
+        <span class="tag amber">Observed format</span>
+      </div>
+      <div class="dept-when">Post when a job or a department needs something bought: job-specific materials (foam plugs, bags, IPA), shop supplies, equipment. Purchasing works from this channel. Post with the WO whenever the item is for a job.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Requisition post</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>WO: {WO} (or SHOP SUPPLY)
+CUSTOMER: {COMPANY}
+PLEASE REQUISITION: (item, part or catalog number, vendor, link if known)
+QTY: (if you added spares, say how many and why)
+NEEDED BY:
+REASON: (job requirement per PO / spec / restock / new staff)
+SOLD TO CUSTOMER: YES / NO
+REQUESTED BY: @{TECH}
+#WO{WO}</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Attach the PO page, spec callout, or F112 requisition form that requires the item, if it is job-driven</span></div>
+            <div class="photo"><span class="ic">2</span><span>Photo of the item or label if reordering an existing stock item</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Spare margin is fine, but say it: "PO reflects 400, added 50% as spare".</li>
+            <li class="yes">Stay ahead of inventory. Post before you run out, not after.</li>
+            <li class="yes">Purchasing replies in a comment when ordered and when received. Received items get an Incoming WOs post with #PURCHASING.</li>
+            <li class="no">Do not requisition in a Teams chat. If it is not in this channel, it is not on the log.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Live Requisition posts (James Velasquez, Victor Morales, Anthony Sandoval, 2024–2026) and Joseph Dino's "post in requisition with the WO" (Jul 2025). No controlled guideline document.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NCR & ESCALATION ===== -->
+  <section class="section" id="ncr">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">NCR &amp; Escalation</div>
+        <span class="tag red">Teams channel: NCR - CA</span>
+        <span class="tag purple">Viva keeps photo proof only</span>
+      </div>
+      <div class="dept-when">Since Aug 19, 2026 all NCR reporting and dispositions happen in the Teams <b>NCR - CA</b> channel. The Viva Engage NCR channel is retired. Viva Engage still holds the department post, the photos, and the movement proof. Tag the NCR number in the department post so both link.</div>
+      <div class="dept-body">
+        <div>
+          <div class="callout red"><b>Stop the job first.</b> Do not fix, clean, repackage, move, guess, or continue until the escalation owner replies with a disposition.</div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">NCR report (Teams NCR - CA)</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>COMPANY: {COMPANY}
+WO: {WO}
+LINE: {LINE}
+P/N: {PN} REV:
+QTY: {QTY} (include any extra or missing pieces)
+S/N or LOT:
+OPERATION / DEPARTMENT WHERE FOUND:
+ISSUE: (objective description, what test or inspection found it)
+PHOTOS ATTACHED: issue detail + traceability
+REQUESTED REVIEW: @Mikaela Fulks (NCR/MRB)
+REPORTED BY: @{TECH}  HH:MM am/pm
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Viva comment on the department post</span><span class="tpl-note">links the NCR to the job trail</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>NCR REPORTED in Teams NCR - CA
+NCR #: ____   #NC____
+Line {LINE}  Qty affected: ____
+Job on HOLD at: (location)
+Photos attached</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Viva photo proof: WO / NCR moved</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>WO/NCR MOVED
+WO: {WO}
+NCR #:
+Moved from:
+Moved to:
+Moved by: @{TECH}
+Time moved: HH:MM am/pm
+Photo attached: YES
+#WO{WO}</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Issue detail: the discrepancy itself, clear and oriented (damage, missing marking, wrong count)</span></div>
+            <div class="photo"><span class="ic">2</span><span>Traceability: identifiers visible and legible in every NCR photo</span></div>
+            <div class="photo"><span class="ic">3</span><span>Movement proof when the job changes location</span></div>
+          </div>
+          <h4>Who to escalate to</h4>
+          <ul>
+            <li><b>Receiving:</b> Tech → Receiving Inspector → Inspection Lead → Quality Manager</li>
+            <li><b>Pre-Clean:</b> Tech → Pre-Clean Inspector → Production Lead → Quality Manager</li>
+            <li><b>Cleanroom:</b> Tech → Cleanroom Lead → Final Inspector → Quality Manager</li>
+            <li><b>Packaging:</b> Tech → Cleanroom Lead → Final Inspector → SCR2 → Quality Manager</li>
+            <li><b>Inspection:</b> Inspector → Inspection Lead → NCR/MRB → Quality Manager</li>
+            <li><b>Shipping:</b> Tech → Warehouse Lead → Production Lead → Quality Manager</li>
+            <li><b>Customer impact imminent:</b> skip levels, notify the Quality Manager, then the GM if unavailable.</li>
+          </ul>
+          <h4>Response times</h4>
+          <ul>
+            <li>Leads and inspectors answer tech escalations within 10 minutes.</li>
+            <li>Containment decided within 30 minutes. Standard NCR acknowledged in Teams within 15 minutes, expedite within 10.</li>
+            <li>Root cause started within 24 hours. Corrective action closed within 5 days.</li>
+          </ul>
+          <div class="src"><b>Source:</b> NCR section of the Receiving Inspection guideline; escalation procedure and post format shared Nov 20, 2025; NCR pilot standard formats Jun 27, 2026; channel retirement directive Aug 19, 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTOS ===== -->
+  <section class="section" id="photos">
+    <div class="sec-head">
+      <div class="sec-title">Photo standards</div>
+      <div class="sec-sub">If it cannot be read, it does not count.</div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Every part photo</h3>
+        <ul>
+          <li>Traceability label in the frame: company, WO, line, part ID, qty, batch, department.</li>
+          <li>In focus, well lit, no glare over the label.</li>
+          <li>Part oriented so markings and surfaces can be judged.</li>
+          <li>Before and after your process, at your inspection point.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Router photo <span class="since">Aug 26, 2026</span></h3>
+        <ul>
+          <li>Full page, flat, readable. Both pages if there is a back page.</li>
+          <li>Taken after your section is complete and before the job leaves your hands.</li>
+          <li>One photo per section. If the job comes back to you, take it again.</li>
+          <li>Added to the same Viva post as your part photos, WO number in the text.</li>
+          <li>Applies to every job including expedites, until the operations router system is live.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Receiving inspection</h3>
+        <ul>
+          <li>Part with ruler for dimensions, one per line item.</li>
+          <li>Close-up of serial, lot, and heat markings.</li>
+          <li>How the job arrived: trays, containers, packaging.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Packaging and shipping</h3>
+        <ul>
+          <li>Each packaging step separately: nylon bag, poly bag, completed package.</li>
+          <li>Seal close-ups. Humidity indicator and desiccant if used.</li>
+          <li>Box contents with labels, then box exterior with dimensions and labels.</li>
+          <li>These photos may go to the customer. Treat them that way.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>NCR photos</h3>
+        <ul>
+          <li>Show the discrepancy clearly. Scale or ruler if size matters.</li>
+          <li>Identifiers legible in every NCR photo.</li>
+          <li>Before and after photos on any rework.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What gets a post rejected</h3>
+        <ul>
+          <li>Finish time with no finish photo.</li>
+          <li>Label out of frame or unreadable.</li>
+          <li>One overall photo standing in for line-item photos.</li>
+          <li>Router photo missing, cropped, or only one page of two.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHERE THINGS GO ===== -->
+  <section class="section" id="where">
+    <div class="sec-head">
+      <div class="sec-title">Where things go</div>
+      <div class="sec-sub">Viva Engage, Teams, the Production List, and the database are read together. Each has one job.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>System</th><th>Use it for</th><th>Do not use it for</th></tr></thead>
+        <tbody>
+          <tr><td><b>Viva Engage</b></td><td>The visual record: department posts with photos at every inspection point, start and end times, verified quantities, router photos, movement proof, customer quotes on record.</td><td>Real-time back-and-forth, questions that need an answer in minutes, NCR reporting and dispositions.</td></tr>
+          <tr><td><b>Teams</b></td><td>Real-time coordination, acknowledgments, decisions in progress, NCR - CA reporting and dispositions, daily reports, revised-traveler print acknowledgments.</td><td>Photo archives or long write-ups. Requisitions. Anything that must be found later by WO.</td></tr>
+          <tr><td><b>Production List</b></td><td>Official job location, status, and sequencing. Whoever physically moves a job makes sure it gets updated.</td><td>Notes, photos, or disposition history.</td></tr>
+          <tr><td><b>QPC Database</b></td><td>Authoritative job, part, pricing, and history data. ECDs entered by the assigned person once scheduled.</td><td>Working notes.</td></tr>
+          <tr><td><b>NCR form / MRB</b></td><td>The official quality record for a nonconformance.</td><td>Replacing the Teams notice or the Viva photo proof.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== SOURCES ===== -->
+  <section class="section" id="sources">
+    <div class="sec-head">
+      <div class="sec-title">Sources and confidence</div>
+      <div class="sec-sub">What each template is based on, so you know how hard to lean on it.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Department</th><th>Basis</th><th>Confidence</th></tr></thead>
+        <tbody>
+          <tr><td>Receiving Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION, Nov 6, 2025 (OneDrive and Inspection site)</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Pre-Clean</td><td>PCL Template, Oct 10, 2025; Aug 26 and Sep 4, 2026 directives</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Packaging Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION, Dec 29, 2025; TR-011 Rev. A</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Final Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR FINAL INSPECTION, Nov 12, 2025</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Shipping</td><td>07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES, Dec 29, 2025; QPC SHIPPING CHECKLIST, Jan 6, 2026</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Receiving (Incoming WOs - CA)</td><td>Live posts Jan–Jun 2026; VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT (2024)</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Cleanroom</td><td>Live posts Sep 2024–Jul 2026; format confirmed by Nica Rodriguez Feb 26, 2026</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Customer Communication / SCR</td><td>Live posts 2024–2026; Front Desk training guide Oct 2024</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Requisition</td><td>Live posts 2024–2026</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Lab</td><td>Jul 14, 2026 correction only. No format document or consistent live example found.</td><td><span class="tag red">Proposed</span></td></tr>
+          <tr><td>NCR &amp; Escalation</td><td>Escalation procedure Nov 20, 2025; NCR pilot formats Jun 27, 2026; NCR - CA move Aug 19, 2026</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>General rules</td><td>00 - CORE - QPC SYSTEMS (Mar 2026); format enforcement messages Feb 18–26, 2026; router directive Aug 26, 2026; action items Sep 3–4, 2026</td><td><span class="tag green">Controlled</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot">Times are HH:MM am/pm in every template. Hashtag is #WO plus the five-digit work order number, no space. Questions on a format go to your department lead, then the Quality Manager.</p>
+  </section>
+
+</div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(function(){
+  // ---------- theme (shared key with Production Pulse) ----------
+  var root=document.documentElement;
+  function applyTheme(t){ if(t){root.setAttribute('data-theme',t);} }
+  try{ applyTheme(localStorage.getItem('qpc-theme')); }catch(e){}
+  document.getElementById('themeToggle').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    if(!cur){ cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'; }
+    var next=cur==='dark'?'light':'dark';
+    applyTheme(next);
+    try{ localStorage.setItem('qpc-theme',next); }catch(e){}
+  });
+
+  // ---------- quick fill ----------
+  var KEYS=['COMPANY','WO','PO','LINES','LINE','PN','QTY','TECH'];
+  var vals={};
+  var inputs=document.querySelectorAll('.qf-grid input');
+  var tpls=[];
+  document.querySelectorAll('[data-tpl]').forEach(function(box){
+    var pre=box.querySelector('pre');
+    tpls.push({box:box,pre:pre,raw:pre.textContent});
+  });
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function render(){
+    tpls.forEach(function(t){
+      var html=esc(t.raw).replace(/\{([A-Z]+)\}/g,function(m,k){
+        var v=(vals[k]||'').trim();
+        if(v){ return '<span class="fill">'+esc(v)+'</span>'; }
+        return '<span class="ph">'+placeholderFor(k)+'</span>';
+      });
+      t.pre.innerHTML=html;
+    });
+  }
+  function placeholderFor(k){
+    switch(k){
+      case 'COMPANY': return '________';
+      case 'WO': return '_____';
+      case 'PO': return '________';
+      case 'LINES': return '__';
+      case 'LINE': return '__';
+      case 'PN': return '________';
+      case 'QTY': return '__';
+      case 'TECH': return 'name';
+      default: return '____';
+    }
+  }
+  function filled(raw){
+    return raw.replace(/\{([A-Z]+)\}/g,function(m,k){
+      var v=(vals[k]||'').trim();
+      return v?v:'';
+    });
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('input',function(){
+      vals[inp.getAttribute('data-k')]=inp.value.toUpperCase();
+      try{ sessionStorage.setItem('qpc-ve-fill',JSON.stringify(vals)); }catch(e){}
+      render();
+    });
+  });
+  document.getElementById('qfClear').addEventListener('click',function(){
+    vals={}; inputs.forEach(function(i){i.value='';});
+    try{ sessionStorage.removeItem('qpc-ve-fill'); }catch(e){}
+    render();
+  });
+  try{
+    var saved=JSON.parse(sessionStorage.getItem('qpc-ve-fill')||'{}');
+    if(saved&&typeof saved==='object'){ vals=saved; inputs.forEach(function(i){ var k=i.getAttribute('data-k'); if(vals[k]) i.value=vals[k]; }); }
+  }catch(e){}
+  render();
+
+  // ---------- copy ----------
+  var toast=document.getElementById('toast'), toastTimer;
+  function showToast(msg){
+    toast.textContent=msg; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){toast.classList.remove('show');},1400);
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement('textarea');
+    ta.value=text; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.top='-1000px';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,text.length);
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta); return ok;
+  }
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var box=btn.closest('[data-tpl]');
+      var t=null; for(var i=0;i<tpls.length;i++){ if(tpls[i].box===box){t=tpls[i];break;} }
+      if(!t) return;
+      var text=filled(t.raw);
+      function done(ok){
+        if(ok){ btn.textContent='Copied'; btn.classList.add('copied'); showToast('Copied. Paste it into Viva Engage.'); }
+        else{ showToast('Copy failed. Select the text and copy manually.'); }
+        setTimeout(function(){ btn.textContent='Copy'; btn.classList.remove('copied'); },1600);
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){done(true);},function(){done(fallbackCopy(text));});
+      }else{ done(fallbackCopy(text)); }
+    });
+  });
+
+  // ---------- search ----------
+  var search=document.getElementById('search');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('.section'));
+  search.addEventListener('input',function(){
+    var q=search.value.trim().toLowerCase();
+    sections.forEach(function(sec){
+      if(!q){ sec.classList.remove('hidden'); sec.querySelectorAll('.card,.dept,.tpl').forEach(function(el){el.classList.remove('hidden');}); return; }
+      var any=false;
+      var items=sec.querySelectorAll('.card, .dept');
+      if(items.length){
+        items.forEach(function(el){
+          var hit=el.textContent.toLowerCase().indexOf(q)>=0;
+          el.classList.toggle('hidden',!hit); if(hit) any=true;
+        });
+      }else{
+        any=sec.textContent.toLowerCase().indexOf(q)>=0;
+      }
+      sec.classList.toggle('hidden',!any);
+    });
+  });
+
+  // ---------- active chip on scroll ----------
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  function setActive(id){ chips.forEach(function(c){ c.classList.toggle('active',c.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ setActive(en.target.id); } });
+    },{rootMargin:'-80px 0px -70% 0px',threshold:0});
+    sections.forEach(function(s){ io.observe(s); });
+  }
+  chips.forEach(function(c){ c.addEventListener('click',function(){ setActive(c.getAttribute('href').slice(1)); }); });
+})();
+</script>
+</body>
+</html>
