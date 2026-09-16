@@ -167,7 +167,7 @@ a{color:var(--acc-blue);}
     <div>
       <div class="hdr-title">QPC Viva Engage Templates</div>
       <div class="hdr-sub">Post formats and rules by department. Pick your department, copy the template, fill it in, post it.</div>
-      <div class="hdr-gen">Compiled 09/16/2026 from QPC posting guidelines, the PCL template, and 2026 production directives. Formats below are the official ones. Do not change them.</div>
+      <div class="hdr-gen">Compiled 09/16/2026 from the QPC posting guidelines, the PCL template, the 2026 production directives, and 4,522 real Viva Engage posts from the Aug 11, 2026 network export. Channel names and comment formats match what is actually posted.</div>
     </div>
     <div class="grow"></div>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
@@ -181,10 +181,11 @@ a{color:var(--acc-blue);}
       <div class="chips" id="chips">
         <a class="chip" href="#rules">Rules</a>
         <a class="chip" href="#receiving">Receiving</a>
-        <a class="chip" href="#ri">Receiving Inspection</a>
+        <a class="chip" href="#ri">Inspection</a>
         <a class="chip" href="#pcl">Pre-Clean</a>
         <a class="chip" href="#clr">Cleanroom</a>
-        <a class="chip" href="#lab">Lab</a>
+        <a class="chip" href="#lab">Lab Testing</a>
+        <a class="chip" href="#pkg">Packaging</a>
         <a class="chip" href="#pck">Packaging Inspection</a>
         <a class="chip" href="#fi">Final Inspection</a>
         <a class="chip" href="#shp">Shipping</a>
@@ -285,6 +286,14 @@ a{color:var(--acc-blue);}
         <h3>Post before the job leaves your hands</h3>
         <p>The post is made at your inspection point, after your step is complete and before the next operator touches the job. Batching posts at end of day breaks the timeline.</p>
       </div>
+      <div class="card">
+        <h3>Pause, continue, finish: one comment each</h3>
+        <p>Stopping mid-job? Comment <b>PAUSE AT 3:18PM</b>. Picking it back up? Comment <b>CONTINUE AT 7:13AM</b>. Done? Comment <b>COMPLETE</b> or <b>FINISHED AT 10:50AM</b> and edit the end time into the main post. This is how every department already does it in the export.</p>
+      </div>
+      <div class="card">
+        <h3>Washington site posts</h3>
+        <p>WA posts carry the <b>#QPCWA</b> tag on the first line and the WO number ends in WA (42665WA). Everything else is the same format as CA.</p>
+      </div>
     </div>
   </section>
 
@@ -293,10 +302,10 @@ a{color:var(--acc-blue);}
     <div class="dept">
       <div class="dept-head">
         <div class="dept-name">Receiving</div>
-        <span class="tag blue">Channel: Incoming WOs - CA</span>
+        <span class="tag blue">Channels: Incoming WOs - CA, Incoming WOs - WA</span>
         <span class="tag amber">Observed format</span>
       </div>
-      <div class="dept-when">Post when a customer job or purchased material arrives at the dock. Before anything is opened or moved to receiving inspection. Shipping later pulls the "how it arrived" photo from this post.</div>
+      <div class="dept-when">Post when a customer job or purchased material arrives at the dock. Before anything is opened or moved to inspection. Shipping later pulls the "how it arrived" photo from this post. 963 posts in the export, almost all by Mandy Cao and Ruben Heredia.</div>
       <div class="dept-body">
         <div>
           <div class="tpl" data-tpl>
@@ -312,6 +321,21 @@ RECEIVED BY: @{TECH}
 EXPEDITE FEE: $____ (expedites only)
 NOTES:
 #WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post: PO arrived before the parts</span><span class="tpl-note">ADVANCED PO</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>ADVANCED PO
+PRIORITY: STANDARD / EXPEDITE
+CUSTOMER: {COMPANY}
+WO: {WO}
+PO: {PO}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: when the parts land</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>ARRIVED MM/DD HH:MM am/pm
+__ BOXES
+QTY: {QTY}</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Main post: purchased materials</span><span class="tpl-note">vendor deliveries</span><button class="btn primary" data-copy type="button">Copy</button></div>
@@ -339,7 +363,7 @@ RECEIVED BY: @{TECH}
             <li class="yes">Note partial receipts (only 3 of 5 received) in NOTES and @mention the office.</li>
             <li class="no">Do not open sealed customer packaging for the photo. Photograph as received.</li>
           </ul>
-          <div class="src"><b>Source:</b> Live posts in Incoming WOs - CA (Jan–Jun 2026, Ruben Heredia) and "VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT" (2024). No controlled 2026 guideline doc exists for this channel; the fields above are the ones in current use.</div>
+          <div class="src"><b>Source:</b> Viva Engage export: 853 Incoming WOs - CA posts and 110 Incoming WOs - WA posts (Dec 2023 to Feb 2026). "ADVANCED PO" and the "3 BOXES" comment are how Ruben posts today. ARRIVED, PACKAGING and RECEIVED BY come from "VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT" (2024) and the retired Expedites channel. No controlled 2026 guideline doc exists for this channel.</div>
         </div>
       </div>
     </div>
@@ -349,32 +373,33 @@ RECEIVED BY: @{TECH}
   <section class="section" id="ri">
     <div class="dept">
       <div class="dept-head">
-        <div class="dept-name">Receiving Inspection</div>
-        <span class="tag blue">Channel: Receiving Inspection</span>
+        <div class="dept-name">Inspection (Receiving Inspection)</div>
+        <span class="tag blue">Channel: Inspection</span>
         <span class="tag green">Controlled guideline</span>
       </div>
-      <div class="dept-when">Post at the start of inspection. Your post must let the office verify the job from the post alone. The quality of these posts is a KPI for receiving inspection.</div>
+      <div class="dept-when">Post at the start of inspection. Your post must let the office verify the job from the post alone. The quality of these posts is a KPI for receiving inspection. 338 posts in the export, mostly Greg Humphrey; the real posts follow the guideline closely.</div>
       <div class="dept-body">
         <div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Main post (cover post for the job)</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>Company Name: {COMPANY}
+<pre>{COMPANY}
 WO: {WO}
-Total Line Items: {LINES}
-Start: HH:MM am/pm
-End: HH:MM am/pm (edit in when done)
-General Notes:
-Special Instructions: (rewrite in your own words, or why they do not apply)
-Tech(s): @{TECH}
+TOTAL LINE ITEMS: {LINES}
+START: HH:MM am/pm
+END: HH:MM am/pm (edit in when done)
+GENERAL NOTES: 100% or 10% INSPECTED. QTY {QTY} VERIFIED. CONDITION: NEW / USED. (caps, bags, trays, anything included)
+SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
+TECH(S): @{TECH}
 #WO{WO}</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>Line No: {LINE}
-P/N: {PN}
-Job No / Heat Lot No / S/N / WO No:
-Measurements: L = ____ W = ____ H = ____  (or ID = ____ OD = ____)
-Qty: {QTY} (verified as complete; note any extra or missing pcs)</pre>
+<pre>LINE: {LINE}
+PN: {PN} REV.
+JOB NO / HEAT LOT / WO NO:
+S/N: (range, e.g. DE9048-DE9131)
+ID: ____"  OD: ____"  L: ____"  (or L x W x H)
+QTY: {QTY} VERIFIED (note any extra or missing pcs)</pre>
           </div>
           <div class="callout red">Found a problem? Do not describe it here. Report it in the Teams <b>NCR - CA</b> channel using the NCR format in the <a href="#ncr">NCR section</a>, then tag the NCR number in this post.</div>
         </div>
@@ -395,7 +420,7 @@ Qty: {QTY} (verified as complete; note any extra or missing pcs)</pre>
             <li class="yes">Measure every line item. Lab and shipping pull dimensions from this post.</li>
             <li class="no">Do not skip measurements because the part looks standard. Lab has had to re-measure parts that were never measured here.</li>
           </ul>
-          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION" (rev. Nov 6, 2025; also filed in the Inspection SharePoint site). NCR routing updated per Aug 19, 2026 directive.</div>
+          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION" (rev. Nov 6, 2025; also filed in the Inspection SharePoint site). Field wording and the GENERAL NOTES convention (inspection %, qty verified, caps, condition) taken from real Inspection posts by Greg Humphrey, Modesto Raymundo and Nathan Tidwell, Feb–Apr 2026. NCR routing updated per Aug 19, 2026 directive.</div>
         </div>
       </div>
     </div>
@@ -428,11 +453,13 @@ Total Qty: {QTY}
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Comment 1: completed line / batch</span><span class="tpl-note">one per line item or batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>Line No: {LINE}
+<pre>FINISHED
+End Time: HH:MM am/pm
+Line No: {LINE}
 P/N: {PN}
 Qty Processed: {QTY}
 Batch #:
-Notes:</pre>
+Notes: (trays and count per tray, process used: immerse / hand clean)</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Comment 2: job paused</span><button class="btn primary" data-copy type="button">Copy</button></div>
@@ -447,13 +474,10 @@ Start Time: HH:MM am/pm</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Comment: pre-clean inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>PRE-CLEAN INSPECTION
-Inspected by: @{TECH}
-Verified Qty: {QTY}
-Condition: (cleanliness, damage, FOD)
-Result: APPROVED / REJECTED (reason)
+<pre>Verified qty {QTY}
 Router inspected and stamped: photo attached
-Time: HH:MM am/pm</pre>
+HH:MM am/pm
+#WO{WO}</pre>
           </div>
         </div>
         <div class="side">
@@ -471,7 +495,7 @@ Time: HH:MM am/pm</pre>
             <li class="yes">Rejected pieces sent back: supervisor documents the rejection, names the pieces, and the reclean gets a new post and new router.</li>
             <li class="no">Do not post a finish time without a finish photo and traceability labels. That was the most repeated pre-clean mistake.</li>
           </ul>
-          <div class="src"><b>Source:</b> "PCL Template" (Oct 10, 2025). Router photo rule from Aug 26, 2026 directive; two-page router and reclean rules from Sep 4, 2026 production meeting action items. Inspection comment fields are consolidated from those directives; the PCL template itself only says the inspection post must have a verified quantity.</div>
+          <div class="src"><b>Source:</b> "PCL Template" (Oct 10, 2025), matched against 160 real Pre-Clean posts in the export (Joseph Garcia, Jose Almaraz, Jose Cordova, Kamal Chaplin, Feb 2026). The inspector comment is what Alec Chi-Su Gutierrez actually posts ("Verified qty 4" plus the WO tag), with the router photo line added per the Aug 26, 2026 directive. Two-page router and reclean rules from Sep 4, 2026 action items.</div>
         </div>
       </div>
     </div>
@@ -485,53 +509,66 @@ Time: HH:MM am/pm</pre>
         <span class="tag blue">Channel: Cleanroom</span>
         <span class="tag amber">Observed format</span>
       </div>
-      <div class="dept-when">Post when the batch starts in the cleanroom. Edit the end time in when it finishes. One post per line item or batch, in the format below. Nica confirmed this format on Feb 26, 2026.</div>
+      <div class="dept-when">Main post when the batch starts in the cleanroom. Then one comment per line item, one comment per process step with its photo, and COMPLETE at the end. Edit the end time into the main post. 617 posts in the export; Nica confirmed the format on Feb 26, 2026.</div>
       <div class="dept-body">
         <div>
           <div class="tpl" data-tpl>
-            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per line / batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per WO / batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
 <pre>{COMPANY}
 WO: {WO}
-LINE: {LINE}
-P/N: {PN}  REV:
+LINE: {LINE} (or 1 THRU __)
 QTY: {QTY}
-S/N or LOT (if serialized):
-TECH: @{TECH}
-CLR BATCH #:
+CLR BATCH: 1
 START: HH:MM am/pm
 END: HH:MM am/pm (edit in when done)
-SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
+SPECIAL INSTRUCTIONS: (write them out, e.g. HAND WIPE AND PURGE ONLY, NO METAL TO METAL CONTACT, or NONE APPLY)
 #WO{WO}</pre>
           </div>
           <div class="tpl" data-tpl>
-            <div class="tpl-head"><span class="tpl-title">Comment: cleanroom inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>CLEANROOM INSPECTION
-Inspected by: @{TECH}
-Verified Qty: {QTY}
-S/N verified: (list, or N/A)
-Result: APPROVED / REJECTED (reason)
-Router inspected and stamped: photo attached
-Time: HH:MM am/pm</pre>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>LINE: {LINE}
+QTY: {QTY}
+P/N: {PN} REV.
+S/N: (list or range, e.g. D081 THRU D089)</pre>
           </div>
-          <div class="callout amber">Serialized parts: list every serial number you processed. Missing serials in the post caused a customer corrective action request in Jan 2026 (Performance Sealing, WO 40625).</div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comments: one per process step, photo attached</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>WET WIPE / IPA
+HAND WIPE
+LIGHT GN2 PURGE
+BLACKLIGHT PASSED
+IN OVEN AT HH:MM, SET AT ___°
+COMPLETE</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: cleanroom inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Verified qty {QTY}
+S/N verified: (list, or N/A)
+Router inspected and stamped: photo attached
+HH:MM am/pm
+#WO{WO}</pre>
+          </div>
+          <div class="callout amber">Serialized parts: list every serial number in the line-item comment. Missing serials in the post caused a customer corrective action request in Jan 2026 (Performance Sealing, WO 40625).</div>
         </div>
         <div class="side">
           <h4>Required photos</h4>
           <div class="photos">
-            <div class="photo"><span class="ic">1</span><span>Parts as received into the cleanroom, labels in view</span></div>
-            <div class="photo"><span class="ic">2</span><span>Parts after processing with traceability labels in view</span></div>
-            <div class="photo"><span class="ic">3</span><span>Serial numbers or lot markings, legible</span></div>
+            <div class="photo"><span class="ic">1</span><span>Main post: parts as received into the cleanroom, labels in view</span></div>
+            <div class="photo"><span class="ic">2</span><span>One photo per process-step comment (wipe, purge, blacklight, oven)</span></div>
+            <div class="photo"><span class="ic">3</span><span>COMPLETE comment: finished parts with traceability labels and serial markings legible</span></div>
             <div class="photo"><span class="ic">4</span><span>Completed router, full page, before it goes to the cleanroom inspector</span></div>
             <div class="photo"><span class="ic">5</span><span>Inspector: router once inspected and stamped, before it goes to packaging</span></div>
           </div>
           <h4>Do / Don't</h4>
           <ul>
-            <li class="yes">Assembly jobs: update progress and status in the post. Do not go silent for days.</li>
-            <li class="yes">Missing a serial or a piece? Say so in a comment and @mention the final inspector immediately.</li>
+            <li class="yes">Write the special instruction out. "NONE APPLY" is acceptable when that is true. A bare YES is not.</li>
+            <li class="yes">Assembly jobs: update progress and status in comments. Do not go silent for days.</li>
+            <li class="yes">Missing a serial or a piece? Comment and @mention the final inspector immediately.</li>
             <li class="yes">Dew point on ULA/Sauer jobs is recorded on the router, and the router photo has to show it.</li>
             <li class="no">Do not batch multiple WOs in one post. One WO per post.</li>
+            <li class="no">Real posts in the export average one photo on the main post. That is below the standard. Every step gets its own photo.</li>
           </ul>
-          <div class="src"><b>Source:</b> Live Cleanroom posts Sep 2024 through Jul 2026 (RBC 32880, Saint Gobain 35954, Chemring 38034, Performance Sealing 40625, NuSpace 40448) and Nica Rodriguez's confirmation of Feb 26, 2026. There is no controlled cleanroom guideline document; this is the format in consistent use. Router photo rule from Aug 26, 2026.</div>
+          <div class="src"><b>Source:</b> Viva Engage export, Cleanroom channel: 617 posts Mar 2024 to Aug 2026. Main post and comment formats are Julian Toribio's 2026 posts (252 of them), which are the most complete and consistent in the channel; Celina Claudio, Olga Lomeli and Salvador Sigala use the same fields. Nica Rodriguez confirmed the format Feb 26, 2026. No controlled cleanroom guideline document exists. Router photo rule from Aug 26, 2026.</div>
         </div>
       </div>
     </div>
@@ -541,47 +578,123 @@ Time: HH:MM am/pm</pre>
   <section class="section" id="lab">
     <div class="dept">
       <div class="dept-head">
-        <div class="dept-name">Lab</div>
-        <span class="tag blue">Channel: Lab</span>
-        <span class="tag red">Proposed, confirm with Lab lead</span>
+        <div class="dept-name">Lab Testing</div>
+        <span class="tag blue">Channel: Lab Testing</span>
+        <span class="tag amber">Observed format</span>
       </div>
-      <div class="dept-when">Post when testing starts on a batch. Edit results and end time in when done. If a job bypasses the lab, that decision is recorded in the cleanroom post, not here.</div>
+      <div class="dept-when">Main post when testing starts on a batch. One comment per line item with part and serial numbers, one comment per test or gauge with its photo, then COMPLETE or PENDING APPROVAL. Edit the end time into the main post. Solvent distilling runs also post here.</div>
       <div class="dept-body">
         <div>
-          <div class="callout red">No controlled Lab posting guideline exists. This template is built from the cleanroom format plus the Jul 14, 2026 correction that lab posts must include photos and measurements. Confirm with Nica before treating it as official.</div>
           <div class="tpl" data-tpl>
-            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per batch tested</span><button class="btn primary" data-copy type="button">Copy</button></div>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><span class="tpl-note">per WO / batch</span><button class="btn primary" data-copy type="button">Copy</button></div>
 <pre>{COMPANY}
 WO: {WO}
-LINE: {LINE}
-P/N: {PN}
-QTY TESTED: {QTY} of ____
-S/N or LOT (if serialized):
-TEST(S): Particle / NVR / UV / VC / Dew Point / Pressure / Other
-SPEC / LEVEL:
-MEASUREMENTS: (surface area, dimensions used for the test)
-RESULT: PASS / FAIL  (readings: ____)
-TECH: @{TECH}
+LINE: {LINE} (or 1 THRU __)
+QTY: {QTY}
+LAB BATCH: 1
 START: HH:MM am/pm
 END: HH:MM am/pm (edit in when done)
-SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
+SPECIAL INSTRUCTIONS: (write them out, e.g. INDIVIDUAL CERTIFICATES, or NONE APPLY)
 #WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>LINE: {LINE}
+QTY: {QTY}
+P/N: {PN} REV.
+S/N: (list or range)
+MEASUREMENTS: ID ____ OD ____ L ____ (photo of the measurement attached)</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per test / gauge, photo attached</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>LINE: {LINE}  QTY: {QTY}
+TEST: Particle / NVR / UV / VC / Dew Point / Pressure / Gauge ID ____
+SPEC / LEVEL:
+READING / RESULT: PASS / FAIL (numbers)
+COMPLETE AT HH:MM   or   PENDING APPROVAL</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post: solvent distilling run</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>DISTILLING IPA / ETHYL ACETATE
+Day: MM/DD/YYYY
+Start Time: HH:MM am/pm
+End Time: HH:MM am/pm (edit in when done)
+BATCH ID:
+TECH: @{TECH}</pre>
           </div>
         </div>
         <div class="side">
           <h4>Required photos</h4>
           <div class="photos">
-            <div class="photo"><span class="ic">1</span><span>Part with traceability label in view</span></div>
-            <div class="photo"><span class="ic">2</span><span>Measurements: ruler or caliper on the part, legible</span></div>
-            <div class="photo"><span class="ic">3</span><span>Test setup and readings (gauge, counter, meter display)</span></div>
+            <div class="photo"><span class="ic">1</span><span>Part with traceability label in view (main post)</span></div>
+            <div class="photo"><span class="ic">2</span><span>Measurements: ruler or caliper on the part, legible (line-item comment)</span></div>
+            <div class="photo"><span class="ic">3</span><span>Test setup and readings: gauge, counter, meter display (test comment)</span></div>
           </div>
           <h4>Do / Don't</h4>
           <ul>
-            <li class="yes">If receiving inspection never measured the part, measure it and post the measurement here. Then flag it to the inspection lead.</li>
-            <li class="yes">A FAIL is an NCR. Report it in Teams NCR - CA and tag the number here.</li>
+            <li class="yes">If inspection never measured the part, measure it, post the measurement and photo here, then flag it to the inspection lead. Delilah called this out on Jul 14, 2026.</li>
+            <li class="yes">A FAIL, scratches, a broken cap: comment it here and report it in Teams NCR - CA. Tag the NCR number.</li>
+            <li class="yes">Distilling runs: the spreadsheet log stays Incomplete until the photo post is up.</li>
             <li class="no">Do not post "tested, passed" with no readings and no photos.</li>
           </ul>
-          <div class="src"><b>Source:</b> Delilah Pena to Nica Rodriguez, Jul 14, 2026 ("photos/measurements not found on lab post, pls ensure these are posted along with photos of measurements"). Field list inferred.</div>
+          <div class="src"><b>Source:</b> Viva Engage export, Lab Testing channel (Jan–Apr 2026): Julian Toribio's posts and per-line / per-gauge comments (WIKA 42279, PCC Rollmet 42235, Systima 42242-1), Miriam Carbajal-Martinez and Erick Armas posts using LAB BATCH, Ruben Heredia's distilling post. Measurement line added per Delilah Pena's Jul 14, 2026 correction. No controlled lab guideline document exists. Only 15 posts were in the export, so confirm the field set with Nica.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGING (TECH) ===== -->
+  <section class="section" id="pkg">
+    <div class="dept">
+      <div class="dept-head">
+        <div class="dept-name">Packaging</div>
+        <span class="tag blue">Channel: Packaging</span>
+        <span class="tag amber">Observed format</span>
+      </div>
+      <div class="dept-when">The packaging tech's own post, separate from Packaging Inspection. Main post when bagging starts. One comment with a photo for each layer as it is completed, one comment per line item, then COMPLETE. The inspector posts separately in Packaging Inspection. 309 posts in the export.</div>
+      <div class="dept-body">
+        <div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Main post</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>{COMPANY}
+WO: {WO}
+LINE: {LINE}
+QTY: {QTY}
+START: HH:MM am/pm
+END: HH:MM am/pm (edit in when done)
+SPECIAL INSTRUCTIONS: (write them out, or NONE APPLY TO PACKAGING)
+PACKAGED BY: @{TECH}
+#WO{WO}</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comments: one per layer, photo attached</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>NYLON COMPLETED AT HH:MM am/pm
+POLYETHYLENE COMPLETED AT HH:MM am/pm
+CAPS ADDED / FOAM / DESICCANT / HUMIDITY INDICATOR
+COMPLETE</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>LINE: {LINE}
+QTY: {QTY}
+P/N: {PN} REV.
+S/N or JOB NO:</pre>
+          </div>
+        </div>
+        <div class="side">
+          <h4>Required photos</h4>
+          <div class="photos">
+            <div class="photo"><span class="ic">1</span><span>Main post: parts as received from cleanroom inspection, labels in view</span></div>
+            <div class="photo"><span class="ic">2</span><span>Each layer as a separate comment photo: nylon bag, poly bag, completed package (since Sep 4, 2026)</span></div>
+            <div class="photo"><span class="ic">3</span><span>Completed router, full page, before it goes to the packaging inspector</span></div>
+          </div>
+          <h4>Do / Don't</h4>
+          <ul>
+            <li class="yes">Pause and continue comments with times if the job spans a break or a shift.</li>
+            <li class="yes">Serialized parts: serial numbers in the line-item comment.</li>
+            <li class="no">Do not post one photo of the finished bag. Each step is its own comment with its own photo.</li>
+          </ul>
+          <div class="src"><b>Source:</b> Viva Engage export, Packaging channel: 309 posts Mar 2024 to Aug 2026. Format is Julian Toribio's 2026 posts (47) plus Raquel Garcia, Nestor Gonzalez Cazun and Lucrecia Cabrera; layer comments ("NYLON COMPLETED AT 12:40PM", "POLYETHYLENE COMPLETED AT 1:03PM") are from Shalimar Allen's WA posts. Per-step photo rule from Sep 4, 2026 action items. No controlled guideline document for this channel.</div>
         </div>
       </div>
     </div>
@@ -595,43 +708,45 @@ SPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)
         <span class="tag blue">Channel: Packaging Inspection</span>
         <span class="tag green">Controlled guideline</span>
       </div>
-      <div class="dept-when">Main post when packaging starts. One comment per line item as it is packaged and inspected. These photos represent QPC's work and may be sent to the customer.</div>
+      <div class="dept-when">The inspector's post. Main post when the inspection starts, one comment per line item, then a handoff comment to shipping with the time. These photos represent QPC's work and may be sent to the customer. 834 posts in the export, the busiest channel after Incoming WOs.</div>
       <div class="dept-body">
         <div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Main post (cover post for the job)</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>Company Name: {COMPANY}
+<pre>{COMPANY}
 WO: {WO}
-Total Line Items: {LINES}
-Packaging Spec: (ask if unsure)
-Start Time: HH:MM am/pm
-End Time: HH:MM am/pm (edit in when done)
-General Notes:
-  Packaged by: @{TECH}
-  Special Instructions: (rewrite in your own words, or why they do not apply)
-  Verified packaged qty: {QTY} (matches the work order)
+TOTAL LINE ITEMS: {LINES}
+PACKAGING SPEC: (e.g. IEST-STD-CC1246 REV. E, LEVEL 200R2; ask if unsure)
+START: HH:MM am/pm
+END: HH:MM am/pm (edit in when done)
+GENERAL NOTES:
+PACKAGED BY: @name
+SPECIAL INSTRUCTIONS: (write them out, e.g. PACKAGE THE WASHERS IN QUANTITIES UP TO 25, or DOES NOT APPLY TO PCKI)
+QTY: {QTY} VERIFIED
+INSPECTED BY: @{TECH}
 #WO{WO}</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Comment: one per line item</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>Line No: {LINE}
-P/N: {PN}
-Part Identifiers: (S/N, job no, heat lot)
-Qty: {QTY} (verified all parts packaged)
-Seal Verification: heat seal / vacuum seal intact
-FOD Check: no foreign objects inside packaging
-Label Verification: labels correct and match traveler description
-Materials used: (poly, nylon, Aclar, desiccant, humidity indicator, red tamper seal)</pre>
+<pre>LINE {LINE}
+P/N: {PN} REV.
+LOT NO / JOB NO / S/N:
+QTY {QTY} VERIFIED
+SEAL VERIFIED
+FOD __ (count of pieces found and removed; 0 if none)
+LABEL VERIFIED</pre>
           </div>
           <div class="tpl" data-tpl>
-            <div class="tpl-head"><span class="tpl-title">Comment: packaging inspection</span><span class="tpl-note">inspector</span><button class="btn primary" data-copy type="button">Copy</button></div>
-<pre>PACKAGING INSPECTION
-Inspected by: @{TECH}
-Verified Qty: {QTY}
-Seals / FOD / Labels: OK or (issue)
-Result: APPROVED / REJECTED (reason)
-Router inspected and stamped: photo attached
-Time: HH:MM am/pm</pre>
+            <div class="tpl-head"><span class="tpl-title">Comment: handoff to shipping</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>HH:MM am/pm @Rena Koeur
+Router inspected and stamped: photo attached</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comments: findings during inspection</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>FOD LINE {LINE} (photo attached)
+REBAGGED AND LABELED
+CAPS WERE ADDED HH:MM am/pm
+PENDING LABELS</pre>
           </div>
         </div>
         <div class="side">
@@ -646,11 +761,13 @@ Time: HH:MM am/pm</pre>
           </div>
           <h4>Do / Don't</h4>
           <ul>
-            <li class="yes">Packaging spec goes in the main post and the materials go in each comment.</li>
-            <li class="yes">Special instructions from the traveler: state whether they apply and what you did.</li>
+            <li class="yes">FOD is a number. Count what you found and removed, and post the FOD photo as its own comment.</li>
+            <li class="yes">Packaging spec with revision and level goes in the main post.</li>
+            <li class="yes">Special instructions from the traveler: write what applied to packaging, or say it does not apply to PCKI.</li>
+            <li class="yes">Handoff comment with the time and @Rena Koeur is how shipping knows the job is theirs.</li>
             <li class="no">Do not post one photo of a finished box and call it done. Each step is shown separately.</li>
           </ul>
-          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION" (Dec 29, 2025) and TR-011 Rev. A Packaging Inspection training. Per-step photo rule from Sep 4, 2026 action items.</div>
+          <div class="src"><b>Source:</b> "VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION" (Dec 29, 2025) and TR-011 Rev. A, reconciled against 834 real Packaging Inspection posts in the export: Evana Espinoza's 762 posts Mar–Jun 2026 set the wording (FOD count, "DOES NOT APPLY TO PCKI", handoff time with @Rena Koeur, "REBAGGED AND LABELED"); Nica Rodriguez, Erick Armas, Angelica Chavez and Brandy Klinkenborg use the same fields. Per-step photo rule from Sep 4, 2026 action items.</div>
         </div>
       </div>
     </div>
@@ -752,6 +869,12 @@ Line Items Included:
   Qty: {QTY} (verified per line item)
   Part Identifiers: (S/N, heat lot, job no)</pre>
           </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: shipped</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>UPS GROUND / FEDEX / WILL CALL picked up by ____
+TRACKING NO: ____
+SHIPPED HH:MM am/pm MM/DD</pre>
+          </div>
         </div>
         <div class="side">
           <h4>Required photos: main post (only these 2)</h4>
@@ -772,7 +895,7 @@ Line Items Included:
             <li class="yes">Everything must match the work order and the shipping requirements.</li>
             <li class="no">Do not stack extra photos in the main post. Two in the main post; the rest go in box comments.</li>
           </ul>
-          <div class="src"><b>Source:</b> "07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES" (Dec 29, 2025) and "QPC SHIPPING CHECKLIST" (Jan 6, 2026).</div>
+          <div class="src"><b>Source:</b> "07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES" (Dec 29, 2025) and "QPC SHIPPING CHECKLIST" (Jan 6, 2026). Checked against 211 real Shipping posts in the export; Brianna Deanda and Nicholas Aguilar's Feb 2026 posts and box comments follow the guideline, and Ruben Heredia adds the carrier and tracking number as a comment.</div>
         </div>
       </div>
     </div>
@@ -898,9 +1021,17 @@ REPORTED BY: @{TECH}  HH:MM am/pm
             <div class="tpl-head"><span class="tpl-title">Viva comment on the department post</span><span class="tpl-note">links the NCR to the job trail</span><button class="btn primary" data-copy type="button">Copy</button></div>
 <pre>NCR REPORTED in Teams NCR - CA
 NCR #: ____   #NC____
-Line {LINE}  Qty affected: ____
+LINE {LINE}  P/N: {PN}
+Issue: (e.g. NICKS ON 2 PCS THAT CATCH NAIL; 4 PCS STAINS, ATTEMPTED DRY WIPE / IPA / DI WATER)
 Job on HOLD at: (location)
-Photos attached</pre>
+Photos attached
+@Mikaela Fulks</pre>
+          </div>
+          <div class="tpl" data-tpl>
+            <div class="tpl-head"><span class="tpl-title">Comment: customer disposition on record</span><span class="tpl-note">office</span><button class="btn primary" data-copy type="button">Copy</button></div>
+<pre>Per [name]: "exact quote, e.g. Acceptable please proceed"
+Disposition: PROCEED / REWORK / RETURN TO CUSTOMER / SCRAP
+By: @{TECH}  HH:MM am/pm</pre>
           </div>
           <div class="tpl" data-tpl>
             <div class="tpl-head"><span class="tpl-title">Viva photo proof: WO / NCR moved</span><button class="btn primary" data-copy type="button">Copy</button></div>
@@ -938,7 +1069,7 @@ Photo attached: YES
             <li>Containment decided within 30 minutes. Standard NCR acknowledged in Teams within 15 minutes, expedite within 10.</li>
             <li>Root cause started within 24 hours. Corrective action closed within 5 days.</li>
           </ul>
-          <div class="src"><b>Source:</b> NCR section of the Receiving Inspection guideline; escalation procedure and post format shared Nov 20, 2025; NCR pilot standard formats Jun 27, 2026; channel retirement directive Aug 19, 2026.</div>
+          <div class="src"><b>Source:</b> NCR section of the Receiving Inspection guideline; escalation procedure and post format shared Nov 20, 2025; NCR pilot standard formats Jun 27, 2026; channel retirement directive Aug 19, 2026. Issue wording and the "Per [name]: quote" disposition comment are from the 157 real posts in the retired Viva NCR channel (Greg Humphrey, Angelica Chavez, James Velasquez, Feb–Jul 2026).</div>
         </div>
       </div>
     </div>
@@ -996,6 +1127,14 @@ Photo attached: YES
         </ul>
       </div>
       <div class="card">
+        <h3>Where real posts fall short</h3>
+        <ul>
+          <li>Median photo count on a main post in the export is 1. Inspection is 2. The guidelines ask for 3 or more per line item.</li>
+          <li>Router photos only became a requirement Aug 26, 2026, after the export, so none of the 4,522 posts show one. Expect every post to now.</li>
+          <li>Special Instructions is still a bare YES in most WA posts. CA cleanroom and packaging inspection already write it out.</li>
+        </ul>
+      </div>
+      <div class="card">
         <h3>What gets a post rejected</h3>
         <ul>
           <li>Finish time with no finish photo.</li>
@@ -1037,21 +1176,46 @@ Photo attached: YES
       <table class="tbl">
         <thead><tr><th>Department</th><th>Basis</th><th>Confidence</th></tr></thead>
         <tbody>
-          <tr><td>Receiving Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION, Nov 6, 2025 (OneDrive and Inspection site)</td><td><span class="tag green">Controlled</span></td></tr>
-          <tr><td>Pre-Clean</td><td>PCL Template, Oct 10, 2025; Aug 26 and Sep 4, 2026 directives</td><td><span class="tag green">Controlled</span></td></tr>
-          <tr><td>Packaging Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION, Dec 29, 2025; TR-011 Rev. A</td><td><span class="tag green">Controlled</span></td></tr>
-          <tr><td>Final Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR FINAL INSPECTION, Nov 12, 2025</td><td><span class="tag green">Controlled</span></td></tr>
-          <tr><td>Shipping</td><td>07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES, Dec 29, 2025; QPC SHIPPING CHECKLIST, Jan 6, 2026</td><td><span class="tag green">Controlled</span></td></tr>
-          <tr><td>Receiving (Incoming WOs - CA)</td><td>Live posts Jan–Jun 2026; VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT (2024)</td><td><span class="tag amber">Observed</span></td></tr>
-          <tr><td>Cleanroom</td><td>Live posts Sep 2024–Jul 2026; format confirmed by Nica Rodriguez Feb 26, 2026</td><td><span class="tag amber">Observed</span></td></tr>
-          <tr><td>Customer Communication / SCR</td><td>Live posts 2024–2026; Front Desk training guide Oct 2024</td><td><span class="tag amber">Observed</span></td></tr>
-          <tr><td>Requisition</td><td>Live posts 2024–2026</td><td><span class="tag amber">Observed</span></td></tr>
-          <tr><td>Lab</td><td>Jul 14, 2026 correction only. No format document or consistent live example found.</td><td><span class="tag red">Proposed</span></td></tr>
-          <tr><td>NCR &amp; Escalation</td><td>Escalation procedure Nov 20, 2025; NCR pilot formats Jun 27, 2026; NCR - CA move Aug 19, 2026</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION, Nov 6, 2025; 338 real posts in the export</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Pre-Clean</td><td>PCL Template, Oct 10, 2025; 160 real posts; Aug 26 and Sep 4, 2026 directives</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Packaging Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION, Dec 29, 2025; TR-011 Rev. A; 834 real posts</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Final Inspection</td><td>VIVA ENGAGE POSTING GUIDELINES FOR FINAL INSPECTION, Nov 12, 2025. No Final Inspection channel appears in the export; these posts may live in Inspection or Shipping.</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Shipping</td><td>07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES, Dec 29, 2025; QPC SHIPPING CHECKLIST, Jan 6, 2026; 211 real posts</td><td><span class="tag green">Controlled</span></td></tr>
+          <tr><td>Receiving (Incoming WOs)</td><td>963 real posts (CA and WA); VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT (2024)</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Cleanroom</td><td>617 real posts; format confirmed by Nica Rodriguez Feb 26, 2026</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Packaging</td><td>309 real posts</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Lab Testing</td><td>15 real posts Jan–Apr 2026; Jul 14, 2026 correction. Small sample, confirm with Nica.</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Customer Communication / SCR</td><td>127 real posts (2024, Front Desk) plus 2025–2026 posts forwarded into Teams; Front Desk training guide Oct 2024</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>Requisition</td><td>27 real posts (2024) plus 2025–2026 posts forwarded into Teams</td><td><span class="tag amber">Observed</span></td></tr>
+          <tr><td>NCR &amp; Escalation</td><td>Escalation procedure Nov 20, 2025; NCR pilot formats Jun 27, 2026; NCR - CA move Aug 19, 2026; 157 real posts in the retired channel</td><td><span class="tag green">Controlled</span></td></tr>
           <tr><td>General rules</td><td>00 - CORE - QPC SYSTEMS (Mar 2026); format enforcement messages Feb 18–26, 2026; router directive Aug 26, 2026; action items Sep 3–4, 2026</td><td><span class="tag green">Controlled</span></td></tr>
         </tbody>
       </table>
     </div>
+    <div class="sec-head" style="margin-top:16px"><div class="sec-title" style="font-size:14px">What the export shows</div><div class="sec-sub">Viva Engage network export, Aug 11, 2026. Real channel names and volumes.</div></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Channel (exact name)</th><th>Posts</th><th>Date range</th><th>Main posters</th><th>Median photos on main post (n/a = export file has no attachment column)</th></tr></thead>
+        <tbody>
+          <tr><td>Incoming WOs - CA</td><td>853</td><td>Dec 2023 – Feb 2026</td><td>Mandy Cao, Ruben Heredia</td><td>n/a</td></tr>
+          <tr><td>Packaging Inspection</td><td>834</td><td>May 2024 – Jul 2026</td><td>Evana Espinoza, Shalimar Allen, Nica Rodriguez</td><td>1</td></tr>
+          <tr><td>Cleanroom</td><td>617</td><td>Mar 2024 – Aug 2026</td><td>Julian Toribio, Shalimar Allen, Front Desk</td><td>1</td></tr>
+          <tr><td>Expedites (retired, folded into Incoming WOs PRIORITY line)</td><td>469</td><td>Dec 2023 – Aug 2024</td><td>Mandy Cao</td><td>n/a</td></tr>
+          <tr><td>Inspection</td><td>338</td><td>Mar 2024 – Jul 2026</td><td>Greg Humphrey</td><td>2</td></tr>
+          <tr><td>Packaging</td><td>309</td><td>Mar 2024 – Aug 2026</td><td>Julian Toribio, Shalimar Allen, Raquel Garcia</td><td>1</td></tr>
+          <tr><td>Shipping</td><td>211</td><td>Dec 2023 – Feb 2026</td><td>Front Desk, Mandy Cao, Brianna Deanda</td><td>2 (Feb 2026 posts only)</td></tr>
+          <tr><td>New Customers / COD</td><td>211</td><td>Dec 2023 – Aug 2024</td><td>Mandy Cao</td><td>n/a</td></tr>
+          <tr><td>Pre-Clean</td><td>160</td><td>Jan 2024 – Jul 2026</td><td>Front Desk, Mandy Cao, Kamal Chaplin</td><td>1</td></tr>
+          <tr><td>NCR (retired Aug 19, 2026)</td><td>157</td><td>Jan 2024 – Jul 2026</td><td>Front Desk, Greg Humphrey</td><td>2.5</td></tr>
+          <tr><td>Customer Communication</td><td>127</td><td>Apr – Aug 2024</td><td>Front Desk</td><td>n/a</td></tr>
+          <tr><td>Incoming WOs - WA</td><td>110</td><td>Mar 2024 – Feb 2026</td><td>Mandy Cao, Front Desk</td><td>n/a</td></tr>
+          <tr><td>Requisition</td><td>27</td><td>Mar – Aug 2024</td><td>Front Desk</td><td>n/a</td></tr>
+          <tr><td>Lab Testing</td><td>15</td><td>Jan – Apr 2026</td><td>Julian Toribio</td><td>1</td></tr>
+          <tr><td>Production, SCR, SLS, General, Time Off, Daily Production Meetings</td><td>&lt;15 each</td><td>2024 – 2026</td><td>Front Desk, Seth Marquez</td><td>n/a</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout amber" style="margin-top:12px"><b>Coverage note.</b> The export in OneDrive was read through the SharePoint connector, which returns the first 200,000 characters of each file. The counts above come from six export files (the network Messages.csv plus per-person exports for Julian Toribio, Greg Humphrey, Evana Espinoza, Front Desk and Mandy Cao) and the Apr 2026 MessageVersions file, deduplicated: 4,522 posts. Channels that are heavy in the 2025–2026 period for people not in those per-person exports (Customer Communication, Requisition, SCR) are represented by the posts that were forwarded into Teams chats instead. Viva Engage itself is not reachable from this session; the connector has no Viva Engage permission.</div>
     <p class="foot">Times are HH:MM am/pm in every template. Hashtag is #WO plus the five-digit work order number, no space. Questions on a format go to your department lead, then the Quality Manager.</p>
   </section>
 
