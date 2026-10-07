@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 10/06/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -580,17 +580,17 @@ const DATA = {
   "reportDate": "10/06/2026",
   "overall": {
     "totalJobs": 161,
-    "agingJobs": 19,
-    "ar": 11.8,
+    "agingJobs": 20,
+    "ar": 12.4,
     "receivedToday": 17,
     "flagDist": {
-      "Critical": 15,
+      "Critical": 16,
       "Past Due": 5,
       "Reschedule Window": 1,
       "Tight": 1,
       "No Date": 1
     },
-    "upcomingCount": 119,
+    "upcomingCount": 118,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -645,15 +645,15 @@ const DATA = {
       "name": "Packaging",
       "lead": "Erick",
       "total": 32,
-      "aging": 9,
-      "ar": 28.1,
+      "aging": 10,
+      "ar": 31.2,
       "flags": {
-        "Critical": 8,
+        "Critical": 9,
         "Past Due": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 23,
+      "incoming": 22,
       "profileMix": [
         {
           "name": "High Qty",
@@ -661,7 +661,7 @@ const DATA = {
         },
         {
           "name": "Priority Customer",
-          "count": 3
+          "count": 4
         },
         {
           "name": "Low Qty",
@@ -729,22 +729,6 @@ const DATA = {
       "tieredMix": []
     },
     {
-      "name": "Cleanroom",
-      "lead": "Erick",
-      "total": 24,
-      "aging": 0,
-      "ar": 0.0,
-      "flags": {},
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 24,
-      "profileMix": [],
-      "completedCount": 0,
-      "completedRatio": 0.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
       "name": "Shipping",
       "lead": "Luis",
       "total": 30,
@@ -757,6 +741,22 @@ const DATA = {
       "profileMix": [],
       "completedCount": 20,
       "completedRatio": 66.7,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
+    {
+      "name": "Cleanroom",
+      "lead": "Erick",
+      "total": 24,
+      "aging": 0,
+      "ar": 0.0,
+      "flags": {},
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 24,
+      "profileMix": [],
+      "completedCount": 0,
+      "completedRatio": 0.0,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -5333,6 +5333,39 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "44930",
+      "customer": "SAINT GOBAIN",
+      "dept": "Packaging",
+      "dueDate": "10/08",
+      "msDate": "10/05",
+      "msBD": -1,
+      "dueBD": 2,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "Standard",
+      "rescheduled": false,
+      "profile": "Priority Customer",
+      "profileMin": 5,
+      "profileMax": 7,
+      "elapsedBD": 6,
+      "scheduledLeadBD": 8,
+      "profileBurnPct": 85.7,
+      "profileOverBD": -1,
+      "schedulingSlack": 1,
+      "isShortScheduled": false,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "44931",
       "customer": "SENIOR AEROSPACE",
       "dept": "Customer Hold (Profile)",
@@ -5835,16 +5868,6 @@ const DATA = {
       "dueBD": 3,
       "priority": "Standard",
       "profile": "High Qty"
-    },
-    {
-      "wo": "44930",
-      "dept": "Packaging",
-      "dueDate": "10/08",
-      "msDate": "10/05",
-      "msBD": -1,
-      "dueBD": 2,
-      "priority": "Standard",
-      "profile": "Priority Customer"
     },
     {
       "wo": "44640-2",
@@ -8101,7 +8124,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "44909",
@@ -8296,10 +8319,10 @@ const DATA = {
       "dueBD": 2,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "06 - Aging"
     },
     {
       "wo": "44934",
@@ -10439,10 +10462,10 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Packaging": {
-    "what": "AR 28.1% RED. 9 aging / 32 total. Flags: 8 Critical, 1 Past Due. Past Due: 44374-1 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-5 dueBD=-1, burned). 8 Critical: 44052-1 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44640-1 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-3 dueBD=2, burned); 44814-3 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-6 dueBD=1, burned); 44852 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44853 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44889 ATLAS TOOL WORKS (High Qty, msBD=-2 dueBD=2); 44917 ACUTEK (Low Qty, msBD=-2 dueBD=1); 44923 AVANS PRECISION MACHINING (Large Parts, msBD=-2 dueBD=2). 6 burned reschedule(s). 23 upcoming. CR 9.4% - 3 finished-at-op awaiting handoff. Tiered in dept: 6 T1. Upcoming tiered: 3 T1.",
-    "action": "Escalate / notify customer: 44374-1. Burn down before they tip: 44052-1, 44640-1, 44814-3, 44852, 44853, 44889, 44917, 44923. Start tiered upcoming wave in msBD order: 45002, 45021, 44976-1.",
+    "what": "AR 31.2% RED. 10 aging / 32 total. Flags: 9 Critical, 1 Past Due. Past Due: 44374-1 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-5 dueBD=-1, burned). 9 Critical: 44052-1 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44640-1 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-3 dueBD=2, burned); 44814-3 ULA/JP DONOVAN CONSTRUCTION (Priority Customer, msBD=-6 dueBD=1, burned); 44852 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44853 SEYTEC (High Qty, msBD=-1 dueBD=4, burned); 44889 ATLAS TOOL WORKS (High Qty, msBD=-2 dueBD=2); 44917 ACUTEK (Low Qty, msBD=-2 dueBD=1); 44923 AVANS PRECISION MACHINING (Large Parts, msBD=-2 dueBD=2); 44930 SAINT GOBAIN (Priority Customer, msBD=-1 dueBD=2). 6 burned reschedule(s). 22 upcoming. CR 9.4% - 3 finished-at-op awaiting handoff. Tiered in dept: 6 T1. Upcoming tiered: 3 T1.",
+    "action": "Escalate / notify customer: 44374-1. Burn down before they tip: 44052-1, 44640-1, 44814-3, 44852, 44853, 44889, 44917, 44923, 44930. Start tiered upcoming wave in msBD order: 45002, 45021, 44976-1.",
     "ot": "recommended",
-    "otText": "OT recommended - 8 Critical jobs in Packaging.",
+    "otText": "OT recommended - 9 Critical jobs in Packaging.",
     "upstream": "Cleanroom: 0 aging / 24 total. Pre-Clean: 3 aging / 53 total."
   },
   "Receiving/Inspection": {
@@ -10459,19 +10482,19 @@ const GUIDANCE = {
     "otText": "OT recommended - 12 tiered expedites on compressed windows.",
     "upstream": "RI: 1 aging / 15 total, 17 received today, 0 upcoming."
   },
+  "Shipping": {
+    "what": "AR 0.0% GREEN. 0 aging / 30 total. 27 upcoming. CR 66.7% - 20 finished-at-op awaiting handoff. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
+    "action": "Start tiered upcoming wave in msBD order: 44961, 44964, 44976-3, 44976-4.",
+    "ot": "recommended",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
+    "upstream": "Packaging: 10 aging / 32 total, 22 upcoming."
+  },
   "Cleanroom": {
     "what": "AR 0.0% GREEN. 0 aging / 24 total. 24 upcoming.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "not needed",
     "otText": "OT not needed - fewer than 5 Critical and remainder has runway.",
     "upstream": "Pre-Clean: 3 aging / 53 total, 45 upcoming feeding in."
-  },
-  "Shipping": {
-    "what": "AR 0.0% GREEN. 0 aging / 30 total. 27 upcoming. CR 66.7% - 20 finished-at-op awaiting handoff. Tiered in dept: 3 T1, 1 T2. Upcoming tiered: 3 T1, 1 T2.",
-    "action": "Start tiered upcoming wave in msBD order: 44961, 44964, 44976-3, 44976-4.",
-    "ot": "recommended",
-    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
-    "upstream": "Packaging: 9 aging / 32 total, 23 upcoming."
   },
   "Lab Testing": {
     "what": "AR 0.0% GREEN. 0 aging / 1 total.",
@@ -10504,20 +10527,20 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-10-06T16:00",
- "realProgressCutoff": "2026-10-06T15:53",
- "hero": "Aging pressure is easing \u2014 19 aging in house vs ~34 typical. This week the floor let 198 jobs go stale (norm ~271) and picked aging jobs back up in a median 10h (norm 6h).",
+ "generatedAt": "2026-10-06T18:00",
+ "realProgressCutoff": "2026-10-06T17:27",
+ "hero": "Aging pressure is easing \u2014 20 aging in house vs ~34 typical. This week the floor let 197 jobs go stale (norm ~271) and picked aging jobs back up in a median 9h (norm 6h).",
  "pulse": {
-  "agingToday": 19,
+  "agingToday": 20,
   "agingNorm": 33.5,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 198,
+  "staleThisWeek": 197,
   "staleNorm": 271,
   "staleVerdict": "BETTER",
-  "respThisWeekH": 9.6,
-  "respNormH": 5.6,
+  "respThisWeekH": 9.1,
+  "respNormH": 5.7,
   "respVerdict": "WORSE",
   "respPartialCapture": false
  },
@@ -11033,7 +11056,7 @@ const TRENDS = {
     },
     {
      "d": "2026-10-06",
-     "ar": 28.1
+     "ar": 31.2
     }
    ],
    "trend": "improving",
@@ -12470,7 +12493,7 @@ const TRENDS = {
   "44848": 2,
   "44548-RW": 3,
   "44871": 3,
-  "44889": 4,
+  "44889": 3,
   "44884": 4,
   "44891": 2,
   "44890": 3,
@@ -12524,14 +12547,14 @@ const TRENDS = {
   "44836": 2,
   "44881": 2,
   "44904": 2,
-  "44907": 3,
+  "44907": 2,
   "44910": 2,
   "44909": 1,
   "44917": 3,
-  "44923": 3,
+  "44923": 2,
   "44929": 2,
   "44928": 2,
-  "44930": 2,
+  "44930": 4,
   "44952": 1,
   "44774": 1,
   "45011": 1,
@@ -12730,18 +12753,18 @@ const TRENDS = {
  },
  "reschedMonth": "October",
  "otd": {
-  "pct": 71.0,
-  "made": 49,
-  "shipped": 69,
+  "pct": 71.6,
+  "made": 53,
+  "shipped": 74,
   "month": "Oct",
   "asOf": "2026-10-06",
   "goal": 98,
-  "received": 80,
+  "received": 83,
   "recMonth": "Oct",
-  "staleAfter": 1791337500000,
-  "lastSuccessLabel": "Oct 6, 2:15 PM",
+  "staleAfter": 1791380700000,
+  "lastSuccessLabel": "Oct 6, 4:15 PM",
   "lastStatus": "SUCCESS",
-  "lastAttemptLabel": "Oct 6, 2:15 PM",
+  "lastAttemptLabel": "Oct 6, 4:15 PM",
   "lastError": ""
  },
  "customers": {
@@ -12778,21 +12801,21 @@ const TRENDS = {
    },
    {
     "c": "3D Machine Company",
-    "n": 2,
-    "made": 1,
+    "n": 3,
+    "made": 2,
     "late": 1,
-    "mrb": 1,
-    "res": 1,
-    "pct": 50.0
+    "mrb": 2,
+    "res": 2,
+    "pct": 66.7
    },
    {
     "c": "Saint Gobain",
-    "n": 2,
-    "made": 1,
+    "n": 3,
+    "made": 2,
     "late": 1,
     "mrb": 0,
-    "res": 0,
-    "pct": 50.0
+    "res": 1,
+    "pct": 66.7
    },
    {
     "c": "Microsurgical Technology, Inc.",
@@ -12858,6 +12881,15 @@ const TRENDS = {
     "pct": 0.0
    },
    {
+    "c": "Chemring Energetic Devices",
+    "n": 1,
+    "made": 0,
+    "late": 1,
+    "mrb": 1,
+    "res": 1,
+    "pct": 0.0
+   },
+   {
     "c": "Leda Corporation",
     "n": 1,
     "made": 0,
@@ -12876,21 +12908,21 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Tecma",
+    "n": 5,
+    "made": 5,
+    "late": 0,
+    "mrb": 0,
+    "res": 0,
+    "pct": 100.0
+   },
+   {
     "c": "Arrowhead Products",
     "n": 5,
     "made": 5,
     "late": 0,
     "mrb": 0,
     "res": 1,
-    "pct": 100.0
-   },
-   {
-    "c": "Tecma",
-    "n": 3,
-    "made": 3,
-    "late": 0,
-    "mrb": 0,
-    "res": 0,
     "pct": 100.0
    },
    {
@@ -13104,11 +13136,11 @@ const TRENDS = {
    },
    {
     "c": "Saint Gobain",
-    "n": 336,
-    "made": 297,
+    "n": 337,
+    "made": 298,
     "late": 39,
     "mrb": 7,
-    "res": 112,
+    "res": 113,
     "pct": 88.4
    },
    {
@@ -13185,12 +13217,12 @@ const TRENDS = {
    },
    {
     "c": "Tecma",
-    "n": 47,
-    "made": 38,
+    "n": 49,
+    "made": 40,
     "late": 9,
     "mrb": 3,
     "res": 11,
-    "pct": 80.9
+    "pct": 81.6
    },
    {
     "c": "Vast",
@@ -13661,6 +13693,15 @@ const TRENDS = {
     "pct": 71.4
    },
    {
+    "c": "Chemring Energetic Devices",
+    "n": 6,
+    "made": 4,
+    "late": 2,
+    "mrb": 3,
+    "res": 3,
+    "pct": 66.7
+   },
+   {
     "c": "Houston Precision Fasteners",
     "n": 6,
     "made": 4,
@@ -13949,21 +13990,21 @@ const TRENDS = {
     "pct": 83.3
    },
    {
+    "c": "3D Machine Company",
+    "n": 6,
+    "made": 5,
+    "late": 1,
+    "mrb": 3,
+    "res": 3,
+    "pct": 83.3
+   },
+   {
     "c": "Hoosier Spring Co, Inc",
     "n": 5,
     "made": 4,
     "late": 1,
     "mrb": 0,
     "res": 0,
-    "pct": 80.0
-   },
-   {
-    "c": "Chemring Energetic Devices",
-    "n": 5,
-    "made": 4,
-    "late": 1,
-    "mrb": 2,
-    "res": 2,
     "pct": 80.0
    },
    {
@@ -13982,15 +14023,6 @@ const TRENDS = {
     "late": 1,
     "mrb": 3,
     "res": 4,
-    "pct": 80.0
-   },
-   {
-    "c": "3D Machine Company",
-    "n": 5,
-    "made": 4,
-    "late": 1,
-    "mrb": 2,
-    "res": 2,
     "pct": 80.0
    },
    {
@@ -15316,15 +15348,15 @@ const TRENDS = {
   "profileStart": "2026-05",
   "profileStartLabel": "May",
   "preProfile": false,
-  "monthLate": 20,
-  "wideLate": 104,
+  "monthLate": 21,
+  "wideLate": 105,
   "monthProfile": [
    {
     "k": "High Qty",
-    "n": 13,
+    "n": 14,
     "made": 5,
-    "late": 8,
-    "pct": 38.5
+    "late": 9,
+    "pct": 35.7
    },
    {
     "k": "Straight to CLR",
@@ -15334,25 +15366,25 @@ const TRENDS = {
     "pct": 0.0
    },
    {
-    "k": "Standard",
-    "n": 9,
-    "made": 7,
+    "k": "Complex",
+    "n": 10,
+    "made": 8,
     "late": 2,
-    "pct": 77.8
+    "pct": 80.0
    },
    {
-    "k": "Complex",
-    "n": 8,
-    "made": 6,
+    "k": "Standard",
+    "n": 10,
+    "made": 8,
     "late": 2,
-    "pct": 75.0
+    "pct": 80.0
    },
    {
     "k": "Priority Customer",
-    "n": 20,
-    "made": 19,
+    "n": 21,
+    "made": 20,
     "late": 1,
-    "pct": 95.0
+    "pct": 95.2
    },
    {
     "k": "Low Qty",
@@ -15386,10 +15418,10 @@ const TRENDS = {
   "monthPriority": [
    {
     "k": "Standard",
-    "n": 48,
-    "made": 31,
+    "n": 52,
+    "made": 35,
     "late": 17,
-    "pct": 64.6
+    "pct": 67.3
    },
    {
     "k": "T2 Expedite",
@@ -15400,24 +15432,24 @@ const TRENDS = {
    },
    {
     "k": "T1 Expedite",
-    "n": 15,
+    "n": 16,
     "made": 15,
-    "late": 0,
-    "pct": 100.0
+    "late": 1,
+    "pct": 93.8
    }
   ],
   "wideProfile": [
    {
     "k": "High Qty",
-    "n": 325,
+    "n": 326,
     "made": 296,
-    "late": 29,
-    "pct": 91.1
+    "late": 30,
+    "pct": 90.8
    },
    {
     "k": "Standard",
-    "n": 426,
-    "made": 404,
+    "n": 427,
+    "made": 405,
     "late": 22,
     "pct": 94.8
    },
@@ -15437,10 +15469,10 @@ const TRENDS = {
    },
    {
     "k": "Complex",
-    "n": 146,
-    "made": 138,
+    "n": 148,
+    "made": 140,
     "late": 8,
-    "pct": 94.5
+    "pct": 94.6
    },
    {
     "k": "Large Parts",
@@ -15451,8 +15483,8 @@ const TRENDS = {
    },
    {
     "k": "Priority Customer",
-    "n": 498,
-    "made": 493,
+    "n": 499,
+    "made": 494,
     "late": 5,
     "pct": 99.0
    },
@@ -15502,17 +15534,17 @@ const TRENDS = {
   "widePriority": [
    {
     "k": "Standard",
-    "n": 1539,
-    "made": 1473,
+    "n": 1543,
+    "made": 1477,
     "late": 66,
     "pct": 95.7
    },
    {
     "k": "T1 Expedite",
-    "n": 518,
+    "n": 519,
     "made": 494,
-    "late": 24,
-    "pct": 95.4
+    "late": 25,
+    "pct": 95.2
    },
    {
     "k": "T2 Expedite",
@@ -15591,12 +15623,12 @@ const TRENDS = {
    "ym": "2026-10",
    "label": "Oct",
    "mtd": true,
-   "otdPct": 71.0,
-   "shipped": 69,
-   "received": 80,
-   "marks": 157,
+   "otdPct": 71.6,
+   "shipped": 74,
+   "received": 83,
+   "marks": 156,
    "recovHrs": 9.6,
-   "avgAr": 18.8,
+   "avgAr": 18.9,
    "peakAr": 24.7,
    "resched": 24,
    "partial": true
@@ -15670,8 +15702,8 @@ const TRENDS = {
    "ym": "2026-10",
    "label": "Oct",
    "mtd": true,
-   "rec": 80,
-   "done": 69
+   "rec": 83,
+   "done": 74
   }
  ],
  "arDaily": [
@@ -16032,17 +16064,11 @@ const TRENDS = {
   {
    "date": "2026-10-06",
    "inHouse": 161,
-   "aging": 19,
-   "ar": 11.8
+   "aging": 20,
+   "ar": 12.4
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-09-01T16:00",
-   "ar": 6.9,
-   "aging": 9,
-   "inHouse": 131
-  },
   {
    "t": "2026-09-01T18:00",
    "ar": 7.6,
@@ -17547,6 +17573,12 @@ const TRENDS = {
    "t": "2026-10-06T16:00",
    "ar": 11.8,
    "aging": 19,
+   "inHouse": 161
+  },
+  {
+   "t": "2026-10-06T18:00",
+   "ar": 12.4,
+   "aging": 20,
    "inHouse": 161
   }
  ]
