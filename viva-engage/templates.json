@@ -1,0 +1,937 @@
+{
+  "formatRevision": "2026-09-16",
+  "departments": [
+    {
+      "id": "receiving",
+      "name": "Receiving",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channels: Incoming WOs - CA, Incoming WOs - WA"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "Post when a customer job or purchased material arrives at the dock. Before anything is opened or moved to inspection. Shipping later pulls the \"how it arrived\" photo from this post. 963 posts in the export.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post: customer parts",
+          "note": "one per WO",
+          "body": "PRIORITY: STANDARD / EXPEDITE\nCUSTOMER: {COMPANY}\nWO: {WO}\nPO: {PO}\nQTY: {QTY}\nARRIVED: MM/DD @ HH:MM am/pm\nPACKAGING: # of packages + type (box, crate, tote, tray)\nRECEIVED BY: @{TECH}\nEXPEDITE FEE: $____ (expedites only)\nNOTES:\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Main post: PO arrived before the parts",
+          "note": "ADVANCED PO",
+          "body": "ADVANCED PO\nPRIORITY: STANDARD / EXPEDITE\nCUSTOMER: {COMPANY}\nWO: {WO}\nPO: {PO}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: when the parts land",
+          "note": "",
+          "body": "ARRIVED MM/DD HH:MM am/pm\n__ BOXES\nQTY: {QTY}"
+        },
+        {
+          "type": "template",
+          "title": "Main post: purchased materials",
+          "note": "vendor deliveries",
+          "body": "ARRIVED: MM/DD @ HH:MM am/pm\nVENDOR NAME:\nITW #:\nQPC PO: {PO}\nPACKAGING: # of packages + type\nITEM(S) SUMMARY:\nRECEIVED BY: @{TECH}\n#PURCHASING"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Packaging condition of the box(es) as they arrived",
+            "Big shipping label clearly visible on the package",
+            "Packaging condition of the parts inside the box(es)"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Mark EXPEDITE in the priority line when the PO or office says so. Include the fee."
+            },
+            {
+              "kind": "yes",
+              "html": "If a PO is missing or pending, write PO: PENDING. Do not leave it blank."
+            },
+            {
+              "kind": "yes",
+              "html": "Note partial receipts (only 3 of 5 received) in NOTES and @mention the office."
+            },
+            {
+              "kind": "no",
+              "html": "Do not open sealed customer packaging for the photo. Photograph as received."
+            }
+          ]
+        }
+      ],
+      "source": "Viva Engage export: 853 Incoming WOs - CA posts and 110 Incoming WOs - WA posts (Dec 2023 to Feb 2026). \"ADVANCED PO\" and the \"3 BOXES\" comment are how receiving posts today. ARRIVED, PACKAGING and RECEIVED BY come from \"VIVA ENGAGE NOTES – RECEIVING POSTS FORMAT\" (2024) and the retired Expedites channel. No controlled 2026 guideline doc exists for this channel."
+    },
+    {
+      "id": "ri",
+      "name": "Inspection (Receiving Inspection)",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Inspection"
+        },
+        {
+          "tone": "green",
+          "text": "Controlled guideline"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "Post at the start of inspection. Your post must let the office verify the job from the post alone. The quality of these posts is a KPI for receiving inspection. 338 posts in the export; real posts follow the guideline closely.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post (cover post for the job)",
+          "note": "",
+          "body": "{COMPANY}\nWO: {WO}\nTOTAL LINE ITEMS: {LINES}\nSTART: HH:MM am/pm\nEND: HH:MM am/pm (edit in when done)\nGENERAL NOTES: 100% or 10% INSPECTED. QTY {QTY} VERIFIED. CONDITION: NEW / USED. (caps, bags, trays, anything included)\nSPECIAL INSTRUCTIONS: (rewrite in your own words, or why they do not apply)\nTECH(S): @{TECH}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "LINE: {LINE}\nPN: {PN} REV.\nJOB NO / HEAT LOT / WO NO:\nS/N: (range, e.g. DE9048-DE9131)\nID: ____\"  OD: ____\"  L: ____\"  (or L x W x H)\nQTY: {QTY} VERIFIED (note any extra or missing pcs)"
+        },
+        {
+          "type": "callout",
+          "tone": "red",
+          "html": "Found a problem? Do not describe it here. Report it in the Teams <b>NCR - CA</b> channel using the NCR format in the <a href=\"#ncr\">NCR section</a>, then tag the NCR number in this post."
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos: main post",
+          "items": [
+            "Overall image(s) of how the job was received: trays, containers, packaging"
+          ]
+        },
+        {
+          "type": "photos",
+          "heading": "Required photos: each line item",
+          "items": [
+            "Part with traceability label in frame",
+            "Part with a ruler showing dimensions",
+            "Close-up of critical markings (serial, lot, heat)"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Include every identifier on the part: job no, heat lot, S/N, WO. All of them."
+            },
+            {
+              "kind": "yes",
+              "html": "Measure every line item. Lab and shipping pull dimensions from this post."
+            },
+            {
+              "kind": "no",
+              "html": "Do not skip measurements because the part looks standard. Lab has had to re-measure parts that were never measured here."
+            }
+          ]
+        }
+      ],
+      "source": "\"VIVA ENGAGE POSTING GUIDELINES FOR RECEIVING INSPECTION\" (rev. Nov 6, 2025; also filed in the Inspection SharePoint site). Field wording and the GENERAL NOTES convention (inspection %, qty verified, caps, condition) taken from real Inspection posts, Feb–Apr 2026. NCR routing updated per Aug 19, 2026 directive."
+    },
+    {
+      "id": "pcl",
+      "name": "Pre-Clean",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Pre-Clean"
+        },
+        {
+          "tone": "green",
+          "text": "Controlled template"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "Post when you receive the job from receiving inspection, before processing. Update with comments as batches complete, pause, and resume. Edit the end time in when the last batch is done.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post",
+          "note": "",
+          "body": "Company Name: {COMPANY}\nWO: {WO}\nTotal Line Items: {LINES}\nTraveler: Y / N\nStart Time: HH:MM am/pm\nEnd Time: HH:MM am/pm (edit in when done)\nGeneral Notes:\nProcessed by: @{TECH}\nSpecial Instructions: (rewrite in your own words, or why they do not apply)\nTotal Qty: {QTY}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment 1: completed line / batch",
+          "note": "one per line item or batch",
+          "body": "FINISHED\nEnd Time: HH:MM am/pm\nLine No: {LINE}\nP/N: {PN}\nQty Processed: {QTY}\nBatch #:\nNotes: (trays and count per tray, process used: immerse / hand clean)"
+        },
+        {
+          "type": "template",
+          "title": "Comment 2: job paused",
+          "note": "",
+          "body": "JOB PAUSED\nReason:\nPause Time: HH:MM am/pm"
+        },
+        {
+          "type": "template",
+          "title": "Comment 3: job resumed",
+          "note": "",
+          "body": "JOB RESUMED\nStart Time: HH:MM am/pm"
+        },
+        {
+          "type": "template",
+          "title": "Comment: pre-clean inspection",
+          "note": "inspector",
+          "body": "Verified qty {QTY}\nRouter inspected and stamped: photo attached\nHH:MM am/pm\n#WO{WO}"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "How the job was received from the previous department, and the parts before processing (main post)",
+            "Completed processed parts with traceability labels in view (each line/batch comment)",
+            "Completed router, full page, before it goes to the pre-clean inspector. Both pages if there is a back page.",
+            "Inspector: router once inspected and stamped, before it goes to cleanroom"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "If the job goes STRAIGHT TO CLEANROOM, write the reason in General Notes."
+            },
+            {
+              "kind": "yes",
+              "html": "Inspection posts must carry a verified quantity."
+            },
+            {
+              "kind": "yes",
+              "html": "Rejected pieces sent back: supervisor documents the rejection, names the pieces, and the reclean gets a new post and new router."
+            },
+            {
+              "kind": "no",
+              "html": "Do not post a finish time without a finish photo and traceability labels. That was the most repeated pre-clean mistake."
+            }
+          ]
+        }
+      ],
+      "source": "\"PCL Template\" (Oct 10, 2025), matched against 160 real Pre-Clean posts in the export (Feb 2026). The inspector comment is what pre-clean inspection actually posts (\"Verified qty 4\" plus the WO tag), with the router photo line added per the Aug 26, 2026 directive. Two-page router and reclean rules from Sep 4, 2026 action items."
+    },
+    {
+      "id": "clr",
+      "name": "Cleanroom",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Cleanroom"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "Main post when the batch starts in the cleanroom. Then one comment per line item, one comment per process step with its photo, and COMPLETE at the end. Edit the end time into the main post. 617 posts in the export; the cleanroom lead confirmed the format on Feb 26, 2026.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post",
+          "note": "per WO / batch",
+          "body": "{COMPANY}\nWO: {WO}\nLINE: {LINE} (or 1 THRU __)\nQTY: {QTY}\nCLR BATCH: 1\nSTART: HH:MM am/pm\nEND: HH:MM am/pm (edit in when done)\nSPECIAL INSTRUCTIONS: (write them out, e.g. HAND WIPE AND PURGE ONLY, NO METAL TO METAL CONTACT, or NONE APPLY)\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "LINE: {LINE}\nQTY: {QTY}\nP/N: {PN} REV.\nS/N: (list or range, e.g. D081 THRU D089)"
+        },
+        {
+          "type": "template",
+          "title": "Comments: one per process step, photo attached",
+          "note": "",
+          "body": "WET WIPE / IPA\nHAND WIPE\nLIGHT GN2 PURGE\nBLACKLIGHT PASSED\nIN OVEN AT HH:MM, SET AT ___°\nCOMPLETE"
+        },
+        {
+          "type": "template",
+          "title": "Comment: cleanroom inspection",
+          "note": "inspector",
+          "body": "Verified qty {QTY}\nS/N verified: (list, or N/A)\nRouter inspected and stamped: photo attached\nHH:MM am/pm\n#WO{WO}"
+        },
+        {
+          "type": "callout",
+          "tone": "amber",
+          "html": "Serialized parts: list every serial number in the line-item comment. Missing serials in the post caused a customer corrective action request in Jan 2026 (Performance Sealing, WO 40625)."
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Main post: parts as received into the cleanroom, labels in view",
+            "One photo per process-step comment (wipe, purge, blacklight, oven)",
+            "COMPLETE comment: finished parts with traceability labels and serial markings legible",
+            "Completed router, full page, before it goes to the cleanroom inspector",
+            "Inspector: router once inspected and stamped, before it goes to packaging"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Write the special instruction out. \"NONE APPLY\" is acceptable when that is true. A bare YES is not."
+            },
+            {
+              "kind": "yes",
+              "html": "Assembly jobs: update progress and status in comments. Do not go silent for days."
+            },
+            {
+              "kind": "yes",
+              "html": "Missing a serial or a piece? Comment and @mention the final inspector immediately."
+            },
+            {
+              "kind": "yes",
+              "html": "Dew point on ULA/Sauer jobs is recorded on the router, and the router photo has to show it."
+            },
+            {
+              "kind": "no",
+              "html": "Do not batch multiple WOs in one post. One WO per post."
+            },
+            {
+              "kind": "no",
+              "html": "Real posts in the export average one photo on the main post. That is below the standard. Every step gets its own photo."
+            }
+          ]
+        }
+      ],
+      "source": "Viva Engage export, Cleanroom channel: 617 posts Mar 2024 to Aug 2026. Main post and comment formats are the most complete and consistent 2026 posts in the channel; other cleanroom techs use the same fields. The cleanroom lead confirmed the format Feb 26, 2026. No controlled cleanroom guideline document exists. Router photo rule from Aug 26, 2026."
+    },
+    {
+      "id": "lab",
+      "name": "Lab Testing",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Lab Testing"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "Main post when testing starts on a batch. One comment per line item with part and serial numbers, one comment per test or gauge with its photo, then COMPLETE or PENDING APPROVAL. Edit the end time into the main post. Solvent distilling runs also post here.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post",
+          "note": "per WO / batch",
+          "body": "{COMPANY}\nWO: {WO}\nLINE: {LINE} (or 1 THRU __)\nQTY: {QTY}\nLAB BATCH: 1\nSTART: HH:MM am/pm\nEND: HH:MM am/pm (edit in when done)\nSPECIAL INSTRUCTIONS: (write them out, e.g. INDIVIDUAL CERTIFICATES, or NONE APPLY)\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "LINE: {LINE}\nQTY: {QTY}\nP/N: {PN} REV.\nS/N: (list or range)\nMEASUREMENTS: ID ____ OD ____ L ____ (photo of the measurement attached)"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per test / gauge, photo attached",
+          "note": "",
+          "body": "LINE: {LINE}  QTY: {QTY}\nTEST: Particle / NVR / UV / VC / Dew Point / Pressure / Gauge ID ____\nSPEC / LEVEL:\nREADING / RESULT: PASS / FAIL (numbers)\nCOMPLETE AT HH:MM   or   PENDING APPROVAL"
+        },
+        {
+          "type": "template",
+          "title": "Main post: solvent distilling run",
+          "note": "",
+          "body": "DISTILLING IPA / ETHYL ACETATE\nDay: MM/DD/YYYY\nStart Time: HH:MM am/pm\nEnd Time: HH:MM am/pm (edit in when done)\nBATCH ID:\nTECH: @{TECH}"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Part with traceability label in view (main post)",
+            "Measurements: ruler or caliper on the part, legible (line-item comment)",
+            "Test setup and readings: gauge, counter, meter display (test comment)"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "If inspection never measured the part, measure it, post the measurement and photo here, then flag it to the inspection lead."
+            },
+            {
+              "kind": "yes",
+              "html": "A FAIL, scratches, a broken cap: comment it here and report it in Teams NCR - CA. Tag the NCR number."
+            },
+            {
+              "kind": "yes",
+              "html": "Distilling runs: the spreadsheet log stays Incomplete until the photo post is up."
+            },
+            {
+              "kind": "no",
+              "html": "Do not post \"tested, passed\" with no readings and no photos."
+            }
+          ]
+        }
+      ],
+      "source": "Viva Engage export, Lab Testing channel (Jan–Apr 2026): per-line and per-gauge comments on WIKA 42279, PCC Rollmet 42235 and Systima 42242-1, LAB BATCH posts, and a distilling run post. Measurement line added per the Jul 14, 2026 correction. No controlled lab guideline document exists. Only 15 posts were in the export, so confirm the field set with the lab lead."
+    },
+    {
+      "id": "pkg",
+      "name": "Packaging",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Packaging"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "The packaging tech's own post, separate from Packaging Inspection. Main post when bagging starts. One comment with a photo for each layer as it is completed, one comment per line item, then COMPLETE. The inspector posts separately in Packaging Inspection. 309 posts in the export.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post",
+          "note": "",
+          "body": "{COMPANY}\nWO: {WO}\nLINE: {LINE}\nQTY: {QTY}\nSTART: HH:MM am/pm\nEND: HH:MM am/pm (edit in when done)\nSPECIAL INSTRUCTIONS: (write them out, or NONE APPLY TO PACKAGING)\nPACKAGED BY: @{TECH}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comments: one per layer, photo attached",
+          "note": "",
+          "body": "NYLON COMPLETED AT HH:MM am/pm\nPOLYETHYLENE COMPLETED AT HH:MM am/pm\nCAPS ADDED / FOAM / DESICCANT / HUMIDITY INDICATOR\nCOMPLETE"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "LINE: {LINE}\nQTY: {QTY}\nP/N: {PN} REV.\nS/N or JOB NO:"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Main post: parts as received from cleanroom inspection, labels in view",
+            "Each layer as a separate comment photo: nylon bag, poly bag, completed package (since Sep 4, 2026)",
+            "Completed router, full page, before it goes to the packaging inspector"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Pause and continue comments with times if the job spans a break or a shift."
+            },
+            {
+              "kind": "yes",
+              "html": "Serialized parts: serial numbers in the line-item comment."
+            },
+            {
+              "kind": "no",
+              "html": "Do not post one photo of the finished bag. Each step is its own comment with its own photo."
+            }
+          ]
+        }
+      ],
+      "source": "Viva Engage export, Packaging channel: 309 posts Mar 2024 to Aug 2026. Format is the consistent 2026 CA posts; layer comments (\"NYLON COMPLETED AT 12:40PM\", \"POLYETHYLENE COMPLETED AT 1:03PM\") are from WA posts. Per-step photo rule from Sep 4, 2026 action items. No controlled guideline document for this channel."
+    },
+    {
+      "id": "pck",
+      "name": "Packaging Inspection",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Packaging Inspection"
+        },
+        {
+          "tone": "green",
+          "text": "Controlled guideline"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "The inspector's post. Main post when the inspection starts, one comment per line item, then a handoff comment to shipping with the time. These photos represent QPC's work and may be sent to the customer. 834 posts in the export, the busiest channel after Incoming WOs.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post (cover post for the job)",
+          "note": "",
+          "body": "{COMPANY}\nWO: {WO}\nTOTAL LINE ITEMS: {LINES}\nPACKAGING SPEC: (e.g. IEST-STD-CC1246 REV. E, LEVEL 200R2; ask if unsure)\nSTART: HH:MM am/pm\nEND: HH:MM am/pm (edit in when done)\nGENERAL NOTES:\nPACKAGED BY: @name\nSPECIAL INSTRUCTIONS: (write them out, e.g. PACKAGE THE WASHERS IN QUANTITIES UP TO 25, or DOES NOT APPLY TO PCKI)\nQTY: {QTY} VERIFIED\nINSPECTED BY: @{TECH}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "LINE {LINE}\nP/N: {PN} REV.\nLOT NO / JOB NO / S/N:\nQTY {QTY} VERIFIED\nSEAL VERIFIED\nFOD __ (count of pieces found and removed; 0 if none)\nLABEL VERIFIED"
+        },
+        {
+          "type": "template",
+          "title": "Comment: handoff to shipping",
+          "note": "",
+          "body": "HH:MM am/pm @[shipping lead]\nRouter inspected and stamped: photo attached"
+        },
+        {
+          "type": "template",
+          "title": "Comments: findings during inspection",
+          "note": "",
+          "body": "FOD LINE {LINE} (photo attached)\nREBAGGED AND LABELED\nCAPS WERE ADDED HH:MM am/pm\nPENDING LABELS"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Overall pictures of the packaged job (main post)",
+            "Each packaging step as a separate photo: nylon bag, poly bag, completed package (since Sep 4, 2026)",
+            "Packaged parts with traceability labels clearly visible",
+            "Seal close-ups",
+            "Humidity indicators, desiccant, tamper seals if used",
+            "Completed router before the packaging inspector; inspector posts the stamped router before shipping"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "FOD is a number. Count what you found and removed, and post the FOD photo as its own comment."
+            },
+            {
+              "kind": "yes",
+              "html": "Packaging spec with revision and level goes in the main post."
+            },
+            {
+              "kind": "yes",
+              "html": "Special instructions from the traveler: write what applied to packaging, or say it does not apply to PCKI."
+            },
+            {
+              "kind": "yes",
+              "html": "Handoff comment with the time and @[shipping lead] is how shipping knows the job is theirs."
+            },
+            {
+              "kind": "no",
+              "html": "Do not post one photo of a finished box and call it done. Each step is shown separately."
+            }
+          ]
+        }
+      ],
+      "source": "\"VIVA ENGAGE POSTING GUIDELINES FOR PACKAGING INSPECTION\" (Dec 29, 2025) and TR-011 Rev. A, reconciled against 834 real Packaging Inspection posts in the export (Mar–Jun 2026 set the wording: FOD count, \"DOES NOT APPLY TO PCKI\", handoff time to shipping, \"REBAGGED AND LABELED\"). Per-step photo rule from Sep 4, 2026 action items."
+    },
+    {
+      "id": "fi",
+      "name": "Final Inspection",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Final Inspection"
+        },
+        {
+          "tone": "green",
+          "text": "Controlled guideline"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "Post at final inspection, before shipping approval. The post must let the office verify release from the content alone.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post (cover post)",
+          "note": "",
+          "body": "Company Name: {COMPANY}\nWO: {WO}\nPO: {PO}\nCustomer:\nShip To:\nShip Method:\nTotal Line Items: {LINES}\nStart: HH:MM am/pm\nEnd: HH:MM am/pm (edit in when done)\nGeneral Notes: (special instructions, packaging notes, cross-department handoffs)\nSpecial Instructions: Verified YES / NO (and what they were)\nInspected by: @{TECH}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per line item",
+          "note": "",
+          "body": "Line No: {LINE}\nP/N: {PN}\nQty: {QTY} (verified complete; matches Traveler, Pack Slip, and Cert)\nCondition: verified clean, free of damage, contamination, and FOD\nPackaging / Label Verification: correct material, bags clean and undamaged, heat/tamper seals proper, foam padding secured, label placement correct\nShipping Label: correct address and customer\nPaperwork Verification: Cert and Pack Slip in shipment\nShake test performed: YES / NO"
+        },
+        {
+          "type": "callout",
+          "tone": "blue",
+          "html": "<b>Shipping Approved</b> means the packaging and boxing check is complete: parts safely packed, labeled, and meeting packaging requirements. It does not authorize shipment. <b>Final Approved</b> means all inspections passed, paperwork is correct, and packaging is fully verified. That is the release to ship."
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Main post: overall shipment ready for release, labels visible",
+            "Line item: packaged part with traceability label, shipping label, and paperwork"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Cross-check qty against three documents: traveler, pack slip, cert."
+            },
+            {
+              "kind": "yes",
+              "html": "If any check fails, the job stays. Report in Teams NCR - CA."
+            },
+            {
+              "kind": "no",
+              "html": "Do not write \"Final Approved\" if the shake test or paperwork line is blank."
+            }
+          ]
+        }
+      ],
+      "source": "\"VIVA ENGAGE POSTING GUIDELINES FOR FINAL INSPECTION\" (Nov 12, 2025). Note the document's header still reads \"Receiving Inspection\"; the content is the Final Inspection format."
+    },
+    {
+      "id": "shp",
+      "name": "Shipping",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Shipping"
+        },
+        {
+          "tone": "green",
+          "text": "Controlled guideline"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "Main post when boxing starts. One comment per box. Before you start: go to Incoming WOs - CA, download the photo of how the job arrived, and reuse the original packaging if possible.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Main post (cover post for the job)",
+          "note": "",
+          "body": "COMPANY: {COMPANY}\nWO: {WO}\nPO: {PO}\nTOTAL LINE ITEMS: {LINES}\nSHIP METHOD: (FedEx, UPS, Will Call, freight)\nTOTAL BOXES:\nSTART TIME: HH:MM am/pm\nEND TIME: HH:MM am/pm (edit in when done)\nGENERAL NOTES:\n  Boxed By: @{TECH}\n  Special Shipping Instructions: YES / NO (and what they are)\n  Verified Boxed Total QTY: {QTY}\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Comment: one per box",
+          "note": "",
+          "body": "Box Number: __ of __\nBox Dimensions: __ x __ x __\nBox Weight: __ lbs (always give an approximate weight for crates and pallets)\nLine Items Included:\n  Line No: {LINE}\n  P/N: {PN}\n  Qty: {QTY} (verified per line item)\n  Part Identifiers: (S/N, heat lot, job no)"
+        },
+        {
+          "type": "template",
+          "title": "Comment: shipped",
+          "note": "",
+          "body": "UPS GROUND / FEDEX / WILL CALL picked up by ____\nTRACKING NO: ____\nSHIPPED HH:MM am/pm MM/DD"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos: main post (only these 2)",
+          "items": [
+            "Original packaging as received (downloaded from the Incoming WOs - CA post)",
+            "Final packaged job: palletized or organized boxes, traceability labels visible"
+          ]
+        },
+        {
+          "type": "photos",
+          "heading": "Required photos: each box comment",
+          "items": [
+            "Step-by-step progression of the boxing",
+            "Box contents with traceability labels visible",
+            "Box exterior showing dimensions and labels"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Edit comments after all shipments are complete. There must always be a general note."
+            },
+            {
+              "kind": "yes",
+              "html": "Leave the top of the box open on the \"Ready for Approval\" table. Seal only after final approval."
+            },
+            {
+              "kind": "yes",
+              "html": "Everything must match the work order and the shipping requirements."
+            },
+            {
+              "kind": "no",
+              "html": "Do not stack extra photos in the main post. Two in the main post; the rest go in box comments."
+            }
+          ]
+        }
+      ],
+      "source": "\"07 - SHP - SHIPPING VIVA ENGAGE POST GUIDELINES\" (Dec 29, 2025) and \"QPC SHIPPING CHECKLIST\" (Jan 6, 2026). Checked against 211 real Shipping posts in the export; Feb 2026 posts and box comments follow the guideline, and the carrier and tracking number are added as a comment."
+    },
+    {
+      "id": "cc",
+      "name": "Customer Communication / SCR",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channels: Customer Communication, SCR, Expedites"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "Office and front desk. Post when a customer says something the floor or another department needs on record: pricing questions, approvals, expedite terms, disposition instructions, pickup requests. Quote the customer. Do not paraphrase.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Customer communication post",
+          "note": "",
+          "body": "CUSTOMER: {COMPANY}\nWO: {WO}\nPO: {PO}\n#WO{WO}\nTOPIC: (PLEASE VERIFY PRICING / CUSTOMER APPROVAL / EXPEDITE / DISPOSITION / PICKUP)\nLINE {LINE}  P/N: {PN}  QTY: {QTY}\nDETAILS: (PO priced at $___ / DB shows $___ / spec ___ / ECD ___)\nPER [customer name, date]: \"exact quote from the email or call\"\nACTION NEEDED FROM: @name"
+        },
+        {
+          "type": "template",
+          "title": "Comment: reply / disposition",
+          "note": "",
+          "body": "PER [name, date]: \"exact reply\"\nACTION TAKEN: (DB updated / labels reprinted / job released / rescheduled to ___)\nBY: @{TECH}  HH:MM am/pm"
+        }
+      ],
+      "side": [
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Quote the customer word for word inside quotation marks with \"Per [Name]\". That quote is what protects QPC later."
+            },
+            {
+              "kind": "yes",
+              "html": "Attach or name the source: the email, the call, the PO line."
+            },
+            {
+              "kind": "yes",
+              "html": "@mention who has to act. Department leads acknowledge within 24 hours."
+            },
+            {
+              "kind": "yes",
+              "html": "Expedites: post the expedite fee and the agreed date in the post."
+            },
+            {
+              "kind": "no",
+              "html": "Do not summarize a customer decision from memory. If you do not have the exact words, get them first."
+            },
+            {
+              "kind": "no",
+              "html": "Real-time back-and-forth belongs in Teams. Viva is the record of what was decided."
+            }
+          ]
+        }
+      ],
+      "source": "Live Customer Communication and SCR posts (2024–2026) and \"Training Guide for Front Desk Employee\" (Oct 2024). No controlled guideline document; fields reflect consistent practice."
+    },
+    {
+      "id": "req",
+      "name": "Requisition",
+      "tags": [
+        {
+          "tone": "blue",
+          "text": "Channel: Requisition"
+        },
+        {
+          "tone": "amber",
+          "text": "Observed format"
+        }
+      ],
+      "confidence": "observed",
+      "revised": "2026-09-16",
+      "when": "Post when a job or a department needs something bought: job-specific materials (foam plugs, bags, IPA), shop supplies, equipment. Purchasing works from this channel. Post with the WO whenever the item is for a job.",
+      "blocks": [
+        {
+          "type": "template",
+          "title": "Requisition post",
+          "note": "",
+          "body": "WO: {WO} (or SHOP SUPPLY)\nCUSTOMER: {COMPANY}\nPLEASE REQUISITION: (item, part or catalog number, vendor, link if known)\nQTY: (if you added spares, say how many and why)\nNEEDED BY:\nREASON: (job requirement per PO / spec / restock / new staff)\nSOLD TO CUSTOMER: YES / NO\nREQUESTED BY: @{TECH}\n#WO{WO}"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Attach the PO page, spec callout, or F112 requisition form that requires the item, if it is job-driven",
+            "Photo of the item or label if reordering an existing stock item"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Do / Don't",
+          "items": [
+            {
+              "kind": "yes",
+              "html": "Spare margin is fine, but say it: \"PO reflects 400, added 50% as spare\"."
+            },
+            {
+              "kind": "yes",
+              "html": "Stay ahead of inventory. Post before you run out, not after."
+            },
+            {
+              "kind": "yes",
+              "html": "Purchasing replies in a comment when ordered and when received. Received items get an Incoming WOs post with #PURCHASING."
+            },
+            {
+              "kind": "no",
+              "html": "Do not requisition in a Teams chat. If it is not in this channel, it is not on the log."
+            }
+          ]
+        }
+      ],
+      "source": "Live Requisition posts (2024–2026) and the Jul 2025 instruction to \"post in requisition with the WO\". No controlled guideline document."
+    },
+    {
+      "id": "ncr",
+      "name": "NCR & Escalation",
+      "tags": [
+        {
+          "tone": "red",
+          "text": "Teams channel: NCR - CA"
+        },
+        {
+          "tone": "purple",
+          "text": "Viva keeps photo proof only"
+        }
+      ],
+      "confidence": "controlled",
+      "revised": "2026-09-16",
+      "when": "Since Aug 19, 2026 all NCR reporting and dispositions happen in the Teams <b>NCR - CA</b> channel. The Viva Engage NCR channel is retired. Viva Engage still holds the department post, the photos, and the movement proof. Tag the NCR number in the department post so both link.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "red",
+          "html": "<b>Stop the job first.</b> Do not fix, clean, repackage, move, guess, or continue until the escalation owner replies with a disposition."
+        },
+        {
+          "type": "template",
+          "title": "NCR report (Teams NCR - CA)",
+          "note": "",
+          "body": "COMPANY: {COMPANY}\nWO: {WO}\nLINE: {LINE}\nP/N: {PN} REV:\nQTY: {QTY} (include any extra or missing pieces)\nS/N or LOT:\nOPERATION / DEPARTMENT WHERE FOUND:\nISSUE: (objective description, what test or inspection found it)\nPHOTOS ATTACHED: issue detail + traceability\nREQUESTED REVIEW: @[NCR owner]\nREPORTED BY: @{TECH}  HH:MM am/pm\n#WO{WO}"
+        },
+        {
+          "type": "template",
+          "title": "Viva comment on the department post",
+          "note": "links the NCR to the job trail",
+          "body": "NCR REPORTED in Teams NCR - CA\nNCR #: ____   #NC____\nLINE {LINE}  P/N: {PN}\nIssue: (e.g. NICKS ON 2 PCS THAT CATCH NAIL; 4 PCS STAINS, ATTEMPTED DRY WIPE / IPA / DI WATER)\nJob on HOLD at: (location)\nPhotos attached\n@[NCR owner]"
+        },
+        {
+          "type": "template",
+          "title": "Comment: customer disposition on record",
+          "note": "office",
+          "body": "Per [name]: \"exact quote, e.g. Acceptable please proceed\"\nDisposition: PROCEED / REWORK / RETURN TO CUSTOMER / SCRAP\nBy: @{TECH}  HH:MM am/pm"
+        },
+        {
+          "type": "template",
+          "title": "Viva photo proof: WO / NCR moved",
+          "note": "",
+          "body": "WO/NCR MOVED\nWO: {WO}\nNCR #:\nMoved from:\nMoved to:\nMoved by: @{TECH}\nTime moved: HH:MM am/pm\nPhoto attached: YES\n#WO{WO}"
+        }
+      ],
+      "side": [
+        {
+          "type": "photos",
+          "heading": "Required photos",
+          "items": [
+            "Issue detail: the discrepancy itself, clear and oriented (damage, missing marking, wrong count)",
+            "Traceability: identifiers visible and legible in every NCR photo",
+            "Movement proof when the job changes location"
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Who to escalate to",
+          "items": [
+            {
+              "kind": "plain",
+              "html": "<b>Receiving:</b> Tech → Receiving Inspector → Inspection Lead → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Pre-Clean:</b> Tech → Pre-Clean Inspector → Production Lead → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Cleanroom:</b> Tech → Cleanroom Lead → Final Inspector → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Packaging:</b> Tech → Cleanroom Lead → Final Inspector → SCR2 → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Inspection:</b> Inspector → Inspection Lead → NCR/MRB → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Shipping:</b> Tech → Warehouse Lead → Production Lead → Quality Manager"
+            },
+            {
+              "kind": "plain",
+              "html": "<b>Customer impact imminent:</b> skip levels, notify the Quality Manager, then the GM if unavailable."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Response times",
+          "items": [
+            {
+              "kind": "plain",
+              "html": "Leads and inspectors answer tech escalations within 10 minutes."
+            },
+            {
+              "kind": "plain",
+              "html": "Containment decided within 30 minutes. Standard NCR acknowledged in Teams within 15 minutes, expedite within 10."
+            },
+            {
+              "kind": "plain",
+              "html": "Root cause started within 24 hours. Corrective action closed within 5 days."
+            }
+          ]
+        }
+      ],
+      "source": "NCR section of the Receiving Inspection guideline; escalation procedure and post format shared Nov 20, 2025; NCR pilot standard formats Jun 27, 2026; channel retirement directive Aug 19, 2026. Issue wording and the \"Per [name]: quote\" disposition comment are from the 157 real posts in the retired Viva NCR channel (Feb–Jul 2026)."
+    }
+  ]
+}
