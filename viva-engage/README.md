@@ -10,11 +10,16 @@ A single page techs keep open to copy the post format for their department.
 
 ## Changing a format
 
-1. Edit the department in `templates.json`. Update its `revised` date and, if the basis changed, its `source` and `confidence`.
+1. Edit the department in `templates.json`. Update its `revised` date, bump `formatRevision`, and, if the basis changed, update its `source` and `confidence`.
 2. Run `node viva-engage/build.mjs`.
 3. Open `index.html` and check the department. Commit both files together.
 
 Template bodies are plain text. `{COMPANY}`, `{WO}`, `{PO}`, `{LINES}`, `{LINE}`, `{PN}`, `{QTY}` and `{TECH}` are filled by the quick-fill bar. `when`, `source`, callouts and list items may contain simple HTML (`<b>`, `<a>`).
+
+Top of `templates.json`:
+
+- `formatRevision` is shown in the page header. Bump it whenever any format changes, so a printed copy can be checked against the page.
+- `feedback` sets where each department's "This format is wrong?" link sends its pre-filled email. `label` is the role shown on the page; `email` is the address. Point it at a shared mailbox if one exists.
 
 `confidence` is one of `controlled` (a QPC guideline document), `observed` (taken from real posts, no document), or `proposed` (confirm before use).
 
