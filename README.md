@@ -8,3 +8,5 @@ Two kinds of files live here. Keep them apart.
 | `viva-engage/` | Viva Engage post templates and posting rules for techs. | Authored. Edited by hand or by Claude, reviewed by Tyler. See `viva-engage/README.md`. |
 
 Rule: the pipeline writes only the root `index.html`. Anything authored goes in its own folder.
+
+`.githooks/pre-push` runs the templates page's smoke test, but only on pushes that change `viva-engage/`. Pipeline pushes skip it. Enable once per clone with `git config core.hooksPath .githooks`.

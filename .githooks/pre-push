@@ -1,0 +1,29 @@
+#!/bin/sh
+# Runs the Viva Engage smoke test before a push, only when the push changes viva-engage/.
+# Pushes that touch only the aging dashboard (index.html) skip straight through.
+# Enable once per clone:  git config core.hooksPath .githooks
+
+zero=0000000000000000000000000000000000000000
+changed=""
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then
+    range=$(git merge-base "$local_sha" origin/main 2>/dev/null || echo "")
+    [ -n "$range" ] && files=$(git diff --name-only "$range" "$local_sha") || files=$(git show --name-only --pretty=format: "$local_sha")
+  else
+    files=$(git diff --name-only "$remote_sha" "$local_sha")
+  fi
+  echo "$files" | grep -q '^viva-engage/' && changed=1
+done
+
+[ -z "$changed" ] && exit 0
+
+repo=$(git rev-parse --show-toplevel)
+cd "$repo/viva-engage" || exit 1
+if [ ! -d node_modules/playwright ]; then
+  echo "pre-push: viva-engage changed but its test is not installed. Run: cd viva-engage && npm install"
+  echo "pre-push: blocking the push. To skip once: git push --no-verify"
+  exit 1
+fi
+echo "pre-push: viva-engage changed, running smoke test"
+npm test --silent
