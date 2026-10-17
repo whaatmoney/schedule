@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="12:00 PM PDT">
+  <meta name="qpc-build" content="02:00 PM PDT">
   <title>QPC Production Pulse — 10/17/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -640,8 +640,8 @@ const DATA = {
         "count": 4
       }
     ],
-    "completedCount": 28,
-    "completedRatio": 18.4
+    "completedCount": 27,
+    "completedRatio": 17.8
   },
   "departments": [
     {
@@ -690,15 +690,15 @@ const DATA = {
     {
       "name": "Shipping",
       "lead": "Luis",
-      "total": 31,
+      "total": 32,
       "aging": 1,
-      "ar": 3.2,
+      "ar": 3.1,
       "flags": {
         "Critical": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 29,
+      "incoming": 30,
       "profileMix": [
         {
           "name": "Large Parts",
@@ -706,7 +706,7 @@ const DATA = {
         }
       ],
       "completedCount": 15,
-      "completedRatio": 48.4,
+      "completedRatio": 46.9,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -729,16 +729,16 @@ const DATA = {
     {
       "name": "Packaging",
       "lead": "Erick",
-      "total": 23,
+      "total": 22,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 23,
+      "incoming": 22,
       "profileMix": [],
-      "completedCount": 2,
-      "completedRatio": 8.7,
+      "completedCount": 1,
+      "completedRatio": 4.5,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -5499,7 +5499,7 @@ const DATA = {
     },
     {
       "wo": "45154",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "dueDate": "10/19",
       "msDate": "10/19",
       "msBD": 0,
@@ -6062,7 +6062,7 @@ const DATA = {
     {
       "wo": "45154",
       "customer": "NUSPACE",
-      "dept": "Packaging",
+      "dept": "Shipping",
       "profile": "Low Qty",
       "profileMin": 6,
       "profileMax": 8,
@@ -7949,8 +7949,8 @@ const DATA = {
     {
       "wo": "45154",
       "customer": "NUSPACE",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
+      "dept": "Shipping",
+      "locationDept": "Shipping",
       "profile": "Low Qty",
       "priority": "Standard",
       "expediteTier": null,
@@ -7961,8 +7961,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": true,
-      "progress": "03 - Complete"
+      "isCompleted": false,
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45155",
@@ -9507,16 +9507,6 @@ const DATA = {
       "dueBD": 6
     },
     {
-      "wo": "45154",
-      "customer": "NUSPACE",
-      "dept": "Packaging",
-      "locationDept": "Packaging",
-      "profile": "Low Qty",
-      "priority": "Standard",
-      "dueDate": "10/19",
-      "dueBD": 0
-    },
-    {
       "wo": "45155",
       "customer": "FAST LANE PRECISION",
       "dept": "Shipping",
@@ -9609,11 +9599,11 @@ const GUIDANCE = {
     "upstream": "Pre-Clean: 0 aging / 39 total, 29 upcoming feeding in."
   },
   "Shipping": {
-    "what": "AR 3.2% GREEN. 1 aging / 31 total. Flags: 1 Critical. 1 Critical: 45043 SAINT GOBAIN (Large Parts, msBD=-1 dueBD=0). 29 upcoming. CR 48.4% - 15 finished-at-op awaiting handoff. Tiered in dept: 8 T1, 5 T2. Upcoming tiered: 8 T1, 5 T2.",
+    "what": "AR 3.1% GREEN. 1 aging / 32 total. Flags: 1 Critical. 1 Critical: 45043 SAINT GOBAIN (Large Parts, msBD=-1 dueBD=0). 30 upcoming. CR 46.9% - 15 finished-at-op awaiting handoff. Tiered in dept: 8 T1, 5 T2. Upcoming tiered: 8 T1, 5 T2.",
     "action": "Ship today (dueBD<=0): 45043. Start tiered upcoming wave in msBD order: 45116, 45147, 45173, 45078, 45148, 45155, 45124, 45133-2.",
     "ot": "recommended",
     "otText": "OT recommended - all 1 aging jobs are Critical.",
-    "upstream": "Packaging: 0 aging / 23 total, 23 upcoming."
+    "upstream": "Packaging: 0 aging / 22 total, 22 upcoming."
   },
   "Receiving/Inspection": {
     "what": "AR 0.0% GREEN. 0 aging / 15 total. CR 26.7% - 4 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 1 T3.",
@@ -9623,7 +9613,7 @@ const GUIDANCE = {
     "upstream": null
   },
   "Packaging": {
-    "what": "AR 0.0% GREEN. 0 aging / 23 total. 23 upcoming. CR 8.7% - 2 finished-at-op awaiting handoff. Tiered in dept: 4 T1. Upcoming tiered: 4 T1.",
+    "what": "AR 0.0% GREEN. 0 aging / 22 total. 22 upcoming. Tiered in dept: 4 T1. Upcoming tiered: 4 T1.",
     "action": "Start tiered upcoming wave in msBD order: 44985, 45190, 45191, 45193.",
     "ot": "recommended",
     "otText": "OT recommended - 4 tiered expedites on compressed windows.",
@@ -9660,16 +9650,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "12:00 PM PDT";
+const GENERATED_TIME = "02:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-10-17T12:00",
- "realProgressCutoff": "2026-10-17T11:46",
- "hero": "Aging pressure is easing \u2014 13 aging in house vs ~29 typical. This week the floor let 149 jobs go stale (norm ~250) and picked aging jobs back up in a median 6h (norm 7h).",
+ "generatedAt": "2026-10-17T14:00",
+ "realProgressCutoff": "2026-10-17T12:18",
+ "hero": "Aging pressure is easing \u2014 13 aging in house vs ~29 typical. This week the floor let 148 jobs go stale (norm ~250) and picked aging jobs back up in a median 6h (norm 7h).",
  "pulse": {
   "agingToday": 13,
   "agingNorm": 29.0,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 149,
+  "staleThisWeek": 148,
   "staleNorm": 250,
   "staleVerdict": "BETTER",
   "respThisWeekH": 5.5,
@@ -10064,7 +10054,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "out of GREEN 1 of last 10 days, worst 22% 10/17 \u00b7 aging picked up in ~10h \u00b7 improving",
-   "respH": 9.7,
+   "respH": 10.4,
    "custClock": false,
    "small": false
   },
@@ -10319,7 +10309,7 @@ const TRENDS = {
     },
     {
      "d": "2026-10-17",
-     "ar": 3.2
+     "ar": 3.1
     }
    ],
    "trend": "holding",
@@ -10453,8 +10443,8 @@ const TRENDS = {
     }
    ],
    "trend": "improving",
-   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~5h \u00b7 customer clock",
-   "respH": 5.0,
+   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~4h \u00b7 customer clock",
+   "respH": 4.2,
    "custClock": true,
    "small": false
   },
@@ -10882,7 +10872,6 @@ const TRENDS = {
   ]
  ],
  "agers60d": {
-  "44124": 2,
   "44152": 3,
   "44163": 1,
   "44084": 1,
@@ -10963,6 +10952,7 @@ const TRENDS = {
   "44177": 1,
   "44237": 4,
   "44154": 2,
+  "44124": 1,
   "44142": 1,
   "44214": 3,
   "44100": 1,
@@ -11668,7 +11658,7 @@ const TRENDS = {
   "44967": 1,
   "44052-2": 1,
   "45055": 1,
-  "45043": 4,
+  "45043": 3,
   "45013": 1,
   "45014": 1,
   "45071": 2,
@@ -12322,10 +12312,10 @@ const TRENDS = {
   "goal": 98,
   "received": 258,
   "recMonth": "Oct",
-  "staleAfter": 1792273500000,
-  "lastSuccessLabel": "Oct 17, 10:15 AM",
+  "staleAfter": 1792280700000,
+  "lastSuccessLabel": "Oct 17, 12:15 PM",
   "lastStatus": "SUCCESS",
-  "lastAttemptLabel": "Oct 17, 10:15 AM",
+  "lastAttemptLabel": "Oct 17, 12:15 PM",
   "lastError": ""
  },
  "customers": {
@@ -15649,7 +15639,7 @@ const TRENDS = {
    "otdPct": 83.7,
    "shipped": 246,
    "received": 258,
-   "marks": 378,
+   "marks": 377,
    "recovHrs": 8.0,
    "avgAr": 12.1,
    "peakAr": 24.7,
@@ -16092,12 +16082,6 @@ const TRENDS = {
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-09-12T12:00",
-   "ar": 16.2,
-   "aging": 27,
-   "inHouse": 167
-  },
   {
    "t": "2026-09-12T14:00",
    "ar": 16.2,
@@ -17576,6 +17560,12 @@ const TRENDS = {
   },
   {
    "t": "2026-10-17T12:00",
+   "ar": 8.6,
+   "aging": 13,
+   "inHouse": 152
+  },
+  {
+   "t": "2026-10-17T14:00",
    "ar": 8.6,
    "aging": 13,
    "inHouse": 152
