@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="04:00 PM PDT">
+  <meta name="qpc-build" content="06:00 PM PDT">
   <title>QPC Production Pulse — 10/19/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -579,27 +579,27 @@ function toggleTheme(){
 const DATA = {
   "reportDate": "10/19/2026",
   "overall": {
-    "totalJobs": 157,
-    "agingJobs": 9,
-    "ar": 5.7,
-    "receivedToday": 20,
+    "totalJobs": 162,
+    "agingJobs": 10,
+    "ar": 6.2,
+    "receivedToday": 25,
     "flagDist": {
-      "Critical": 10,
+      "Critical": 11,
       "Past Due": 2
     },
-    "upcomingCount": 109,
+    "upcomingCount": 110,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
     "mrbCount": 13,
     "unclassifiedAgingCount": 0,
-    "unclassifiedInHouseCount": 54,
+    "unclassifiedInHouseCount": 59,
     "shortScheduledCount": 24,
     "customerHoldProfileCount": 17,
     "profileDistribution": [
       {
         "name": "(Unclassified)",
-        "count": 54
+        "count": 59
       },
       {
         "name": "High Qty",
@@ -638,10 +638,37 @@ const DATA = {
         "count": 3
       }
     ],
-    "completedCount": 32,
-    "completedRatio": 20.4
+    "completedCount": 34,
+    "completedRatio": 21.0
   },
   "departments": [
+    {
+      "name": "Shipping",
+      "lead": "Luis",
+      "total": 33,
+      "aging": 4,
+      "ar": 12.1,
+      "flags": {
+        "Critical": 4
+      },
+      "isCustomerDep": false,
+      "isBottom": false,
+      "incoming": 29,
+      "profileMix": [
+        {
+          "name": "PSV Only",
+          "count": 3
+        },
+        {
+          "name": "Low Qty",
+          "count": 1
+        }
+      ],
+      "completedCount": 20,
+      "completedRatio": 60.6,
+      "tieredCount": 0,
+      "tieredMix": []
+    },
     {
       "name": "Packaging",
       "lead": "Erick",
@@ -664,50 +691,23 @@ const DATA = {
           "count": 1
         }
       ],
-      "completedCount": 1,
-      "completedRatio": 4.0,
-      "tieredCount": 0,
-      "tieredMix": []
-    },
-    {
-      "name": "Shipping",
-      "lead": "Luis",
-      "total": 33,
-      "aging": 3,
-      "ar": 9.1,
-      "flags": {
-        "Critical": 3
-      },
-      "isCustomerDep": false,
-      "isBottom": false,
-      "incoming": 30,
-      "profileMix": [
-        {
-          "name": "PSV Only",
-          "count": 2
-        },
-        {
-          "name": "Low Qty",
-          "count": 1
-        }
-      ],
-      "completedCount": 20,
-      "completedRatio": 60.6,
+      "completedCount": 3,
+      "completedRatio": 12.0,
       "tieredCount": 0,
       "tieredMix": []
     },
     {
       "name": "Cleanroom",
       "lead": "Erick",
-      "total": 34,
+      "total": 36,
       "aging": 3,
-      "ar": 8.8,
+      "ar": 8.3,
       "flags": {
         "Critical": 3
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 25,
+      "incoming": 27,
       "profileMix": [
         {
           "name": "Complex",
@@ -742,7 +742,7 @@ const DATA = {
     {
       "name": "Receiving/Inspection",
       "lead": "Luis",
-      "total": 12,
+      "total": 17,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
@@ -751,7 +751,7 @@ const DATA = {
       "incoming": 0,
       "profileMix": [],
       "completedCount": 1,
-      "completedRatio": 8.3,
+      "completedRatio": 5.9,
       "tieredCount": 0,
       "tieredMix": []
     },
@@ -774,7 +774,7 @@ const DATA = {
     {
       "name": "Assembly",
       "lead": "Customer Hold",
-      "total": 4,
+      "total": 2,
       "aging": 0,
       "ar": 0.0,
       "flags": {},
@@ -813,12 +813,24 @@ const DATA = {
     }
   ],
   "reschedule": {
-    "totalInHouse": 157,
+    "totalInHouse": 162,
     "rescheduledCount": 24,
-    "reschedulePct": 15.3,
+    "reschedulePct": 14.8,
     "burnedAgingJobs": [
       {
         "wo": "44996",
+        "customer": "SPACE EXPLORATION TECHNOLOGIES",
+        "dept": "Shipping",
+        "dueDate": "10/20",
+        "msBD": 0,
+        "dueBD": 1,
+        "flag": "Critical",
+        "baseFlag": "Critical",
+        "priority": "T2 Expedite",
+        "profile": "PSV Only"
+      },
+      {
+        "wo": "45072",
         "customer": "SPACE EXPLORATION TECHNOLOGIES",
         "dept": "Shipping",
         "dueDate": "10/20",
@@ -2690,6 +2702,56 @@ const DATA = {
       {
         "wo": "45258",
         "customer": "ALLAN AIRCRAFT SUPPLY",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "45259",
+        "customer": "3D MACHINE COMPANY",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "45260",
+        "customer": "TAMSHELL CORP.",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "45261",
+        "customer": "PREMIER INDUSTRIES",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "45262",
+        "customer": "LEDA CORPORATION ",
+        "profile": null,
+        "flag": "No Date",
+        "flagColor": "#8A8886",
+        "badge": "ND",
+        "reason": "Missing QPC Due Date.",
+        "action": "Planner owns: assign QPC Due Date."
+      },
+      {
+        "wo": "45162",
+        "customer": "XMEK INC",
         "profile": null,
         "flag": "No Date",
         "flagColor": "#8A8886",
@@ -4616,6 +4678,39 @@ const DATA = {
       "isShortScheduledTier": null
     },
     {
+      "wo": "45072",
+      "customer": "SPACE EXPLORATION TECHNOLOGIES",
+      "dept": "Shipping",
+      "dueDate": "10/20",
+      "msDate": "10/19",
+      "msBD": 0,
+      "dueBD": 1,
+      "flag": "Critical",
+      "baseFlag": "Critical",
+      "priority": "T2 Expedite",
+      "rescheduled": true,
+      "profile": "PSV Only",
+      "profileMin": 8,
+      "profileMax": 10,
+      "elapsedBD": 5,
+      "scheduledLeadBD": 6,
+      "profileBurnPct": 50.0,
+      "profileOverBD": -5,
+      "schedulingSlack": -4,
+      "isShortScheduled": true,
+      "isUnclassified": false,
+      "isProvisional": false,
+      "expediteTier": null,
+      "tierMin": null,
+      "tierMax": null,
+      "tierElapsedBD": null,
+      "tierSchedLeadBD": null,
+      "tierBurnPct": null,
+      "tierOverBD": null,
+      "tierScheduleSlack": null,
+      "isShortScheduledTier": null
+    },
+    {
       "wo": "45073",
       "customer": "SPACE EXPLORATION TECHNOLOGIES",
       "dept": "Shipping",
@@ -5169,7 +5264,27 @@ const DATA = {
       "profile": "Priority Customer"
     },
     {
+      "wo": "45164",
+      "dept": "Cleanroom",
+      "dueDate": "10/23",
+      "msDate": "10/16",
+      "msBD": -1,
+      "dueBD": 4,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
       "wo": "45165",
+      "dept": "Cleanroom",
+      "dueDate": "10/23",
+      "msDate": "10/16",
+      "msBD": -1,
+      "dueBD": 4,
+      "priority": "Standard",
+      "profile": "Priority Customer"
+    },
+    {
+      "wo": "45166",
       "dept": "Cleanroom",
       "dueDate": "10/23",
       "msDate": "10/16",
@@ -5257,16 +5372,6 @@ const DATA = {
       "dueBD": 2,
       "priority": "Standard",
       "profile": "High Qty"
-    },
-    {
-      "wo": "45072",
-      "dept": "Shipping",
-      "dueDate": "10/20",
-      "msDate": "10/19",
-      "msBD": 0,
-      "dueBD": 1,
-      "priority": "T2 Expedite",
-      "profile": "PSV Only"
     },
     {
       "wo": "45081",
@@ -6160,7 +6265,7 @@ const DATA = {
       "dueDate": "10/20",
       "dueBD": 1,
       "priority": "T2 Expedite",
-      "isAging": false,
+      "isAging": true,
       "basis": "profile",
       "expediteTier": null
     },
@@ -7010,8 +7115,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "02 - Inspection"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "45057",
@@ -7029,7 +7134,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "45058",
@@ -7098,10 +7203,10 @@ const DATA = {
       "dueBD": 1,
       "receivedToday": false,
       "rescheduled": true,
-      "isAging": false,
-      "agingFlag": null,
+      "isAging": true,
+      "agingFlag": "Critical",
       "isCompleted": false,
-      "progress": "00 - On Floor"
+      "progress": "06 - Aging"
     },
     {
       "wo": "45073",
@@ -7479,7 +7584,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45103",
@@ -7658,8 +7763,8 @@ const DATA = {
       "rescheduled": false,
       "isAging": false,
       "agingFlag": null,
-      "isCompleted": false,
-      "progress": "01 - In Progress"
+      "isCompleted": true,
+      "progress": "03 - Complete"
     },
     {
       "wo": "45122",
@@ -8096,8 +8201,8 @@ const DATA = {
     {
       "wo": "45164",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "locationDept": "Assembly",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
       "profile": "Low Qty",
       "priority": "Standard",
       "expediteTier": null,
@@ -8109,7 +8214,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "04 - Paused"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45165",
@@ -8132,8 +8237,8 @@ const DATA = {
     {
       "wo": "45166",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "locationDept": "Assembly",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
       "profile": "Priority Customer",
       "priority": "Standard",
       "expediteTier": null,
@@ -8145,7 +8250,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "04 - Paused"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45169",
@@ -8307,7 +8412,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "45180",
@@ -8523,7 +8628,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "45199",
@@ -8613,7 +8718,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45204",
@@ -8739,7 +8844,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Shelf"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45218-1",
@@ -9388,6 +9493,96 @@ const DATA = {
       "agingFlag": null,
       "isCompleted": false,
       "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "45259",
+      "customer": "3D MACHINE COMPANY",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "45260",
+      "customer": "TAMSHELL CORP.",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "45261",
+      "customer": "PREMIER INDUSTRIES",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "45262",
+      "customer": "LEDA CORPORATION ",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "T3 Expedite",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
+    },
+    {
+      "wo": "45162",
+      "customer": "XMEK INC",
+      "dept": "Receiving/Inspection",
+      "locationDept": "Receiving/Inspection",
+      "profile": null,
+      "priority": "Standard",
+      "expediteTier": null,
+      "isExpedite": false,
+      "dueDate": "No Date",
+      "dueBD": null,
+      "receivedToday": true,
+      "rescheduled": false,
+      "isAging": false,
+      "agingFlag": null,
+      "isCompleted": false,
+      "progress": "00 - On Shelf"
     }
   ],
   "mrbJobs": [
@@ -9438,8 +9633,8 @@ const DATA = {
       "locationDept": "MRB",
       "profile": "Standard",
       "priority": "Standard",
-      "dueDate": "10/20",
-      "dueBD": 1
+      "dueDate": "10/22",
+      "dueBD": 3
     },
     {
       "wo": "45064",
@@ -9634,6 +9829,16 @@ const DATA = {
       "dueBD": 0
     },
     {
+      "wo": "45056",
+      "customer": "3D MACHINE COMPANY",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Standard",
+      "priority": "Standard",
+      "dueDate": "10/21",
+      "dueBD": 2
+    },
+    {
       "wo": "45078",
       "customer": "ADVANCED COOLING TECHNOLOGIES, INC",
       "dept": "Shipping",
@@ -9662,6 +9867,16 @@ const DATA = {
       "priority": "Standard",
       "dueDate": "10/23",
       "dueBD": 4
+    },
+    {
+      "wo": "45120",
+      "customer": "MACHINE SCIENCES CORPORATION",
+      "dept": "Packaging",
+      "locationDept": "Packaging",
+      "profile": "Low Qty",
+      "priority": "Standard",
+      "dueDate": "10/21",
+      "dueBD": 2
     },
     {
       "wo": "45130",
@@ -9848,22 +10063,22 @@ const DATA = {
 
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
-"Packaging": {
-    "what": "AR 12.0% GREEN. 3 aging / 25 total. Flags: 3 Critical. 3 Critical: 45094 CUSTOM CONTROL SENSORS (Low Qty, msBD=-1 dueBD=2, burned); 45096 DARMARK CORPORATION (High Qty, msBD=-1 dueBD=3); 45109 IMPERIAL MACHINE & TOOL CO. (Low Qty, msBD=-1 dueBD=2). 1 burned reschedule(s). 19 upcoming. Tiered in dept: 1 T1, 1 T2. Upcoming tiered: 1 T2.",
+"Shipping": {
+    "what": "AR 12.1% YELLOW. 4 aging / 33 total. Flags: 4 Critical. 4 Critical: 44996 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=0 dueBD=1, burned); 45072 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=0 dueBD=1, burned); 45073 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=0 dueBD=1, burned); 45205 3D MACHINE COMPANY (Low Qty, msBD=0 dueBD=0). 3 burned reschedule(s). 29 upcoming. CR 60.6% - 20 finished-at-op awaiting handoff. Tiered in dept: 3 T1, 8 T2. Upcoming tiered: 3 T1, 5 T2.",
+    "action": "Ship today (dueBD<=0): 45205. Burn down before they tip: 44996, 45072, 45073. Start tiered upcoming wave in msBD order: 45173, 45078, 45148, 45155, 45124, 45190, 45191, 45156.",
+    "ot": "recommended",
+    "otText": "OT recommended - all 4 aging jobs are Critical.",
+    "upstream": "Packaging: 3 aging / 25 total, 19 upcoming."
+  },
+  "Packaging": {
+    "what": "AR 12.0% GREEN. 3 aging / 25 total. Flags: 3 Critical. 3 Critical: 45094 CUSTOM CONTROL SENSORS (Low Qty, msBD=-1 dueBD=2, burned); 45096 DARMARK CORPORATION (High Qty, msBD=-1 dueBD=3); 45109 IMPERIAL MACHINE & TOOL CO. (Low Qty, msBD=-1 dueBD=2). 1 burned reschedule(s). 19 upcoming. CR 12.0% - 3 finished-at-op awaiting handoff. Tiered in dept: 1 T1, 1 T2. Upcoming tiered: 1 T2.",
     "action": "Burn down before they tip: 45094, 45096, 45109. Start tiered upcoming wave in msBD order: 45139.",
     "ot": "recommended",
     "otText": "OT recommended - all 3 aging jobs are Critical.",
-    "upstream": "Cleanroom: 3 aging / 34 total. Pre-Clean: 0 aging / 48 total."
-  },
-  "Shipping": {
-    "what": "AR 9.1% GREEN. 3 aging / 33 total. Flags: 3 Critical. 3 Critical: 44996 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=0 dueBD=1, burned); 45073 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=0 dueBD=1, burned); 45205 3D MACHINE COMPANY (Low Qty, msBD=0 dueBD=0). 2 burned reschedule(s). 30 upcoming. CR 60.6% - 20 finished-at-op awaiting handoff. Tiered in dept: 3 T1, 8 T2. Upcoming tiered: 3 T1, 6 T2.",
-    "action": "Ship today (dueBD<=0): 45205. Burn down before they tip: 44996, 45073. Start tiered upcoming wave in msBD order: 45173, 45078, 45148, 45155, 45072, 45124, 45190, 45191.",
-    "ot": "recommended",
-    "otText": "OT recommended - all 3 aging jobs are Critical.",
-    "upstream": "Packaging: 3 aging / 25 total, 19 upcoming."
+    "upstream": "Cleanroom: 3 aging / 36 total. Pre-Clean: 0 aging / 48 total."
   },
   "Cleanroom": {
-    "what": "AR 8.8% GREEN. 3 aging / 34 total. Flags: 3 Critical. 3 Critical: 45059 3D MACHINE COMPANY (Standard, msBD=-1 dueBD=4); 45114 TECMA (Complex, msBD=-1 dueBD=4); 45119 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Complex, msBD=-1 dueBD=4). 25 upcoming. Tiered in dept: 2 T1. Upcoming tiered: 1 T1.",
+    "what": "AR 8.3% GREEN. 3 aging / 36 total. Flags: 3 Critical. 3 Critical: 45059 3D MACHINE COMPANY (Standard, msBD=-1 dueBD=4); 45114 TECMA (Complex, msBD=-1 dueBD=4); 45119 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Complex, msBD=-1 dueBD=4). 27 upcoming. Tiered in dept: 2 T1. Upcoming tiered: 1 T1.",
     "action": "Burn down before they tip: 45059, 45114, 45119. Start tiered upcoming wave in msBD order: 45221.",
     "ot": "recommended",
     "otText": "OT recommended - all 3 aging jobs are Critical.",
@@ -9874,13 +10089,13 @@ const GUIDANCE = {
     "action": "Start tiered upcoming wave in msBD order: 45223.",
     "ot": "recommended",
     "otText": "OT recommended - 11 tiered expedites on compressed windows.",
-    "upstream": "RI: 0 aging / 12 total, 20 received today, 0 upcoming."
+    "upstream": "RI: 0 aging / 17 total, 25 received today, 0 upcoming."
   },
   "Receiving/Inspection": {
-    "what": "AR 0.0% GREEN. 0 aging / 12 total. CR 8.3% - 1 finished-at-op awaiting handoff. Tiered in dept: 3 T1.",
+    "what": "AR 0.0% GREEN. 0 aging / 17 total. Tiered in dept: 3 T1, 1 T3.",
     "action": "Classify and route the tiered jobs sitting in RI (Anthony/Taylor on physical attributes).",
     "ot": "recommended",
-    "otText": "OT recommended - 3 tiered expedites on compressed windows.",
+    "otText": "OT recommended - 4 tiered expedites on compressed windows.",
     "upstream": null
   },
   "Lab Testing": {
@@ -9891,7 +10106,7 @@ const GUIDANCE = {
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 0.0% GREEN. 0 aging / 4 total.",
+    "what": "AR 0.0% GREEN. 0 aging / 2 total.",
     "action": "Hold pace - no Critical or Past Due; work queue by msBD/dueBD.",
     "ot": "n/a",
     "otText": "OT n/a - customer-controlled.",
@@ -9907,16 +10122,16 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "04:00 PM PDT";
+const GENERATED_TIME = "06:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-10-19T16:00",
- "realProgressCutoff": "2026-10-19T15:53",
- "hero": "Aging pressure is easing \u2014 9 aging in house vs ~24 typical. This week the floor let 146 jobs go stale (norm ~245) and picked aging jobs back up in a median 8h (norm 7h).",
+ "generatedAt": "2026-10-19T18:00",
+ "realProgressCutoff": "2026-10-19T17:27",
+ "hero": "Aging pressure is easing \u2014 10 aging in house vs ~24 typical. This week the floor let 145 jobs go stale (norm ~245) and picked aging jobs back up in a median 8h (norm 7h).",
  "pulse": {
-  "agingToday": 9,
+  "agingToday": 10,
   "agingNorm": 24.0,
   "agingVerdict": "BETTER",
-  "staleThisWeek": 146,
+  "staleThisWeek": 145,
   "staleNorm": 245,
   "staleVerdict": "BETTER",
   "respThisWeekH": 8.2,
@@ -10306,12 +10521,12 @@ const TRENDS = {
     },
     {
      "d": "2026-10-19",
-     "ar": 8.8
+     "ar": 8.3
     }
    ],
    "trend": "improving",
    "sentence": "out of GREEN 2 of last 10 days, worst 21% 10/17 \u00b7 aging picked up in ~12h \u00b7 improving",
-   "respH": 12.5,
+   "respH": 11.8,
    "custClock": false,
    "small": false
   },
@@ -10441,7 +10656,7 @@ const TRENDS = {
    ],
    "trend": "improving",
    "sentence": "out of GREEN 6 of last 10 days, worst 25% 10/15 \u00b7 aging picked up in ~9h \u00b7 improving",
-   "respH": 8.7,
+   "respH": 8.6,
    "custClock": false,
    "small": false
   },
@@ -10566,12 +10781,12 @@ const TRENDS = {
     },
     {
      "d": "2026-10-19",
-     "ar": 9.1
+     "ar": 12.1
     }
    ],
-   "trend": "holding",
-   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~4h \u00b7 holding",
-   "respH": 3.7,
+   "trend": "worsening",
+   "sentence": "out of GREEN 1 of last 10 days, worst 12% 10/19 \u00b7 aging picked up in ~4h \u00b7 worsening",
+   "respH": 4.0,
    "custClock": false,
    "small": false
   },
@@ -11942,10 +12157,10 @@ const TRENDS = {
   "45074": 2,
   "45088": 2,
   "45077": 2,
-  "45094": 3,
+  "45094": 2,
   "45093": 1,
-  "45096": 3,
-  "45109": 3,
+  "45096": 2,
+  "45109": 2,
   "45120": 1,
   "45106": 1,
   "45113": 1,
@@ -11972,7 +12187,8 @@ const TRENDS = {
   "45190": 1,
   "45073": 1,
   "45114": 1,
-  "44996": 1
+  "44996": 1,
+  "45072": 2
  },
  "reschedCatalog": {
   "44942": {
@@ -12570,8 +12786,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44996": {
-   "n": 2,
-   "netDays": -6,
+   "n": 1,
+   "netDays": -3,
    "cust": "SPACE EXPLORATION TECHNOLOGIES",
    "last": "10/19",
    "wc": 1,
@@ -12579,9 +12795,18 @@ const TRENDS = {
    "lateBox": false
   },
   "45092": {
-   "n": 2,
-   "netDays": 14,
+   "n": 1,
+   "netDays": 7,
    "cust": "ACUFAST AIRCRAFT PRODUCTS",
+   "last": "10/19",
+   "wc": 1,
+   "box": null,
+   "lateBox": false
+  },
+  "45063": {
+   "n": 2,
+   "netDays": 4,
+   "cust": "AEROSPACE ENGINEERING LLC",
    "last": "10/19",
    "wc": 1,
    "box": null,
@@ -12590,18 +12815,18 @@ const TRENDS = {
  },
  "reschedMonth": "October",
  "otd": {
-  "pct": 84.6,
-  "made": 225,
-  "shipped": 266,
+  "pct": 84.8,
+  "made": 229,
+  "shipped": 270,
   "month": "Oct",
   "asOf": "2026-10-19",
   "goal": 98,
-  "received": 273,
+  "received": 280,
   "recMonth": "Oct",
-  "staleAfter": 1792460700000,
-  "lastSuccessLabel": "Oct 19, 2:15 PM",
+  "staleAfter": 1792503900000,
+  "lastSuccessLabel": "Oct 19, 4:15 PM",
   "lastStatus": "SUCCESS",
-  "lastAttemptLabel": "Oct 19, 2:15 PM",
+  "lastAttemptLabel": "Oct 19, 4:15 PM",
   "lastError": ""
  },
  "customers": {
@@ -12647,21 +12872,21 @@ const TRENDS = {
    },
    {
     "c": "Polymer Concepts",
-    "n": 14,
-    "made": 12,
+    "n": 15,
+    "made": 13,
     "late": 2,
     "mrb": 2,
     "res": 4,
-    "pct": 85.7
+    "pct": 86.7
    },
    {
     "c": "Performance Sealing Inc",
-    "n": 9,
-    "made": 7,
+    "n": 10,
+    "made": 8,
     "late": 2,
     "mrb": 2,
     "res": 2,
-    "pct": 77.8
+    "pct": 80.0
    },
    {
     "c": "Tecma",
@@ -12683,12 +12908,12 @@ const TRENDS = {
    },
    {
     "c": "Saint Gobain",
-    "n": 13,
-    "made": 12,
+    "n": 14,
+    "made": 13,
     "late": 1,
     "mrb": 0,
     "res": 3,
-    "pct": 92.3
+    "pct": 92.9
    },
    {
     "c": "3D Machine Company",
@@ -13078,15 +13303,6 @@ const TRENDS = {
     "pct": 100.0
    },
    {
-    "c": "A&A Machine & Development Co Inc",
-    "n": 2,
-    "made": 2,
-    "late": 0,
-    "mrb": 1,
-    "res": 0,
-    "pct": 100.0
-   },
-   {
     "c": "Nuspace",
     "n": 2,
     "made": 2,
@@ -13267,6 +13483,15 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Acufast Aircraft Products",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 1,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
     "c": "Rsa Engineered Products, Llc",
     "n": 1,
     "made": 1,
@@ -13286,6 +13511,15 @@ const TRENDS = {
    },
    {
     "c": "Qualitask Inc",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 0,
+    "res": 0,
+    "pct": 100.0
+   },
+   {
+    "c": "A&A Machine & Development Co Inc",
     "n": 1,
     "made": 1,
     "late": 0,
@@ -13327,6 +13561,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 0,
     "res": 1,
+    "pct": 100.0
+   },
+   {
+    "c": "Hrd Aero Systems, Inc.",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 1,
+    "res": 0,
     "pct": 100.0
    },
    {
@@ -13378,8 +13621,8 @@ const TRENDS = {
    },
    {
     "c": "Saint Gobain",
-    "n": 347,
-    "made": 308,
+    "n": 348,
+    "made": 309,
     "late": 39,
     "mrb": 7,
     "res": 115,
@@ -13387,21 +13630,21 @@ const TRENDS = {
    },
    {
     "c": "Polymer Concepts",
-    "n": 191,
-    "made": 171,
+    "n": 192,
+    "made": 172,
     "late": 20,
     "mrb": 26,
     "res": 43,
-    "pct": 89.5
+    "pct": 89.6
    },
    {
     "c": "Performance Sealing Inc",
-    "n": 149,
-    "made": 131,
+    "n": 150,
+    "made": 132,
     "late": 18,
     "mrb": 38,
     "res": 30,
-    "pct": 87.9
+    "pct": 88.0
    },
    {
     "c": "Fmh Ametek",
@@ -13944,6 +14187,15 @@ const TRENDS = {
     "pct": 81.8
    },
    {
+    "c": "Hrd Aero Systems, Inc.",
+    "n": 10,
+    "made": 8,
+    "late": 2,
+    "mrb": 1,
+    "res": 0,
+    "pct": 80.0
+   },
+   {
     "c": "Jri, Inc",
     "n": 10,
     "made": 8,
@@ -13951,15 +14203,6 @@ const TRENDS = {
     "mrb": 2,
     "res": 4,
     "pct": 80.0
-   },
-   {
-    "c": "Hrd Aero Systems, Inc.",
-    "n": 9,
-    "made": 7,
-    "late": 2,
-    "mrb": 0,
-    "res": 0,
-    "pct": 77.8
    },
    {
     "c": "Jacon Fasteners & Electronics",
@@ -14979,15 +15222,6 @@ const TRENDS = {
     "pct": 100.0
    },
    {
-    "c": "A&A Machine & Development Co Inc",
-    "n": 3,
-    "made": 3,
-    "late": 0,
-    "mrb": 1,
-    "res": 0,
-    "pct": 100.0
-   },
-   {
     "c": "Stanford Mu",
     "n": 3,
     "made": 3,
@@ -15084,6 +15318,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 1,
     "res": 1,
+    "pct": 100.0
+   },
+   {
+    "c": "A&A Machine & Development Co Inc",
+    "n": 2,
+    "made": 2,
+    "late": 0,
+    "mrb": 0,
+    "res": 0,
     "pct": 100.0
    },
    {
@@ -15600,6 +15843,15 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Acufast Aircraft Products",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 1,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
     "c": "Sigma Netics",
     "n": 1,
     "made": 1,
@@ -15654,10 +15906,10 @@ const TRENDS = {
    },
    {
     "k": "Straight to CLR",
-    "n": 16,
-    "made": 8,
+    "n": 17,
+    "made": 9,
     "late": 8,
-    "pct": 50.0
+    "pct": 52.9
    },
    {
     "k": "Standard",
@@ -15668,10 +15920,10 @@ const TRENDS = {
    },
    {
     "k": "Low Qty",
-    "n": 47,
-    "made": 44,
+    "n": 48,
+    "made": 45,
     "late": 3,
-    "pct": 93.6
+    "pct": 93.8
    },
    {
     "k": "Complex",
@@ -15689,10 +15941,17 @@ const TRENDS = {
    },
    {
     "k": "Large Parts",
-    "n": 7,
-    "made": 6,
+    "n": 8,
+    "made": 7,
     "late": 1,
-    "pct": 85.7
+    "pct": 87.5
+   },
+   {
+    "k": "No profile",
+    "n": 4,
+    "made": 4,
+    "late": 0,
+    "pct": 100.0
    },
    {
     "k": "Source Required",
@@ -15707,29 +15966,22 @@ const TRENDS = {
     "made": 3,
     "late": 0,
     "pct": 100.0
-   },
-   {
-    "k": "No profile",
-    "n": 3,
-    "made": 3,
-    "late": 0,
-    "pct": 100.0
    }
   ],
   "monthPriority": [
    {
     "k": "Standard",
-    "n": 179,
-    "made": 152,
+    "n": 181,
+    "made": 154,
     "late": 27,
-    "pct": 84.9
+    "pct": 85.1
    },
    {
     "k": "T1 Expedite",
-    "n": 62,
-    "made": 53,
+    "n": 64,
+    "made": 55,
     "late": 9,
-    "pct": 85.5
+    "pct": 85.9
    },
    {
     "k": "T2 Expedite",
@@ -15763,8 +16015,8 @@ const TRENDS = {
    },
    {
     "k": "Low Qty",
-    "n": 479,
-    "made": 462,
+    "n": 480,
+    "made": 463,
     "late": 17,
     "pct": 96.5
    },
@@ -15777,15 +16029,15 @@ const TRENDS = {
    },
    {
     "k": "Straight to CLR",
-    "n": 148,
-    "made": 136,
+    "n": 149,
+    "made": 137,
     "late": 12,
     "pct": 91.9
    },
    {
     "k": "Large Parts",
-    "n": 108,
-    "made": 99,
+    "n": 109,
+    "made": 100,
     "late": 9,
     "pct": 91.7
    },
@@ -15812,10 +16064,10 @@ const TRENDS = {
    },
    {
     "k": "No profile",
-    "n": 15,
-    "made": 14,
+    "n": 16,
+    "made": 15,
     "late": 1,
-    "pct": 93.3
+    "pct": 93.8
    },
    {
     "k": "DCMA",
@@ -15842,15 +16094,15 @@ const TRENDS = {
   "widePriority": [
    {
     "k": "Standard",
-    "n": 1670,
-    "made": 1594,
+    "n": 1672,
+    "made": 1596,
     "late": 76,
-    "pct": 95.4
+    "pct": 95.5
    },
    {
     "k": "T1 Expedite",
-    "n": 565,
-    "made": 532,
+    "n": 567,
+    "made": 534,
     "late": 33,
     "pct": 94.2
    },
@@ -15931,10 +16183,10 @@ const TRENDS = {
    "ym": "2026-10",
    "label": "Oct",
    "mtd": true,
-   "otdPct": 84.6,
-   "shipped": 266,
-   "received": 273,
-   "marks": 395,
+   "otdPct": 84.8,
+   "shipped": 270,
+   "received": 280,
+   "marks": 394,
    "recovHrs": 8.1,
    "avgAr": 11.7,
    "peakAr": 24.7,
@@ -16010,8 +16262,8 @@ const TRENDS = {
    "ym": "2026-10",
    "label": "Oct",
    "mtd": true,
-   "rec": 273,
-   "done": 266
+   "rec": 280,
+   "done": 270
   }
  ],
  "arDaily": [
@@ -16371,18 +16623,12 @@ const TRENDS = {
   },
   {
    "date": "2026-10-19",
-   "inHouse": 157,
-   "aging": 9,
-   "ar": 5.7
+   "inHouse": 162,
+   "aging": 10,
+   "ar": 6.2
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-09-14T16:00",
-   "ar": 9.9,
-   "aging": 16,
-   "inHouse": 162
-  },
   {
    "t": "2026-09-14T18:00",
    "ar": 10.2,
@@ -17864,6 +18110,12 @@ const TRENDS = {
    "ar": 5.7,
    "aging": 9,
    "inHouse": 157
+  },
+  {
+   "t": "2026-10-19T18:00",
+   "ar": 6.2,
+   "aging": 10,
+   "inHouse": 162
   }
  ]
 };
