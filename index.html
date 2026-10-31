@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="02:00 PM PDT">
+  <meta name="qpc-build" content="04:00 PM PDT">
   <title>QPC Production Pulse — 10/31/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -593,8 +593,8 @@ const DATA = {
     "expediteTierDistribution": [],
     "mrbCount": 12,
     "unclassifiedAgingCount": 2,
-    "unclassifiedInHouseCount": 32,
-    "shortScheduledCount": 25,
+    "unclassifiedInHouseCount": 29,
+    "shortScheduledCount": 26,
     "customerHoldProfileCount": 7,
     "profileDistribution": [
       {
@@ -603,11 +603,11 @@ const DATA = {
       },
       {
         "name": "Low Qty",
-        "count": 51
+        "count": 52
       },
       {
         "name": "(Unclassified)",
-        "count": 32
+        "count": 29
       },
       {
         "name": "High Qty",
@@ -615,7 +615,7 @@ const DATA = {
       },
       {
         "name": "Large Parts",
-        "count": 26
+        "count": 28
       },
       {
         "name": "Complex",
@@ -877,8 +877,8 @@ const DATA = {
   ],
   "reschedule": {
     "totalInHouse": 205,
-    "rescheduledCount": 27,
-    "reschedulePct": 13.2,
+    "rescheduledCount": 28,
+    "reschedulePct": 13.7,
     "burnedAgingJobs": [
       {
         "wo": "44948",
@@ -980,9 +980,9 @@ const DATA = {
   },
   "rescheduleStatus": {
     "kpiTarget": 98,
-    "totalAssessed": 157,
-    "onTimeCount": 115,
-    "onTimePct": 73.2,
+    "totalAssessed": 158,
+    "onTimeCount": 116,
+    "onTimePct": 73.4,
     "atRiskCount": 42,
     "decideToday": [
       {
@@ -1584,6 +1584,56 @@ const DATA = {
           ],
           "maxSlip": 1,
           "scheduled": "Oct 30"
+        }
+      },
+      {
+        "wo": "45236",
+        "customer": "KAP MANUFACTURING",
+        "profile": "Standard",
+        "profileCls": "",
+        "dept": "Packaging",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "scheduledDue": "Nov 5",
+        "forecastDate": "Nov 9",
+        "slip": "+2 BD",
+        "slipDays": 2,
+        "risks": [
+          {
+            "label": "Profile burn 110% (>= 95%)",
+            "severity": "severe"
+          }
+        ],
+        "why": "Profile burn 110%.",
+        "detail": {
+          "cr": null,
+          "profileWindow": 10,
+          "profileElapsed": 11,
+          "profileBurn": 1.1,
+          "indicators": [
+            {
+              "label": "Black-tier dept ahead (Shipping)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Profile burn 110% (>= 95%)",
+              "val": "+2 BD",
+              "active": true
+            },
+            {
+              "label": "Vendor pending (no confirmed estimate)",
+              "val": null,
+              "active": false
+            },
+            {
+              "label": "Past current QPC Due",
+              "val": null,
+              "active": false
+            }
+          ],
+          "maxSlip": 2,
+          "scheduled": "Nov 5"
         }
       },
       {
@@ -2551,16 +2601,6 @@ const DATA = {
         "action": "PM coordinates source visit."
       },
       {
-        "wo": "45236",
-        "customer": "KAP MANUFACTURING",
-        "profile": "Standard",
-        "flag": "On Track",
-        "flagColor": "#107C10",
-        "badge": "R2",
-        "reason": "Reschedule window closed (-1 BD until QPC Due, < 2 BD). Per Rule 2.",
-        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
-      },
-      {
         "wo": "45238",
         "customer": "HYDRAELECTRIC CO.",
         "profile": "Standard",
@@ -3073,7 +3113,7 @@ const DATA = {
       {
         "wo": "45445-1",
         "customer": "ULA/SAUER MECHANICAL, LLC",
-        "profile": null,
+        "profile": "Large Parts",
         "flag": "No Date",
         "flagColor": "#8A8886",
         "badge": "ND",
@@ -3163,7 +3203,7 @@ const DATA = {
       {
         "wo": "45445-10",
         "customer": "ULA/SAUER MECHANICAL, LLC",
-        "profile": null,
+        "profile": "Large Parts",
         "flag": "No Date",
         "flagColor": "#8A8886",
         "badge": "ND",
@@ -3244,16 +3284,6 @@ const DATA = {
         "wo": "45487",
         "customer": "JP DONOVAN CONSTRUCTION",
         "profile": null,
-        "flag": "No Date",
-        "flagColor": "#8A8886",
-        "badge": "ND",
-        "reason": "Missing QPC Due Date.",
-        "action": "Planner owns: assign QPC Due Date."
-      },
-      {
-        "wo": "45491",
-        "customer": "POLYMER CONCEPTS",
-        "profile": "Standard",
         "flag": "No Date",
         "flagColor": "#8A8886",
         "badge": "ND",
@@ -3637,15 +3667,14 @@ const DATA = {
         "wo": "45236",
         "customer": "KAP MANUFACTURING",
         "profile": "Standard",
-        "qpcDue": "Oct 30",
-        "forecastDate": "Nov 3",
+        "qpcDue": "Nov 5",
+        "forecastDate": "Nov 9",
         "predictedSlipBD": 2,
         "indicatorsFired": [
-          "Profile burn 110% (>= 95%)",
-          "Past current QPC Due"
+          "Profile burn 110% (>= 95%)"
         ],
-        "bucket": "escalate",
-        "isBurned": false,
+        "bucket": "notify",
+        "isBurned": true,
         "isTightProfile": false
       },
       {
@@ -5282,14 +5311,14 @@ const DATA = {
         "runDate": "2026-10-31",
         "wo": "45466",
         "customer": "BEARTECH MFG, LLC",
-        "profile": null,
+        "profile": "Low Qty",
         "qpcDue": "Nov 12",
         "forecastDate": "Nov 12",
         "predictedSlipBD": 0,
         "indicatorsFired": [],
         "bucket": "on_time",
         "isBurned": false,
-        "isTightProfile": false
+        "isTightProfile": true
       },
       {
         "runDate": "2026-10-31",
@@ -5433,6 +5462,19 @@ const DATA = {
         "bucket": "on_time",
         "isBurned": false,
         "isTightProfile": true
+      },
+      {
+        "runDate": "2026-10-31",
+        "wo": "45491",
+        "customer": "POLYMER CONCEPTS",
+        "profile": "Standard",
+        "qpcDue": "Nov 5",
+        "forecastDate": "Nov 5",
+        "predictedSlipBD": 0,
+        "indicatorsFired": [],
+        "bucket": "on_time",
+        "isBurned": false,
+        "isTightProfile": false
       }
     ]
   },
@@ -6677,10 +6719,10 @@ const DATA = {
     {
       "wo": "45236",
       "dept": "Packaging",
-      "dueDate": "10/30",
+      "dueDate": "11/05",
       "msDate": "10/27",
       "msBD": -4,
-      "dueBD": -1,
+      "dueBD": 3,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -7933,6 +7975,22 @@ const DATA = {
       "expediteTier": null
     },
     {
+      "wo": "45491",
+      "customer": "POLYMER CONCEPTS",
+      "dept": "Receiving/Inspection",
+      "profile": "Standard",
+      "profileMin": 8,
+      "profileMax": 10,
+      "scheduledLeadBD": 4,
+      "shortfall": 4,
+      "dueDate": "11/05",
+      "dueBD": 3,
+      "priority": "T1 Expedite",
+      "isAging": false,
+      "basis": "profile",
+      "expediteTier": null
+    },
+    {
       "wo": "45283",
       "customer": "POLYMER CONCEPTS",
       "dept": "Packaging",
@@ -8757,10 +8815,10 @@ const DATA = {
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "10/30",
-      "dueBD": -1,
+      "dueDate": "11/05",
+      "dueBD": 3,
       "receivedToday": false,
-      "rescheduled": false,
+      "rescheduled": true,
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
@@ -11183,7 +11241,7 @@ const DATA = {
       "customer": "ULA/SAUER MECHANICAL, LLC",
       "dept": "Pre-Clean",
       "locationDept": "Pre-Clean",
-      "profile": null,
+      "profile": "Large Parts",
       "priority": "T1 Expedite",
       "expediteTier": null,
       "isExpedite": false,
@@ -11345,7 +11403,7 @@ const DATA = {
       "customer": "ULA/SAUER MECHANICAL, LLC",
       "dept": "Pre-Clean",
       "locationDept": "Pre-Clean",
-      "profile": null,
+      "profile": "Large Parts",
       "priority": "T1 Expedite",
       "expediteTier": null,
       "isExpedite": false,
@@ -11633,7 +11691,7 @@ const DATA = {
       "customer": "BEARTECH MFG, LLC",
       "dept": "Receiving/Inspection",
       "locationDept": "Receiving/Inspection",
-      "profile": null,
+      "profile": "Low Qty",
       "priority": "Standard",
       "expediteTier": null,
       "isExpedite": false,
@@ -11925,8 +11983,8 @@ const DATA = {
       "priority": "T1 Expedite",
       "expediteTier": null,
       "isExpedite": false,
-      "dueDate": "No Date",
-      "dueBD": null,
+      "dueDate": "11/05",
+      "dueBD": 3,
       "receivedToday": false,
       "rescheduled": false,
       "isAging": false,
@@ -12463,9 +12521,9 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "02:00 PM PDT";
+const GENERATED_TIME = "04:00 PM PDT";
 const TRENDS = {
- "generatedAt": "2026-10-31T14:00",
+ "generatedAt": "2026-10-31T16:00",
  "realProgressCutoff": "2026-10-31T13:30",
  "hero": "Aging pressure is building \u2014 33 aging in house vs ~17 typical. This week the floor let 220 jobs go stale (norm ~169) and picked aging jobs back up in a median 9h (norm 7h).",
  "pulse": {
@@ -12737,7 +12795,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 1 of last 10 days, worst 15% 10/31 \u00b7 aging picked up in ~6h \u00b7 worsening",
-   "respH": 5.7,
+   "respH": 5.5,
    "custClock": false,
    "small": false
   },
@@ -12867,7 +12925,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 7 of last 10 days, worst 19% 10/27 \u00b7 aging picked up in ~9h \u00b7 worsening",
-   "respH": 8.9,
+   "respH": 9.4,
    "custClock": false,
    "small": false
   },
@@ -12997,7 +13055,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 7 of last 10 days, worst 43% 10/29 \u00b7 aging picked up in ~10h \u00b7 worsening",
-   "respH": 10.3,
+   "respH": 10.5,
    "custClock": false,
    "small": false
   },
@@ -13126,8 +13184,8 @@ const TRENDS = {
     }
    ],
    "trend": "improving",
-   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~3h \u00b7 improving",
-   "respH": 3.4,
+   "sentence": "GREEN all 10 recent days \u00b7 aging picked up in ~4h \u00b7 improving",
+   "respH": 3.5,
    "custClock": false,
    "small": false
   },
@@ -14704,8 +14762,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44701": {
-   "n": 3,
-   "netDays": 15,
+   "n": 2,
+   "netDays": 13,
    "cust": "TRIPLETT MACHINE INC.",
    "last": "10/31",
    "wc": 0,
@@ -14884,8 +14942,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45013": {
-   "n": 3,
-   "netDays": -4,
+   "n": 2,
+   "netDays": -6,
    "cust": "SPACE EXPLORATION TECHNOLOGIES",
    "last": "10/31",
    "wc": 0,
@@ -14893,8 +14951,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45078": {
-   "n": 3,
-   "netDays": 11,
+   "n": 2,
+   "netDays": 7,
    "cust": "ADVANCED COOLING TECHNOLOGIES, INC",
    "last": "10/31",
    "wc": 0,
@@ -15046,8 +15104,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45178": {
-   "n": 4,
-   "netDays": 4,
+   "n": 3,
+   "netDays": 2,
    "cust": "DRT AEROSPACE - SIMPSONVILLE",
    "last": "10/31",
    "wc": 0,
@@ -15520,8 +15578,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45251": {
-   "n": 3,
-   "netDays": 5,
+   "n": 2,
+   "netDays": 3,
    "cust": "SAINT GOBAIN",
    "last": "10/31",
    "wc": 1,
@@ -15745,8 +15803,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45296": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "BARBER NICHOLS",
    "last": "10/31",
    "wc": 0,
@@ -15754,8 +15812,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44961": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "DANCO MACHINE",
    "last": "10/31",
    "wc": 0,
@@ -15763,8 +15821,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44786": {
-   "n": 2,
-   "netDays": 8,
+   "n": 1,
+   "netDays": 4,
    "cust": "MOTIV SPACE SYSTEMS",
    "last": "10/31",
    "wc": 1,
@@ -15772,8 +15830,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44814-1": {
-   "n": 2,
-   "netDays": 14,
+   "n": 1,
+   "netDays": 7,
    "cust": "ULA/JP DONOVAN CONSTRUCTION",
    "last": "10/31",
    "wc": 1,
@@ -15781,8 +15839,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44995": {
-   "n": 2,
-   "netDays": 14,
+   "n": 1,
+   "netDays": 7,
    "cust": "FMH AMETEK",
    "last": "10/31",
    "wc": 1,
@@ -15790,8 +15848,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45031": {
-   "n": 2,
-   "netDays": 8,
+   "n": 1,
+   "netDays": 4,
    "cust": "THALER DEFENSE SYSTEMS",
    "last": "10/31",
    "wc": 0,
@@ -15799,8 +15857,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44476": {
-   "n": 2,
-   "netDays": 26,
+   "n": 1,
+   "netDays": 13,
    "cust": "COLLINS AEROSPACE",
    "last": "10/31",
    "wc": 0,
@@ -15808,8 +15866,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44910": {
-   "n": 2,
-   "netDays": 6,
+   "n": 1,
+   "netDays": 3,
    "cust": "EJAY FILTRATION",
    "last": "10/31",
    "wc": 0,
@@ -15817,8 +15875,8 @@ const TRENDS = {
    "lateBox": false
   },
   "45116": {
-   "n": 2,
-   "netDays": 6,
+   "n": 1,
+   "netDays": 3,
    "cust": "UNIVERSITY OF COLORADO",
    "last": "10/31",
    "wc": 0,
@@ -15826,8 +15884,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44714": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "SEYTEC",
    "last": "10/31",
    "wc": 0,
@@ -15835,8 +15893,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44797": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "SAINT GOBAIN",
    "last": "10/31",
    "wc": 0,
@@ -15844,8 +15902,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44914": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "COLLINS AEROSPACE",
    "last": "10/31",
    "wc": 0,
@@ -15853,8 +15911,8 @@ const TRENDS = {
    "lateBox": false
   },
   "44850-RW": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "TECMA",
    "last": "10/31",
    "wc": 0,
@@ -15862,29 +15920,47 @@ const TRENDS = {
    "lateBox": false
   },
   "45266": {
-   "n": 2,
-   "netDays": 2,
+   "n": 1,
+   "netDays": 1,
    "cust": "SAINT-GOBAIN RI",
    "last": "10/31",
    "wc": 0,
    "box": "10/27",
    "lateBox": false
+  },
+  "45236": {
+   "n": 2,
+   "netDays": 12,
+   "cust": "KAP MANUFACTURING",
+   "last": "10/31",
+   "wc": 1,
+   "box": null,
+   "lateBox": false
+  },
+  "45301-RW": {
+   "n": 2,
+   "netDays": 6,
+   "cust": "TECMA",
+   "last": "10/31",
+   "wc": 0,
+   "box": null,
+   "lateBox": false
   }
  },
  "reschedMonth": "October",
  "otd": {
-  "pct": 89.7,
-  "made": 416,
+  "pct": 93.5,
+  "made": 434,
   "shipped": 464,
   "month": "Oct",
   "asOf": "2026-10-31",
   "goal": 98,
   "received": 520,
   "recMonth": "Oct",
-  "staleAfter": 1793490300000,
-  "lastSuccessLabel": "Oct 31, 12:15 PM",
+  "staleAfter": 1793497500000,
+  "lastSuccessLabel": "Oct 31, 2:15 PM",
   "lastStatus": "SUCCESS",
-  "lastAttemptLabel": "Oct 31, 12:15 PM",
+  "lastAttemptLabel": "Oct 31, 2:15 PM",
   "lastError": ""
  },
  "customers": {
@@ -15909,33 +15985,6 @@ const TRENDS = {
     "mrb": 1,
     "res": 2,
     "pct": 85.7
-   },
-   {
-    "c": "Ula/Jp Donovan Construction",
-    "n": 9,
-    "made": 6,
-    "late": 3,
-    "mrb": 1,
-    "res": 7,
-    "pct": 66.7
-   },
-   {
-    "c": "Collins Aerospace",
-    "n": 3,
-    "made": 0,
-    "late": 3,
-    "mrb": 1,
-    "res": 1,
-    "pct": 0.0
-   },
-   {
-    "c": "Saint Gobain",
-    "n": 29,
-    "made": 27,
-    "late": 2,
-    "mrb": 0,
-    "res": 10,
-    "pct": 93.1
    },
    {
     "c": "Polymer Concepts",
@@ -15965,49 +16014,40 @@ const TRENDS = {
     "pct": 85.7
    },
    {
+    "c": "Ula/Jp Donovan Construction",
+    "n": 9,
+    "made": 7,
+    "late": 2,
+    "mrb": 1,
+    "res": 7,
+    "pct": 77.8
+   },
+   {
     "c": "Space Exploration Technologies",
     "n": 12,
-    "made": 10,
-    "late": 2,
+    "made": 11,
+    "late": 1,
     "mrb": 0,
     "res": 7,
-    "pct": 83.3
+    "pct": 91.7
    },
    {
     "c": "Tecma",
     "n": 11,
-    "made": 9,
-    "late": 2,
+    "made": 10,
+    "late": 1,
     "mrb": 1,
-    "res": 0,
-    "pct": 81.8
-   },
-   {
-    "c": "Seytec",
-    "n": 8,
-    "made": 7,
-    "late": 1,
-    "mrb": 2,
-    "res": 6,
-    "pct": 87.5
-   },
-   {
-    "c": "Saint-Gobain Ri",
-    "n": 5,
-    "made": 4,
-    "late": 1,
-    "mrb": 0,
     "res": 1,
-    "pct": 80.0
+    "pct": 90.9
    },
    {
-    "c": "Triplett Machine Inc.",
-    "n": 4,
-    "made": 3,
+    "c": "Collins Aerospace",
+    "n": 3,
+    "made": 2,
     "late": 1,
-    "mrb": 0,
-    "res": 1,
-    "pct": 75.0
+    "mrb": 1,
+    "res": 2,
+    "pct": 66.7
    },
    {
     "c": "Axxis Corporation",
@@ -16055,42 +16095,6 @@ const TRENDS = {
     "pct": 50.0
    },
    {
-    "c": "Ejay Filtration",
-    "n": 2,
-    "made": 1,
-    "late": 1,
-    "mrb": 1,
-    "res": 1,
-    "pct": 50.0
-   },
-   {
-    "c": "Fmh Ametek",
-    "n": 2,
-    "made": 1,
-    "late": 1,
-    "mrb": 0,
-    "res": 0,
-    "pct": 50.0
-   },
-   {
-    "c": "University Of Colorado",
-    "n": 2,
-    "made": 1,
-    "late": 1,
-    "mrb": 1,
-    "res": 0,
-    "pct": 50.0
-   },
-   {
-    "c": "Advanced Cooling Technologies, Inc",
-    "n": 2,
-    "made": 1,
-    "late": 1,
-    "mrb": 0,
-    "res": 2,
-    "pct": 50.0
-   },
-   {
     "c": "Microsurgical Technology, Inc.",
     "n": 1,
     "made": 0,
@@ -16118,43 +16122,7 @@ const TRENDS = {
     "pct": 0.0
    },
    {
-    "c": "D.P. Tool",
-    "n": 1,
-    "made": 0,
-    "late": 1,
-    "mrb": 0,
-    "res": 1,
-    "pct": 0.0
-   },
-   {
-    "c": "Del Aerospace, Inc",
-    "n": 1,
-    "made": 0,
-    "late": 1,
-    "mrb": 0,
-    "res": 1,
-    "pct": 0.0
-   },
-   {
     "c": "Chemring Energetic Devices",
-    "n": 1,
-    "made": 0,
-    "late": 1,
-    "mrb": 1,
-    "res": 1,
-    "pct": 0.0
-   },
-   {
-    "c": "Thaler Defense Systems",
-    "n": 1,
-    "made": 0,
-    "late": 1,
-    "mrb": 0,
-    "res": 0,
-    "pct": 0.0
-   },
-   {
-    "c": "Drt Aerospace - Simpsonville",
     "n": 1,
     "made": 0,
     "late": 1,
@@ -16178,6 +16146,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 0,
     "res": 0,
+    "pct": 100.0
+   },
+   {
+    "c": "Saint Gobain",
+    "n": 29,
+    "made": 29,
+    "late": 0,
+    "mrb": 0,
+    "res": 11,
     "pct": 100.0
    },
    {
@@ -16214,6 +16191,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 4,
     "res": 2,
+    "pct": 100.0
+   },
+   {
+    "c": "Seytec",
+    "n": 8,
+    "made": 8,
+    "late": 0,
+    "mrb": 2,
+    "res": 7,
     "pct": 100.0
    },
    {
@@ -16307,9 +16293,27 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Saint-Gobain Ri",
+    "n": 5,
+    "made": 5,
+    "late": 0,
+    "mrb": 0,
+    "res": 2,
+    "pct": 100.0
+   },
+   {
     "c": "Hydraelectric Co.",
     "n": 5,
     "made": 5,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
+    "c": "Triplett Machine Inc.",
+    "n": 4,
+    "made": 4,
     "late": 0,
     "mrb": 0,
     "res": 1,
@@ -16487,6 +16491,15 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Ejay Filtration",
+    "n": 2,
+    "made": 2,
+    "late": 0,
+    "mrb": 1,
+    "res": 2,
+    "pct": 100.0
+   },
+   {
     "c": "K-V Engineering Inc",
     "n": 2,
     "made": 2,
@@ -16511,6 +16524,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 1,
     "res": 0,
+    "pct": 100.0
+   },
+   {
+    "c": "Fmh Ametek",
+    "n": 2,
+    "made": 2,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
     "pct": 100.0
    },
    {
@@ -16547,6 +16569,24 @@ const TRENDS = {
     "late": 0,
     "mrb": 1,
     "res": 0,
+    "pct": 100.0
+   },
+   {
+    "c": "University Of Colorado",
+    "n": 2,
+    "made": 2,
+    "late": 0,
+    "mrb": 1,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
+    "c": "Advanced Cooling Technologies, Inc",
+    "n": 2,
+    "made": 2,
+    "late": 0,
+    "mrb": 0,
+    "res": 2,
     "pct": 100.0
    },
    {
@@ -16676,6 +16716,24 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "D.P. Tool",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
+    "c": "Del Aerospace, Inc",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
     "c": "Atlas Tool Works",
     "n": 1,
     "made": 1,
@@ -16754,6 +16812,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 0,
     "res": 0,
+    "pct": 100.0
+   },
+   {
+    "c": "Thaler Defense Systems",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
     "pct": 100.0
    },
    {
@@ -16883,6 +16950,15 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Drt Aerospace - Simpsonville",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 1,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
     "c": "Varda Space Industries",
     "n": 1,
     "made": 1,
@@ -16959,20 +17035,20 @@ const TRENDS = {
    {
     "c": "Seytec",
     "n": 168,
-    "made": 109,
-    "late": 59,
+    "made": 110,
+    "late": 58,
     "mrb": 59,
-    "res": 97,
-    "pct": 64.9
+    "res": 98,
+    "pct": 65.5
    },
    {
     "c": "Saint Gobain",
     "n": 363,
-    "made": 323,
-    "late": 40,
+    "made": 325,
+    "late": 38,
     "mrb": 7,
-    "res": 122,
-    "pct": 89.0
+    "res": 123,
+    "pct": 89.5
    },
    {
     "c": "Polymer Concepts",
@@ -16995,20 +17071,20 @@ const TRENDS = {
    {
     "c": "Fmh Ametek",
     "n": 48,
-    "made": 32,
-    "late": 16,
+    "made": 33,
+    "late": 15,
     "mrb": 17,
-    "res": 22,
-    "pct": 66.7
+    "res": 23,
+    "pct": 68.8
    },
    {
     "c": "Saint-Gobain Ri",
     "n": 73,
-    "made": 60,
-    "late": 13,
+    "made": 61,
+    "late": 12,
     "mrb": 14,
-    "res": 44,
-    "pct": 82.2
+    "res": 45,
+    "pct": 83.6
    },
    {
     "c": "Pdt Ametek",
@@ -17038,15 +17114,6 @@ const TRENDS = {
     "pct": 80.4
    },
    {
-    "c": "Tecma",
-    "n": 55,
-    "made": 44,
-    "late": 11,
-    "mrb": 4,
-    "res": 11,
-    "pct": 80.0
-   },
-   {
     "c": "Aerospace Engineering Corporation",
     "n": 32,
     "made": 21,
@@ -17054,6 +17121,15 @@ const TRENDS = {
     "mrb": 8,
     "res": 18,
     "pct": 65.6
+   },
+   {
+    "c": "Tecma",
+    "n": 55,
+    "made": 45,
+    "late": 10,
+    "mrb": 4,
+    "res": 12,
+    "pct": 81.8
    },
    {
     "c": "Vast",
@@ -17083,15 +17159,6 @@ const TRENDS = {
     "pct": 97.7
    },
    {
-    "c": "Space Exploration Technologies",
-    "n": 63,
-    "made": 57,
-    "late": 6,
-    "mrb": 5,
-    "res": 41,
-    "pct": 90.5
-   },
-   {
     "c": "Barber Nichols",
     "n": 21,
     "made": 15,
@@ -17099,6 +17166,15 @@ const TRENDS = {
     "mrb": 9,
     "res": 9,
     "pct": 71.4
+   },
+   {
+    "c": "Space Exploration Technologies",
+    "n": 63,
+    "made": 58,
+    "late": 5,
+    "mrb": 5,
+    "res": 41,
+    "pct": 92.1
    },
    {
     "c": "Mindrum Precision, Inc",
@@ -17200,15 +17276,6 @@ const TRENDS = {
     "pct": 87.1
    },
    {
-    "c": "Triplett Machine Inc.",
-    "n": 18,
-    "made": 14,
-    "late": 4,
-    "mrb": 3,
-    "res": 5,
-    "pct": 77.8
-   },
-   {
     "c": "United Paradyne Corporation",
     "n": 16,
     "made": 12,
@@ -17252,15 +17319,6 @@ const TRENDS = {
     "mrb": 3,
     "res": 1,
     "pct": 55.6
-   },
-   {
-    "c": "D.P. Tool",
-    "n": 8,
-    "made": 4,
-    "late": 4,
-    "mrb": 5,
-    "res": 3,
-    "pct": 50.0
    },
    {
     "c": "United Precision Corp",
@@ -17317,6 +17375,15 @@ const TRENDS = {
     "pct": 83.3
    },
    {
+    "c": "Triplett Machine Inc.",
+    "n": 18,
+    "made": 15,
+    "late": 3,
+    "mrb": 3,
+    "res": 5,
+    "pct": 83.3
+   },
+   {
     "c": "Accurate Technology",
     "n": 17,
     "made": 14,
@@ -17324,15 +17391,6 @@ const TRENDS = {
     "mrb": 6,
     "res": 4,
     "pct": 82.4
-   },
-   {
-    "c": "Ula/Jp Donovan Construction",
-    "n": 15,
-    "made": 12,
-    "late": 3,
-    "mrb": 2,
-    "res": 11,
-    "pct": 80.0
    },
    {
     "c": "Rbc-Industrial Tectonics Bearings",
@@ -17344,22 +17402,13 @@ const TRENDS = {
     "pct": 72.7
    },
    {
-    "c": "Advanced Cooling Technologies, Inc",
-    "n": 6,
-    "made": 3,
+    "c": "D.P. Tool",
+    "n": 8,
+    "made": 5,
     "late": 3,
-    "mrb": 0,
-    "res": 2,
-    "pct": 50.0
-   },
-   {
-    "c": "Collins Aerospace",
-    "n": 3,
-    "made": 0,
-    "late": 3,
-    "mrb": 1,
-    "res": 1,
-    "pct": 0.0
+    "mrb": 5,
+    "res": 3,
+    "pct": 62.5
    },
    {
     "c": "Rubicon Gear",
@@ -17497,12 +17546,12 @@ const TRENDS = {
     "pct": 87.5
    },
    {
-    "c": "Ejay Filtration",
+    "c": "Ula/Jp Donovan Construction",
     "n": 15,
     "made": 13,
     "late": 2,
     "mrb": 2,
-    "res": 2,
+    "res": 11,
     "pct": 86.7
    },
    {
@@ -17587,6 +17636,15 @@ const TRENDS = {
     "pct": 66.7
    },
    {
+    "c": "Advanced Cooling Technologies, Inc",
+    "n": 6,
+    "made": 4,
+    "late": 2,
+    "mrb": 0,
+    "res": 2,
+    "pct": 66.7
+   },
+   {
     "c": "Houston Precision Fasteners",
     "n": 6,
     "made": 4,
@@ -17611,15 +17669,6 @@ const TRENDS = {
     "late": 2,
     "mrb": 3,
     "res": 3,
-    "pct": 50.0
-   },
-   {
-    "c": "University Of Colorado",
-    "n": 4,
-    "made": 2,
-    "late": 2,
-    "mrb": 2,
-    "res": 0,
     "pct": 50.0
    },
    {
@@ -17695,15 +17744,6 @@ const TRENDS = {
     "pct": 95.0
    },
    {
-    "c": "Del Aerospace, Inc",
-    "n": 19,
-    "made": 18,
-    "late": 1,
-    "mrb": 8,
-    "res": 10,
-    "pct": 94.7
-   },
-   {
     "c": "Ametek",
     "n": 16,
     "made": 15,
@@ -17729,6 +17769,15 @@ const TRENDS = {
     "mrb": 7,
     "res": 4,
     "pct": 93.8
+   },
+   {
+    "c": "Ejay Filtration",
+    "n": 15,
+    "made": 14,
+    "late": 1,
+    "mrb": 2,
+    "res": 3,
+    "pct": 93.3
    },
    {
     "c": "As & D Astros",
@@ -17902,21 +17951,21 @@ const TRENDS = {
     "pct": 80.0
    },
    {
+    "c": "University Of Colorado",
+    "n": 4,
+    "made": 3,
+    "late": 1,
+    "mrb": 2,
+    "res": 1,
+    "pct": 75.0
+   },
+   {
     "c": "Tayco Engineering, Inc.",
     "n": 4,
     "made": 3,
     "late": 1,
     "mrb": 0,
     "res": 3,
-    "pct": 75.0
-   },
-   {
-    "c": "Drt Aerospace - Simpsonville",
-    "n": 4,
-    "made": 3,
-    "late": 1,
-    "mrb": 3,
-    "res": 4,
     "pct": 75.0
    },
    {
@@ -17971,6 +18020,15 @@ const TRENDS = {
     "late": 1,
     "mrb": 1,
     "res": 1,
+    "pct": 66.7
+   },
+   {
+    "c": "Collins Aerospace",
+    "n": 3,
+    "made": 2,
+    "late": 1,
+    "mrb": 1,
+    "res": 2,
     "pct": 66.7
    },
    {
@@ -18154,15 +18212,6 @@ const TRENDS = {
     "pct": 0.0
    },
    {
-    "c": "Thaler Defense Systems",
-    "n": 1,
-    "made": 0,
-    "late": 1,
-    "mrb": 0,
-    "res": 0,
-    "pct": 0.0
-   },
-   {
     "c": "Creative Pathways, Inc.",
     "n": 134,
     "made": 134,
@@ -18187,6 +18236,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 5,
     "res": 4,
+    "pct": 100.0
+   },
+   {
+    "c": "Del Aerospace, Inc",
+    "n": 19,
+    "made": 19,
+    "late": 0,
+    "mrb": 8,
+    "res": 10,
     "pct": 100.0
    },
    {
@@ -18466,6 +18524,15 @@ const TRENDS = {
     "late": 0,
     "mrb": 3,
     "res": 3,
+    "pct": 100.0
+   },
+   {
+    "c": "Drt Aerospace - Simpsonville",
+    "n": 4,
+    "made": 4,
+    "late": 0,
+    "mrb": 3,
+    "res": 4,
     "pct": 100.0
    },
    {
@@ -19234,6 +19301,15 @@ const TRENDS = {
     "pct": 100.0
    },
    {
+    "c": "Thaler Defense Systems",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "mrb": 0,
+    "res": 1,
+    "pct": 100.0
+   },
+   {
     "c": "E & K Precision",
     "n": 1,
     "made": 1,
@@ -19278,30 +19354,9 @@ const TRENDS = {
   "profileStart": "2026-05",
   "profileStartLabel": "May",
   "preProfile": false,
-  "monthLate": 48,
-  "wideLate": 132,
+  "monthLate": 30,
+  "wideLate": 114,
   "monthProfile": [
-   {
-    "k": "High Qty",
-    "n": 83,
-    "made": 73,
-    "late": 10,
-    "pct": 88.0
-   },
-   {
-    "k": "Priority Customer",
-    "n": 68,
-    "made": 59,
-    "late": 9,
-    "pct": 86.8
-   },
-   {
-    "k": "Standard",
-    "n": 101,
-    "made": 93,
-    "late": 8,
-    "pct": 92.1
-   },
    {
     "k": "Straight to CLR",
     "n": 18,
@@ -19310,39 +19365,53 @@ const TRENDS = {
     "pct": 55.6
    },
    {
+    "k": "High Qty",
+    "n": 83,
+    "made": 76,
+    "late": 7,
+    "pct": 91.6
+   },
+   {
+    "k": "Priority Customer",
+    "n": 68,
+    "made": 62,
+    "late": 6,
+    "pct": 91.2
+   },
+   {
+    "k": "Standard",
+    "n": 101,
+    "made": 98,
+    "late": 3,
+    "pct": 97.0
+   },
+   {
     "k": "Complex",
     "n": 24,
-    "made": 20,
-    "late": 4,
-    "pct": 83.3
+    "made": 21,
+    "late": 3,
+    "pct": 87.5
    },
    {
     "k": "Low Qty",
     "n": 93,
-    "made": 90,
-    "late": 3,
-    "pct": 96.8
+    "made": 92,
+    "late": 1,
+    "pct": 98.9
    },
    {
     "k": "Large Parts",
     "n": 33,
-    "made": 30,
-    "late": 3,
-    "pct": 90.9
+    "made": 32,
+    "late": 1,
+    "pct": 97.0
    },
    {
     "k": "PSV Only",
     "n": 18,
-    "made": 16,
-    "late": 2,
-    "pct": 88.9
-   },
-   {
-    "k": "DCMA",
-    "n": 1,
-    "made": 0,
+    "made": 17,
     "late": 1,
-    "pct": 0.0
+    "pct": 94.4
    },
    {
     "k": "Source Required",
@@ -19371,29 +19440,36 @@ const TRENDS = {
     "made": 2,
     "late": 0,
     "pct": 100.0
+   },
+   {
+    "k": "DCMA",
+    "n": 1,
+    "made": 1,
+    "late": 0,
+    "pct": 100.0
    }
   ],
   "monthPriority": [
    {
     "k": "Standard",
     "n": 317,
-    "made": 285,
-    "late": 32,
-    "pct": 89.9
+    "made": 297,
+    "late": 20,
+    "pct": 93.7
    },
    {
     "k": "T1 Expedite",
     "n": 92,
-    "made": 84,
-    "late": 8,
-    "pct": 91.3
+    "made": 87,
+    "late": 5,
+    "pct": 94.6
    },
    {
     "k": "T2 Expedite",
     "n": 48,
-    "made": 40,
-    "late": 8,
-    "pct": 83.3
+    "made": 43,
+    "late": 5,
+    "pct": 89.6
    },
    {
     "k": "T3 Expedite",
@@ -19414,30 +19490,23 @@ const TRENDS = {
    {
     "k": "High Qty",
     "n": 395,
-    "made": 364,
-    "late": 31,
-    "pct": 92.2
+    "made": 367,
+    "late": 28,
+    "pct": 92.9
    },
    {
     "k": "Standard",
     "n": 518,
-    "made": 490,
-    "late": 28,
-    "pct": 94.6
+    "made": 495,
+    "late": 23,
+    "pct": 95.6
    },
    {
     "k": "Low Qty",
     "n": 525,
-    "made": 508,
-    "late": 17,
-    "pct": 96.8
-   },
-   {
-    "k": "Priority Customer",
-    "n": 546,
-    "made": 533,
-    "late": 13,
-    "pct": 97.6
+    "made": 510,
+    "late": 15,
+    "pct": 97.1
    },
    {
     "k": "Straight to CLR",
@@ -19447,18 +19516,25 @@ const TRENDS = {
     "pct": 92.0
    },
    {
-    "k": "Large Parts",
-    "n": 134,
-    "made": 123,
-    "late": 11,
-    "pct": 91.8
+    "k": "Priority Customer",
+    "n": 546,
+    "made": 536,
+    "late": 10,
+    "pct": 98.2
    },
    {
     "k": "Complex",
     "n": 162,
-    "made": 152,
-    "late": 10,
-    "pct": 93.8
+    "made": 153,
+    "late": 9,
+    "pct": 94.4
+   },
+   {
+    "k": "Large Parts",
+    "n": 134,
+    "made": 125,
+    "late": 9,
+    "pct": 93.3
    },
    {
     "k": "Source Required",
@@ -19470,16 +19546,9 @@ const TRENDS = {
    {
     "k": "PSV Only",
     "n": 121,
-    "made": 119,
-    "late": 2,
-    "pct": 98.3
-   },
-   {
-    "k": "DCMA",
-    "n": 7,
-    "made": 5,
-    "late": 2,
-    "pct": 71.4
+    "made": 120,
+    "late": 1,
+    "pct": 99.2
    },
    {
     "k": "No profile",
@@ -19487,6 +19556,13 @@ const TRENDS = {
     "made": 16,
     "late": 1,
     "pct": 94.1
+   },
+   {
+    "k": "DCMA",
+    "n": 7,
+    "made": 6,
+    "late": 1,
+    "pct": 85.7
    },
    {
     "k": "Needs Assembly",
@@ -19507,23 +19583,23 @@ const TRENDS = {
    {
     "k": "Standard",
     "n": 1808,
-    "made": 1727,
-    "late": 81,
-    "pct": 95.5
+    "made": 1739,
+    "late": 69,
+    "pct": 96.2
    },
    {
     "k": "T1 Expedite",
     "n": 595,
-    "made": 563,
-    "late": 32,
-    "pct": 94.6
+    "made": 566,
+    "late": 29,
+    "pct": 95.1
    },
    {
     "k": "T2 Expedite",
     "n": 236,
-    "made": 220,
-    "late": 16,
-    "pct": 93.2
+    "made": 223,
+    "late": 13,
+    "pct": 94.5
    },
    {
     "k": "T3 Expedite",
@@ -19602,14 +19678,14 @@ const TRENDS = {
    "ym": "2026-10",
    "label": "Oct",
    "mtd": true,
-   "otdPct": 89.7,
+   "otdPct": 93.5,
    "shipped": 464,
    "received": 520,
    "marks": 763,
    "recovHrs": 7.9,
    "avgAr": 11.8,
    "peakAr": 24.7,
-   "resched": 191,
+   "resched": 176,
    "partial": true
   }
  ],
@@ -20048,12 +20124,6 @@ const TRENDS = {
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-09-26T14:00",
-   "ar": 25.1,
-   "aging": 45,
-   "inHouse": 179
-  },
   {
    "t": "2026-09-26T16:00",
    "ar": 25.1,
@@ -21508,6 +21578,12 @@ const TRENDS = {
   },
   {
    "t": "2026-10-31T14:00",
+   "ar": 16.1,
+   "aging": 33,
+   "inHouse": 205
+  },
+  {
+   "t": "2026-10-31T16:00",
    "ar": 16.1,
    "aging": 33,
    "inHouse": 205
