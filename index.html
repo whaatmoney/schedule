@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="qpc-build" content="05:00 AM PST">
+  <meta name="qpc-build" content="07:00 AM PST">
   <title>QPC Production Pulse — 11/06/2026</title>
   <style>
 /* ===== THEME TOKENS ===== */
@@ -580,18 +580,18 @@ const DATA = {
   "reportDate": "11/06/2026",
   "overall": {
     "totalJobs": 241,
-    "agingJobs": 79,
-    "ar": 32.8,
+    "agingJobs": 78,
+    "ar": 32.4,
     "receivedToday": 0,
     "flagDist": {
-      "Critical": 62,
+      "Critical": 61,
       "Past Due": 4,
       "On Track": 4,
       "No Date": 4,
       "Reschedule Window": 4,
       "Tight": 1
     },
-    "upcomingCount": 94,
+    "upcomingCount": 97,
     "expediteCount": 0,
     "expediteTierCount": 0,
     "expediteTierDistribution": [],
@@ -649,15 +649,15 @@ const DATA = {
     {
       "name": "Cleanroom",
       "lead": "Erick",
-      "total": 70,
+      "total": 72,
       "aging": 34,
-      "ar": 48.6,
+      "ar": 47.2,
       "flags": {
         "Critical": 34
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 25,
+      "incoming": 27,
       "profileMix": [
         {
           "name": "Low Qty",
@@ -693,15 +693,15 @@ const DATA = {
       "name": "Packaging",
       "lead": "Erick",
       "total": 35,
-      "aging": 15,
-      "ar": 42.9,
+      "aging": 14,
+      "ar": 40.0,
       "flags": {
-        "Critical": 14,
+        "Critical": 13,
         "Past Due": 1
       },
       "isCustomerDep": false,
       "isBottom": false,
-      "incoming": 13,
+      "incoming": 14,
       "profileMix": [
         {
           "name": "Standard",
@@ -721,7 +721,7 @@ const DATA = {
         },
         {
           "name": "Complex",
-          "count": 2
+          "count": 1
         }
       ],
       "completedCount": 1,
@@ -858,9 +858,9 @@ const DATA = {
     {
       "name": "Assembly",
       "lead": "Customer Hold",
-      "total": 7,
+      "total": 5,
       "aging": 5,
-      "ar": 71.4,
+      "ar": 100.0,
       "flags": {
         "Past Due": 2,
         "Critical": 3
@@ -1185,9 +1185,9 @@ const DATA = {
   "rescheduleStatus": {
     "kpiTarget": 98,
     "totalAssessed": 230,
-    "onTimeCount": 109,
-    "onTimePct": 47.4,
-    "atRiskCount": 121,
+    "onTimeCount": 108,
+    "onTimePct": 47.0,
+    "atRiskCount": 122,
     "decideToday": [
       {
         "wo": "45337",
@@ -7383,6 +7383,16 @@ const DATA = {
         "action": "MRB closes first. QE owns disposition."
       },
       {
+        "wo": "45473",
+        "customer": "SAINT GOBAIN",
+        "profile": "Standard",
+        "flag": "On Track",
+        "flagColor": "#107C10",
+        "badge": "R2",
+        "reason": "Reschedule window closed (0 BD until QPC Due, < 2 BD). Per Rule 2.",
+        "action": "PM owns: commit and ship, OR notify customer of imminent miss now."
+      },
+      {
         "wo": "45474",
         "customer": "SAINT GOBAIN",
         "profile": "Priority Customer",
@@ -8571,6 +8581,7 @@ const DATA = {
         "forecastDate": "Nov 6",
         "predictedSlipBD": 3,
         "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)",
           "Profile burn 112% (>= 95%)",
           "Past current QPC Due"
         ],
@@ -9445,10 +9456,12 @@ const DATA = {
         "customer": "SAINT GOBAIN",
         "profile": "Standard",
         "qpcDue": "Nov 6",
-        "forecastDate": "Nov 6",
-        "predictedSlipBD": 0,
-        "indicatorsFired": [],
-        "bucket": "on_time",
+        "forecastDate": "Nov 10",
+        "predictedSlipBD": 2,
+        "indicatorsFired": [
+          "Black-tier dept ahead (Packaging)"
+        ],
+        "bucket": "escalate",
         "isBurned": false,
         "isTightProfile": false
       },
@@ -11048,39 +11061,6 @@ const DATA = {
       "profileBurnPct": 140.0,
       "profileOverBD": 4,
       "schedulingSlack": 5,
-      "isShortScheduled": false,
-      "isUnclassified": false,
-      "isProvisional": false,
-      "expediteTier": null,
-      "tierMin": null,
-      "tierMax": null,
-      "tierElapsedBD": null,
-      "tierSchedLeadBD": null,
-      "tierBurnPct": null,
-      "tierOverBD": null,
-      "tierScheduleSlack": null,
-      "isShortScheduledTier": null
-    },
-    {
-      "wo": "45265",
-      "customer": "AMENTUM SERVICES, INC.",
-      "dept": "Packaging",
-      "dueDate": "11/06",
-      "msDate": "11/03",
-      "msBD": -3,
-      "dueBD": 0,
-      "flag": "Critical",
-      "baseFlag": "Critical",
-      "priority": "Standard",
-      "rescheduled": false,
-      "profile": "Complex",
-      "profileMin": 10,
-      "profileMax": 12,
-      "elapsedBD": 11,
-      "scheduledLeadBD": 11,
-      "profileBurnPct": 91.7,
-      "profileOverBD": -1,
-      "schedulingSlack": -1,
       "isShortScheduled": false,
       "isUnclassified": false,
       "isProvisional": false,
@@ -13563,6 +13543,16 @@ const DATA = {
       "profile": "High Qty"
     },
     {
+      "wo": "45394",
+      "dept": "Cleanroom",
+      "dueDate": "11/03",
+      "msDate": "10/30",
+      "msBD": -5,
+      "dueBD": -3,
+      "priority": "Standard",
+      "profile": "Low Qty"
+    },
+    {
       "wo": "45219",
       "dept": "Packaging",
       "dueDate": "11/10",
@@ -13673,6 +13663,16 @@ const DATA = {
       "profile": "Priority Customer"
     },
     {
+      "wo": "45265",
+      "dept": "Packaging",
+      "dueDate": "11/06",
+      "msDate": "11/03",
+      "msBD": -3,
+      "dueBD": 0,
+      "priority": "Standard",
+      "profile": "Complex"
+    },
+    {
       "wo": "45317",
       "dept": "Shipping",
       "dueDate": "11/05",
@@ -13699,6 +13699,16 @@ const DATA = {
       "msDate": "11/03",
       "msBD": -3,
       "dueBD": 2,
+      "priority": "Standard",
+      "profile": "Standard"
+    },
+    {
+      "wo": "45473",
+      "dept": "Cleanroom",
+      "dueDate": "11/06",
+      "msDate": "11/03",
+      "msBD": -3,
+      "dueBD": 0,
       "priority": "Standard",
       "profile": "Standard"
     },
@@ -14929,7 +14939,7 @@ const DATA = {
     {
       "wo": "45473",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
+      "dept": "Cleanroom",
       "profile": "Standard",
       "profileMin": 8,
       "profileMax": 10,
@@ -15235,7 +15245,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "01 - In Progress"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "44523-2",
@@ -15397,7 +15407,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "04 - Paused"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "45220",
@@ -15466,10 +15476,10 @@ const DATA = {
       "dueBD": 0,
       "receivedToday": false,
       "rescheduled": false,
-      "isAging": true,
-      "agingFlag": "Critical",
+      "isAging": false,
+      "agingFlag": null,
       "isCompleted": false,
-      "progress": "06 - Aging"
+      "progress": "01 - In Progress"
     },
     {
       "wo": "45270",
@@ -16464,8 +16474,8 @@ const DATA = {
     {
       "wo": "45394",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "locationDept": "Assembly",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
       "profile": "Low Qty",
       "priority": "Standard",
       "expediteTier": null,
@@ -16477,7 +16487,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "04 - Paused"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45395",
@@ -17562,8 +17572,8 @@ const DATA = {
     {
       "wo": "45473",
       "customer": "SAINT GOBAIN",
-      "dept": "Assembly",
-      "locationDept": "Assembly",
+      "dept": "Cleanroom",
+      "locationDept": "Cleanroom",
       "profile": "Standard",
       "priority": "Standard",
       "expediteTier": null,
@@ -17575,7 +17585,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "04 - Paused"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45474",
@@ -18061,7 +18071,7 @@ const DATA = {
       "isAging": false,
       "agingFlag": null,
       "isCompleted": false,
-      "progress": "00 - On Table"
+      "progress": "02 - Inspection"
     },
     {
       "wo": "45505-5",
@@ -20039,18 +20049,18 @@ const DATA = {
 // ─── GUIDANCE (injected by skill) ───
 const GUIDANCE = {
 "Cleanroom": {
-    "what": "AR 48.6% BLACK. 34 aging / 70 total. Flags: 34 Critical. 34 Critical: 45337 DARMARK CORPORATION (Standard, msBD=-3 dueBD=2); 45341 SPACE EXPLORATION TECHNOLOGIES (Low Qty, msBD=-1 dueBD=4, burned); 45369 PDT AMETEK (Standard, msBD=-4 dueBD=1); 45370 PDT AMETEK (High Qty, msBD=-4 dueBD=1); 45378 PDT AMETEK (High Qty, msBD=-4 dueBD=1); 45387 KAP MANUFACTURING (Standard, msBD=-4 dueBD=1); 45389 PDT AMETEK (Low Qty, msBD=-3 dueBD=2); 45391 MACKENZIE AIRCRAFT PARTS (Standard, msBD=-3 dueBD=2); 45392 BRONSON & BRATTON (Priority Customer, msBD=-1 dueBD=2); 45401 FLUID COMPONENTS INTERNATIONAL LLC (Low Qty, msBD=-2 dueBD=3); 45405 SEYTEC (High Qty, msBD=-3 dueBD=2); 45410 KAP MANUFACTURING (Low Qty, msBD=-3 dueBD=2); 45411 MACKENZIE AIRCRAFT PARTS (Standard, msBD=-2 dueBD=3); 45416 SEYTEC (Standard, msBD=-2 dueBD=3); 45417 3D MACHINE COMPANY (Standard, msBD=-2 dueBD=3); 45418 TECMA (Low Qty, msBD=-2 dueBD=3); 45422 AERO COMPONENT ENGINEERING (Standard, msBD=-3 dueBD=1, burned); 45423 NATIONAL MICROCHIP (Standard, msBD=-1 dueBD=4); 45426 FIKE CORPORATION (Complex, msBD=-1 dueBD=4); 45427 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Low Qty, msBD=-2 dueBD=3); 45433 MOONEY INDUSTRIES (High Qty, msBD=-2 dueBD=3); 45436 RBC-INDUSTRIAL TECTONICS BEARINGS (Low Qty, msBD=-2 dueBD=3); 45437 PACIFIC CONSOLIDATED INDUSTRIES (Low Qty, msBD=-1 dueBD=4); 45438 MILLWORX PRECISION MACHINING (Low Qty, msBD=-1 dueBD=4); 45441 MICRO SPACE PRODUCTS (Standard, msBD=-1 dueBD=4); 45442 PDT AMETEK (Standard, msBD=-1 dueBD=4); 45446 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Low Qty, msBD=-1 dueBD=4); 45450 AVANS PRECISION MACHINING (Low Qty, msBD=-1 dueBD=4); 45457 TECMA (Standard, msBD=-1 dueBD=4); 45458 ALLAN AIRCRAFT SUPPLY (Low Qty, msBD=-1 dueBD=4); 45459 ALLAN AIRCRAFT SUPPLY (Low Qty, msBD=-1 dueBD=4); 45465 MARONEY COMPANY LLC (Dirty / Used, msBD=-1 dueBD=4); 45466 BEARTECH MFG (Low Qty, msBD=-1 dueBD=4); 45482 AERO COMPONENT ENGINEERING (Standard, msBD=-2 dueBD=3, burned). 3 burned reschedule(s). 25 upcoming. Tiered in dept: 14 T1. Upcoming tiered: 4 T1.",
+    "what": "AR 47.2% BLACK. 34 aging / 72 total. Flags: 34 Critical. 34 Critical: 45337 DARMARK CORPORATION (Standard, msBD=-3 dueBD=2); 45341 SPACE EXPLORATION TECHNOLOGIES (Low Qty, msBD=-1 dueBD=4, burned); 45369 PDT AMETEK (Standard, msBD=-4 dueBD=1); 45370 PDT AMETEK (High Qty, msBD=-4 dueBD=1); 45378 PDT AMETEK (High Qty, msBD=-4 dueBD=1); 45387 KAP MANUFACTURING (Standard, msBD=-4 dueBD=1); 45389 PDT AMETEK (Low Qty, msBD=-3 dueBD=2); 45391 MACKENZIE AIRCRAFT PARTS (Standard, msBD=-3 dueBD=2); 45392 BRONSON & BRATTON (Priority Customer, msBD=-1 dueBD=2); 45401 FLUID COMPONENTS INTERNATIONAL LLC (Low Qty, msBD=-2 dueBD=3); 45405 SEYTEC (High Qty, msBD=-3 dueBD=2); 45410 KAP MANUFACTURING (Low Qty, msBD=-3 dueBD=2); 45411 MACKENZIE AIRCRAFT PARTS (Standard, msBD=-2 dueBD=3); 45416 SEYTEC (Standard, msBD=-2 dueBD=3); 45417 3D MACHINE COMPANY (Standard, msBD=-2 dueBD=3); 45418 TECMA (Low Qty, msBD=-2 dueBD=3); 45422 AERO COMPONENT ENGINEERING (Standard, msBD=-3 dueBD=1, burned); 45423 NATIONAL MICROCHIP (Standard, msBD=-1 dueBD=4); 45426 FIKE CORPORATION (Complex, msBD=-1 dueBD=4); 45427 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Low Qty, msBD=-2 dueBD=3); 45433 MOONEY INDUSTRIES (High Qty, msBD=-2 dueBD=3); 45436 RBC-INDUSTRIAL TECTONICS BEARINGS (Low Qty, msBD=-2 dueBD=3); 45437 PACIFIC CONSOLIDATED INDUSTRIES (Low Qty, msBD=-1 dueBD=4); 45438 MILLWORX PRECISION MACHINING (Low Qty, msBD=-1 dueBD=4); 45441 MICRO SPACE PRODUCTS (Standard, msBD=-1 dueBD=4); 45442 PDT AMETEK (Standard, msBD=-1 dueBD=4); 45446 SCHLUMBERGER/CAMERON TECHNOLOGIES US INC (Low Qty, msBD=-1 dueBD=4); 45450 AVANS PRECISION MACHINING (Low Qty, msBD=-1 dueBD=4); 45457 TECMA (Standard, msBD=-1 dueBD=4); 45458 ALLAN AIRCRAFT SUPPLY (Low Qty, msBD=-1 dueBD=4); 45459 ALLAN AIRCRAFT SUPPLY (Low Qty, msBD=-1 dueBD=4); 45465 MARONEY COMPANY LLC (Dirty / Used, msBD=-1 dueBD=4); 45466 BEARTECH MFG (Low Qty, msBD=-1 dueBD=4); 45482 AERO COMPONENT ENGINEERING (Standard, msBD=-2 dueBD=3, burned). 3 burned reschedule(s). 27 upcoming. Tiered in dept: 14 T1. Upcoming tiered: 4 T1.",
     "action": "Burn down before they tip: 45337, 45341, 45369, 45370, 45378, 45387, 45389, 45391, 45392, 45401, 45405, 45410, 45411, 45416, 45417, 45418, 45422, 45423, 45426, 45427, 45433, 45436, 45437, 45438, 45441, 45442, 45446, 45450, 45457, 45458, 45459, 45465, 45466, 45482. Start tiered upcoming wave in msBD order: 45491, 45530, 45541, 45550.",
     "ot": "recommended",
     "otText": "OT recommended - 34 Critical jobs in Cleanroom.",
     "upstream": "Pre-Clean: 4 aging / 57 total, 39 upcoming feeding in."
   },
   "Packaging": {
-    "what": "AR 42.9% BLACK. 15 aging / 35 total. Flags: 14 Critical, 1 Past Due. Past Due: 45522 NUSPACE (Large Parts, msBD=-1 dueBD=-1). 14 Critical: 44822 AMENTUM SERVICES (Large Parts, msBD=-3 dueBD=1, burned); 45142 AMENTUM SERVICES (High Qty, msBD=-3 dueBD=0); 45159 IMPULSE SPACE (Low Qty, msBD=-1 dueBD=1); 45196 TELEDYNE SCIENTIFIC & IMAGING (High Qty, msBD=-3 dueBD=9, burned); 45253 SENIOR AEROSPACE (Standard, msBD=-1 dueBD=1, burned); 45265 AMENTUM SERVICES (Complex, msBD=-3 dueBD=0); 45316 SENIOR AEROSPACE (Low Qty, msBD=-1 dueBD=1, burned); 45325 L3HARRIS (Complex, msBD=-2 dueBD=1); 45355 FAST LANE PRECISION (Standard, msBD=-3 dueBD=1, burned); 45362 UNITED PRECISION CORP (Standard, msBD=-2 dueBD=1); 45364 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45365 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45366 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45367 PDT AMETEK (Standard, msBD=-2 dueBD=1). 5 burned reschedule(s). 13 upcoming. Tiered in dept: 6 T1, 1 T2, 1 T3. Upcoming tiered: 1 T2, 1 T3.",
-    "action": "Escalate / notify customer: 45522. Clear today (dueBD<=0): 45142, 45265. Burn down before they tip: 44822, 45159, 45196, 45253, 45316, 45325, 45355, 45362, 45364, 45365, 45366, 45367. Start tiered upcoming wave in msBD order: 45501, 45499.",
+    "what": "AR 40.0% BLACK. 14 aging / 35 total. Flags: 13 Critical, 1 Past Due. Past Due: 45522 NUSPACE (Large Parts, msBD=-1 dueBD=-1). 13 Critical: 44822 AMENTUM SERVICES (Large Parts, msBD=-3 dueBD=1, burned); 45142 AMENTUM SERVICES (High Qty, msBD=-3 dueBD=0); 45159 IMPULSE SPACE (Low Qty, msBD=-1 dueBD=1); 45196 TELEDYNE SCIENTIFIC & IMAGING (High Qty, msBD=-3 dueBD=9, burned); 45253 SENIOR AEROSPACE (Standard, msBD=-1 dueBD=1, burned); 45316 SENIOR AEROSPACE (Low Qty, msBD=-1 dueBD=1, burned); 45325 L3HARRIS (Complex, msBD=-2 dueBD=1); 45355 FAST LANE PRECISION (Standard, msBD=-3 dueBD=1, burned); 45362 UNITED PRECISION CORP (Standard, msBD=-2 dueBD=1); 45364 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45365 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45366 PDT AMETEK (Standard, msBD=-2 dueBD=1); 45367 PDT AMETEK (Standard, msBD=-2 dueBD=1). 5 burned reschedule(s). 14 upcoming. Tiered in dept: 6 T1, 1 T2, 1 T3. Upcoming tiered: 1 T2, 1 T3.",
+    "action": "Escalate / notify customer: 45522. Clear today (dueBD<=0): 45142. Burn down before they tip: 44822, 45159, 45196, 45253, 45316, 45325, 45355, 45362, 45364, 45365, 45366, 45367. Start tiered upcoming wave in msBD order: 45501, 45499.",
     "ot": "recommended",
-    "otText": "OT recommended - 14 Critical jobs in Packaging.",
-    "upstream": "Cleanroom: 34 aging / 70 total. Pre-Clean: 4 aging / 57 total."
+    "otText": "OT recommended - 13 Critical jobs in Packaging.",
+    "upstream": "Cleanroom: 34 aging / 72 total. Pre-Clean: 4 aging / 57 total."
   },
   "Receiving/Inspection": {
     "what": "AR 32.4% RED. 12 aging / 37 total. Flags: 4 On Track, 4 No Date, 4 Reschedule Window. CR 13.5% - 5 finished-at-op awaiting handoff. Tiered in dept: 11 T1, 1 T2.",
@@ -20064,7 +20074,7 @@ const GUIDANCE = {
     "action": "Ship today (dueBD<=0): 45220, 45358, 45375, 45395, 45396, 45448, 45471. Start tiered upcoming wave in msBD order: 44814-5, 45502, 45424, 45451.",
     "ot": "recommended",
     "otText": "OT recommended - 7 Critical jobs in Shipping.",
-    "upstream": "Packaging: 15 aging / 35 total, 13 upcoming."
+    "upstream": "Packaging: 14 aging / 35 total, 14 upcoming."
   },
   "Pre-Clean": {
     "what": "AR 7.0% GREEN. 4 aging / 57 total. Flags: 4 Critical. 4 Critical: 45393 VALIN CORPORATION (Large Parts, msBD=-6 dueBD=4, burned); 45470 BOEING CO. (High Qty, msBD=-4 dueBD=6, burned); 45480 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=-2 dueBD=0, burned); 45481 SPACE EXPLORATION TECHNOLOGIES (PSV Only, msBD=-2 dueBD=0, burned). 4 burned reschedule(s). 39 upcoming. CR 12.3% - 7 finished-at-op awaiting handoff. Tiered in dept: 11 T1, 5 T2, 2 T3. Upcoming tiered: 5 T2, 2 T3.",
@@ -20081,7 +20091,7 @@ const GUIDANCE = {
     "upstream": null
   },
   "Assembly": {
-    "what": "AR 71.4% BLACK. 5 aging / 7 total. Flags: 2 Past Due, 3 Critical. Past Due: 45412 SAINT GOBAIN (High Qty, msBD=-2 dueBD=-2, burned); 45415 SAINT GOBAIN (Standard, msBD=-2 dueBD=-2). 3 Critical: 45456 SAINT GOBAIN (High Qty, msBD=0 dueBD=0); 45475 SAINT GOBAIN (Standard, msBD=0 dueBD=0); 45476 SAINT GOBAIN (Standard, msBD=0 dueBD=0). 1 burned reschedule(s).",
+    "what": "AR 100.0% BLACK. 5 aging / 5 total. Flags: 2 Past Due, 3 Critical. Past Due: 45412 SAINT GOBAIN (High Qty, msBD=-2 dueBD=-2, burned); 45415 SAINT GOBAIN (Standard, msBD=-2 dueBD=-2). 3 Critical: 45456 SAINT GOBAIN (High Qty, msBD=0 dueBD=0); 45475 SAINT GOBAIN (Standard, msBD=0 dueBD=0); 45476 SAINT GOBAIN (Standard, msBD=0 dueBD=0). 1 burned reschedule(s).",
     "action": "Escalate customer clearance: 45412, 45415. Clear today (dueBD<=0): 45456, 45475, 45476.",
     "ot": "n/a",
     "otText": "OT n/a - customer-controlled.",
@@ -20104,20 +20114,20 @@ const GUIDANCE = {
 };
 
 // ─── GENERATED TIME ───
-const GENERATED_TIME = "05:00 AM PST";
+const GENERATED_TIME = "07:00 AM PST";
 const TRENDS = {
- "generatedAt": "2026-11-06T05:00",
- "realProgressCutoff": "2026-11-06T05:29",
- "hero": "Aging pressure is building \u2014 79 aging in house vs ~17 typical. This week the floor let 263 jobs go stale (norm ~167) and picked aging jobs back up in a median 17h (norm 8h).",
+ "generatedAt": "2026-11-06T07:00",
+ "realProgressCutoff": "2026-11-06T07:46",
+ "hero": "Aging pressure is building \u2014 78 aging in house vs ~17 typical. This week the floor let 230 jobs go stale (norm ~166) and picked aging jobs back up in a median 19h (norm 8h).",
  "pulse": {
-  "agingToday": 79,
+  "agingToday": 78,
   "agingNorm": 17.0,
   "agingVerdict": "WORSE",
-  "staleThisWeek": 263,
-  "staleNorm": 167,
+  "staleThisWeek": 230,
+  "staleNorm": 166,
   "staleVerdict": "WORSE",
-  "respThisWeekH": 16.7,
-  "respNormH": 7.8,
+  "respThisWeekH": 18.7,
+  "respNormH": 7.9,
   "respVerdict": "WORSE",
   "respPartialCapture": false
  },
@@ -20503,11 +20513,11 @@ const TRENDS = {
     },
     {
      "d": "2026-11-06",
-     "ar": 48.6
+     "ar": 47.2
     }
    ],
    "trend": "worsening",
-   "sentence": "out of GREEN 9 of last 10 days, worst 49% 11/6 \u00b7 aging picked up in ~10h \u00b7 worsening",
+   "sentence": "out of GREEN 9 of last 10 days, worst 47% 11/6 \u00b7 aging picked up in ~10h \u00b7 worsening",
    "respH": 9.6,
    "custClock": false,
    "small": false
@@ -20633,12 +20643,12 @@ const TRENDS = {
     },
     {
      "d": "2026-11-06",
-     "ar": 42.9
+     "ar": 40.0
     }
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 9 of last 10 days, worst 43% 10/29 \u00b7 aging picked up in ~12h \u00b7 worsening",
-   "respH": 11.5,
+   "respH": 11.6,
    "custClock": false,
    "small": false
   },
@@ -20768,7 +20778,7 @@ const TRENDS = {
    ],
    "trend": "worsening",
    "sentence": "out of GREEN 1 of last 10 days, worst 22% 11/6 \u00b7 aging picked up in ~3h \u00b7 worsening",
-   "respH": 3.4,
+   "respH": 3.2,
    "custClock": false,
    "small": false
   },
@@ -21023,7 +21033,7 @@ const TRENDS = {
     },
     {
      "d": "2026-11-06",
-     "ar": 71.4
+     "ar": 100.0
     }
    ],
    "trend": "worsening",
@@ -22090,13 +22100,13 @@ const TRENDS = {
   "45389": 2,
   "45390": 3,
   "45391": 2,
-  "45392": 4,
+  "45392": 3,
   "45393": 2,
   "45338": 1,
   "44564-RW": 1,
   "45334": 1,
   "45378": 2,
-  "45395": 5,
+  "45395": 4,
   "45220": 4,
   "45289": 2,
   "45397": 4,
@@ -22113,7 +22123,7 @@ const TRENDS = {
   "45413": 1,
   "45379": 1,
   "45339": 1,
-  "45159": 4,
+  "45159": 3,
   "45250": 1,
   "45376": 1,
   "45294": 1,
@@ -22149,29 +22159,29 @@ const TRENDS = {
   "45503-3": 1,
   "45503-2": 1,
   "45340": 3,
-  "45341": 3,
+  "45341": 2,
   "45422": 3,
-  "45423": 3,
-  "45437": 3,
-  "45438": 3,
-  "45426": 3,
+  "45423": 2,
+  "45437": 2,
+  "45438": 2,
+  "45426": 2,
   "45439": 1,
   "45440": 1,
-  "45441": 3,
-  "45442": 3,
-  "45446": 3,
+  "45441": 2,
+  "45442": 2,
+  "45446": 2,
   "45447": 1,
   "45444": 1,
-  "45449": 3,
-  "45450": 3,
-  "45457": 3,
-  "45458": 3,
-  "45465": 4,
-  "45459": 3,
+  "45449": 2,
+  "45450": 2,
+  "45457": 2,
+  "45458": 2,
+  "45465": 3,
+  "45459": 2,
   "45474": 2,
   "45471": 2,
   "45502": 1,
-  "45466": 3,
+  "45466": 2,
   "45370": 1,
   "45487": 1,
   "45483": 2,
@@ -22210,18 +22220,18 @@ const TRENDS = {
   "45537": 1,
   "45482": 1,
   "45327": 1,
-  "45522": 2,
-  "45375": 2,
-  "45448": 2,
-  "45484": 2,
-  "45554": 2,
-  "45564": 3,
-  "45561": 2,
-  "45569": 2,
-  "45572-3": 2,
-  "45572-2": 2,
-  "45572-4": 2,
-  "45572-5": 2
+  "45522": 1,
+  "45375": 1,
+  "45448": 1,
+  "45484": 1,
+  "45554": 1,
+  "45564": 2,
+  "45561": 1,
+  "45569": 1,
+  "45572-3": 1,
+  "45572-2": 1,
+  "45572-4": 1,
+  "45572-5": 1
  },
  "reschedCatalog": {
   "45471": {
@@ -22753,14 +22763,14 @@ const TRENDS = {
   "made": 53,
   "shipped": 81,
   "month": "Nov",
-  "asOf": "2026-11-05",
+  "asOf": "2026-11-06",
   "goal": 98,
   "received": 107,
   "recMonth": "Nov",
-  "staleAfter": 1793976300000,
-  "lastSuccessLabel": "Nov 5, 5:15 PM",
+  "staleAfter": 1793983500000,
+  "lastSuccessLabel": "Nov 6, 5:15 AM",
   "lastStatus": "SUCCESS",
-  "lastAttemptLabel": "Nov 5, 5:15 PM",
+  "lastAttemptLabel": "Nov 6, 5:15 AM",
   "lastError": ""
  },
  "customers": {
@@ -25783,10 +25793,10 @@ const TRENDS = {
    "otdPct": 65.4,
    "shipped": 81,
    "received": 107,
-   "marks": 234,
-   "recovHrs": 14.4,
+   "marks": 204,
+   "recovHrs": 15.2,
    "avgAr": 19.9,
-   "peakAr": 32.8,
+   "peakAr": 32.4,
    "resched": 69,
    "partial": true
   }
@@ -26228,17 +26238,11 @@ const TRENDS = {
   {
    "date": "2026-11-06",
    "inHouse": 241,
-   "aging": 79,
-   "ar": 32.8
+   "aging": 78,
+   "ar": 32.4
   }
  ],
  "arPulse": [
-  {
-   "t": "2026-10-02T06:00",
-   "ar": 30.1,
-   "aging": 46,
-   "inHouse": 153
-  },
   {
    "t": "2026-10-02T08:00",
    "ar": 31.2,
@@ -27659,6 +27663,12 @@ const TRENDS = {
    "t": "2026-11-06T05:00",
    "ar": 32.8,
    "aging": 79,
+   "inHouse": 241
+  },
+  {
+   "t": "2026-11-06T07:00",
+   "ar": 32.4,
+   "aging": 78,
    "inHouse": 241
   }
  ]
